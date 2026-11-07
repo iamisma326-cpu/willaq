@@ -232,6 +232,41 @@ Detalle en [`docs/VALIDACION_HISTORICA.md`](docs/VALIDACION_HISTORICA.md#6-anál
 
 ---
 
+## 5.d Backtest de estaciones (compuerta de la fase 2)
+
+¿Las estaciones del SENAMHI detectan lo que el reanálisis ERA5 perdió? La
+pregunta se mide, no se estima: el backtest corre **la misma aritmética de
+producción** sobre ERA5 y sobre las series de estación (compartida en
+`scripts/lib_validacion.php`, sin copias divergentes).
+
+| Métrica (29 distritos×evento comparables, 15 casos de referencia) | ERA5 | Estación |
+|---|---:|---:|
+| Recall sobre la referencia documentada | 0.7333 | 0.7333 |
+| Aciertos | 11 | 11 |
+| Falsos positivos | 10 | 10 |
+
+- **Falsos positivos nuevos de la estación: 0.**
+- **Casos recuperados por la estación: 1** (`tum-zarumilla`, 2023).
+- 4 estaciones cumplen los criterios medibles (≥ 10 años, ≤ 10 % faltantes),
+  8 fueron evaluadas, **0 son aptas para fusión**.
+
+Los umbrales (recall ≥ 0.80, 0 falsos positivos nuevos, ≥ 3 evaluaciones por
+estación) se fijaron **antes** de ver los resultados. Con ellos, **la compuerta
+queda cerrada**: las estaciones detectan lo mismo que ERA5, sin añadir ruido,
+pero tampoco aportan la señal que faltaba. `motor_usa_estaciones = false` y el
+motor sigue con ERA5.
+
+```bash
+php scripts/validar_historico.php      # línea base ERA5
+php scripts/backtest_estaciones.php    # medición de la fase 2
+```
+
+Es **determinista**: re-ejecutado desde un clon limpio produce un JSON
+idéntico. Artefacto: `data/backtest_estaciones.json`. Detalle metodológico en
+[`docs/METODOLOGIA.md`](docs/METODOLOGIA.md#9-medición-de-la-fase-2-de-estaciones-y-por-qué-quedó-cerrada).
+
+---
+
 ## 6. Estructura del proyecto
 
 ```
@@ -377,3 +412,44 @@ apoyo a la decisión*, con protocolo y acuse de recibo.
 **¿Dónde se cambia el número de distritos?**
 `config/territorios.json`. El formato es el mismo para todo el país: es la
 hoja de ruta del alcance internacional.
+
+---
+
+## 12. Repositorio público
+
+**<https://github.com/iamisma326-cpu/willaq>**
+
+```bash
+git clone https://github.com/iamisma326-cpu/willaq.git
+cd willaq
+php -S localhost:8000
+```
+
+**Qué se publica: todo.** El repositorio contiene el proyecto completo para que
+cualquiera pueda reproducir la feria y auditar cada número sin pedir nada a
+nadie:
+
+| Incluido | Por qué |
+|---|---|
+| Código PHP, vistas, estilos y scripts | El sistema completo. |
+| `data/estaciones/_garua/csv/` (13 MB) | Los CSV **crudos** del SENAMHI, sin normalizar: la evidencia de origen de cada serie. |
+| `data/estaciones/*.json` | Las 23 series normalizadas con su reporte de QA. |
+| `data/cache/` | La caché real de Open-Meteo, para poder repetir los cálculos sin red. |
+| `data/snapshots/`, `data/alertas.json` | Lo que se mostró en la feria. |
+| `data/backups/`, `data/cron.log`, logs de Garúa | Trazabilidad del proceso. |
+| `docs/` (14 documentos) | Metodología, auditorías, plan y guion de demo. |
+
+**Única excepción: `.env`.** Contiene la contraseña real de PostgreSQL
+(`DB_PASS`), y publicarla en un repositorio público la comprometería de forma
+permanente (queda en el historial de Git para siempre). Se versiona
+`.env.example`, con los mismos campos y `DB_PASS` vacío. Si alguien necesita
+la base de datos, la crea desde
+[`database/schema_postgresql.sql`](database/schema_postgresql.sql).
+
+**Advertencia sobre los datos del SENAMHI.** El catálogo y las series del
+SENAMHI se distribuyen sin licencia de reutilización declarada (ver §8). Se
+publican aquí para trazabilidad y auditoría, no como cesión de derechos: quien
+reutilice esos datos debe verificar la condiciones de uso en la fuente.
+
+**Sin dependencias.** PHP puro, sin Composer, sin `vendor/`, sin build. Un
+clon limpio arranca con el servidor embebido de PHP.
