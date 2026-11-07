@@ -344,8 +344,8 @@ $fechaInforme = date('d/m/Y H:i');
         Este documento es una <strong>recomendación de apoyo a la decisión</strong> generada por WILLAQ.
         No constituye una alerta oficial ni sustituye a SENAMHI, INDECI, ENFEN ni a las autoridades
         competentes. Ante una emergencia, siga los canales oficiales.
-        Las cifras de exposición son estimaciones de referencia para el piloto y deben validarse
-        con los padrones oficiales de INEI, MINEDU y MINSA antes de cualquier uso administrativo.
+        Las cifras de exposición de este informe se declaran campo por campo.
+        <?= e(exposicion_texto_corto()) ?>
     </div>
 
     <footer class="pie">

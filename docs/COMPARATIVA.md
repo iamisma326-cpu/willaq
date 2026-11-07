@@ -185,28 +185,32 @@ del proyecto está escrito y es concreto: **incorporar estaciones de SENAMHI
 
 **Estado real (6 de noviembre de 2026):** la fase 1 de estaciones está
 construida. Hay un registro reproducible de **103 estaciones** del catálogo
-SENAMHI que cubre **29/29 distritos**, descargado con Garúa, y **6 series
-críticas** (2017–2026) ya normalizadas con QA. Sin embargo, **el motor sigue
-usando solo ERA5**: 4 de 6 series cumplen los criterios medibles, pero la
+SENAMHI que cubre **29/29 distritos**, descargado con Garúa, y **23 series
+reales** (2017–2026) ya normalizadas con QA. Sin embargo, **el motor sigue
+usando solo ERA5**: 4 de las 23 series cumplen los criterios medibles (las
+otras 19 tienen menos de 10 años de cobertura o demasiados huecos), y la
 fase 2 está bloqueada hasta medir falsos positivos en el backtest. Decir que
 WILLAQ «ya usa estaciones» sería falso; decir que «ya puede descargarlas y
 auditarlas» es exacto.
 
 ### 5.2 La exposición es una estimación
 
-Población, viviendas, colegios y centros de salud del piloto son
-`estimacion_ratio_poblacional`, marcados como tales en cada pantalla y en cada
-respuesta de API. Un distrito con más población real de la estimada tendrá un
-índice subestimado. El importador CSV (INEI / MINEDU / MINSA) **ya está
-construido** (`scripts/importar_exposicion.php`), con dry-run por defecto,
-overlay con respaldo y procedencia por campo; lo que falta es **cargar los CSV
-oficiales**. Mientras no se carguen, cada campo sigue siendo una estimación, y
-así se muestra.
+La exposición del piloto es **mixta y lo declara campo por campo**:
 
-Además, incluso con el total oficial, la **fracción expuesta** sigue siendo
-`total × susceptibilidad`: saber que hay 42 colegios no dice cuántos están en
-zona inundable. Esa separación se mantiene visible en la ficha, el panel y la
-API.
+- **Población: oficial.** Se descargó el XLSX del INEI (proyecciones
+  distritales 2018-2026), se cruzó con los 29 ubigeos del catálogo y se aplicó
+  el overlay. Cada distrito muestra la fuente, el año y el sha256 del archivo.
+- **Viviendas, colegios y centros de salud: estimación del catálogo.** Los
+  portales de ESCALE y RENIPRESS bloquean la descarga automatizada (verificación
+  anti-bot y WAF), así que no hay dato oficial que mostrar.
+- **La fracción expuesta: siempre estimada**, incluso con el total oficial:
+  `total × susceptibilidad`. Saber que hay 42 colegios no dice cuántos están
+  en zona inundable.
+
+El importador (`scripts/importar_exposicion.php`) está construido con dry-run
+por defecto, overlay con respaldo y procedencia por campo; cuando se consigan
+los CSV de ESCALE y RENIPRESS, el flujo es el mismo y el overlay **acumula**
+campos sin pisar los que ya son oficiales.
 
 ### 5.3 No hay etiqueta oficial, así que no hay precisión
 

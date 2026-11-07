@@ -2,8 +2,8 @@
 
 > **Duración:** 8 minutos (10 con preguntas).
 > **Pantalla:** una sola, con el navegador en maximized.
-> **Datos del guion:** snapshot del 5 de noviembre de 2026, 23:57, ventana 24 h
-> (10 muy alto · 5 alto · 1 medio · 13 bajo).
+> **Datos del guion:** snapshot del 6 de noviembre de 2026, 20:36, ventana 24 h
+> (9 muy alto · 8 alto · 5 medio · 7 verde).
 > **Modo:** `WILLAQ_MODO_OFFLINE=1` — sin depender del wifi de la feria.
 
 ---
@@ -52,13 +52,15 @@ Ir a `?action=home`.
 
 > **Qué señalar:**
 >
-> - **Nivel nacional**: 15 de 29 distritos en nivel alto o muy alto.
-> - **Los cuatro contadores**: 10 muy alto, 5 alto, 1 medio, 13 bajo.
-> - **Exposición total de los distritos en riesgo**: **1 249 500 personas**,
->   **2 107 colegios** y **136 centros de salud**. Este es el número que
->   traduce el pronóstico en carga humana.
-> - **Tabla de distritos críticos**: Veintiséis de Octubre 92, Sullana 91,
->   Catacaos 91, Piura 89, Tambogrande 88.
+> - **Nivel nacional**: 17 de 29 distritos en nivel alto o muy alto.
+> - **Los cuatro contadores**: 9 muy alto, 8 alto, 5 medio, 7 verde.
+> - **Exposición total de los distritos en riesgo**: **3,7 millones de
+>   personas**, **4 707 colegios** y **244 centros de salud**. Este es el número
+>   que traduce el pronóstico en carga humana. La población ya es **oficial
+>   del INEI** (proyección al 30/06/2026); los colegios y centros de salud
+>   siguen siendo estimación, y así lo dice la interfaz.
+> - **Tabla de distritos críticos**: Aguas Verdes 86, Catacaos 86, Paita 85,
+>   Zarumilla 84, Sullana 83.
 
 **Truco de presentación:** señalar que la columna de lluvia de Lima no
 aparece en rojo. Volveremos a esto en el minuto 5; es el argumento técnico
@@ -247,8 +249,8 @@ Ir a `?action=ayuda#validacion` o mostrar `docs/VALIDACION_HISTORICA.md`.
 > **Y si preguntan "¿ya lo hicieron?"**:
 >
 > "La **fase 1** está hecha: descargamos con Garúa el catálogo del SENAMHI y
-> armamos un registro de 103 estaciones que cubre los 29 distritos, con 6
-> series críticas de 2017–2026 ya normalizadas y auditadas. Lo que **no**
+> armamos un registro de 103 estaciones que cubre los 29 distritos, con **23
+> series reales de 2017–2026** ya normalizadas y auditadas. Lo que **no**
 > hemos hecho es enchufarlas al motor: la fase 2 exige medir falsos positivos
 > en el backtest y hoy hay **4 series que cumplen los criterios medibles y 0
 > habilitadas**. Preferimos decirlo así antes que fingir que ya está."
@@ -296,7 +298,7 @@ Ir a `?action=ayuda#validacion` o mostrar `docs/VALIDACION_HISTORICA.md`.
 |---|---|
 | **¿Esto reemplaza a SENAMHI?** | No. Es un sistema de apoyo a la decisión. La alerta oficial es de SENAMHI, INDECI y ENFEN; WILLAQ entrega recomendaciones con protocolo y acuse. |
 | **¿De dónde salen los datos?** | Open-Meteo: pronóstico (ICON), histórico (ERA5) y caudal (GloFAS). Todo abierto, gratis, sin claves de API. |
-| **¿La exposición es real?** | En el piloto es una **estimación de referencia**, y la interfaz lo dice. El importador CSV de INEI, MINEDU y MINSA ya está construido; falta cargar los CSV oficiales. |
+| **¿La exposición es real?** | Es **mixta y está declarado campo por campo**: la población es oficial (INEI, proyección al 30/06/2026, 29/29 distritos, con sha256 del archivo); viviendas, colegios y centros de salud siguen siendo estimación del catálogo porque ESCALE y RENIPRESS bloquean la descarga automatizada. La **fracción expuesta** siempre es estimada (`total × susceptibilidad`). |
 | **¿Por qué no necesita base de datos?** | Porque funciona con archivos JSON. Aun así, el proyecto incluye el esquema PostgreSQL completo: es lo que se usaría con varios usuarios o en la nube. |
 | **¿Qué base de datos usa?** | PostgreSQL 13+, con los scripts `.sql` incluidos. En local se administra con DBeaver Community; en la nube, AWS RDS o Google Cloud SQL. `config/database.php` activa la conexión solo si hay credenciales. |
 | **¿Es un modelo hidrológico?** | No. El caudal viene de GloFAS a 5 km, no de un modelo de cuenca calibrado. Está declarado como límite. |

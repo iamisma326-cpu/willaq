@@ -110,6 +110,26 @@ rm data/exposicion_oficial.json
 Cada fila se resuelve por `ubigeo` + nombre/provincia/región; si no coincide,
 se rechaza y se lista. Nunca se asigna en silencio.
 
+**Lo que ya está descargado y aplicado:** la **población oficial** del INEI
+(proyecciones distritales 2018-2026). El XLSX original y su CSV canónico están
+en `datos/oficial/`, con su sha256 y el procedimiento de reproducción en
+[`datos/oficial/README.md`](../datos/oficial/README.md):
+
+```bash
+# Reproducir desde cero (descarga → conversión → overlay → snapshots)
+curl -L -o datos/oficial/inei_poblacion_distrital_2018_2026.xlsx \
+  "https://cdn.www.gob.pe/uploads/document/file/8261096/6894980-peru-poblacion-total-proyectada-al-30-de-junio-de-cada-ano-segun-departamento-provincia-y-distrito-2018-2026.xlsx"
+php scripts/inei_poblacion_xlsx_a_csv.php \
+  --xlsx=datos/oficial/inei_poblacion_distrital_2018_2026.xlsx --anio=2026
+php scripts/importar_exposicion.php datos/oficial/inei_poblacion.csv --aplicar
+php scripts/actualizar.php --ventana=all
+php scripts/semear_alertas.php --limpiar
+```
+
+`viviendas`, `escuelas` y `centros_salud` siguen siendo **estimación**: los
+portales de ESCALE y RENIPRESS bloquean la descarga automatizada. Cuando se
+tengan esos CSV, el flujo es el mismo y el overlay **acumula** campos.
+
 **Series de estaciones (SENAMHI).** Requiere Python ≥ 3.11, `uv` y Chrome.
 Garúa es **solo ingesta**: nunca se ejecuta desde PHP ni en el servidor web.
 
@@ -354,7 +374,7 @@ Entra como administrador (`?action=admin`) y verifica:
 | Snapshots | 24 h, 48 h y 72 h listados, con fecha reciente |
 | Caché | archivos vigentes, 0 expirados |
 | Procedencia de exposición | «sin overlay» si no se cargó, o distritos/campos con fuente y hash |
-| Cobertura de estaciones | registro, series cargadas y **4 criterios medibles / 0 habilitadas** (no se mezclan) |
+| Cobertura de estaciones | registro, series cargadas y **4 criterios medibles / 0 habilitadas** sobre 23 series (no se mezclan) |
 
 ### 5.4 Comprobación de la cadena de datos
 

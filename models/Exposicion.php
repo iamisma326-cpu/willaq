@@ -229,3 +229,293 @@ function exposicion_resumen() {
         'advertencia' => $c['_meta']['advertencia'] ?? '',
     ];
 }
+
+/**
+ * Etiquetas en prosa de los campos importables (minúsculas, para texto
+ * corrido). No es lo mismo que `exposicion_campo_etiqueta()`, que sirve para
+ * cabeceras de tabla: aquí el campo `escuelas` se lee «colegios».
+ */
+function exposicion_campo_prosa($campo) {
+    $m = [
+        'poblacion'     => 'población',
+        'viviendas'     => 'viviendas',
+        'escuelas'      => 'colegios',
+        'centros_salud' => 'centros de salud',
+    ];
+    return $m[$campo] ?? $campo;
+}
+
+/**
+ * Enlaza una lista en español: «población», «población y viviendas»,
+ * «población, viviendas y colegios».
+ */
+function exposicion_enlace_lista($items) {
+    $items = array_values(array_filter(array_map('strval', $items), function ($x) {
+        return trim($x) !== '';
+    }));
+    $n = count($items);
+    if ($n === 0) {
+        return '';
+    }
+    if ($n === 1) {
+        return $items[0];
+    }
+    $ultimo = array_pop($items);
+    return implode(', ', $items) . ' y ' . $ultimo;
+}
+
+/**
+ * Estado de la exposición agrupado por campo.
+ *
+ * Sirve para escribir textos honestos sin repetirlos a mano en cada vista:
+ * las pantallas preguntan al modelo qué es oficial y qué no, en lugar de
+ * decir «estimación» a propósito o por olvido.
+ *
+ * @return array
+ *   [
+ *     'estado'            => 'estimada' | 'mixta' | 'oficial',
+ *     'oficiales'         => [['campo'=>..,'etiqueta'=>..,'distritos'=>..,'fuente'=>..,'anio'=>..]],
+ *     'estimados'         => [['campo'=>..,'etiqueta'=>..]],
+ *     'total_territorios' => 29,
+ *     'con_oficial'       => 29,
+ *   ]
+ */
+function exposicion_campos_estado() {
+    $c = exposicion_cargar();
+    $permitidos = exposicion_campos_permitidos();
+
+    $oficiales = [];
+    $estimados = [];
+
+    foreach ($permitidos as $campo) {
+        $n = 0;
+        $fuente = '';
+        $anio = null;
+        foreach ($c['territorios'] as $bloque) {
+            if (!isset($bloque['campos'][$campo])) {
+                continue;
+            }
+            $n++;
+            if ($fuente === '') {
+                $fuente = (string)($bloque['campos'][$campo]['fuente'] ?? '');
+                $anio = $bloque['campos'][$campo]['anio'] ?? null;
+            }
+        }
+        $etiqueta = exposicion_campo_prosa($campo);
+        if ($n > 0) {
+            $oficiales[] = [
+                'campo'     => $campo,
+                'etiqueta'  => $etiqueta,
+                'distritos' => $n,
+                'fuente'    => $fuente,
+                'anio'      => $anio,
+            ];
+        } else {
+            $estimados[] = ['campo' => $campo, 'etiqueta' => $etiqueta];
+        }
+    }
+
+    $totalTerritorios = count($c['territorios']);
+    $conOficial = 0;
+    foreach ($c['territorios'] as $bloque) {
+        if (!empty($bloque['campos'])) {
+            $conOficial++;
+        }
+    }
+
+    $estado = 'estimada';
+    if ($totalTerritorios > 0 && !empty($oficiales)) {
+        $completo = count($oficiales) === count($permitidos);
+        foreach ($oficiales as $o) {
+            if ($o['distritos'] < $totalTerritorios) {
+                $completo = false;
+                break;
+            }
+        }
+        $estado = $completo ? 'oficial' : 'mixta';
+    }
+
+    return [
+        'estado'            => $estado,
+        'oficiales'         => $oficiales,
+        'estimados'         => $estimados,
+        'total_territorios' => $totalTerritorios,
+        'con_oficial'       => $conOficial,
+    ];
+}
+
+/**
+ * Rótulo de uno o varios campos para texto corrido:
+ * «el campo de población» o «los campos de viviendas y colegios».
+ */
+function exposicion_rotulo_campos($campos, $preposicion = 'el campo de', $preposicionPlural = 'los campos de') {
+    $n = count($campos);
+    if ($n === 0) {
+        return '';
+    }
+    $nombres = exposicion_enlace_lista(array_column($campos, 'etiqueta'));
+    return ($n === 1 ? $preposicion : $preposicionPlural) . ' ' . $nombres;
+}
+
+/**
+ * Cómo nombrar las fuentes de los campos oficiales: si viene de una sola
+ * fuente se cita; si son varias, se dice «N fuentes oficiales» en vez de
+ * atribuirlo todo a la primera (que sería falso).
+ */
+function exposicion_fuentes_texto($campos) {
+    $fuentes = [];
+    foreach ($campos as $c) {
+        $f = trim((string)($c['fuente'] ?? ''));
+        if ($f !== '') {
+            $fuentes[$f] = true;
+        }
+    }
+    if (count($fuentes) === 1) {
+        return (string)array_key_first($fuentes);
+    }
+    if (count($fuentes) === 0) {
+        return 'fuente oficial';
+    }
+    return count($fuentes) . ' fuentes oficiales';
+}
+
+/**
+ * Texto breve y DINÁMICO sobre el estado real de la exposición.
+ *
+ * No está escrito a mano por caso: se deriva del overlay cargado. Si se
+ * borra `data/exposicion_oficial.json`, el texto vuelve a decir que todo es
+ * estimación; si se aplica un padrón nuevo, se actualiza solo. Esa es la
+ * diferencia entre un alcance declarado y un alcance que se puede desmentir.
+ */
+function exposicion_texto_breve() {
+    $e = exposicion_campos_estado();
+
+    if ($e['estado'] === 'estimada') {
+        return 'La exposición (población, viviendas, colegios y centros de salud) es una '
+             . 'estimación de referencia del catálogo piloto. El importador CSV desde INEI, '
+             . 'MINEDU y MINSA está construido, pero este despliegue no tiene aplicado '
+             . 'ningún padrón oficial.';
+    }
+
+    $oficiales = $e['oficiales'];
+
+    $anios = [];
+    foreach ($oficiales as $o) {
+        if ($o['anio'] !== null && $o['anio'] !== '') {
+            $anios[(int)$o['anio']] = true;
+        }
+    }
+    $anioTxt = count($anios) === 1 ? (string)array_key_first($anios) : 'varios años';
+
+    $txt = 'La exposición tiene dato oficial en '
+         . exposicion_rotulo_campos($oficiales)
+         . ' (' . exposicion_fuentes_texto($oficiales) . ', ' . $anioTxt . ', '
+         . $e['con_oficial'] . '/' . $e['total_territorios'] . ' distritos)';
+
+    if (!empty($e['estimados'])) {
+        $txt .= '; ' . exposicion_rotulo_campos($e['estimados'])
+              . ' ' . (count($e['estimados']) === 1 ? 'sigue' : 'siguen')
+              . ' siendo estimación del catálogo piloto';
+    }
+
+    $txt .= '. La fracción expuesta siempre es estimada (total × susceptibilidad).';
+    return $txt;
+}
+
+/**
+ * Etiqueta corta de procedencia de un campo, para KPIs y tarjetas donde no
+ * cabe la fuente completa: «oficial · INEI 2026» o «estimación del catálogo».
+ */
+function exposicion_etiqueta_campo($campo) {
+    $e = exposicion_campos_estado();
+    foreach ($e['oficiales'] as $o) {
+        if ($o['campo'] !== $campo) {
+            continue;
+        }
+        $corto = trim((string)preg_replace('/[·(].*$/u', '', (string)$o['fuente']));
+        if ($corto === '') {
+            $corto = 'fuente oficial';
+        }
+        return 'oficial · ' . $corto . (($o['anio'] === null || $o['anio'] === '') ? '' : ' ' . $o['anio']);
+    }
+    return 'estimación del catálogo';
+}
+
+/**
+ * Versión compacta del estado de la exposición, para avisos cortos (el
+ * pie del informe en PDF) donde no cabe una frase larga.
+ */
+function exposicion_texto_corto() {
+    $e = exposicion_campos_estado();
+
+    if ($e['estado'] === 'estimada') {
+        return 'La exposición de este informe es una estimación de referencia del catálogo piloto '
+             . 'y debe validarse con los padrones oficiales de INEI, MINEDU y MINSA antes de '
+             . 'cualquier uso administrativo.';
+    }
+
+    $oficiales = $e['oficiales'];
+    $anio = $oficiales[0]['anio'];
+    $anioTxt = ($anio === null || $anio === '') ? '' : ', ' . $anio;
+
+    if ($e['estado'] === 'oficial') {
+        return 'La exposición total de este informe es oficial (' . exposicion_fuentes_texto($oficiales)
+             . $anioTxt . ', con año y hash por campo). La fracción expuesta sigue siendo una '
+             . 'estimación (total × susceptibilidad).';
+    }
+
+    $rotuloEst = exposicion_rotulo_campos($e['estimados']);
+    $pluralEst = count($e['estimados']) === 1;
+
+    return 'La exposición de este informe es mixta: '
+         . exposicion_rotulo_campos($oficiales) . ' es oficial ('
+         . exposicion_fuentes_texto($oficiales) . $anioTxt . '); ' . $rotuloEst . ' '
+         . ($pluralEst ? 'sigue' : 'siguen')
+         . ' siendo estimación del catálogo piloto y '
+         . ($pluralEst ? 'debe' : 'deben') . ' validarse con los padrones oficiales '
+         . 'de MINEDU y MINSA antes de cualquier uso administrativo. La fracción expuesta sigue '
+         . 'siendo una estimación (total × susceptibilidad).';
+}
+
+/**
+ * Par [título, texto] para la lista de «Límites y alcance».
+ *
+ * El límite se declara sobre lo que REALMENTE pasa, no sobre lo que pasaba
+ * cuando se escribió la vista.
+ */
+function exposicion_texto_limite() {
+    $e = exposicion_campos_estado();
+
+    if ($e['estado'] === 'estimada') {
+        return [
+            'No usa datos oficiales de exposición.',
+            'La exposición es una estimación de referencia del catálogo piloto, '
+            . 'marcada como tal en cada ficha.',
+        ];
+    }
+
+    if ($e['estado'] === 'oficial') {
+        return [
+            'La exposición total es oficial; la expuesta no.',
+            'Población, viviendas, colegios y centros de salud provienen de fuentes '
+            . 'oficiales, con año y hash por campo. La fracción expuesta sigue siendo '
+            . 'estimada (total × susceptibilidad).',
+        ];
+    }
+
+    $oficiales = $e['oficiales'];
+    $anio = $oficiales[0]['anio'];
+    $anioTxt = ($anio === null || $anio === '') ? '' : ', ' . $anio;
+
+    return [
+        'La exposición es oficial solo en parte.',
+        ucfirst(exposicion_rotulo_campos($oficiales)) . ' '
+        . (count($oficiales) === 1 ? 'es oficial' : 'son oficiales') . ' ('
+        . exposicion_fuentes_texto($oficiales) . $anioTxt . ', '
+        . $e['con_oficial'] . '/' . $e['total_territorios'] . ' distritos); '
+        . exposicion_rotulo_campos($e['estimados']) . ' '
+        . (count($e['estimados']) === 1 ? 'sigue' : 'siguen')
+        . ' siendo estimación del catálogo piloto. '
+        . 'La fracción expuesta sigue siendo estimada (total × susceptibilidad).',
+    ];
+}

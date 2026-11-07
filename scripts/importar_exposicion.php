@@ -384,7 +384,9 @@ foreach ($opciones['archivos'] as $rutaCsv) {
 
     $archivos[] = [
         'archivo'   => $nombre,
-        'ruta'      => realpath($rutaCsv) ?: $rutaCsv,
+        // Ruta relativa a la raíz del proyecto cuando se puede: un reporte
+        // versionado no debería filtrar la ruta local de quien lo generó.
+        'ruta'      => imp_ruta_relativa(realpath($rutaCsv) ?: $rutaCsv),
         'sha256'    => $sha,
         'filas'     => $filasArchivo,
         'aceptadas' => $aceptadasArchivo,
@@ -668,6 +670,21 @@ function imp_leer_overlay($ruta) {
     }
 
     return ['_meta' => $meta, 'territorios' => $territorios];
+}
+
+/**
+ * Devuelve la ruta relativa a la raíz del proyecto si el archivo está dentro
+ * de ella; si está fuera, devuelve la ruta absoluta. Sirve para que el
+ * reporte de importación no arrastre la ruta local de quien lo generó.
+ */
+function imp_ruta_relativa($ruta) {
+    $ruta = (string)$ruta;
+    $raiz = dirname(__DIR__);
+    $real = realpath($ruta);
+    if ($real && strpos($real, $raiz . DIRECTORY_SEPARATOR) === 0) {
+        return ltrim(substr($real, strlen($raiz)), DIRECTORY_SEPARATOR);
+    }
+    return $ruta;
 }
 
 /**

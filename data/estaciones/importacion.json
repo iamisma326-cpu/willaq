@@ -2,7 +2,7 @@
     "_meta": {
         "descripcion": "Reporte QA de la importación de series hidrometeorológicas de WILLAQ (fase 1).",
         "version": "1.0",
-        "generado_en": "2026-11-07T00:51:30+00:00",
+        "generado_en": "2026-11-07T01:49:11+00:00",
         "generado_por": "scripts/importar_estaciones.php",
         "modo": "aplicado",
         "zona_horaria": "America/Lima",
@@ -248,6 +248,223 @@
                 }
             }
         },
+        "senamhi-105144-bernal": {
+            "cod": "105144",
+            "nombre": "BERNAL",
+            "formato": "meteorologica_automatica",
+            "rango": {
+                "primera": "2025-10-08",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 9466,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 3,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Bernal_105144_M_EMA/Bernal-2017-2026.csv",
+                        "sha256": "6392b5bf589f1b6816e54423cd3ed58d3f1d5f1ed2b24ff4eff9b90b6ef50a35",
+                        "formato": "meteorologica_automatica",
+                        "bytes": 350352
+                    }
+                ],
+                "formato": "meteorologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2025-10-08",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 395,
+                "dias_con_dato": 395,
+                "dias_con_precip": 395,
+                "dias_con_traza": 0,
+                "dias_con_temp": 395,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 0,
+                "pct_dias_faltantes": 0,
+                "anos_calendario": 2,
+                "anos_completos": 0,
+                "anos_span": 1.08,
+                "anos_cobertura": 2,
+                "cobertura_por_anio": {
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 85,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 85,
+                        "dias_con_dato": 85,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 76.71,
+                        "completo": false
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 310,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 310,
+                        "dias_con_dato": 310,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": false
+                    }
+                },
+                "huecos": [],
+                "hueco_max_dias": 0,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-472EF2D8-campamento-sede": {
+            "cod": "472EF2D8",
+            "nombre": "CAMPAMENTO SEDE",
+            "formato": "meteorologica_automatica",
+            "rango": {
+                "primera": "2021-11-01",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 40509,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 1056,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Campamentosede_472EF2D8_M_EMA/CampamentoSede-2017-2026.csv",
+                        "sha256": "2b31e460ac3495344cbd64171601d4b550844ff726320e274b19ec72619478f0",
+                        "formato": "meteorologica_automatica",
+                        "bytes": 1495534
+                    }
+                ],
+                "formato": "meteorologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2021-11-01",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 1832,
+                "dias_con_dato": 1711,
+                "dias_con_precip": 1711,
+                "dias_con_traza": 0,
+                "dias_con_temp": 1701,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 121,
+                "pct_dias_faltantes": 6.6,
+                "anos_calendario": 6,
+                "anos_completos": 2,
+                "anos_span": 5.02,
+                "anos_cobertura": 6,
+                "cobertura_por_anio": {
+                    "2021": {
+                        "esperados": 365,
+                        "con_precip": 61,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 61,
+                        "dias_con_dato": 61,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 83.29,
+                        "completo": false
+                    },
+                    "2022": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 365,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2023": {
+                        "esperados": 365,
+                        "con_precip": 306,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 306,
+                        "dias_con_dato": 306,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 16.16,
+                        "completo": false
+                    },
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 304,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 304,
+                        "dias_con_dato": 304,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 16.94,
+                        "completo": false
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 365,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 310,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 300,
+                        "dias_con_dato": 310,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2023-02-01",
+                        "dias": 28
+                    },
+                    {
+                        "desde": "2023-12-01",
+                        "dias": 93
+                    }
+                ],
+                "hueco_max_dias": 93,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
         "senamhi-105070-chulucanas": {
             "cod": "105070",
             "nombre": "CHULUCANAS",
@@ -479,6 +696,993 @@
                 }
             }
         },
+        "senamhi-472F6540-chulucanas": {
+            "cod": "472F6540",
+            "nombre": "CHULUCANAS",
+            "formato": "meteorologica_automatica",
+            "rango": {
+                "primera": "2021-12-01",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 42897,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 344,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Chulucanas_472F6540_M_EMA/Chulucanas-2017-2026.csv",
+                        "sha256": "836246999ec7f39864ab90301d879e7f7e73711efca65e67df2686bab66895f3",
+                        "formato": "meteorologica_automatica",
+                        "bytes": 1586895
+                    }
+                ],
+                "formato": "meteorologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2021-12-01",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 1802,
+                "dias_con_dato": 1799,
+                "dias_con_precip": 1799,
+                "dias_con_traza": 0,
+                "dias_con_temp": 1799,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 3,
+                "pct_dias_faltantes": 0.17,
+                "anos_calendario": 6,
+                "anos_completos": 4,
+                "anos_span": 4.93,
+                "anos_cobertura": 6,
+                "cobertura_por_anio": {
+                    "2021": {
+                        "esperados": 365,
+                        "con_precip": 31,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 31,
+                        "dias_con_dato": 31,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 91.51,
+                        "completo": false
+                    },
+                    "2022": {
+                        "esperados": 365,
+                        "con_precip": 363,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 363,
+                        "dias_con_dato": 363,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0.55,
+                        "completo": true
+                    },
+                    "2023": {
+                        "esperados": 365,
+                        "con_precip": 364,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 364,
+                        "dias_con_dato": 364,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0.27,
+                        "completo": true
+                    },
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 366,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 366,
+                        "dias_con_dato": 366,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 365,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 310,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 310,
+                        "dias_con_dato": 310,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2022-10-31",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-04-14",
+                        "dias": 1
+                    }
+                ],
+                "hueco_max_dias": 2,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-104109-el-chira": {
+            "cod": "104109",
+            "nombre": "EL CHIRA",
+            "formato": "meteorologica_automatica",
+            "rango": {
+                "primera": "2023-06-01",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 27384,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 2816,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Elchira_104109_M_EAMA/ElChira-2017-2026.csv",
+                        "sha256": "b13c34ade4bd5ec61f50921392db54b2e0200b7c31a8aab1efc2a38a052d4263",
+                        "formato": "meteorologica_automatica",
+                        "bytes": 1010831
+                    }
+                ],
+                "formato": "meteorologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2023-06-01",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 1255,
+                "dias_con_dato": 1091,
+                "dias_con_precip": 1091,
+                "dias_con_traza": 0,
+                "dias_con_temp": 1091,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 164,
+                "pct_dias_faltantes": 13.07,
+                "anos_calendario": 4,
+                "anos_completos": 1,
+                "anos_span": 3.44,
+                "anos_cobertura": 4,
+                "cobertura_por_anio": {
+                    "2023": {
+                        "esperados": 365,
+                        "con_precip": 153,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 153,
+                        "dias_con_dato": 153,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 58.08,
+                        "completo": false
+                    },
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 263,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 263,
+                        "dias_con_dato": 263,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 28.14,
+                        "completo": false
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 365,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 310,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 310,
+                        "dias_con_dato": 310,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2023-06-01",
+                        "dias": 61
+                    },
+                    {
+                        "desde": "2024-06-08",
+                        "dias": 41
+                    },
+                    {
+                        "desde": "2024-08-12",
+                        "dias": 62
+                    }
+                ],
+                "hueco_max_dias": 62,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-103041-el-salto": {
+            "cod": "103041",
+            "nombre": "EL SALTO",
+            "formato": "meteorologica_convencional",
+            "rango": {
+                "primera": "2022-02-01",
+                "ultima": "2026-09-30"
+            },
+            "qa": {
+                "filas_leidas": 1552,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 145,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 57,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [
+                    {
+                        "fecha": "2023-06-14",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-11-10",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-12-13",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-12-20",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-12-23",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-12-27",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-02-12",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-03-04",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-03-05",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-03-14",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-04-23",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-04-27",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-04-28",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-04-29",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-05-27",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-06-14",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-06-23",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-06-27",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-06-30",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-07-09",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-07-20",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-08-15",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-08-26",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-10-06",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-12-25",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-01-02",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-01-03",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-01-10",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-02-08",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-02-09",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-02-18",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-03-29",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-03-30",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-04-06",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-04-25",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-04-28",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-04-30",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-05-03",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-05-18",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-06-08",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-06-09",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-06-24",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-09-28",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-10-12",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-11-11",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-12-13",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-01-10",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-02-05",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-02-08",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-02-20",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-02-27",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-03-10",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-04-04",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-08-02",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-09-09",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-09-25",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-09-27",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    }
+                ],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Elsalto_103041_M_CO/ElSalto-2017-2026.csv",
+                        "sha256": "3e21fa6590410b7fad1409df86d68a7d34233fb3141e6b94d547e6d9a04e62be",
+                        "formato": "meteorologica_convencional",
+                        "bytes": 45752
+                    }
+                ],
+                "formato": "meteorologica_convencional",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2022-02-01",
+                "ultima_fecha": "2026-09-30",
+                "dias_calendario": 1703,
+                "dias_con_dato": 1536,
+                "dias_con_precip": 1459,
+                "dias_con_traza": 0,
+                "dias_con_temp": 1535,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 244,
+                "pct_dias_faltantes": 14.33,
+                "anos_calendario": 5,
+                "anos_completos": 3,
+                "anos_span": 4.66,
+                "anos_cobertura": 5,
+                "cobertura_por_anio": {
+                    "2022": {
+                        "esperados": 365,
+                        "con_precip": 334,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 334,
+                        "dias_con_dato": 334,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 8.49,
+                        "completo": true
+                    },
+                    "2023": {
+                        "esperados": 365,
+                        "con_precip": 181,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 200,
+                        "dias_con_dato": 181,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 50.41,
+                        "completo": false
+                    },
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 345,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 366,
+                        "dias_con_dato": 345,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 5.74,
+                        "completo": true
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 339,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 362,
+                        "dias_con_dato": 339,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 7.12,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 260,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 273,
+                        "dias_con_dato": 260,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 4.76,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2023-01-01",
+                        "dias": 151
+                    },
+                    {
+                        "desde": "2023-06-03",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-06-10",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-06-14",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-06-17",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-06-24",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-07-08",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-07-15",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-07-22",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-07-29",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-08-05",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-08-12",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-08-19",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-08-26",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-09-02",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2023-09-30",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-11-10",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-12-13",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-12-20",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-12-23",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-12-27",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-02-12",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-03-04",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2024-03-14",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-04-23",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-04-27",
+                        "dias": 3
+                    },
+                    {
+                        "desde": "2024-05-27",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-06-14",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-06-23",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-06-27",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-06-30",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-07-09",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-07-20",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-08-15",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-08-26",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-09-25",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2024-10-06",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-12-25",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-01-02",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2025-01-10",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2025-01-17",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2025-01-24",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2025-02-08",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2025-02-18",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-03-29",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2025-04-06",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-04-25",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-04-28",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-04-30",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-05-03",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-05-18",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-06-08",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2025-06-24",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-09-28",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-10-12",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-11-11",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-12-13",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-01-10",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-02-05",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-02-08",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-02-20",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-02-27",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-03-10",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-04-04",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-08-02",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-08-18",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2026-09-09",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-09-25",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-09-27",
+                        "dias": 1
+                    }
+                ],
+                "hueco_max_dias": 151,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
         "senamhi-104079-mallares": {
             "cod": "104079",
             "nombre": "MALLARES",
@@ -684,6 +1888,840 @@
                     }
                 ],
                 "hueco_max_dias": 763,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-103008-matapalo": {
+            "cod": "103008",
+            "nombre": "MATAPALO",
+            "formato": "meteorologica_convencional",
+            "rango": {
+                "primera": "2022-07-01",
+                "ultima": "2026-09-30"
+            },
+            "qa": {
+                "filas_leidas": 1553,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 4659,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 37,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [
+                    {
+                        "fecha": "2022-07-25",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2022-09-11",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2022-09-17",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2022-10-17",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2022-10-29",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2022-11-01",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2022-11-06",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-01-12",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-03-18",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-04-04",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-05-01",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-09-10",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-11-26",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2023-11-27",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-04-18",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-06-27",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-07-24",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-08-01",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-08-12",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-09-20",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-09-21",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-10-09",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2024-11-08",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-01-23",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-06-21",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-08-14",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-08-21",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-09-01",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-09-02",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-09-26",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-09-27",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-10-02",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2025-10-06",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-05-03",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-08-09",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-08-17",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    },
+                    {
+                        "fecha": "2026-09-22",
+                        "campo": "precip",
+                        "valor": "-888.0",
+                        "motivo": "negativo"
+                    }
+                ],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Matapalo_103008_M_PLU/Matapalo-2017-2026.csv",
+                        "sha256": "394f879aaa952aef40a5ed27257ee8b3132d5bf0abf1c3c3722df0d7f76950f2",
+                        "formato": "meteorologica_convencional",
+                        "bytes": 42208
+                    }
+                ],
+                "formato": "meteorologica_convencional",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2022-07-01",
+                "ultima_fecha": "2026-09-30",
+                "dias_calendario": 1553,
+                "dias_con_dato": 1516,
+                "dias_con_precip": 1516,
+                "dias_con_traza": 0,
+                "dias_con_temp": 0,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 37,
+                "pct_dias_faltantes": 2.38,
+                "anos_calendario": 5,
+                "anos_completos": 3,
+                "anos_span": 4.25,
+                "anos_cobertura": 5,
+                "cobertura_por_anio": {
+                    "2022": {
+                        "esperados": 365,
+                        "con_precip": 177,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 0,
+                        "dias_con_dato": 177,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 51.51,
+                        "completo": false
+                    },
+                    "2023": {
+                        "esperados": 365,
+                        "con_precip": 358,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 0,
+                        "dias_con_dato": 358,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 1.92,
+                        "completo": true
+                    },
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 357,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 0,
+                        "dias_con_dato": 357,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 2.46,
+                        "completo": true
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 355,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 0,
+                        "dias_con_dato": 355,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 2.74,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 269,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 0,
+                        "dias_con_dato": 269,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 1.47,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2022-07-25",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2022-09-11",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2022-09-17",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2022-10-17",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2022-10-29",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2022-11-01",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2022-11-06",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-01-12",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-03-18",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-04-04",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-05-01",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-09-10",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-11-26",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2024-04-18",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-06-27",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-07-24",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-08-01",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-08-12",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-09-20",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2024-10-09",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-11-08",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-01-23",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-06-21",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-08-14",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-08-21",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-09-01",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2025-09-26",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2025-10-02",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-10-06",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-05-03",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-08-09",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-08-17",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-09-22",
+                        "dias": 1
+                    }
+                ],
+                "hueco_max_dias": 2,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-472F353C-matapalo": {
+            "cod": "472F353C",
+            "nombre": "MATAPALO",
+            "formato": "meteorologica_automatica",
+            "rango": {
+                "primera": "2022-09-01",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 36491,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 7474,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Matapalo_472F353C_M_EMA/Matapalo-2017-2026.csv",
+                        "sha256": "4bc1e7e1a47171d9a96ea44fa917726dc2ca7384684c14d5285b4d77c858983e",
+                        "formato": "meteorologica_automatica",
+                        "bytes": 1352700
+                    }
+                ],
+                "formato": "meteorologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2022-09-01",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 1528,
+                "dias_con_dato": 1528,
+                "dias_con_precip": 1528,
+                "dias_con_traza": 0,
+                "dias_con_temp": 1528,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 0,
+                "pct_dias_faltantes": 0,
+                "anos_calendario": 5,
+                "anos_completos": 3,
+                "anos_span": 4.18,
+                "anos_cobertura": 5,
+                "cobertura_por_anio": {
+                    "2022": {
+                        "esperados": 365,
+                        "con_precip": 122,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 122,
+                        "dias_con_dato": 122,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 66.58,
+                        "completo": false
+                    },
+                    "2023": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 365,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 366,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 366,
+                        "dias_con_dato": 366,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 365,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 310,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 310,
+                        "dias_con_dato": 310,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": false
+                    }
+                },
+                "huecos": [],
+                "hueco_max_dias": 0,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-105100-miraflores": {
+            "cod": "105100",
+            "nombre": "MIRAFLORES",
+            "formato": "meteorologica_convencional",
+            "rango": {
+                "primera": "2019-08-01",
+                "ultima": "2026-09-30"
+            },
+            "qa": {
+                "filas_leidas": 1827,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 175,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Miraflores_105100_M_MAP/Miraflores-2017-2026.csv",
+                        "sha256": "366d34e3b623d0cee890d82da54d8ef16e95ee4ee2fcd6b409e3cde318122e58",
+                        "formato": "meteorologica_convencional",
+                        "bytes": 52920
+                    }
+                ],
+                "formato": "meteorologica_convencional",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2019-08-01",
+                "ultima_fecha": "2026-09-30",
+                "dias_calendario": 2618,
+                "dias_con_dato": 1806,
+                "dias_con_precip": 1803,
+                "dias_con_traza": 0,
+                "dias_con_temp": 1796,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 815,
+                "pct_dias_faltantes": 31.13,
+                "anos_calendario": 7,
+                "anos_completos": 3,
+                "anos_span": 7.17,
+                "anos_cobertura": 7,
+                "cobertura_por_anio": {
+                    "2019": {
+                        "esperados": 365,
+                        "con_precip": 153,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 153,
+                        "dias_con_dato": 153,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 58.08,
+                        "completo": false
+                    },
+                    "2020": {
+                        "esperados": 366,
+                        "con_precip": 76,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 77,
+                        "dias_con_dato": 76,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 79.23,
+                        "completo": false
+                    },
+                    "2022": {
+                        "esperados": 365,
+                        "con_precip": 213,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 208,
+                        "dias_con_dato": 213,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 41.64,
+                        "completo": false
+                    },
+                    "2023": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 360,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 366,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 366,
+                        "dias_con_dato": 366,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 365,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 265,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 267,
+                        "dias_con_dato": 265,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 2.93,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2020-03-17",
+                        "dias": 807
+                    },
+                    {
+                        "desde": "2026-04-10",
+                        "dias": 4
+                    },
+                    {
+                        "desde": "2026-06-05",
+                        "dias": 4
+                    }
+                ],
+                "hueco_max_dias": 807,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-105112-miraflores": {
+            "cod": "105112",
+            "nombre": "MIRAFLORES",
+            "formato": "meteorologica_automatica",
+            "rango": {
+                "primera": "2021-05-11",
+                "ultima": "2026-11-05"
+            },
+            "qa": {
+                "filas_leidas": 9410,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 0,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Miraflores_105112_M_EMA/Miraflores-2017-2026.csv",
+                        "sha256": "fc020c9730667315e48fa769f919daeb24f8a1e04ddd4e0a0dcf94543eab2c49",
+                        "formato": "meteorologica_automatica",
+                        "bytes": 348279
+                    }
+                ],
+                "formato": "meteorologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2021-05-11",
+                "ultima_fecha": "2026-11-05",
+                "dias_calendario": 2005,
+                "dias_con_dato": 394,
+                "dias_con_precip": 394,
+                "dias_con_traza": 0,
+                "dias_con_temp": 394,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 1611,
+                "pct_dias_faltantes": 80.35,
+                "anos_calendario": 3,
+                "anos_completos": 0,
+                "anos_span": 5.49,
+                "anos_cobertura": 3,
+                "cobertura_por_anio": {
+                    "2021": {
+                        "esperados": 365,
+                        "con_precip": 1,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 1,
+                        "dias_con_dato": 1,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 99.73,
+                        "completo": false
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 84,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 84,
+                        "dias_con_dato": 84,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 76.99,
+                        "completo": false
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 309,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 309,
+                        "dias_con_dato": 309,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2021-05-12",
+                        "dias": 1611
+                    }
+                ],
+                "hueco_max_dias": 1611,
                 "fechas_conflicto": [],
                 "compuerta": {
                     "anios_minimos": 10,
@@ -1245,6 +3283,806 @@
                 }
             }
         },
+        "senamhi-104113-partidor": {
+            "cod": "104113",
+            "nombre": "PARTIDOR",
+            "formato": "meteorologica_automatica",
+            "rango": {
+                "primera": "2025-10-10",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 9416,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 0,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Partidor_104113_M_EMA/Partidor-2017-2026.csv",
+                        "sha256": "081faa4a8462b8c3137b046c765cf0ec53cd8448f8bfd2fb952e18e4698827dc",
+                        "formato": "meteorologica_automatica",
+                        "bytes": 348701
+                    }
+                ],
+                "formato": "meteorologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2025-10-10",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 393,
+                "dias_con_dato": 393,
+                "dias_con_precip": 393,
+                "dias_con_traza": 0,
+                "dias_con_temp": 393,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 0,
+                "pct_dias_faltantes": 0,
+                "anos_calendario": 2,
+                "anos_completos": 0,
+                "anos_span": 1.08,
+                "anos_cobertura": 2,
+                "cobertura_por_anio": {
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 83,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 83,
+                        "dias_con_dato": 83,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 77.26,
+                        "completo": false
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 310,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 310,
+                        "dias_con_dato": 310,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": false
+                    }
+                },
+                "huecos": [],
+                "hueco_max_dias": 0,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-210503-puente-eguiguren": {
+            "cod": "210503",
+            "nombre": "PUENTE EGUIGUREN",
+            "formato": "hidrologica_automatica",
+            "rango": {
+                "primera": "2024-01-03",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 21862,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 23072,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Puenteeguiguren_210503_H_EHA/PuenteEguiguren-2017-2026.csv",
+                        "sha256": "c025eb0d3c8502492ce2c9d01ef683fec1be05636b1515c7d6314720dec5b48b",
+                        "formato": "hidrologica_automatica",
+                        "bytes": 510757
+                    }
+                ],
+                "formato": "hidrologica_automatica",
+                "variable_cobertura": "nivel_rio_m",
+                "primera_fecha": "2024-01-03",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 1039,
+                "dias_con_dato": 880,
+                "dias_con_precip": 0,
+                "dias_con_traza": 0,
+                "dias_con_temp": 0,
+                "dias_con_nivel_rio": 880,
+                "dias_faltantes": 159,
+                "pct_dias_faltantes": 15.3,
+                "anos_calendario": 3,
+                "anos_completos": 1,
+                "anos_span": 2.84,
+                "anos_cobertura": 3,
+                "cobertura_por_anio": {
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 0,
+                        "con_traza": 0,
+                        "con_nivel": 242,
+                        "con_temp": 0,
+                        "dias_con_dato": 242,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 33.88,
+                        "completo": false
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 0,
+                        "con_traza": 0,
+                        "con_nivel": 365,
+                        "con_temp": 0,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 0,
+                        "con_traza": 0,
+                        "con_nivel": 273,
+                        "con_temp": 0,
+                        "dias_con_dato": 273,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 11.94,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2024-01-03",
+                        "dias": 21
+                    },
+                    {
+                        "desde": "2024-08-03",
+                        "dias": 101
+                    },
+                    {
+                        "desde": "2026-10-01",
+                        "dias": 37
+                    }
+                ],
+                "hueco_max_dias": 101,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "La estación no mide precipitación; la compuerta de la fase 2 no aplica a esta serie."
+                }
+            }
+        },
+        "senamhi-47E0415A-puente-nacara": {
+            "cod": "47E0415A",
+            "nombre": "PUENTE ÑACARA",
+            "formato": "hidrologica_automatica",
+            "rango": {
+                "primera": "2021-07-01",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 38378,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 28335,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Puentenacara_47E0415A_H_EHA/PuenteÑacara-2017-2026.csv",
+                        "sha256": "9992c1230cdceda8d8e568d97f94ff616d0a3e7b7d0fca34249a4c0c4c5f3804",
+                        "formato": "hidrologica_automatica",
+                        "bytes": 972281
+                    }
+                ],
+                "formato": "hidrologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2021-07-01",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 1955,
+                "dias_con_dato": 1533,
+                "dias_con_precip": 1533,
+                "dias_con_traza": 0,
+                "dias_con_temp": 0,
+                "dias_con_nivel_rio": 556,
+                "dias_faltantes": 422,
+                "pct_dias_faltantes": 21.59,
+                "anos_calendario": 6,
+                "anos_completos": 1,
+                "anos_span": 5.35,
+                "anos_cobertura": 6,
+                "cobertura_por_anio": {
+                    "2021": {
+                        "esperados": 365,
+                        "con_precip": 184,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 0,
+                        "dias_con_dato": 184,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 49.59,
+                        "completo": false
+                    },
+                    "2022": {
+                        "esperados": 365,
+                        "con_precip": 217,
+                        "con_traza": 0,
+                        "con_nivel": 41,
+                        "con_temp": 0,
+                        "dias_con_dato": 217,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 40.55,
+                        "completo": false
+                    },
+                    "2023": {
+                        "esperados": 365,
+                        "con_precip": 363,
+                        "con_traza": 0,
+                        "con_nivel": 127,
+                        "con_temp": 0,
+                        "dias_con_dato": 363,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0.55,
+                        "completo": true
+                    },
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 317,
+                        "con_traza": 0,
+                        "con_nivel": 78,
+                        "con_temp": 0,
+                        "dias_con_dato": 317,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 13.39,
+                        "completo": false
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 212,
+                        "con_traza": 0,
+                        "con_nivel": 126,
+                        "con_temp": 0,
+                        "dias_con_dato": 212,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 41.92,
+                        "completo": false
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 240,
+                        "con_traza": 0,
+                        "con_nivel": 184,
+                        "con_temp": 0,
+                        "dias_con_dato": 240,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 22.58,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2022-05-26",
+                        "dias": 148
+                    },
+                    {
+                        "desde": "2023-07-19",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-08-04",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2024-05-16",
+                        "dias": 46
+                    },
+                    {
+                        "desde": "2024-09-03",
+                        "dias": 3
+                    },
+                    {
+                        "desde": "2025-04-14",
+                        "dias": 15
+                    },
+                    {
+                        "desde": "2025-07-02",
+                        "dias": 138
+                    },
+                    {
+                        "desde": "2026-07-26",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-08-19",
+                        "dias": 69
+                    }
+                ],
+                "hueco_max_dias": 148,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-47E024BC-puente-tumbes": {
+            "cod": "47E024BC",
+            "nombre": "PUENTE TUMBES",
+            "formato": "hidrologica_automatica",
+            "rango": {
+                "primera": "2021-08-01",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 41363,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 10647,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Puentetumbes_47E024BC_H_EHA/PuenteTumbes-2017-2026.csv",
+                        "sha256": "a7bae191e01724911addbbb88336b5b321bb17a5d362c9612626fce5ef10d83c",
+                        "formato": "hidrologica_automatica",
+                        "bytes": 1065179
+                    }
+                ],
+                "formato": "hidrologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2021-08-01",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 1924,
+                "dias_con_dato": 1736,
+                "dias_con_precip": 1735,
+                "dias_con_traza": 0,
+                "dias_con_temp": 0,
+                "dias_con_nivel_rio": 1314,
+                "dias_faltantes": 189,
+                "pct_dias_faltantes": 9.82,
+                "anos_calendario": 6,
+                "anos_completos": 2,
+                "anos_span": 5.27,
+                "anos_cobertura": 6,
+                "cobertura_por_anio": {
+                    "2021": {
+                        "esperados": 365,
+                        "con_precip": 153,
+                        "con_traza": 0,
+                        "con_nivel": 153,
+                        "con_temp": 0,
+                        "dias_con_dato": 153,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 58.08,
+                        "completo": false
+                    },
+                    "2022": {
+                        "esperados": 365,
+                        "con_precip": 326,
+                        "con_traza": 0,
+                        "con_nivel": 261,
+                        "con_temp": 0,
+                        "dias_con_dato": 326,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 10.68,
+                        "completo": false
+                    },
+                    "2023": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 122,
+                        "con_temp": 0,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 238,
+                        "con_traza": 0,
+                        "con_nivel": 176,
+                        "con_temp": 0,
+                        "dias_con_dato": 238,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 34.97,
+                        "completo": false
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 342,
+                        "con_temp": 0,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 288,
+                        "con_traza": 0,
+                        "con_nivel": 260,
+                        "con_temp": 0,
+                        "dias_con_dato": 288,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 7.1,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2022-04-30",
+                        "dias": 39
+                    },
+                    {
+                        "desde": "2024-01-16",
+                        "dias": 4
+                    },
+                    {
+                        "desde": "2024-07-20",
+                        "dias": 124
+                    },
+                    {
+                        "desde": "2026-03-30",
+                        "dias": 15
+                    },
+                    {
+                        "desde": "2026-10-02",
+                        "dias": 7
+                    }
+                ],
+                "hueco_max_dias": 124,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-103038-puerto-pizarro": {
+            "cod": "103038",
+            "nombre": "PUERTO PIZARRO",
+            "formato": "meteorologica_convencional",
+            "rango": {
+                "primera": "2018-02-14",
+                "ultima": "2026-11-05"
+            },
+            "qa": {
+                "filas_leidas": 3160,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 46,
+                "duplicados_compatibles": 5,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 2912,
+                "valores_traza": 0,
+                "valores_centinela": 3,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Puertopizarro_103038_M_CO/PuertoPizarro-2017-2026.csv",
+                        "sha256": "2e32517e25051e2e6e2d99e83e046c8cae5b7d205d8bcabd6421dcc5bdbc95fc",
+                        "formato": "meteorologica_convencional",
+                        "bytes": 90787
+                    }
+                ],
+                "formato": "meteorologica_convencional",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2018-02-14",
+                "ultima_fecha": "2026-11-05",
+                "dias_calendario": 3187,
+                "dias_con_dato": 2401,
+                "dias_con_precip": 2390,
+                "dias_con_traza": 0,
+                "dias_con_temp": 2392,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 797,
+                "pct_dias_faltantes": 25.01,
+                "anos_calendario": 9,
+                "anos_completos": 4,
+                "anos_span": 8.73,
+                "anos_cobertura": 9,
+                "cobertura_por_anio": {
+                    "2018": {
+                        "esperados": 365,
+                        "con_precip": 320,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 321,
+                        "dias_con_dato": 320,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 12.33,
+                        "completo": false
+                    },
+                    "2019": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 363,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2020": {
+                        "esperados": 366,
+                        "con_precip": 83,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 77,
+                        "dias_con_dato": 83,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 77.32,
+                        "completo": false
+                    },
+                    "2021": {
+                        "esperados": 365,
+                        "con_precip": 0,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 0,
+                        "dias_con_dato": 0,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 100,
+                        "completo": false
+                    },
+                    "2022": {
+                        "esperados": 365,
+                        "con_precip": 240,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 243,
+                        "dias_con_dato": 240,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 34.25,
+                        "completo": false
+                    },
+                    "2023": {
+                        "esperados": 365,
+                        "con_precip": 345,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 348,
+                        "dias_con_dato": 345,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 5.48,
+                        "completo": true
+                    },
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 366,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 0.27,
+                        "completo": true
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 364,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 365,
+                        "dias_con_dato": 364,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0.27,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 308,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 309,
+                        "dias_con_dato": 308,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0.32,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2018-02-27",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2020-03-17",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2020-03-20",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2020-03-22",
+                        "dias": 4
+                    },
+                    {
+                        "desde": "2020-03-31",
+                        "dias": 761
+                    },
+                    {
+                        "desde": "2022-09-04",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2022-09-11",
+                        "dias": 2
+                    },
+                    {
+                        "desde": "2022-09-17",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2022-09-23",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-01-26",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-05-03",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2023-07-05",
+                        "dias": 18
+                    },
+                    {
+                        "desde": "2024-03-09",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2025-06-29",
+                        "dias": 1
+                    },
+                    {
+                        "desde": "2026-09-30",
+                        "dias": 1
+                    }
+                ],
+                "hueco_max_dias": 761,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-103068-puerto-pizarro": {
+            "cod": "103068",
+            "nombre": "PUERTO PIZARRO",
+            "formato": "meteorologica_automatica",
+            "rango": {
+                "primera": "2025-10-30",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 8921,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 2,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Puertopizarro_103068_M_EMA/PuertoPizarro-2017-2026.csv",
+                        "sha256": "aae87874c83873ab314cffecc025534289fc1c27e7acb285a648d537475e6312",
+                        "formato": "meteorologica_automatica",
+                        "bytes": 330333
+                    }
+                ],
+                "formato": "meteorologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2025-10-30",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 373,
+                "dias_con_dato": 373,
+                "dias_con_precip": 373,
+                "dias_con_traza": 0,
+                "dias_con_temp": 373,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 0,
+                "pct_dias_faltantes": 0,
+                "anos_calendario": 2,
+                "anos_completos": 0,
+                "anos_span": 1.02,
+                "anos_cobertura": 2,
+                "cobertura_por_anio": {
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 63,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 63,
+                        "dias_con_dato": 63,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 82.74,
+                        "completo": false
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 310,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 310,
+                        "dias_con_dato": 310,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": false
+                    }
+                },
+                "huecos": [],
+                "hueco_max_dias": 0,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
         "senamhi-105063-san-miguel": {
             "cod": "105063",
             "nombre": "SAN MIGUEL",
@@ -1491,11 +4329,235 @@
                     "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
                 }
             }
+        },
+        "senamhi-105143-san-miguel": {
+            "cod": "105143",
+            "nombre": "SAN MIGUEL",
+            "formato": "meteorologica_automatica",
+            "rango": {
+                "primera": "2024-11-15",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 16955,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 6,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Sanmiguel_105143_M_EMA/SanMiguel-2017-2026.csv",
+                        "sha256": "a0019b39caaae7df4445f2bc435830b5efb811df0265cb036fc0ed6ea14ec090",
+                        "formato": "meteorologica_automatica",
+                        "bytes": 627438
+                    }
+                ],
+                "formato": "meteorologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2024-11-15",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 722,
+                "dias_con_dato": 710,
+                "dias_con_precip": 710,
+                "dias_con_traza": 0,
+                "dias_con_temp": 710,
+                "dias_con_nivel_rio": 0,
+                "dias_faltantes": 12,
+                "pct_dias_faltantes": 1.66,
+                "anos_calendario": 3,
+                "anos_completos": 1,
+                "anos_span": 1.98,
+                "anos_cobertura": 3,
+                "cobertura_por_anio": {
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 47,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 47,
+                        "dias_con_dato": 47,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 87.16,
+                        "completo": false
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 353,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 353,
+                        "dias_con_dato": 353,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 3.29,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 310,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 310,
+                        "dias_con_dato": 310,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": false
+                    }
+                },
+                "huecos": [
+                    {
+                        "desde": "2025-12-10",
+                        "dias": 12
+                    }
+                ],
+                "hueco_max_dias": 12,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
+        },
+        "senamhi-47E0522C-tambo-grande": {
+            "cod": "47E0522C",
+            "nombre": "TAMBO GRANDE",
+            "formato": "hidrologica_automatica",
+            "rango": {
+                "primera": "2021-12-01",
+                "ultima": "2026-11-06"
+            },
+            "qa": {
+                "filas_leidas": 43034,
+                "filas_rechazadas": 0,
+                "duplicados_exactos": 0,
+                "duplicados_compatibles": 0,
+                "duplicados_conflictivos": 0,
+                "duplicados_hora": 0,
+                "valores_sd": 33189,
+                "valores_traza": 0,
+                "valores_centinela": 0,
+                "valores_negativos": 0,
+                "valores_no_numericos": 0,
+                "valores_sospechosos": [],
+                "rechazos": [],
+                "archivos": [
+                    {
+                        "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Tambogrande_47E0522C_H_EHA/TamboGrande-2017-2026.csv",
+                        "sha256": "aae710b2193531f169a1b8f3228def69773ed97ffe815da0e027af6e7c78d671",
+                        "formato": "hidrologica_automatica",
+                        "bytes": 1085899
+                    }
+                ],
+                "formato": "hidrologica_automatica",
+                "variable_cobertura": "precip_mm",
+                "primera_fecha": "2021-12-01",
+                "ultima_fecha": "2026-11-06",
+                "dias_calendario": 1802,
+                "dias_con_dato": 1802,
+                "dias_con_precip": 1802,
+                "dias_con_traza": 0,
+                "dias_con_temp": 0,
+                "dias_con_nivel_rio": 432,
+                "dias_faltantes": 0,
+                "pct_dias_faltantes": 0,
+                "anos_calendario": 6,
+                "anos_completos": 4,
+                "anos_span": 4.93,
+                "anos_cobertura": 6,
+                "cobertura_por_anio": {
+                    "2021": {
+                        "esperados": 365,
+                        "con_precip": 31,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 0,
+                        "dias_con_dato": 31,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 91.51,
+                        "completo": false
+                    },
+                    "2022": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 0,
+                        "con_temp": 0,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2023": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 299,
+                        "con_temp": 0,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2024": {
+                        "esperados": 366,
+                        "con_precip": 366,
+                        "con_traza": 0,
+                        "con_nivel": 68,
+                        "con_temp": 0,
+                        "dias_con_dato": 366,
+                        "dias_esperados": 366,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2025": {
+                        "esperados": 365,
+                        "con_precip": 365,
+                        "con_traza": 0,
+                        "con_nivel": 29,
+                        "con_temp": 0,
+                        "dias_con_dato": 365,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": true
+                    },
+                    "2026": {
+                        "esperados": 365,
+                        "con_precip": 310,
+                        "con_traza": 0,
+                        "con_nivel": 36,
+                        "con_temp": 0,
+                        "dias_con_dato": 310,
+                        "dias_esperados": 365,
+                        "pct_faltantes": 0,
+                        "completo": false
+                    }
+                },
+                "huecos": [],
+                "hueco_max_dias": 0,
+                "fechas_conflicto": [],
+                "compuerta": {
+                    "anios_minimos": 10,
+                    "faltantes_max_pct": 10,
+                    "requiere_backtest": true,
+                    "cumple_medible": false,
+                    "nota": "Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest."
+                }
+            }
         }
     },
     "resumen": {
-        "estaciones_importadas": 6,
+        "estaciones_importadas": 23,
         "filas_rechazadas": 0,
-        "estaciones_con_avisos": 2
+        "estaciones_con_avisos": 4
     }
 }

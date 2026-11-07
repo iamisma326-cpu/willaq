@@ -88,21 +88,21 @@ Devuelve el catálogo completo de distritos piloto.
 **Nota de honestidad:** sin overlay, `fuente_exposicion` es
 `estimacion_ratio_poblacional` y los campos `poblacion`, `viviendas`,
 `escuelas` y `centros_salud` son **estimaciones de referencia**, no cifras
-oficiales. Si se cargó el overlay oficial, `meta.exposicion_oficial` resume la
-procedencia y cada territorio trae su bloque `exposicion`:
+oficiales. Con el overlay del INEI aplicado, `meta.exposicion_oficial` resume
+la procedencia y cada territorio trae su bloque `exposicion`:
 
 ```json
 "exposicion": {
   "estado": "mixta",
   "campos": {
     "poblacion": {
-      "valor": 70000,
+      "valor": 134568,
       "oficial": true,
-      "fuente": "INEI Censo 2017",
-      "anio": 2017,
+      "fuente": "INEI · Población total proyectada al 30/06 (Boletín 2018-2026)",
+      "anio": 2026,
       "archivo": "inei_poblacion.csv",
-      "sha256": "…",
-      "importado_en": "2026-11-06T…"
+      "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+      "importado_en": "2026-11-07T01:32:38+00:00"
     },
     "escuelas": {
       "valor": 120,
@@ -114,9 +114,9 @@ procedencia y cada territorio trae su bloque `exposicion`:
   },
   "expuestos": {
     "inundacion": {
-      "valor": 66500,
+      "valor": 114383,
       "estimado": true,
-      "metodo": "población total × susceptibilidad a inundación (0.95)"
+      "metodo": "población total × susceptibilidad a inundación (0.85)"
     }
   }
 }

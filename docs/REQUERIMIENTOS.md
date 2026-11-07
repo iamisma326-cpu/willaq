@@ -75,6 +75,9 @@ salud, zona y susceptibilidades.
 * Cada elemento tiene `id`, `pais`, `region`, `distrito`, `lat`, `lon`, `zona`.
 * La respuesta declara la procedencia de la exposición: `meta.fuente_exposicion`
   (catálogo) y el bloque por campo `exposicion` (oficial vs. estimada).
+* Con el overlay del INEI aplicado, `poblacion` es **oficial** en los 29
+  distritos; `viviendas`, `escuelas` y `centros_salud` siguen **estimados** y
+  se declaran como tales. `exposicion.estado` = `mixta`.
 * Sin overlay, `meta.fuente_exposicion` sigue siendo
   `estimacion_ratio_poblacional`; con overlay, cada campo declara su fuente,
   año y archivo.
@@ -85,6 +88,8 @@ salud, zona y susceptibilidades.
 curl -s "http://localhost:8000/?action=api_territorios" \
   | php -r '$d=json_decode(stream_get_contents(STDIN),true); echo $d["total"], " ", $d["meta"]["fuente_exposicion"], PHP_EOL;'
 # Esperado sin overlay: 29 estimacion_ratio_poblacional
+# Con el overlay aplicado: 29 estimacion_ratio_poblacional
+#   (el bloque meta.exposicion_oficial dice cuántos campos son oficiales)
 ```
 
 ---
@@ -171,6 +176,31 @@ expuestos, recomendaciones y enlace al reporte.
 el nombre del distrito, su nivel y el texto legal.
 
 **Prueba:** `curl -s "…?action=territorio&id=piu-catacaos" | grep -c "apoyo a la decisión"` → ≥ 1.
+
+---
+
+### RF-07b · Alcance de la exposición redactado desde el dato
+
+La home, la página de ayuda y el pie del informe **no** tienen escrito a mano
+qué es oficial y qué es estimado: lo redactan a partir del overlay cargado
+(`exposicion_texto_breve()`, `exposicion_texto_limite()`,
+`exposicion_texto_corto()` en `models/Exposicion.php`).
+
+**Aceptación:**
+
+* Con el overlay del INEI aplicado, la home dice que la **población** es
+  oficial y que viviendas, colegios y centros de salud **siguen siendo
+  estimación**; el KPI de población muestra «oficial · INEI 2026».
+* Sin overlay (`rm data/exposicion_oficial.json`), esos mismos textos vuelven
+  a declarar que toda la exposición es una estimación de referencia.
+* El informe imprimible declara lo mismo, campo por campo.
+
+**Prueba:**
+
+```bash
+curl -s "http://localhost:8000/?action=home" | grep -o "oficial · INEI [0-9]*" | head -1
+curl -s "http://localhost:8000/?action=ayuda" | grep -c "dato oficial en el campo de población"
+```
 
 ---
 
@@ -264,11 +294,14 @@ procedencia de exposición y cobertura de estaciones hidrometeorológicas.
 * `GET /?action=admin` → HTTP 200.
 * Aparecen `curl`, `json`, `mbstring` como requeridas y `pdo_pgsql` como
   opcional.
-* Aparecen las tres ventanas con su distribución (24 h: 10 muy alto · 5 alto ·
-  1 medio · 13 bajo; 48 h: 12/4/2/11; 72 h: 11/6/3/9).
+* Aparecen las tres ventanas con su distribución. La del snapshot regenerado
+  el 7 de noviembre de 2026: 24 h → 9 muy alto · 8 alto · 5 medio · 7 bajo;
+  48 h → 13/6/4/6; 72 h → 15/3/6/5. **Cambian con el clima**: lo que se
+  verifica en la feria es que las tres ventanas aparecen con su fecha y su
+  distribución, no una cifra fija.
 * La sección «Cobertura de estaciones» muestra registro, series cargadas,
   distritos cubiertos y **separa** «criterios medibles» de «habilitadas fase 2»
-  (hoy: 4 cumplen, 0 habilitadas).
+  (hoy: 23 series cargadas, 4 cumplen los criterios medibles, 0 habilitadas).
 * No aparecen `Warning`, `Notice` ni `Deprecated` en el HTML.
 
 **Prueba:**

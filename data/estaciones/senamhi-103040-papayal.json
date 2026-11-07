@@ -2,7 +2,7 @@
     "_meta": {
         "descripcion": "Serie diaria normalizada de una estación hidrometeorológica del SENAMHI, con su reporte QA.",
         "version": "1.0",
-        "generado_en": "2026-11-07T00:51:30+00:00",
+        "generado_en": "2026-11-07T01:49:10+00:00",
         "generado_por": "scripts/importar_estaciones.php",
         "estacion_id": "senamhi-103040-papayal",
         "estacion_cod": "103040",

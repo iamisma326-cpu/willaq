@@ -188,12 +188,14 @@ de magnitud deja de ser relevante.
 infraestructura, pobreza, accesibilidad y capacidad de respuesta
 (`config/territorios.json` → `vulnerabilidad`).
 
-> ⚠️ **La exposición del piloto es una estimación de referencia**
-> (`fuente_exposicion: estimacion_ratio_poblacional`), no un padrón oficial.
-> El importador CSV desde INEI, MINEDU y MINSA ya está construido
-> (`scripts/importar_exposicion.php`) y escribe un overlay con procedencia por
-> campo; falta cargar los CSV oficiales. Aun con el total oficial, la fracción
-> expuesta seguirá siendo `total × susceptibilidad`, es decir, estimada.
+> ⚠️ **La exposición del piloto es mixta y se declara campo por campo.**
+> La **población** es oficial (INEI, proyección total al 30/06/2026, aplicada
+> con overlay y sha256 del archivo); **viviendas, escuelas y centros de salud**
+> siguen siendo estimación del catálogo porque ESCALE y RENIPRESS bloquean la
+> descarga automatizada. El importador CSV desde INEI, MINEDU y MINSA está
+> construido (`scripts/importar_exposicion.php`) y escribe un overlay con
+> procedencia por campo. Aun con el total oficial, la fracción expuesta sigue
+> siendo `total × susceptibilidad`, es decir, estimada.
 
 ---
 

@@ -140,14 +140,17 @@ $confianza = $riesgos[0]['confianza'] ?? 'media';
     <div class="wq-kpi wq-kpi--naranja">
         <div class="wq-kpi__value"><?= numero_legible($resumen['poblacion_total_riesgo_alto'] ?? 0) ?></div>
         <div class="wq-kpi__label">Población en riesgo alto</div>
-        <div class="text-[0.65rem] text-slate-500 mt-1.5">total de distritos alto/muy alto</div>
+        <div class="text-[0.65rem] text-slate-500 mt-1.5">
+            total de distritos alto/muy alto · <?= e(exposicion_etiqueta_campo('poblacion')) ?>
+        </div>
     </div>
     <div class="wq-kpi wq-kpi--rojo">
         <div class="wq-kpi__value"><?= (int)($resumen['escuelas_totales_riesgo_alto'] ?? 0) ?></div>
         <div class="wq-kpi__label">Colegios en riesgo alto</div>
         <div class="text-[0.65rem] text-slate-500 mt-1.5">
             <?= (int)($resumen['centros_salud_totales_riesgo_alto'] ?? 0) ?> centros de salud
-            <span class="text-slate-600">(total, no expuestos)</span>
+            <span class="text-slate-600">(total, no expuestos)</span><br>
+            <?= e(exposicion_etiqueta_campo('escuelas')) ?>
         </div>
     </div>
     <div class="wq-kpi">
@@ -405,8 +408,7 @@ $confianza = $riesgos[0]['confianza'] ?? 'media';
             <i class="fa-solid fa-triangle-exclamation text-brand-gold/70 mt-0.5"></i>
             <p class="text-[0.72rem] text-slate-400 leading-relaxed max-w-3xl">
                 <strong class="text-slate-200">Alcance.</strong>
-                La exposición (población, colegios, centros de salud) es una estimación de referencia
-                para la demostración y se reemplaza con el importador CSV de INEI/MINEDU/MINSA.
+                <?= e(exposicion_texto_breve()) ?>
                 WILLAQ no emite alertas oficiales: entrega recomendaciones de apoyo a la decisión.
             </p>
         </div>

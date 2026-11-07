@@ -2,7 +2,7 @@
   "_meta": {
     "descripcion": "Registro de estaciones hidrometeorológicas del SENAMHI para la fase 1 de WILLAQ. Cada estación conserva su procedencia (catálogo, código, fecha de catálogo) y su estado de verificación. Las SERIES se cargan aparte con Garúa y se normalizan en data/estaciones/{id}.json.",
     "version": "1.0",
-    "generado_en": "2026-11-07T00:51:35+00:00",
+    "generado_en": "2026-11-07T01:49:41+00:00",
     "generado_por": "scripts/generar_registro_estaciones.py",
     "fuente_catalogo": "SENAMHI — catálogo de estaciones, descargado con Garúa (https://github.com/danyneyra/garua)",
     "catalogo_archivo": "data/estaciones/catalogo_senamhi.json",
@@ -104,7 +104,7 @@
       ],
       "prioridad": "critica",
       "serie_archivo": "data/estaciones/senamhi-103040-papayal.json",
-      "serie_actualizada_en": "2026-11-07T00:51:30+00:00",
+      "serie_actualizada_en": "2026-11-07T01:49:10+00:00",
       "serie_primera_fecha": "2017-01-01",
       "serie_ultima_fecha": "2026-11-05",
       "serie_dias_con_dato": 3368,
@@ -147,7 +147,7 @@
       ],
       "prioridad": "critica",
       "serie_archivo": "data/estaciones/senamhi-104079-mallares.json",
-      "serie_actualizada_en": "2026-11-07T00:51:30+00:00",
+      "serie_actualizada_en": "2026-11-07T01:49:09+00:00",
       "serie_primera_fecha": "2017-10-01",
       "serie_ultima_fecha": "2026-11-05",
       "serie_dias_con_dato": 2226,
@@ -190,7 +190,7 @@
       ],
       "prioridad": "critica",
       "serie_archivo": "data/estaciones/senamhi-104084-partidor.json",
-      "serie_actualizada_en": "2026-11-07T00:51:30+00:00",
+      "serie_actualizada_en": "2026-11-07T01:49:10+00:00",
       "serie_primera_fecha": "2017-01-01",
       "serie_ultima_fecha": "2026-11-05",
       "serie_dias_con_dato": 3478,
@@ -254,7 +254,7 @@
       ],
       "prioridad": "critica",
       "serie_archivo": "data/estaciones/senamhi-105063-san-miguel.json",
-      "serie_actualizada_en": "2026-11-07T00:51:30+00:00",
+      "serie_actualizada_en": "2026-11-07T01:49:11+00:00",
       "serie_primera_fecha": "2017-01-01",
       "serie_ultima_fecha": "2026-10-22",
       "serie_dias_con_dato": 2711,
@@ -304,7 +304,7 @@
       ],
       "prioridad": "critica",
       "serie_archivo": "data/estaciones/senamhi-105070-chulucanas.json",
-      "serie_actualizada_en": "2026-11-07T00:51:30+00:00",
+      "serie_actualizada_en": "2026-11-07T01:49:08+00:00",
       "serie_primera_fecha": "2017-03-01",
       "serie_ultima_fecha": "2026-11-05",
       "serie_dias_con_dato": 3435,
@@ -347,7 +347,7 @@
       ],
       "prioridad": "critica",
       "serie_archivo": "data/estaciones/senamhi-105012-bernal.json",
-      "serie_actualizada_en": "2026-11-07T00:51:30+00:00",
+      "serie_actualizada_en": "2026-11-07T01:49:08+00:00",
       "serie_primera_fecha": "2017-07-01",
       "serie_ultima_fecha": "2026-11-05",
       "serie_dias_con_dato": 3405,
@@ -377,7 +377,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -409,7 +409,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-103038-puerto-pizarro.json",
+      "serie_actualizada_en": "2026-11-07T01:49:11+00:00",
+      "serie_primera_fecha": "2018-02-14",
+      "serie_ultima_fecha": "2026-11-05",
+      "serie_dias_con_dato": 2401,
+      "serie_pct_faltantes": 25.01,
+      "serie_anos_completos": 4,
+      "serie_sha256_origen": "2e32517e25051e2e6e2d99e83e046c8cae5b7d205d8bcabd6421dcc5bdbc95fc"
     },
     {
       "id": "senamhi-105100-miraflores",
@@ -433,7 +441,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -465,7 +473,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-105100-miraflores.json",
+      "serie_actualizada_en": "2026-11-07T01:49:10+00:00",
+      "serie_primera_fecha": "2019-08-01",
+      "serie_ultima_fecha": "2026-09-30",
+      "serie_dias_con_dato": 1806,
+      "serie_pct_faltantes": 31.13,
+      "serie_anos_completos": 3,
+      "serie_sha256_origen": "366d34e3b623d0cee890d82da54d8ef16e95ee4ee2fcd6b409e3cde318122e58"
     },
     {
       "id": "senamhi-103041-el-salto",
@@ -489,7 +505,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -514,7 +530,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-103041-el-salto.json",
+      "serie_actualizada_en": "2026-11-07T01:49:09+00:00",
+      "serie_primera_fecha": "2022-02-01",
+      "serie_ultima_fecha": "2026-09-30",
+      "serie_dias_con_dato": 1536,
+      "serie_pct_faltantes": 14.33,
+      "serie_anos_completos": 3,
+      "serie_sha256_origen": "3e21fa6590410b7fad1409df86d68a7d34233fb3141e6b94d547e6d9a04e62be"
     },
     {
       "id": "senamhi-47E024BC-puente-tumbes",
@@ -538,7 +562,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -570,7 +594,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-47E024BC-puente-tumbes.json",
+      "serie_actualizada_en": "2026-11-07T01:49:11+00:00",
+      "serie_primera_fecha": "2021-08-01",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 1736,
+      "serie_pct_faltantes": 9.82,
+      "serie_anos_completos": 2,
+      "serie_sha256_origen": "a7bae191e01724911addbbb88336b5b321bb17a5d362c9612626fce5ef10d83c"
     },
     {
       "id": "senamhi-47E0415A-puente-nacara",
@@ -594,7 +626,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -612,7 +644,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-47E0415A-puente-nacara.json",
+      "serie_actualizada_en": "2026-11-07T01:49:10+00:00",
+      "serie_primera_fecha": "2021-07-01",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 1533,
+      "serie_pct_faltantes": 21.59,
+      "serie_anos_completos": 1,
+      "serie_sha256_origen": "9992c1230cdceda8d8e568d97f94ff616d0a3e7b7d0fca34249a4c0c4c5f3804"
     },
     {
       "id": "senamhi-103008-matapalo",
@@ -636,7 +676,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -654,7 +694,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-103008-matapalo.json",
+      "serie_actualizada_en": "2026-11-07T01:49:09+00:00",
+      "serie_primera_fecha": "2022-07-01",
+      "serie_ultima_fecha": "2026-09-30",
+      "serie_dias_con_dato": 1516,
+      "serie_pct_faltantes": 2.38,
+      "serie_anos_completos": 3,
+      "serie_sha256_origen": "394f879aaa952aef40a5ed27257ee8b3132d5bf0abf1c3c3722df0d7f76950f2"
     },
     {
       "id": "senamhi-105112-miraflores",
@@ -678,7 +726,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -710,7 +758,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-105112-miraflores.json",
+      "serie_actualizada_en": "2026-11-07T01:49:10+00:00",
+      "serie_primera_fecha": "2021-05-11",
+      "serie_ultima_fecha": "2026-11-05",
+      "serie_dias_con_dato": 394,
+      "serie_pct_faltantes": 80.35,
+      "serie_anos_completos": 0,
+      "serie_sha256_origen": "fc020c9730667315e48fa769f919daeb24f8a1e04ddd4e0a0dcf94543eab2c49"
     },
     {
       "id": "senamhi-472EF2D8-campamento-sede",
@@ -734,7 +790,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -773,7 +829,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-472EF2D8-campamento-sede.json",
+      "serie_actualizada_en": "2026-11-07T01:49:08+00:00",
+      "serie_primera_fecha": "2021-11-01",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 1711,
+      "serie_pct_faltantes": 6.6,
+      "serie_anos_completos": 2,
+      "serie_sha256_origen": "2b31e460ac3495344cbd64171601d4b550844ff726320e274b19ec72619478f0"
     },
     {
       "id": "senamhi-472F353C-matapalo",
@@ -797,7 +861,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -815,7 +879,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-472F353C-matapalo.json",
+      "serie_actualizada_en": "2026-11-07T01:49:10+00:00",
+      "serie_primera_fecha": "2022-09-01",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 1528,
+      "serie_pct_faltantes": 0,
+      "serie_anos_completos": 3,
+      "serie_sha256_origen": "4bc1e7e1a47171d9a96ea44fa917726dc2ca7384684c14d5285b4d77c858983e"
     },
     {
       "id": "senamhi-472F6540-chulucanas",
@@ -839,7 +911,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -857,7 +929,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-472F6540-chulucanas.json",
+      "serie_actualizada_en": "2026-11-07T01:49:09+00:00",
+      "serie_primera_fecha": "2021-12-01",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 1799,
+      "serie_pct_faltantes": 0.17,
+      "serie_anos_completos": 4,
+      "serie_sha256_origen": "836246999ec7f39864ab90301d879e7f7e73711efca65e67df2686bab66895f3"
     },
     {
       "id": "senamhi-47E0522C-tambo-grande",
@@ -881,7 +961,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -892,7 +972,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-47E0522C-tambo-grande.json",
+      "serie_actualizada_en": "2026-11-07T01:49:11+00:00",
+      "serie_primera_fecha": "2021-12-01",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 1802,
+      "serie_pct_faltantes": 0,
+      "serie_anos_completos": 4,
+      "serie_sha256_origen": "aae710b2193531f169a1b8f3228def69773ed97ffe815da0e027af6e7c78d671"
     },
     {
       "id": "senamhi-104109-el-chira",
@@ -916,7 +1004,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -927,7 +1015,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-104109-el-chira.json",
+      "serie_actualizada_en": "2026-11-07T01:49:09+00:00",
+      "serie_primera_fecha": "2023-06-01",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 1091,
+      "serie_pct_faltantes": 13.07,
+      "serie_anos_completos": 1,
+      "serie_sha256_origen": "b13c34ade4bd5ec61f50921392db54b2e0200b7c31a8aab1efc2a38a052d4263"
     },
     {
       "id": "senamhi-210503-puente-eguiguren",
@@ -951,7 +1047,7 @@
       "nota_catalogo": "No figura en el listado SENAMHI de 2026-10-27; no confirma una baja oficial. La ficha anuncia periodos; no se verificaron observaciones en tablas.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -983,7 +1079,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-210503-puente-eguiguren.json",
+      "serie_actualizada_en": "2026-11-07T01:49:10+00:00",
+      "serie_primera_fecha": "2024-01-03",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 880,
+      "serie_pct_faltantes": 15.3,
+      "serie_anos_completos": 1,
+      "serie_sha256_origen": "c025eb0d3c8502492ce2c9d01ef683fec1be05636b1515c7d6314720dec5b48b"
     },
     {
       "id": "senamhi-105143-san-miguel",
@@ -1007,7 +1111,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -1039,7 +1143,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-105143-san-miguel.json",
+      "serie_actualizada_en": "2026-11-07T01:49:11+00:00",
+      "serie_primera_fecha": "2024-11-15",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 710,
+      "serie_pct_faltantes": 1.66,
+      "serie_anos_completos": 1,
+      "serie_sha256_origen": "a0019b39caaae7df4445f2bc435830b5efb811df0265cb036fc0ed6ea14ec090"
     },
     {
       "id": "senamhi-103068-puerto-pizarro",
@@ -1063,7 +1175,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -1095,7 +1207,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-103068-puerto-pizarro.json",
+      "serie_actualizada_en": "2026-11-07T01:49:11+00:00",
+      "serie_primera_fecha": "2025-10-30",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 373,
+      "serie_pct_faltantes": 0,
+      "serie_anos_completos": 0,
+      "serie_sha256_origen": "aae87874c83873ab314cffecc025534289fc1c27e7acb285a648d537475e6312"
     },
     {
       "id": "senamhi-104113-partidor",
@@ -1119,7 +1239,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -1130,7 +1250,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-104113-partidor.json",
+      "serie_actualizada_en": "2026-11-07T01:49:10+00:00",
+      "serie_primera_fecha": "2025-10-10",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 393,
+      "serie_pct_faltantes": 0,
+      "serie_anos_completos": 0,
+      "serie_sha256_origen": "081faa4a8462b8c3137b046c765cf0ec53cd8448f8bfd2fb952e18e4698827dc"
     },
     {
       "id": "senamhi-105144-bernal",
@@ -1154,7 +1282,7 @@
       "nota_catalogo": "Listado de meses anunciados aún no determinado.",
       "fuente_catalogo": "SENAMHI (catálogo de estaciones vía Garúa)",
       "licencia_catalogo": "Por confirmar: el SENAMHI no publica licencia de reutilización conocida",
-      "serie_cargada": false,
+      "serie_cargada": true,
       "verificado": false,
       "asignaciones": [
         {
@@ -1165,7 +1293,15 @@
           "metodo": "radio_25km_altitud_500m"
         }
       ],
-      "prioridad": "alta"
+      "prioridad": "alta",
+      "serie_archivo": "data/estaciones/senamhi-105144-bernal.json",
+      "serie_actualizada_en": "2026-11-07T01:49:08+00:00",
+      "serie_primera_fecha": "2025-10-08",
+      "serie_ultima_fecha": "2026-11-06",
+      "serie_dias_con_dato": 395,
+      "serie_pct_faltantes": 0,
+      "serie_anos_completos": 0,
+      "serie_sha256_origen": "6392b5bf589f1b6816e54423cd3ed58d3f1d5f1ed2b24ff4eff9b90b6ef50a35"
     },
     {
       "id": "senamhi-270500-muelle-lago",

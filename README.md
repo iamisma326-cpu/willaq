@@ -307,18 +307,23 @@ ejecutables: [`docs/API.md`](docs/API.md).
 | Open-Meteo Archive (ERA5) | Climatología e histórico 2017/2023 | Gratis |
 | NASA GIBS | Capas satelitales opcionales | Gratis |
 | SENAMHI — catálogo y series diarias | Registro de 103 estaciones y series históricas (ingesta con Garúa) | Gratis, sin licencia de reutilización declarada |
+| INEI — población proyectada por distrito | Población oficial de los 29 distritos (overlay) | Gratis |
 | SENAMHI / ENFEN / INDECI | Referencia y protocolos | — |
 | OpenStreetMap / CARTO | Mapa base opcional | — |
 
-La exposición (población, colegios, centros de salud) del piloto es una
-**estimación de referencia** marcada como tal. El importador CSV desde INEI,
-MINEDU y MINSA está construido (`scripts/importar_exposicion.php`) y escribe un
-overlay con procedencia por campo; falta cargar los CSV oficiales.
+La exposición es **mixta y lo declara campo por campo**: la **población** es
+oficial del INEI (proyección al 30/06/2026, con sha256 del archivo en
+`datos/oficial/`); **viviendas, colegios y centros de salud** siguen siendo
+estimación del catálogo porque ESCALE y RENIPRESS bloquean la descarga
+automatizada. La fracción expuesta siempre es estimada. El importador CSV
+(`scripts/importar_exposicion.php`) escribe un overlay con procedencia por
+campo y el catálogo base nunca se pisa.
 
-Las series de estaciones son **fase 1**: registro, descarga real con Garúa,
-normalización y QA. El motor de riesgo **todavía no las usa**
-(`motor_usa_estaciones = false`): la fase 2 está bloqueada hasta medir falsos
-positivos en el backtest.
+Las series de estaciones son **fase 1**: registro de 103 estaciones, **23
+series reales** descargadas con Garúa (2017–2026), normalización y QA. El motor
+de riesgo **todavía no las usa** (`motor_usa_estaciones = false`): 4 de las 23
+cumplen los criterios medibles y 0 están habilitadas, porque la fase 2 exige
+medir falsos positivos en el backtest.
 
 ---
 

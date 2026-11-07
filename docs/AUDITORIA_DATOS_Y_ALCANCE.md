@@ -21,8 +21,11 @@
 >    [`database/README_POSTGRESQL.md`](../database/README_POSTGRESQL.md).
 > 2. **Exposición oficial (secciones 1 y 4).** El importador CSV está
 >    **construido** (`scripts/importar_exposicion.php`) con overlay y
->    procedencia por campo. Lo que falta es **cargar los CSV oficiales**: sin
->    overlay, los totales siguen siendo estimación.
+>    procedencia por campo, y la **población ya es oficial**: se descargó el
+>    XLSX del INEI (proyecciones distritales 2018-2026, sha256
+>    `9436df29…d90d5c8b`), se.crossó con los 29 ubigeos del catálogo y se
+>    aplicó el overlay. `viviendas`, `escuelas` y `centros_salud` **siguen
+>    estimadas** porque ESCALE y RENIPRESS bloquean la descarga automatizada.
 > 3. **Estaciones (secciones 1, 4 y 6).** La **fase 1** está **ejecutada**:
 >    registro de 103 estaciones del catálogo SENAMHI, descarga real con Garúa,
 >    series normalizadas con QA y cobertura en el panel admin. El **motor de
@@ -70,9 +73,9 @@ El proyecto no es una maqueta estática. Tiene:
 - 10 documentos técnicos, incluida la validación histórica y la metodología.
 
 Lo que **no** hay todavía: **el motor de riesgo no usa las estaciones** (fase 2
-bloqueada por compuerta), **ningún CSV oficial de exposición cargado** (el
-importador existe, el overlay está vacío), capas oficiales de peligro de
-CENEPRED/INDECI, nowcast en tiempo real, ni alertas oficiales.
+bloqueada por compuerta), **viviendas, colegios y centros de salud oficiales**
+(ESCALE y RENIPRESS bloquean la descarga automatizada), capas oficiales de
+peligro de CENEPRED/INDECI, nowcast en tiempo real, ni alertas oficiales.
 
 ---
 
@@ -172,19 +175,22 @@ Es mixto, y el propio proyecto lo declara en `config/territorios.json`:
 | Caudal de río | **Sí** | GloFAS 5 km. |
 | Climatología p50/p95/p99 | **Sí** | ERA5 2015–2025, ventana ±15 días. |
 | Histórico 2017/2017–18/2023 | **Sí** | ERA5 Archive real. |
-| Población, viviendas, colegios, centros de salud | **Estimación (sin overlay)** | Valores plausibles del catálogo piloto. El importador oficial existe; mientras no se carguen los CSV, no hay fuente ni año por campo. |
+| Población | **Oficial (parcial)** | Proyección total al 30/06/2026 del INEI para los 29 distritos, con sha256 del XLSX. Es una **proyección**, no un censo. |
+| Viviendas, colegios, centros de salud | **Estimación** | Valores del catálogo piloto. ESCALE y RENIPRESS bloquean la descarga automatizada (anti-bot / WAF); siguen marcados como estimados. |
 | Kilómetros de vías, hectáreas de cultivo | **No** | Estimaciones. |
 | Vulnerabilidad y susceptibilidad | **No** | Calibradas a mano con inventario histórico, no son capa oficial. |
 | Capacidad de albergues | **No** | Estimación. |
-| Alertas/recomendaciones | **Generadas** | 16 alertas derivadas del snapshot; `emitida_por: Sistema · WILLAQ`. |
+| Alertas/recomendaciones | **Generadas** | 22 alertas derivadas del snapshot; `emitida_por: Sistema · WILLAQ`. |
 | Simulador climático/evacuación/reubicación | **Simulado** | Factores artificiales de lluvia, temperatura y caudal. |
 | Evaluador de sitios (ISE) | **Heurístico** | Usa susceptibilidad distrital y distancia; no es un mapa parcelario de peligro. |
-| Estaciones SENAMHI/ANA | **Fase 1: serie real · motor: no** | 103 estaciones en el registro, 6 series críticas (2017–2026) normalizadas con QA. El motor sigue en ERA5 (`motor_usa_estaciones = false`). |
+| Estaciones SENAMHI/ANA | **Fase 1: serie real · motor: no** | 103 estaciones en el registro, **23 series reales** (2017–2026) normalizadas con QA. El motor sigue en ERA5 (`motor_usa_estaciones = false`). |
 
-Los valores de población son plausibles y del orden censal, pero **no están
-trazados a un archivo oficial**. No se puede decir “población oficial INEI” en
-la feria: sería falso. Se puede decir “estimación de referencia, reemplazable
-por CSV oficial con `scripts/importar_exposicion.php`”.
+Los valores de población de la versión original de esta auditoría eran
+estimaciones del catálogo. Hoy **la población es oficial**: se aplicó el
+overlay con la proyección distrital del INEI (2026). Lo que sigue siendo
+estimación son las **viviendas, los colegios y los centros de salud**, y la
+**fracción expuesta** en todos los casos. Cada pantalla dice qué campo es
+oficial y cuál no.
 
 La exposición oficial tiene ya separadas las dos piezas que importan:
 
@@ -244,9 +250,9 @@ El registro está en `config/estaciones.json` y el reporte QA en
   en vivo.”
 - “El motor calcula riesgo con una fórmula reproducible y un backtest de
   18 casos.”
-- “La exposición es una estimación declarada, no un dato oficial.” El
-  importador oficial existe y está listo para cargar los CSV; hoy no hay
-  overlay aplicado.
+- “La exposición es una estimación declarada, no un dato oficial.” → Ahora es
+  **mixta y declarada campo por campo**: la población es oficial del INEI; las
+  viviendas, los colegios y los centros de salud siguen siendo estimación.
 - “El sistema funciona sin internet con snapshots precalculados.”
 - “Descargamos series reales del SENAMHI con Garúa, las auditamos y las
   dejamos listas; el motor todavía no las usa.”
@@ -255,8 +261,9 @@ El registro está en `config/estaciones.json` y el reporte QA en
 **No defendible:**
 
 - “Es tiempo real.” → No lo es; es snapshot + caché por hora.
-- “Usa datos oficiales de INEI/MINEDU/MINSA.” → El importador está listo, pero
-  **no hay CSV cargados**: los totales siguen siendo estimación.
+- “Usa datos oficiales de INEI/MINEDU/MINSA.” → **Parcial**: la población sí
+  es oficial del INEI (proyección 2026, verificada por sha256). Colegios y
+  centros de salud no: esos portales bloquean la descarga automatizada.
 - “Integra estaciones SENAMHI/ANA en el motor.” → Fase 1 sí (registro, series,
   QA); fase 2 **no**: `motor_usa_estaciones = false`.
 - “Tiene base de datos.” → Esta ya **sí** es defendible: PostgreSQL `willaq_db`
@@ -337,10 +344,11 @@ php -r 'require "models/Estacion.php"; $r=estacion_resumen();
 
 WILLAQ es un prototipo funcional con **datos meteorológicos reales de
 Open-Meteo**, **series reales de estaciones del SENAMHI en fase 1**,
-**exposición estimada** (con importador oficial listo), **snapshots
-actualizables a mano** y **PostgreSQL activa con respaldo JSON**. No es un
-servicio operativo en tiempo real, el motor no usa todavía las estaciones y la
-exposición sigue sin overlay oficial: así debe presentarse.
+**población oficial del INEI** (el resto de la exposición sigue estimado),
+**snapshots actualizables a mano** y **PostgreSQL activa con respaldo JSON**.
+No es un servicio operativo en tiempo real, el motor no usa todavía las
+estaciones y la fracción expuesta sigue siendo una estimación: así debe
+presentarse.
 
 ---
 

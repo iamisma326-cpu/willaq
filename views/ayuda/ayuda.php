@@ -309,12 +309,24 @@ $secciones = [
                 <div class="wq-panel-dark p-4">
                     <div class="wq-eyebrow mb-2">Exposición y territorio</div>
                     <p class="text-[0.72rem] text-slate-400 leading-relaxed">
-                        Población, viviendas, colegios, centros de salud y hectáreas de cultivo son
-                        <strong class="text-slate-200">estimaciones de referencia</strong> marcadas con
-                        <span class="wq-kbd">fuente_exposicion: estimacion_ratio_poblacional</span>.
-                        El diseño contempla un importador CSV desde INEI, MINEDU y MINSA; el piloto no
-                        incluye todavía esos padrones oficiales.
+                        <?= e(exposicion_texto_breve()) ?>
                     </p>
+                    <?php $expEstado = exposicion_campos_estado(); ?>
+                    <?php if ($expEstado['estado'] !== 'estimada'): ?>
+                        <p class="text-[0.68rem] text-slate-500 mt-2 leading-relaxed">
+                            La procedencia se declara <strong class="text-slate-300">campo por campo</strong>
+                            en cada ficha, con fuente, año y <span class="wq-kbd">sha256</span> del archivo
+                            de origen. El overlay se aplica con
+                            <span class="wq-kbd">scripts/importar_exposicion.php --aplicar</span> y nunca
+                            reescribe el catálogo base.
+                        </p>
+                    <?php else: ?>
+                        <p class="text-[0.68rem] text-slate-500 mt-2 leading-relaxed">
+                            El importador <span class="wq-kbd">scripts/importar_exposicion.php</span>
+                            escribe un overlay con procedencia por campo cuando se cargan los padrones
+                            oficiales de INEI, MINEDU y MINSA; el catálogo base nunca se reescribe.
+                        </p>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
@@ -468,11 +480,17 @@ $secciones = [
                 <i class="fa-solid fa-triangle-exclamation text-risk-yellow/70"></i>
             </div>
             <div class="wq-card__body space-y-3">
+                <?php
+                // El límite de exposición se redacta desde el overlay cargado:
+                // si mañana se aplican colegios y centros de salud oficiales,
+                // esta línea cambia sola (y no se queda mintiendo).
+                $limiteExposicion = exposicion_texto_limite();
+                ?>
                 <?php foreach ([
                     ['No emite alertas oficiales.', 'Entrega recomendaciones de apoyo a la decisión. La alerta oficial corresponde a SENAMHI, INDECI y ENFEN.'],
                     ['No predice terremotos ni erupciones.', 'El alcance es hidrometeorológico: lluvia, inundación, huaico, sequía, calor y agro.'],
                     ['No reemplaza un estudio de suelos.', 'El ISE es un filtro previo de aptitud, no un informe de mecánica de suelos ni un estudio de riesgo.'],
-                    ['No usa datos de población oficiales todavía.', 'La exposición es una estimación de referencia, marcada como tal en cada ficha.'],
+                    [$limiteExposicion[0], $limiteExposicion[1]],
                     ['No es tiempo real en modo offline.', 'Cuando se activa el modo feria, la interfaz lo advierte de forma visible.'],
                     ['No tiene cobertura nacional completa.', 'El piloto cubre 29 distritos de 7 regiones; el catálogo es ampliable con el mismo formato JSON.'],
                     ['No sustituye al COE.', 'Es una capa de inteligencia que alimenta la decisión humana, no un sistema de mando.'],

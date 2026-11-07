@@ -1,0 +1,5593 @@
+{
+    "_meta": {
+        "descripcion": "Serie diaria normalizada de una estación hidrometeorológica del SENAMHI, con su reporte QA.",
+        "version": "1.0",
+        "generado_en": "2026-11-07T01:49:10+00:00",
+        "generado_por": "scripts/importar_estaciones.php",
+        "estacion_id": "senamhi-210503-puente-eguiguren",
+        "estacion_cod": "210503",
+        "estacion_nombre": "PUENTE EGUIGUREN",
+        "tipo": "H",
+        "categoria": "EHA",
+        "lat": -5.18792,
+        "lon": -80.625,
+        "altitud_msnm": 33,
+        "departamento": "PIURA",
+        "provincia": "PIURA",
+        "formato": "hidrologica_automatica",
+        "zona_horaria": "America/Lima",
+        "fuente": "SENAMHI — serie diaria descargada con Garúa (https://github.com/danyneyra/garua)",
+        "licencia": "El SENAMHI no publica una licencia de reutilización conocida; se cita la fuente y no se redistribuye como dominio público.",
+        "archivos_origen": [
+            {
+                "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Puenteeguiguren_210503_H_EHA/PuenteEguiguren-2017-2026.csv",
+                "sha256": "c025eb0d3c8502492ce2c9d01ef683fec1be05636b1515c7d6314720dec5b48b",
+                "formato": "hidrologica_automatica",
+                "bytes": 510757
+            }
+        ],
+        "variables": [
+            "nivel_rio_m"
+        ],
+        "advertencia": "Fase 1: serie normalizada y auditada. El motor de riesgo NO la usa todavía (motor_usa_estaciones=false).",
+        "motor_usa_estaciones": false,
+        "fase": 1
+    },
+    "rango": {
+        "primera": "2024-01-03",
+        "ultima": "2026-11-06"
+    },
+    "qa": {
+        "filas_leidas": 21862,
+        "filas_rechazadas": 0,
+        "duplicados_exactos": 0,
+        "duplicados_compatibles": 0,
+        "duplicados_conflictivos": 0,
+        "duplicados_hora": 0,
+        "valores_sd": 23072,
+        "valores_traza": 0,
+        "valores_centinela": 0,
+        "valores_negativos": 0,
+        "valores_no_numericos": 0,
+        "valores_sospechosos": [],
+        "rechazos": [],
+        "archivos": [
+            {
+                "ruta": "/home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv/Puenteeguiguren_210503_H_EHA/PuenteEguiguren-2017-2026.csv",
+                "sha256": "c025eb0d3c8502492ce2c9d01ef683fec1be05636b1515c7d6314720dec5b48b",
+                "formato": "hidrologica_automatica",
+                "bytes": 510757
+            }
+        ],
+        "formato": "hidrologica_automatica",
+        "variable_cobertura": "nivel_rio_m",
+        "primera_fecha": "2024-01-03",
+        "ultima_fecha": "2026-11-06",
+        "dias_calendario": 1039,
+        "dias_con_dato": 880,
+        "dias_con_precip": 0,
+        "dias_con_traza": 0,
+        "dias_con_temp": 0,
+        "dias_con_nivel_rio": 880,
+        "dias_faltantes": 159,
+        "pct_dias_faltantes": 15.3,
+        "anos_calendario": 3,
+        "anos_completos": 1,
+        "anos_span": 2.84,
+        "anos_cobertura": 3,
+        "cobertura_por_anio": {
+            "2024": {
+                "esperados": 366,
+                "con_precip": 0,
+                "con_traza": 0,
+                "con_nivel": 242,
+                "con_temp": 0,
+                "dias_con_dato": 242,
+                "dias_esperados": 366,
+                "pct_faltantes": 33.88,
+                "completo": false
+            },
+            "2025": {
+                "esperados": 365,
+                "con_precip": 0,
+                "con_traza": 0,
+                "con_nivel": 365,
+                "con_temp": 0,
+                "dias_con_dato": 365,
+                "dias_esperados": 365,
+                "pct_faltantes": 0,
+                "completo": true
+            },
+            "2026": {
+                "esperados": 365,
+                "con_precip": 0,
+                "con_traza": 0,
+                "con_nivel": 273,
+                "con_temp": 0,
+                "dias_con_dato": 273,
+                "dias_esperados": 365,
+                "pct_faltantes": 11.94,
+                "completo": false
+            }
+        },
+        "huecos": [
+            {
+                "desde": "2024-01-03",
+                "dias": 21
+            },
+            {
+                "desde": "2024-08-03",
+                "dias": 101
+            },
+            {
+                "desde": "2026-10-01",
+                "dias": 37
+            }
+        ],
+        "hueco_max_dias": 101,
+        "fechas_conflicto": [],
+        "compuerta": {
+            "anios_minimos": 10,
+            "faltantes_max_pct": 10,
+            "requiere_backtest": true,
+            "cumple_medible": false,
+            "nota": "La estación no mide precipitación; la compuerta de la fase 2 no aplica a esta serie."
+        }
+    },
+    "datos": [
+        {
+            "fecha": "2024-01-03"
+        },
+        {
+            "fecha": "2024-01-04"
+        },
+        {
+            "fecha": "2024-01-05"
+        },
+        {
+            "fecha": "2024-01-06"
+        },
+        {
+            "fecha": "2024-01-07"
+        },
+        {
+            "fecha": "2024-01-08"
+        },
+        {
+            "fecha": "2024-01-09"
+        },
+        {
+            "fecha": "2024-01-10"
+        },
+        {
+            "fecha": "2024-01-11"
+        },
+        {
+            "fecha": "2024-01-12"
+        },
+        {
+            "fecha": "2024-01-13"
+        },
+        {
+            "fecha": "2024-01-14"
+        },
+        {
+            "fecha": "2024-01-15"
+        },
+        {
+            "fecha": "2024-01-16"
+        },
+        {
+            "fecha": "2024-01-17"
+        },
+        {
+            "fecha": "2024-01-18"
+        },
+        {
+            "fecha": "2024-01-19"
+        },
+        {
+            "fecha": "2024-01-20"
+        },
+        {
+            "fecha": "2024-01-21"
+        },
+        {
+            "fecha": "2024-01-22"
+        },
+        {
+            "fecha": "2024-01-23"
+        },
+        {
+            "fecha": "2024-01-24",
+            "nivel_rio_m": 25.27,
+            "nivel_rio_max_m": 118.96,
+            "nivel_rio_lecturas": 8
+        },
+        {
+            "fecha": "2024-01-25",
+            "nivel_rio_m": 11.882,
+            "nivel_rio_max_m": 11.91,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-01-26",
+            "nivel_rio_m": 11.888,
+            "nivel_rio_max_m": 11.91,
+            "nivel_rio_lecturas": 23
+        },
+        {
+            "fecha": "2024-01-27",
+            "nivel_rio_m": 11.882,
+            "nivel_rio_max_m": 11.9,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-01-28",
+            "nivel_rio_m": 11.882,
+            "nivel_rio_max_m": 11.9,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-01-29",
+            "nivel_rio_m": 11.886,
+            "nivel_rio_max_m": 11.91,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-01-30",
+            "nivel_rio_m": 11.885,
+            "nivel_rio_max_m": 11.9,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-01-31",
+            "nivel_rio_m": 17.594,
+            "nivel_rio_max_m": 22.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-01",
+            "nivel_rio_m": 22.43,
+            "nivel_rio_max_m": 22.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-02",
+            "nivel_rio_m": 22.428,
+            "nivel_rio_max_m": 22.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-03",
+            "nivel_rio_m": 22.429,
+            "nivel_rio_max_m": 22.44,
+            "nivel_rio_lecturas": 19
+        },
+        {
+            "fecha": "2024-02-04",
+            "nivel_rio_m": 22.468,
+            "nivel_rio_max_m": 22.63,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-05",
+            "nivel_rio_m": 22.654,
+            "nivel_rio_max_m": 22.74,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-06",
+            "nivel_rio_m": 22.925,
+            "nivel_rio_max_m": 23.13,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-07",
+            "nivel_rio_m": 22.919,
+            "nivel_rio_max_m": 22.96,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-08",
+            "nivel_rio_m": 22.952,
+            "nivel_rio_max_m": 23.02,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-09",
+            "nivel_rio_m": 22.912,
+            "nivel_rio_max_m": 22.98,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-10",
+            "nivel_rio_m": 22.888,
+            "nivel_rio_max_m": 22.92,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-11",
+            "nivel_rio_m": 22.863,
+            "nivel_rio_max_m": 22.94,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-12",
+            "nivel_rio_m": 22.752,
+            "nivel_rio_max_m": 22.88,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-13",
+            "nivel_rio_m": 22.799,
+            "nivel_rio_max_m": 22.88,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-14",
+            "nivel_rio_m": 22.84,
+            "nivel_rio_max_m": 23.07,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-15",
+            "nivel_rio_m": 22.692,
+            "nivel_rio_max_m": 22.81,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-16",
+            "nivel_rio_m": 22.638,
+            "nivel_rio_max_m": 22.79,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-17",
+            "nivel_rio_m": 22.445,
+            "nivel_rio_max_m": 22.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-18",
+            "nivel_rio_m": 22.482,
+            "nivel_rio_max_m": 22.66,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-19",
+            "nivel_rio_m": 22.494,
+            "nivel_rio_max_m": 22.67,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-20",
+            "nivel_rio_m": 23.143,
+            "nivel_rio_max_m": 25.38,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-21",
+            "nivel_rio_m": 26.003,
+            "nivel_rio_max_m": 26.29,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-22",
+            "nivel_rio_m": 25.272,
+            "nivel_rio_max_m": 25.76,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-23",
+            "nivel_rio_m": 25.365,
+            "nivel_rio_max_m": 25.88,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-24",
+            "nivel_rio_m": 24.498,
+            "nivel_rio_max_m": 25.08,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-25",
+            "nivel_rio_m": 24.046,
+            "nivel_rio_max_m": 24.3,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-26",
+            "nivel_rio_m": 23.922,
+            "nivel_rio_max_m": 24.19,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-27",
+            "nivel_rio_m": 23.963,
+            "nivel_rio_max_m": 24.21,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-28",
+            "nivel_rio_m": 23.678,
+            "nivel_rio_max_m": 23.78,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-02-29",
+            "nivel_rio_m": 23.544,
+            "nivel_rio_max_m": 23.63,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-01",
+            "nivel_rio_m": 23.844,
+            "nivel_rio_max_m": 24.81,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-02",
+            "nivel_rio_m": 24.338,
+            "nivel_rio_max_m": 24.7,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-03",
+            "nivel_rio_m": 24.156,
+            "nivel_rio_max_m": 24.98,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-04",
+            "nivel_rio_m": 24.292,
+            "nivel_rio_max_m": 25.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-05",
+            "nivel_rio_m": 23.867,
+            "nivel_rio_max_m": 24,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-06",
+            "nivel_rio_m": 23.748,
+            "nivel_rio_max_m": 23.9,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-07",
+            "nivel_rio_m": 23.554,
+            "nivel_rio_max_m": 23.62,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-08",
+            "nivel_rio_m": 23.423,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-09",
+            "nivel_rio_m": 23.314,
+            "nivel_rio_max_m": 23.38,
+            "nivel_rio_lecturas": 21
+        },
+        {
+            "fecha": "2024-03-10",
+            "nivel_rio_m": 23.143,
+            "nivel_rio_max_m": 23.16,
+            "nivel_rio_lecturas": 3
+        },
+        {
+            "fecha": "2024-03-11",
+            "nivel_rio_m": 23.14,
+            "nivel_rio_max_m": 23.23,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-12",
+            "nivel_rio_m": 23.085,
+            "nivel_rio_max_m": 23.15,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-13",
+            "nivel_rio_m": 23.032,
+            "nivel_rio_max_m": 23.12,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-14",
+            "nivel_rio_m": 22.955,
+            "nivel_rio_max_m": 23.03,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-15",
+            "nivel_rio_m": 22.886,
+            "nivel_rio_max_m": 23.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-16",
+            "nivel_rio_m": 22.819,
+            "nivel_rio_max_m": 22.94,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-17",
+            "nivel_rio_m": 22.818,
+            "nivel_rio_max_m": 22.85,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-18",
+            "nivel_rio_m": 22.663,
+            "nivel_rio_max_m": 22.83,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-19",
+            "nivel_rio_m": 22.437,
+            "nivel_rio_max_m": 22.64,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-20",
+            "nivel_rio_m": 22.245,
+            "nivel_rio_max_m": 22.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-21",
+            "nivel_rio_m": 22.044,
+            "nivel_rio_max_m": 22.05,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-22",
+            "nivel_rio_m": 22.041,
+            "nivel_rio_max_m": 22.05,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-23",
+            "nivel_rio_m": 22.837,
+            "nivel_rio_max_m": 23.24,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-24",
+            "nivel_rio_m": 23.129,
+            "nivel_rio_max_m": 23.41,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-25",
+            "nivel_rio_m": 22.783,
+            "nivel_rio_max_m": 23.13,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-26",
+            "nivel_rio_m": 22.593,
+            "nivel_rio_max_m": 22.72,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-27",
+            "nivel_rio_m": 22.455,
+            "nivel_rio_max_m": 22.66,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-28",
+            "nivel_rio_m": 22.395,
+            "nivel_rio_max_m": 22.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-29",
+            "nivel_rio_m": 22.269,
+            "nivel_rio_max_m": 22.37,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-30",
+            "nivel_rio_m": 22.255,
+            "nivel_rio_max_m": 22.36,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-03-31",
+            "nivel_rio_m": 22.218,
+            "nivel_rio_max_m": 22.34,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-01",
+            "nivel_rio_m": 22.008,
+            "nivel_rio_max_m": 22.03,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-02",
+            "nivel_rio_m": 22.006,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-03",
+            "nivel_rio_m": 22.007,
+            "nivel_rio_max_m": 22.02,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-04",
+            "nivel_rio_m": 22.007,
+            "nivel_rio_max_m": 22.02,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-05",
+            "nivel_rio_m": 22.262,
+            "nivel_rio_max_m": 22.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-06",
+            "nivel_rio_m": 22.224,
+            "nivel_rio_max_m": 22.38,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-07",
+            "nivel_rio_m": 22.111,
+            "nivel_rio_max_m": 22.39,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-08",
+            "nivel_rio_m": 22.217,
+            "nivel_rio_max_m": 22.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-09",
+            "nivel_rio_m": 22.213,
+            "nivel_rio_max_m": 22.35,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-10",
+            "nivel_rio_m": 22.076,
+            "nivel_rio_max_m": 22.21,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-11",
+            "nivel_rio_m": 22.041,
+            "nivel_rio_max_m": 22.15,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-12",
+            "nivel_rio_m": 22.033,
+            "nivel_rio_max_m": 22.18,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-13",
+            "nivel_rio_m": 22.005,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-14",
+            "nivel_rio_m": 22.022,
+            "nivel_rio_max_m": 22.13,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-15",
+            "nivel_rio_m": 22.013,
+            "nivel_rio_max_m": 22.09,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-16",
+            "nivel_rio_m": 22.005,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-17",
+            "nivel_rio_m": 22.02,
+            "nivel_rio_max_m": 22.17,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-18",
+            "nivel_rio_m": 22.025,
+            "nivel_rio_max_m": 22.17,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-19",
+            "nivel_rio_m": 22.004,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-20",
+            "nivel_rio_m": 22.003,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-21",
+            "nivel_rio_m": 22.003,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-22",
+            "nivel_rio_m": 21.994,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-23",
+            "nivel_rio_m": 22.009,
+            "nivel_rio_max_m": 22.03,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-24",
+            "nivel_rio_m": 22.055,
+            "nivel_rio_max_m": 22.26,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-25",
+            "nivel_rio_m": 22.03,
+            "nivel_rio_max_m": 22.09,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-26",
+            "nivel_rio_m": 22.027,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-27",
+            "nivel_rio_m": 22.025,
+            "nivel_rio_max_m": 22.07,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-28",
+            "nivel_rio_m": 22.034,
+            "nivel_rio_max_m": 22.12,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-29",
+            "nivel_rio_m": 22.015,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-04-30",
+            "nivel_rio_m": 22.014,
+            "nivel_rio_max_m": 22.03,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-01",
+            "nivel_rio_m": 22.067,
+            "nivel_rio_max_m": 22.27,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-02",
+            "nivel_rio_m": 21.981,
+            "nivel_rio_max_m": 22.02,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-03",
+            "nivel_rio_m": 21.977,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-04",
+            "nivel_rio_m": 21.98,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-05",
+            "nivel_rio_m": 21.988,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-06",
+            "nivel_rio_m": 22,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-07",
+            "nivel_rio_m": 21.999,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-08",
+            "nivel_rio_m": 22,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-09",
+            "nivel_rio_m": 21.998,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-10",
+            "nivel_rio_m": 21.995,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-11",
+            "nivel_rio_m": 21.993,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-12",
+            "nivel_rio_m": 21.991,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-13",
+            "nivel_rio_m": 21.992,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-14",
+            "nivel_rio_m": 21.992,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-15",
+            "nivel_rio_m": 21.993,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-16",
+            "nivel_rio_m": 21.992,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-17",
+            "nivel_rio_m": 21.987,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-18",
+            "nivel_rio_m": 21.989,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 17
+        },
+        {
+            "fecha": "2024-05-19",
+            "nivel_rio_m": 21.987,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-20",
+            "nivel_rio_m": 21.987,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-21",
+            "nivel_rio_m": 21.99,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-22",
+            "nivel_rio_m": 21.994,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-23",
+            "nivel_rio_m": 21.993,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-24",
+            "nivel_rio_m": 21.994,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-25",
+            "nivel_rio_m": 21.995,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-26",
+            "nivel_rio_m": 21.991,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-27",
+            "nivel_rio_m": 21.99,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-28",
+            "nivel_rio_m": 22.084,
+            "nivel_rio_max_m": 22.28,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-29",
+            "nivel_rio_m": 22.131,
+            "nivel_rio_max_m": 22.33,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-30",
+            "nivel_rio_m": 21.997,
+            "nivel_rio_max_m": 22.15,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-05-31",
+            "nivel_rio_m": 21.981,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-01",
+            "nivel_rio_m": 21.983,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-02",
+            "nivel_rio_m": 21.98,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-03",
+            "nivel_rio_m": 21.979,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-04",
+            "nivel_rio_m": 21.975,
+            "nivel_rio_max_m": 21.98,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-05",
+            "nivel_rio_m": 21.974,
+            "nivel_rio_max_m": 21.98,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-06",
+            "nivel_rio_m": 21.974,
+            "nivel_rio_max_m": 21.98,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-07",
+            "nivel_rio_m": 21.972,
+            "nivel_rio_max_m": 21.98,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-08",
+            "nivel_rio_m": 21.967,
+            "nivel_rio_max_m": 21.98,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-09",
+            "nivel_rio_m": 21.965,
+            "nivel_rio_max_m": 21.97,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-10",
+            "nivel_rio_m": 21.964,
+            "nivel_rio_max_m": 21.97,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-11",
+            "nivel_rio_m": 21.987,
+            "nivel_rio_max_m": 22.05,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-12",
+            "nivel_rio_m": 21.987,
+            "nivel_rio_max_m": 22.05,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-13",
+            "nivel_rio_m": 21.993,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-14",
+            "nivel_rio_m": 22.021,
+            "nivel_rio_max_m": 22.12,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-15",
+            "nivel_rio_m": 22.057,
+            "nivel_rio_max_m": 22.1,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-16",
+            "nivel_rio_m": 22.03,
+            "nivel_rio_max_m": 22.09,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-17",
+            "nivel_rio_m": 22.16,
+            "nivel_rio_max_m": 22.29,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-18",
+            "nivel_rio_m": 22.108,
+            "nivel_rio_max_m": 22.3,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-19",
+            "nivel_rio_m": 22.006,
+            "nivel_rio_max_m": 22.12,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-20",
+            "nivel_rio_m": 22.003,
+            "nivel_rio_max_m": 22.02,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-21",
+            "nivel_rio_m": 21.997,
+            "nivel_rio_max_m": 22.02,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-22",
+            "nivel_rio_m": 21.974,
+            "nivel_rio_max_m": 22.02,
+            "nivel_rio_lecturas": 20
+        },
+        {
+            "fecha": "2024-06-23",
+            "nivel_rio_m": 21.973,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-24",
+            "nivel_rio_m": 21.982,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-25",
+            "nivel_rio_m": 21.986,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-26",
+            "nivel_rio_m": 21.984,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-27",
+            "nivel_rio_m": 21.985,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-28",
+            "nivel_rio_m": 21.985,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-29",
+            "nivel_rio_m": 21.985,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-06-30",
+            "nivel_rio_m": 21.995,
+            "nivel_rio_max_m": 22.1,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-01",
+            "nivel_rio_m": 21.993,
+            "nivel_rio_max_m": 22.05,
+            "nivel_rio_lecturas": 23
+        },
+        {
+            "fecha": "2024-07-02",
+            "nivel_rio_m": 21.983,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-03",
+            "nivel_rio_m": 21.986,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-04",
+            "nivel_rio_m": 21.988,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-05",
+            "nivel_rio_m": 21.987,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-06",
+            "nivel_rio_m": 21.985,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-07",
+            "nivel_rio_m": 21.985,
+            "nivel_rio_max_m": 21.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-08",
+            "nivel_rio_m": 21.988,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-09",
+            "nivel_rio_m": 21.988,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 23
+        },
+        {
+            "fecha": "2024-07-10",
+            "nivel_rio_m": 21.989,
+            "nivel_rio_max_m": 22,
+            "nivel_rio_lecturas": 20
+        },
+        {
+            "fecha": "2024-07-11",
+            "nivel_rio_m": 21.993,
+            "nivel_rio_max_m": 22.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-12",
+            "nivel_rio_m": 22,
+            "nivel_rio_max_m": 22.02,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-13",
+            "nivel_rio_m": 22,
+            "nivel_rio_max_m": 22.02,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-14",
+            "nivel_rio_m": 22.001,
+            "nivel_rio_max_m": 22.02,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-15",
+            "nivel_rio_m": 22.07,
+            "nivel_rio_max_m": 22.2,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-16",
+            "nivel_rio_m": 22.02,
+            "nivel_rio_max_m": 22.03,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-17",
+            "nivel_rio_m": 22.022,
+            "nivel_rio_max_m": 22.03,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-18",
+            "nivel_rio_m": 22.02,
+            "nivel_rio_max_m": 22.03,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-19",
+            "nivel_rio_m": 22.02,
+            "nivel_rio_max_m": 22.03,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-20",
+            "nivel_rio_m": 22.023,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-21",
+            "nivel_rio_m": 22.032,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-22",
+            "nivel_rio_m": 22.033,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-23",
+            "nivel_rio_m": 22.033,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-24",
+            "nivel_rio_m": 22.034,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-25",
+            "nivel_rio_m": 22.022,
+            "nivel_rio_max_m": 22.05,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-26",
+            "nivel_rio_m": 22.017,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-27",
+            "nivel_rio_m": 22.031,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-28",
+            "nivel_rio_m": 22.029,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-29",
+            "nivel_rio_m": 22.028,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-30",
+            "nivel_rio_m": 22.032,
+            "nivel_rio_max_m": 22.05,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-07-31",
+            "nivel_rio_m": 22.023,
+            "nivel_rio_max_m": 22.05,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-08-01",
+            "nivel_rio_m": 22.037,
+            "nivel_rio_max_m": 22.05,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-08-02",
+            "nivel_rio_m": 22.031,
+            "nivel_rio_max_m": 22.04,
+            "nivel_rio_lecturas": 18
+        },
+        {
+            "fecha": "2024-11-12",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 14
+        },
+        {
+            "fecha": "2024-11-13",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-14",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-15",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-16",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-17",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-18",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-19",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-20",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-21",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 22
+        },
+        {
+            "fecha": "2024-11-22",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-23",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-24",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-25",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-26",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-27",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-28",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-29",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-11-30",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-01",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-02",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-03",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-04",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-05",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-06",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 23
+        },
+        {
+            "fecha": "2024-12-07",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-08",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-09",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-10",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-11",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-12",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-13",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-14",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-15",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-16",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-17",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-18",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-19",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-20",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-21",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-22",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-23",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-24",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-25",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-26",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-27",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-28",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-29",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-30",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2024-12-31",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-01",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-02",
+            "nivel_rio_m": 10033.32,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-03",
+            "nivel_rio_m": 5445.131,
+            "nivel_rio_max_m": 10033.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-04",
+            "nivel_rio_m": 22.94,
+            "nivel_rio_max_m": 23.14,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-05",
+            "nivel_rio_m": 23.327,
+            "nivel_rio_max_m": 23.4,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-06",
+            "nivel_rio_m": 22.877,
+            "nivel_rio_max_m": 23.19,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-07",
+            "nivel_rio_m": 22.732,
+            "nivel_rio_max_m": 22.75,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-08",
+            "nivel_rio_m": 22.736,
+            "nivel_rio_max_m": 22.87,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-09",
+            "nivel_rio_m": 22.718,
+            "nivel_rio_max_m": 22.73,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-10",
+            "nivel_rio_m": 22.74,
+            "nivel_rio_max_m": 22.78,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-11",
+            "nivel_rio_m": 22.775,
+            "nivel_rio_max_m": 23.1,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-12",
+            "nivel_rio_m": 22.769,
+            "nivel_rio_max_m": 23.16,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-13",
+            "nivel_rio_m": 22.755,
+            "nivel_rio_max_m": 22.85,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-14",
+            "nivel_rio_m": 22.976,
+            "nivel_rio_max_m": 23.36,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-15",
+            "nivel_rio_m": 23.162,
+            "nivel_rio_max_m": 23.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-16",
+            "nivel_rio_m": 23.077,
+            "nivel_rio_max_m": 23.21,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-17",
+            "nivel_rio_m": 23.358,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-18",
+            "nivel_rio_m": 23.387,
+            "nivel_rio_max_m": 23.55,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-19",
+            "nivel_rio_m": 23.255,
+            "nivel_rio_max_m": 23.36,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-20",
+            "nivel_rio_m": 23.082,
+            "nivel_rio_max_m": 23.39,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-21",
+            "nivel_rio_m": 22.744,
+            "nivel_rio_max_m": 22.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-22",
+            "nivel_rio_m": 22.744,
+            "nivel_rio_max_m": 22.79,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-23",
+            "nivel_rio_m": 22.725,
+            "nivel_rio_max_m": 22.78,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-24",
+            "nivel_rio_m": 22.73,
+            "nivel_rio_max_m": 22.79,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-25",
+            "nivel_rio_m": 22.732,
+            "nivel_rio_max_m": 22.79,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-26",
+            "nivel_rio_m": 22.724,
+            "nivel_rio_max_m": 22.76,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-27",
+            "nivel_rio_m": 22.764,
+            "nivel_rio_max_m": 23.12,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-28",
+            "nivel_rio_m": 22.732,
+            "nivel_rio_max_m": 22.77,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-29",
+            "nivel_rio_m": 22.722,
+            "nivel_rio_max_m": 22.78,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-30",
+            "nivel_rio_m": 22.723,
+            "nivel_rio_max_m": 22.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-01-31",
+            "nivel_rio_m": 22.745,
+            "nivel_rio_max_m": 22.77,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-01",
+            "nivel_rio_m": 22.748,
+            "nivel_rio_max_m": 22.77,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-02",
+            "nivel_rio_m": 22.745,
+            "nivel_rio_max_m": 22.79,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-03",
+            "nivel_rio_m": 22.743,
+            "nivel_rio_max_m": 22.84,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-04",
+            "nivel_rio_m": 22.757,
+            "nivel_rio_max_m": 23.02,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-05",
+            "nivel_rio_m": 22.797,
+            "nivel_rio_max_m": 24.08,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-06",
+            "nivel_rio_m": 22.753,
+            "nivel_rio_max_m": 22.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-07",
+            "nivel_rio_m": 22.725,
+            "nivel_rio_max_m": 22.76,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-08",
+            "nivel_rio_m": 22.718,
+            "nivel_rio_max_m": 22.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-09",
+            "nivel_rio_m": 22.724,
+            "nivel_rio_max_m": 22.83,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-10",
+            "nivel_rio_m": 22.722,
+            "nivel_rio_max_m": 22.74,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-11",
+            "nivel_rio_m": 22.725,
+            "nivel_rio_max_m": 22.74,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-12",
+            "nivel_rio_m": 22.724,
+            "nivel_rio_max_m": 22.77,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-13",
+            "nivel_rio_m": 24.217,
+            "nivel_rio_max_m": 26.56,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-14",
+            "nivel_rio_m": 26.515,
+            "nivel_rio_max_m": 26.88,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-15",
+            "nivel_rio_m": 25.797,
+            "nivel_rio_max_m": 26.11,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-16",
+            "nivel_rio_m": 25.205,
+            "nivel_rio_max_m": 25.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-17",
+            "nivel_rio_m": 24.622,
+            "nivel_rio_max_m": 24.96,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-18",
+            "nivel_rio_m": 24.446,
+            "nivel_rio_max_m": 24.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-19",
+            "nivel_rio_m": 24.58,
+            "nivel_rio_max_m": 24.98,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-20",
+            "nivel_rio_m": 25.065,
+            "nivel_rio_max_m": 25.27,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-21",
+            "nivel_rio_m": 24.779,
+            "nivel_rio_max_m": 24.83,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-22",
+            "nivel_rio_m": 24.681,
+            "nivel_rio_max_m": 24.79,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-23",
+            "nivel_rio_m": 24.767,
+            "nivel_rio_max_m": 25.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-24",
+            "nivel_rio_m": 24.426,
+            "nivel_rio_max_m": 24.64,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-25",
+            "nivel_rio_m": 24.672,
+            "nivel_rio_max_m": 24.81,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-26",
+            "nivel_rio_m": 24.893,
+            "nivel_rio_max_m": 24.98,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-27",
+            "nivel_rio_m": 25.302,
+            "nivel_rio_max_m": 25.81,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-02-28",
+            "nivel_rio_m": 25.572,
+            "nivel_rio_max_m": 26.55,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-01",
+            "nivel_rio_m": 26.332,
+            "nivel_rio_max_m": 26.88,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-02",
+            "nivel_rio_m": 25.967,
+            "nivel_rio_max_m": 26.26,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-03",
+            "nivel_rio_m": 26.415,
+            "nivel_rio_max_m": 26.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-04",
+            "nivel_rio_m": 25.699,
+            "nivel_rio_max_m": 26.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-05",
+            "nivel_rio_m": 25.198,
+            "nivel_rio_max_m": 25.29,
+            "nivel_rio_lecturas": 17
+        },
+        {
+            "fecha": "2025-03-06",
+            "nivel_rio_m": 25.039,
+            "nivel_rio_max_m": 25.28,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-07",
+            "nivel_rio_m": 25.309,
+            "nivel_rio_max_m": 25.67,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-08",
+            "nivel_rio_m": 24.763,
+            "nivel_rio_max_m": 24.95,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-09",
+            "nivel_rio_m": 24.555,
+            "nivel_rio_max_m": 24.7,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-10",
+            "nivel_rio_m": 24.498,
+            "nivel_rio_max_m": 24.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-11",
+            "nivel_rio_m": 24.209,
+            "nivel_rio_max_m": 24.61,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-12",
+            "nivel_rio_m": 24.943,
+            "nivel_rio_max_m": 25.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-13",
+            "nivel_rio_m": 24.395,
+            "nivel_rio_max_m": 24.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-14",
+            "nivel_rio_m": 24.235,
+            "nivel_rio_max_m": 24.62,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-15",
+            "nivel_rio_m": 24.757,
+            "nivel_rio_max_m": 25.09,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-16",
+            "nivel_rio_m": 24.599,
+            "nivel_rio_max_m": 24.77,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-17",
+            "nivel_rio_m": 24.374,
+            "nivel_rio_max_m": 24.64,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-18",
+            "nivel_rio_m": 24.71,
+            "nivel_rio_max_m": 24.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-19",
+            "nivel_rio_m": 24.443,
+            "nivel_rio_max_m": 24.61,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-20",
+            "nivel_rio_m": 24.645,
+            "nivel_rio_max_m": 24.95,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-21",
+            "nivel_rio_m": 24.251,
+            "nivel_rio_max_m": 24.41,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-22",
+            "nivel_rio_m": 24.066,
+            "nivel_rio_max_m": 24.13,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-23",
+            "nivel_rio_m": 23.967,
+            "nivel_rio_max_m": 24.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-24",
+            "nivel_rio_m": 23.79,
+            "nivel_rio_max_m": 23.91,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-25",
+            "nivel_rio_m": 23.688,
+            "nivel_rio_max_m": 23.76,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-26",
+            "nivel_rio_m": 23.59,
+            "nivel_rio_max_m": 23.71,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-27",
+            "nivel_rio_m": 23.693,
+            "nivel_rio_max_m": 24.11,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-28",
+            "nivel_rio_m": 24.621,
+            "nivel_rio_max_m": 25.59,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-29",
+            "nivel_rio_m": 26.098,
+            "nivel_rio_max_m": 26.73,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-30",
+            "nivel_rio_m": 26.737,
+            "nivel_rio_max_m": 26.84,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-03-31",
+            "nivel_rio_m": 27.043,
+            "nivel_rio_max_m": 27.24,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-01",
+            "nivel_rio_m": 27.025,
+            "nivel_rio_max_m": 27.29,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-02",
+            "nivel_rio_m": 27.2,
+            "nivel_rio_max_m": 27.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-03",
+            "nivel_rio_m": 26.635,
+            "nivel_rio_max_m": 27.25,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-04",
+            "nivel_rio_m": 27.14,
+            "nivel_rio_max_m": 27.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-05",
+            "nivel_rio_m": 25.892,
+            "nivel_rio_max_m": 26.64,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-06",
+            "nivel_rio_m": 25.335,
+            "nivel_rio_max_m": 25.64,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-07",
+            "nivel_rio_m": 25.023,
+            "nivel_rio_max_m": 25.26,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-08",
+            "nivel_rio_m": 24.721,
+            "nivel_rio_max_m": 24.92,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-09",
+            "nivel_rio_m": 24.55,
+            "nivel_rio_max_m": 24.67,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-10",
+            "nivel_rio_m": 24.32,
+            "nivel_rio_max_m": 24.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-11",
+            "nivel_rio_m": 24.208,
+            "nivel_rio_max_m": 24.29,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-12",
+            "nivel_rio_m": 24.401,
+            "nivel_rio_max_m": 24.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-13",
+            "nivel_rio_m": 24.2,
+            "nivel_rio_max_m": 24.36,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-14",
+            "nivel_rio_m": 24.122,
+            "nivel_rio_max_m": 24.17,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-15",
+            "nivel_rio_m": 24.035,
+            "nivel_rio_max_m": 24.13,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-16",
+            "nivel_rio_m": 23.92,
+            "nivel_rio_max_m": 23.99,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-17",
+            "nivel_rio_m": 23.862,
+            "nivel_rio_max_m": 23.95,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-18",
+            "nivel_rio_m": 23.806,
+            "nivel_rio_max_m": 23.87,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-19",
+            "nivel_rio_m": 23.767,
+            "nivel_rio_max_m": 23.84,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-20",
+            "nivel_rio_m": 23.737,
+            "nivel_rio_max_m": 23.82,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-21",
+            "nivel_rio_m": 23.68,
+            "nivel_rio_max_m": 23.84,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-22",
+            "nivel_rio_m": 23.639,
+            "nivel_rio_max_m": 23.69,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-23",
+            "nivel_rio_m": 23.577,
+            "nivel_rio_max_m": 23.64,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-24",
+            "nivel_rio_m": 23.527,
+            "nivel_rio_max_m": 23.6,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-25",
+            "nivel_rio_m": 23.527,
+            "nivel_rio_max_m": 23.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-26",
+            "nivel_rio_m": 23.542,
+            "nivel_rio_max_m": 23.56,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-27",
+            "nivel_rio_m": 23.528,
+            "nivel_rio_max_m": 23.56,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-28",
+            "nivel_rio_m": 23.545,
+            "nivel_rio_max_m": 23.71,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-29",
+            "nivel_rio_m": 23.562,
+            "nivel_rio_max_m": 23.64,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-04-30",
+            "nivel_rio_m": 23.507,
+            "nivel_rio_max_m": 23.6,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-01",
+            "nivel_rio_m": 23.502,
+            "nivel_rio_max_m": 23.57,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-02",
+            "nivel_rio_m": 23.502,
+            "nivel_rio_max_m": 23.57,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-03",
+            "nivel_rio_m": 23.506,
+            "nivel_rio_max_m": 23.59,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-04",
+            "nivel_rio_m": 23.483,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-05",
+            "nivel_rio_m": 23.481,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-06",
+            "nivel_rio_m": 23.474,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-07",
+            "nivel_rio_m": 23.504,
+            "nivel_rio_max_m": 23.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-08",
+            "nivel_rio_m": 23.479,
+            "nivel_rio_max_m": 23.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-09",
+            "nivel_rio_m": 23.49,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-10",
+            "nivel_rio_m": 23.494,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-11",
+            "nivel_rio_m": 23.493,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-12",
+            "nivel_rio_m": 23.488,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-13",
+            "nivel_rio_m": 23.49,
+            "nivel_rio_max_m": 23.55,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-14",
+            "nivel_rio_m": 23.497,
+            "nivel_rio_max_m": 23.55,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-15",
+            "nivel_rio_m": 23.459,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-16",
+            "nivel_rio_m": 23.454,
+            "nivel_rio_max_m": 23.54,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-17",
+            "nivel_rio_m": 23.48,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-18",
+            "nivel_rio_m": 23.468,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-19",
+            "nivel_rio_m": 23.484,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-20",
+            "nivel_rio_m": 23.491,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-21",
+            "nivel_rio_m": 23.505,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-22",
+            "nivel_rio_m": 23.505,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-23",
+            "nivel_rio_m": 23.487,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-24",
+            "nivel_rio_m": 23.488,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-25",
+            "nivel_rio_m": 23.477,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-26",
+            "nivel_rio_m": 23.5,
+            "nivel_rio_max_m": 23.65,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-27",
+            "nivel_rio_m": 23.478,
+            "nivel_rio_max_m": 23.65,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-28",
+            "nivel_rio_m": 23.473,
+            "nivel_rio_max_m": 23.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-29",
+            "nivel_rio_m": 23.454,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-30",
+            "nivel_rio_m": 23.47,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-05-31",
+            "nivel_rio_m": 23.445,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-01",
+            "nivel_rio_m": 23.435,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-02",
+            "nivel_rio_m": 23.518,
+            "nivel_rio_max_m": 23.56,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-03",
+            "nivel_rio_m": 23.547,
+            "nivel_rio_max_m": 23.66,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-04",
+            "nivel_rio_m": 23.505,
+            "nivel_rio_max_m": 23.61,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-05",
+            "nivel_rio_m": 23.477,
+            "nivel_rio_max_m": 23.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-06",
+            "nivel_rio_m": 23.481,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-07",
+            "nivel_rio_m": 23.477,
+            "nivel_rio_max_m": 23.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-08",
+            "nivel_rio_m": 23.51,
+            "nivel_rio_max_m": 23.56,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-09",
+            "nivel_rio_m": 23.525,
+            "nivel_rio_max_m": 23.59,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-10",
+            "nivel_rio_m": 23.518,
+            "nivel_rio_max_m": 23.54,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-11",
+            "nivel_rio_m": 23.523,
+            "nivel_rio_max_m": 23.61,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-12",
+            "nivel_rio_m": 23.51,
+            "nivel_rio_max_m": 23.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-13",
+            "nivel_rio_m": 23.503,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-14",
+            "nivel_rio_m": 23.501,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-15",
+            "nivel_rio_m": 23.499,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-16",
+            "nivel_rio_m": 23.497,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-06-17",
+            "nivel_rio_m": 23.492,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 12
+        },
+        {
+            "fecha": "2025-06-18",
+            "nivel_rio_m": 23.475,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 14
+        },
+        {
+            "fecha": "2025-06-19",
+            "nivel_rio_m": 23.493,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 6
+        },
+        {
+            "fecha": "2025-06-20",
+            "nivel_rio_m": 23.485,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 15
+        },
+        {
+            "fecha": "2025-06-21",
+            "nivel_rio_m": 23.455,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 11
+        },
+        {
+            "fecha": "2025-06-22",
+            "nivel_rio_m": 23.48,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 6
+        },
+        {
+            "fecha": "2025-06-23",
+            "nivel_rio_m": 23.426,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 11
+        },
+        {
+            "fecha": "2025-06-24",
+            "nivel_rio_m": 23.434,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 16
+        },
+        {
+            "fecha": "2025-06-25",
+            "nivel_rio_m": 23.422,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 18
+        },
+        {
+            "fecha": "2025-06-26",
+            "nivel_rio_m": 23.432,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 12
+        },
+        {
+            "fecha": "2025-06-27",
+            "nivel_rio_m": 23.34,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 7
+        },
+        {
+            "fecha": "2025-06-28",
+            "nivel_rio_m": 24.138,
+            "nivel_rio_max_m": 33.11,
+            "nivel_rio_lecturas": 13
+        },
+        {
+            "fecha": "2025-06-29",
+            "nivel_rio_m": 23.358,
+            "nivel_rio_max_m": 23.4,
+            "nivel_rio_lecturas": 13
+        },
+        {
+            "fecha": "2025-06-30",
+            "nivel_rio_m": 23.537,
+            "nivel_rio_max_m": 23.58,
+            "nivel_rio_lecturas": 18
+        },
+        {
+            "fecha": "2025-07-01",
+            "nivel_rio_m": 23.531,
+            "nivel_rio_max_m": 23.58,
+            "nivel_rio_lecturas": 15
+        },
+        {
+            "fecha": "2025-07-02",
+            "nivel_rio_m": 23.558,
+            "nivel_rio_max_m": 23.59,
+            "nivel_rio_lecturas": 23
+        },
+        {
+            "fecha": "2025-07-03",
+            "nivel_rio_m": 23.525,
+            "nivel_rio_max_m": 23.57,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-04",
+            "nivel_rio_m": 23.528,
+            "nivel_rio_max_m": 23.59,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-05",
+            "nivel_rio_m": 23.539,
+            "nivel_rio_max_m": 23.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-06",
+            "nivel_rio_m": 23.507,
+            "nivel_rio_max_m": 23.53,
+            "nivel_rio_lecturas": 13
+        },
+        {
+            "fecha": "2025-07-07",
+            "nivel_rio_m": 23.469,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 12
+        },
+        {
+            "fecha": "2025-07-08",
+            "nivel_rio_m": 23.48,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 4
+        },
+        {
+            "fecha": "2025-07-09",
+            "nivel_rio_m": 23.479,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 15
+        },
+        {
+            "fecha": "2025-07-10",
+            "nivel_rio_m": 23.491,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 17
+        },
+        {
+            "fecha": "2025-07-11",
+            "nivel_rio_m": 23.483,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-12",
+            "nivel_rio_m": 23.461,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-13",
+            "nivel_rio_m": 23.457,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-14",
+            "nivel_rio_m": 23.448,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-15",
+            "nivel_rio_m": 23.449,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 21
+        },
+        {
+            "fecha": "2025-07-16",
+            "nivel_rio_m": 23.447,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 15
+        },
+        {
+            "fecha": "2025-07-17",
+            "nivel_rio_m": 23.449,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 17
+        },
+        {
+            "fecha": "2025-07-18",
+            "nivel_rio_m": 23.45,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 20
+        },
+        {
+            "fecha": "2025-07-19",
+            "nivel_rio_m": 23.451,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 20
+        },
+        {
+            "fecha": "2025-07-20",
+            "nivel_rio_m": 23.452,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 22
+        },
+        {
+            "fecha": "2025-07-21",
+            "nivel_rio_m": 23.451,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-22",
+            "nivel_rio_m": 23.453,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-23",
+            "nivel_rio_m": 23.454,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-24",
+            "nivel_rio_m": 23.45,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-25",
+            "nivel_rio_m": 23.446,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-26",
+            "nivel_rio_m": 23.445,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-27",
+            "nivel_rio_m": 23.441,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-28",
+            "nivel_rio_m": 23.438,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-29",
+            "nivel_rio_m": 23.438,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 23
+        },
+        {
+            "fecha": "2025-07-30",
+            "nivel_rio_m": 23.435,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-07-31",
+            "nivel_rio_m": 23.432,
+            "nivel_rio_max_m": 23.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-01",
+            "nivel_rio_m": 23.433,
+            "nivel_rio_max_m": 23.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-02",
+            "nivel_rio_m": 23.429,
+            "nivel_rio_max_m": 23.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-03",
+            "nivel_rio_m": 23.429,
+            "nivel_rio_max_m": 23.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-04",
+            "nivel_rio_m": 23.423,
+            "nivel_rio_max_m": 23.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-05",
+            "nivel_rio_m": 23.418,
+            "nivel_rio_max_m": 23.43,
+            "nivel_rio_lecturas": 16
+        },
+        {
+            "fecha": "2025-08-06",
+            "nivel_rio_m": 23.415,
+            "nivel_rio_max_m": 23.43,
+            "nivel_rio_lecturas": 15
+        },
+        {
+            "fecha": "2025-08-07",
+            "nivel_rio_m": 23.418,
+            "nivel_rio_max_m": 23.43,
+            "nivel_rio_lecturas": 13
+        },
+        {
+            "fecha": "2025-08-08",
+            "nivel_rio_m": 23.413,
+            "nivel_rio_max_m": 23.43,
+            "nivel_rio_lecturas": 13
+        },
+        {
+            "fecha": "2025-08-09",
+            "nivel_rio_m": 23.416,
+            "nivel_rio_max_m": 23.43,
+            "nivel_rio_lecturas": 14
+        },
+        {
+            "fecha": "2025-08-10",
+            "nivel_rio_m": 23.42,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-11",
+            "nivel_rio_m": 23.457,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-12",
+            "nivel_rio_m": 23.452,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-13",
+            "nivel_rio_m": 23.459,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-14",
+            "nivel_rio_m": 23.441,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-15",
+            "nivel_rio_m": 23.414,
+            "nivel_rio_max_m": 23.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-16",
+            "nivel_rio_m": 23.43,
+            "nivel_rio_max_m": 23.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-17",
+            "nivel_rio_m": 23.422,
+            "nivel_rio_max_m": 23.43,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-18",
+            "nivel_rio_m": 23.428,
+            "nivel_rio_max_m": 23.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-19",
+            "nivel_rio_m": 23.436,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-20",
+            "nivel_rio_m": 23.441,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-21",
+            "nivel_rio_m": 23.444,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-22",
+            "nivel_rio_m": 23.444,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-23",
+            "nivel_rio_m": 23.438,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-24",
+            "nivel_rio_m": 23.438,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-25",
+            "nivel_rio_m": 23.441,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-26",
+            "nivel_rio_m": 23.446,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-27",
+            "nivel_rio_m": 23.446,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-28",
+            "nivel_rio_m": 23.448,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-29",
+            "nivel_rio_m": 23.425,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-30",
+            "nivel_rio_m": 23.397,
+            "nivel_rio_max_m": 23.43,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-08-31",
+            "nivel_rio_m": 23.431,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-01",
+            "nivel_rio_m": 23.434,
+            "nivel_rio_max_m": 23.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-02",
+            "nivel_rio_m": 23.436,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-03",
+            "nivel_rio_m": 23.426,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-04",
+            "nivel_rio_m": 23.44,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-05",
+            "nivel_rio_m": 23.454,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-06",
+            "nivel_rio_m": 23.448,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-07",
+            "nivel_rio_m": 23.425,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-08",
+            "nivel_rio_m": 23.435,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-09",
+            "nivel_rio_m": 23.406,
+            "nivel_rio_max_m": 23.42,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-10",
+            "nivel_rio_m": 23.403,
+            "nivel_rio_max_m": 23.42,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-11",
+            "nivel_rio_m": 23.402,
+            "nivel_rio_max_m": 23.42,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-12",
+            "nivel_rio_m": 23.435,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-13",
+            "nivel_rio_m": 23.41,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-14",
+            "nivel_rio_m": 23.404,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-15",
+            "nivel_rio_m": 23.42,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-16",
+            "nivel_rio_m": 23.42,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-17",
+            "nivel_rio_m": 23.436,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-18",
+            "nivel_rio_m": 23.445,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-19",
+            "nivel_rio_m": 23.452,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-20",
+            "nivel_rio_m": 23.455,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-21",
+            "nivel_rio_m": 23.453,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-22",
+            "nivel_rio_m": 23.46,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-23",
+            "nivel_rio_m": 23.466,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-24",
+            "nivel_rio_m": 23.451,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-25",
+            "nivel_rio_m": 23.451,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-26",
+            "nivel_rio_m": 23.455,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-27",
+            "nivel_rio_m": 23.437,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-28",
+            "nivel_rio_m": 23.43,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-29",
+            "nivel_rio_m": 23.43,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-09-30",
+            "nivel_rio_m": 23.433,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-01",
+            "nivel_rio_m": 23.428,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-02",
+            "nivel_rio_m": 23.431,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-03",
+            "nivel_rio_m": 23.403,
+            "nivel_rio_max_m": 23.44,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-04",
+            "nivel_rio_m": 23.415,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-05",
+            "nivel_rio_m": 23.433,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-06",
+            "nivel_rio_m": 23.405,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-07",
+            "nivel_rio_m": 23.368,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-08",
+            "nivel_rio_m": 23.401,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-09",
+            "nivel_rio_m": 23.381,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-10",
+            "nivel_rio_m": 23.405,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-11",
+            "nivel_rio_m": 23.395,
+            "nivel_rio_max_m": 23.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-12",
+            "nivel_rio_m": 23.421,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-13",
+            "nivel_rio_m": 23.453,
+            "nivel_rio_max_m": 23.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-14",
+            "nivel_rio_m": 23.453,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-15",
+            "nivel_rio_m": 23.443,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-16",
+            "nivel_rio_m": 23.442,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-17",
+            "nivel_rio_m": 23.44,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-18",
+            "nivel_rio_m": 23.404,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-19",
+            "nivel_rio_m": 23.41,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-20",
+            "nivel_rio_m": 23.414,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-21",
+            "nivel_rio_m": 23.427,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-22",
+            "nivel_rio_m": 23.444,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-23",
+            "nivel_rio_m": 23.411,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-24",
+            "nivel_rio_m": 23.402,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-25",
+            "nivel_rio_m": 23.439,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-26",
+            "nivel_rio_m": 23.436,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-27",
+            "nivel_rio_m": 23.436,
+            "nivel_rio_max_m": 23.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-28",
+            "nivel_rio_m": 23.458,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-29",
+            "nivel_rio_m": 23.474,
+            "nivel_rio_max_m": 23.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-30",
+            "nivel_rio_m": 23.449,
+            "nivel_rio_max_m": 23.54,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-10-31",
+            "nivel_rio_m": 23.452,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-01",
+            "nivel_rio_m": 23.435,
+            "nivel_rio_max_m": 23.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-02",
+            "nivel_rio_m": 23.462,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-03",
+            "nivel_rio_m": 6280.082,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-04",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-05",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-06",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-07",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-08",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-09",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-10",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-11",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-12",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-13",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-14",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-15",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-16",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-17",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-18",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-19",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-20",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-21",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-22",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-23",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-24",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-25",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-26",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-27",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-28",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-29",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-11-30",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-01",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-02",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-03",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-04",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-05",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-06",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-07",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-08",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-09",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-10",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-11",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-12",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-13",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-14",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-15",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-16",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 23
+        },
+        {
+            "fecha": "2025-12-17",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-18",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-19",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-20",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-21",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-22",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-23",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-24",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-25",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-26",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-27",
+            "nivel_rio_m": 10034.06,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-28",
+            "nivel_rio_m": 5863.05,
+            "nivel_rio_max_m": 10034.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-29",
+            "nivel_rio_m": 23.695,
+            "nivel_rio_max_m": 24.29,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-30",
+            "nivel_rio_m": 23.703,
+            "nivel_rio_max_m": 24.3,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2025-12-31",
+            "nivel_rio_m": 23.788,
+            "nivel_rio_max_m": 24.6,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-01",
+            "nivel_rio_m": 23.776,
+            "nivel_rio_max_m": 24.05,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-02",
+            "nivel_rio_m": 23.748,
+            "nivel_rio_max_m": 23.95,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-03",
+            "nivel_rio_m": 23.728,
+            "nivel_rio_max_m": 23.96,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-04",
+            "nivel_rio_m": 23.749,
+            "nivel_rio_max_m": 23.89,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-05",
+            "nivel_rio_m": 23.78,
+            "nivel_rio_max_m": 24.38,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-06",
+            "nivel_rio_m": 23.829,
+            "nivel_rio_max_m": 24.62,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-07",
+            "nivel_rio_m": 23.755,
+            "nivel_rio_max_m": 23.9,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-08",
+            "nivel_rio_m": 23.823,
+            "nivel_rio_max_m": 24.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-09",
+            "nivel_rio_m": 23.909,
+            "nivel_rio_max_m": 24.41,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-10",
+            "nivel_rio_m": 23.926,
+            "nivel_rio_max_m": 24.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-11",
+            "nivel_rio_m": 23.838,
+            "nivel_rio_max_m": 24.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-12",
+            "nivel_rio_m": 23.813,
+            "nivel_rio_max_m": 24.55,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-13",
+            "nivel_rio_m": 23.827,
+            "nivel_rio_max_m": 24.34,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-14",
+            "nivel_rio_m": 23.844,
+            "nivel_rio_max_m": 24.71,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-15",
+            "nivel_rio_m": 23.836,
+            "nivel_rio_max_m": 24.82,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-16",
+            "nivel_rio_m": 23.799,
+            "nivel_rio_max_m": 24.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-17",
+            "nivel_rio_m": 23.775,
+            "nivel_rio_max_m": 23.9,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-18",
+            "nivel_rio_m": 23.825,
+            "nivel_rio_max_m": 24.61,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-19",
+            "nivel_rio_m": 23.825,
+            "nivel_rio_max_m": 24.61,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-20",
+            "nivel_rio_m": 23.909,
+            "nivel_rio_max_m": 24.67,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-21",
+            "nivel_rio_m": 23.807,
+            "nivel_rio_max_m": 24.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-22",
+            "nivel_rio_m": 23.791,
+            "nivel_rio_max_m": 23.93,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-23",
+            "nivel_rio_m": 23.85,
+            "nivel_rio_max_m": 24.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-24",
+            "nivel_rio_m": 23.875,
+            "nivel_rio_max_m": 24.77,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-25",
+            "nivel_rio_m": 23.872,
+            "nivel_rio_max_m": 24.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-26",
+            "nivel_rio_m": 23.918,
+            "nivel_rio_max_m": 24.78,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-27",
+            "nivel_rio_m": 23.978,
+            "nivel_rio_max_m": 24.92,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-28",
+            "nivel_rio_m": 23.824,
+            "nivel_rio_max_m": 24.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-29",
+            "nivel_rio_m": 23.863,
+            "nivel_rio_max_m": 24.62,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-30",
+            "nivel_rio_m": 23.783,
+            "nivel_rio_max_m": 24.21,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-01-31",
+            "nivel_rio_m": 23.854,
+            "nivel_rio_max_m": 24.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-01",
+            "nivel_rio_m": 23.893,
+            "nivel_rio_max_m": 24.77,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-02",
+            "nivel_rio_m": 23.787,
+            "nivel_rio_max_m": 24.12,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-03",
+            "nivel_rio_m": 23.819,
+            "nivel_rio_max_m": 24.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-04",
+            "nivel_rio_m": 24.181,
+            "nivel_rio_max_m": 24.6,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-05",
+            "nivel_rio_m": 23.775,
+            "nivel_rio_max_m": 23.94,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-06",
+            "nivel_rio_m": 23.771,
+            "nivel_rio_max_m": 23.89,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-07",
+            "nivel_rio_m": 23.708,
+            "nivel_rio_max_m": 23.74,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-08",
+            "nivel_rio_m": 23.707,
+            "nivel_rio_max_m": 23.75,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-09",
+            "nivel_rio_m": 23.729,
+            "nivel_rio_max_m": 23.78,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-10",
+            "nivel_rio_m": 23.76,
+            "nivel_rio_max_m": 23.88,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-11",
+            "nivel_rio_m": 23.701,
+            "nivel_rio_max_m": 23.72,
+            "nivel_rio_lecturas": 19
+        },
+        {
+            "fecha": "2026-02-12",
+            "nivel_rio_m": 23.747,
+            "nivel_rio_max_m": 24.57,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-13",
+            "nivel_rio_m": 23.696,
+            "nivel_rio_max_m": 23.73,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-14",
+            "nivel_rio_m": 24.613,
+            "nivel_rio_max_m": 25.26,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-15",
+            "nivel_rio_m": 24.655,
+            "nivel_rio_max_m": 24.94,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-16",
+            "nivel_rio_m": 24.71,
+            "nivel_rio_max_m": 24.84,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-17",
+            "nivel_rio_m": 25.478,
+            "nivel_rio_max_m": 26,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-18",
+            "nivel_rio_m": 25.866,
+            "nivel_rio_max_m": 26.29,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-19",
+            "nivel_rio_m": 25.845,
+            "nivel_rio_max_m": 26.41,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-20",
+            "nivel_rio_m": 25.245,
+            "nivel_rio_max_m": 25.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-21",
+            "nivel_rio_m": 25.315,
+            "nivel_rio_max_m": 25.86,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-22",
+            "nivel_rio_m": 25.378,
+            "nivel_rio_max_m": 25.94,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-23",
+            "nivel_rio_m": 25.087,
+            "nivel_rio_max_m": 25.67,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-24",
+            "nivel_rio_m": 25.677,
+            "nivel_rio_max_m": 25.93,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-25",
+            "nivel_rio_m": 25.828,
+            "nivel_rio_max_m": 26,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-26",
+            "nivel_rio_m": 25.763,
+            "nivel_rio_max_m": 26.07,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-27",
+            "nivel_rio_m": 25.485,
+            "nivel_rio_max_m": 25.88,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-02-28",
+            "nivel_rio_m": 24.991,
+            "nivel_rio_max_m": 25.11,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-01",
+            "nivel_rio_m": 24.927,
+            "nivel_rio_max_m": 25.73,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-02",
+            "nivel_rio_m": 25.649,
+            "nivel_rio_max_m": 25.84,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-03",
+            "nivel_rio_m": 25.341,
+            "nivel_rio_max_m": 25.62,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-04",
+            "nivel_rio_m": 25.051,
+            "nivel_rio_max_m": 25.34,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-05",
+            "nivel_rio_m": 25.037,
+            "nivel_rio_max_m": 25.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-06",
+            "nivel_rio_m": 25.16,
+            "nivel_rio_max_m": 25.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-07",
+            "nivel_rio_m": 24.835,
+            "nivel_rio_max_m": 25.18,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-08",
+            "nivel_rio_m": 25.097,
+            "nivel_rio_max_m": 25.37,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-09",
+            "nivel_rio_m": 25.02,
+            "nivel_rio_max_m": 25.35,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-10",
+            "nivel_rio_m": 25.23,
+            "nivel_rio_max_m": 25.55,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-11",
+            "nivel_rio_m": 26.055,
+            "nivel_rio_max_m": 26.83,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-12",
+            "nivel_rio_m": 27.21,
+            "nivel_rio_max_m": 27.34,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-13",
+            "nivel_rio_m": 27.565,
+            "nivel_rio_max_m": 28.01,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-14",
+            "nivel_rio_m": 28.401,
+            "nivel_rio_max_m": 28.62,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-15",
+            "nivel_rio_m": 27.186,
+            "nivel_rio_max_m": 28.57,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-16",
+            "nivel_rio_m": 26.119,
+            "nivel_rio_max_m": 26.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-17",
+            "nivel_rio_m": 25.561,
+            "nivel_rio_max_m": 26.27,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-18",
+            "nivel_rio_m": 25.904,
+            "nivel_rio_max_m": 26.3,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-19",
+            "nivel_rio_m": 25.179,
+            "nivel_rio_max_m": 25.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-20",
+            "nivel_rio_m": 24.846,
+            "nivel_rio_max_m": 25.05,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-21",
+            "nivel_rio_m": 24.585,
+            "nivel_rio_max_m": 24.74,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-22",
+            "nivel_rio_m": 24.408,
+            "nivel_rio_max_m": 24.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-23",
+            "nivel_rio_m": 24.313,
+            "nivel_rio_max_m": 24.41,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-24",
+            "nivel_rio_m": 24.172,
+            "nivel_rio_max_m": 24.3,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-25",
+            "nivel_rio_m": 24.078,
+            "nivel_rio_max_m": 24.16,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-26",
+            "nivel_rio_m": 24.03,
+            "nivel_rio_max_m": 24.16,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-27",
+            "nivel_rio_m": 23.924,
+            "nivel_rio_max_m": 23.97,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-28",
+            "nivel_rio_m": 23.838,
+            "nivel_rio_max_m": 23.92,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-29",
+            "nivel_rio_m": 23.798,
+            "nivel_rio_max_m": 23.85,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-30",
+            "nivel_rio_m": 23.644,
+            "nivel_rio_max_m": 23.78,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-03-31",
+            "nivel_rio_m": 23.566,
+            "nivel_rio_max_m": 23.77,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-01",
+            "nivel_rio_m": 23.634,
+            "nivel_rio_max_m": 23.77,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-02",
+            "nivel_rio_m": 23.532,
+            "nivel_rio_max_m": 23.65,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-03",
+            "nivel_rio_m": 23.497,
+            "nivel_rio_max_m": 23.57,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-04",
+            "nivel_rio_m": 23.368,
+            "nivel_rio_max_m": 23.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-05",
+            "nivel_rio_m": 23.32,
+            "nivel_rio_max_m": 23.39,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-06",
+            "nivel_rio_m": 23.276,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-07",
+            "nivel_rio_m": 23.245,
+            "nivel_rio_max_m": 23.35,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-08",
+            "nivel_rio_m": 23.134,
+            "nivel_rio_max_m": 23.27,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-09",
+            "nivel_rio_m": 23.045,
+            "nivel_rio_max_m": 23.2,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-10",
+            "nivel_rio_m": 22.802,
+            "nivel_rio_max_m": 22.82,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-11",
+            "nivel_rio_m": 22.795,
+            "nivel_rio_max_m": 22.81,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-12",
+            "nivel_rio_m": 22.794,
+            "nivel_rio_max_m": 22.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-13",
+            "nivel_rio_m": 22.795,
+            "nivel_rio_max_m": 22.81,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-14",
+            "nivel_rio_m": 22.793,
+            "nivel_rio_max_m": 22.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-15",
+            "nivel_rio_m": 22.79,
+            "nivel_rio_max_m": 22.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-16",
+            "nivel_rio_m": 22.79,
+            "nivel_rio_max_m": 22.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-17",
+            "nivel_rio_m": 23.169,
+            "nivel_rio_max_m": 23.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-18",
+            "nivel_rio_m": 23.893,
+            "nivel_rio_max_m": 24.19,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-19",
+            "nivel_rio_m": 24.038,
+            "nivel_rio_max_m": 24.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-20",
+            "nivel_rio_m": 24.197,
+            "nivel_rio_max_m": 24.74,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-21",
+            "nivel_rio_m": 24.362,
+            "nivel_rio_max_m": 24.76,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-22",
+            "nivel_rio_m": 23.967,
+            "nivel_rio_max_m": 24.07,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-23",
+            "nivel_rio_m": 23.782,
+            "nivel_rio_max_m": 23.94,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-24",
+            "nivel_rio_m": 23.658,
+            "nivel_rio_max_m": 23.79,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-25",
+            "nivel_rio_m": 23.613,
+            "nivel_rio_max_m": 23.68,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-26",
+            "nivel_rio_m": 23.621,
+            "nivel_rio_max_m": 23.68,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-27",
+            "nivel_rio_m": 23.625,
+            "nivel_rio_max_m": 23.66,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-28",
+            "nivel_rio_m": 23.726,
+            "nivel_rio_max_m": 23.86,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-29",
+            "nivel_rio_m": 23.792,
+            "nivel_rio_max_m": 23.86,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-04-30",
+            "nivel_rio_m": 23.8,
+            "nivel_rio_max_m": 23.93,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-01",
+            "nivel_rio_m": 23.735,
+            "nivel_rio_max_m": 23.78,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-02",
+            "nivel_rio_m": 23.728,
+            "nivel_rio_max_m": 23.88,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-03",
+            "nivel_rio_m": 23.732,
+            "nivel_rio_max_m": 23.89,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-04",
+            "nivel_rio_m": 23.769,
+            "nivel_rio_max_m": 23.97,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-05",
+            "nivel_rio_m": 23.833,
+            "nivel_rio_max_m": 23.94,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-06",
+            "nivel_rio_m": 23.792,
+            "nivel_rio_max_m": 23.91,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-07",
+            "nivel_rio_m": 23.733,
+            "nivel_rio_max_m": 23.91,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-08",
+            "nivel_rio_m": 23.7,
+            "nivel_rio_max_m": 23.82,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-09",
+            "nivel_rio_m": 23.655,
+            "nivel_rio_max_m": 23.68,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-10",
+            "nivel_rio_m": 23.583,
+            "nivel_rio_max_m": 23.79,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-11",
+            "nivel_rio_m": 23.675,
+            "nivel_rio_max_m": 23.92,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-12",
+            "nivel_rio_m": 23.615,
+            "nivel_rio_max_m": 23.68,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-13",
+            "nivel_rio_m": 23.569,
+            "nivel_rio_max_m": 23.65,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-14",
+            "nivel_rio_m": 23.654,
+            "nivel_rio_max_m": 23.73,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-15",
+            "nivel_rio_m": 23.74,
+            "nivel_rio_max_m": 23.76,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-16",
+            "nivel_rio_m": 23.737,
+            "nivel_rio_max_m": 23.82,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-17",
+            "nivel_rio_m": 23.578,
+            "nivel_rio_max_m": 23.78,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-18",
+            "nivel_rio_m": 23.48,
+            "nivel_rio_max_m": 23.56,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-19",
+            "nivel_rio_m": 23.503,
+            "nivel_rio_max_m": 23.61,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-20",
+            "nivel_rio_m": 23.468,
+            "nivel_rio_max_m": 23.57,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-21",
+            "nivel_rio_m": 23.495,
+            "nivel_rio_max_m": 23.62,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-22",
+            "nivel_rio_m": 23.672,
+            "nivel_rio_max_m": 23.72,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-23",
+            "nivel_rio_m": 23.686,
+            "nivel_rio_max_m": 23.73,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-24",
+            "nivel_rio_m": 23.63,
+            "nivel_rio_max_m": 23.71,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-25",
+            "nivel_rio_m": 23.712,
+            "nivel_rio_max_m": 23.78,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-26",
+            "nivel_rio_m": 23.708,
+            "nivel_rio_max_m": 23.74,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-27",
+            "nivel_rio_m": 23.674,
+            "nivel_rio_max_m": 23.72,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-28",
+            "nivel_rio_m": 23.704,
+            "nivel_rio_max_m": 23.76,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-29",
+            "nivel_rio_m": 23.692,
+            "nivel_rio_max_m": 23.79,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-30",
+            "nivel_rio_m": 23.51,
+            "nivel_rio_max_m": 23.7,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-05-31",
+            "nivel_rio_m": 23.437,
+            "nivel_rio_max_m": 23.6,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-01",
+            "nivel_rio_m": 23.427,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-02",
+            "nivel_rio_m": 23.71,
+            "nivel_rio_max_m": 23.8,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-03",
+            "nivel_rio_m": 23.727,
+            "nivel_rio_max_m": 23.77,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-04",
+            "nivel_rio_m": 23.657,
+            "nivel_rio_max_m": 23.73,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-05",
+            "nivel_rio_m": 23.643,
+            "nivel_rio_max_m": 23.71,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-06",
+            "nivel_rio_m": 23.635,
+            "nivel_rio_max_m": 23.68,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-07",
+            "nivel_rio_m": 23.689,
+            "nivel_rio_max_m": 23.7,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-08",
+            "nivel_rio_m": 23.626,
+            "nivel_rio_max_m": 23.69,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-09",
+            "nivel_rio_m": 23.612,
+            "nivel_rio_max_m": 23.67,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-10",
+            "nivel_rio_m": 23.58,
+            "nivel_rio_max_m": 23.66,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-11",
+            "nivel_rio_m": 23.717,
+            "nivel_rio_max_m": 23.83,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-12",
+            "nivel_rio_m": 23.733,
+            "nivel_rio_max_m": 23.83,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-13",
+            "nivel_rio_m": 23.541,
+            "nivel_rio_max_m": 23.66,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-14",
+            "nivel_rio_m": 23.383,
+            "nivel_rio_max_m": 23.45,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-15",
+            "nivel_rio_m": 23.309,
+            "nivel_rio_max_m": 23.4,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-16",
+            "nivel_rio_m": 23.258,
+            "nivel_rio_max_m": 23.35,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-17",
+            "nivel_rio_m": 23.3,
+            "nivel_rio_max_m": 23.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-18",
+            "nivel_rio_m": 23.506,
+            "nivel_rio_max_m": 23.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-19",
+            "nivel_rio_m": 23.534,
+            "nivel_rio_max_m": 23.59,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-20",
+            "nivel_rio_m": 23.541,
+            "nivel_rio_max_m": 23.61,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-21",
+            "nivel_rio_m": 23.56,
+            "nivel_rio_max_m": 23.69,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-22",
+            "nivel_rio_m": 23.332,
+            "nivel_rio_max_m": 23.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-23",
+            "nivel_rio_m": 23.237,
+            "nivel_rio_max_m": 23.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-24",
+            "nivel_rio_m": 23.184,
+            "nivel_rio_max_m": 23.24,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-25",
+            "nivel_rio_m": 23.119,
+            "nivel_rio_max_m": 23.3,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-26",
+            "nivel_rio_m": 22.976,
+            "nivel_rio_max_m": 23.22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-27",
+            "nivel_rio_m": 22.995,
+            "nivel_rio_max_m": 23.06,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-28",
+            "nivel_rio_m": 23.014,
+            "nivel_rio_max_m": 23.11,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-29",
+            "nivel_rio_m": 23.052,
+            "nivel_rio_max_m": 23.12,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-06-30",
+            "nivel_rio_m": 22.978,
+            "nivel_rio_max_m": 23.11,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-01",
+            "nivel_rio_m": 22.968,
+            "nivel_rio_max_m": 23.22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-02",
+            "nivel_rio_m": 22.861,
+            "nivel_rio_max_m": 23.22,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-03",
+            "nivel_rio_m": 23.145,
+            "nivel_rio_max_m": 23.29,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-04",
+            "nivel_rio_m": 23.232,
+            "nivel_rio_max_m": 23.35,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-05",
+            "nivel_rio_m": 23.258,
+            "nivel_rio_max_m": 23.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-06",
+            "nivel_rio_m": 23.186,
+            "nivel_rio_max_m": 23.32,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-07",
+            "nivel_rio_m": 23.123,
+            "nivel_rio_max_m": 23.3,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-08",
+            "nivel_rio_m": 22.7,
+            "nivel_rio_max_m": 23.13,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-09",
+            "nivel_rio_m": 22.671,
+            "nivel_rio_max_m": 22.81,
+            "nivel_rio_lecturas": 23
+        },
+        {
+            "fecha": "2026-07-10",
+            "nivel_rio_m": 22.667,
+            "nivel_rio_max_m": 22.89,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-11",
+            "nivel_rio_m": 22.605,
+            "nivel_rio_max_m": 22.77,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-12",
+            "nivel_rio_m": 22.648,
+            "nivel_rio_max_m": 22.83,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-13",
+            "nivel_rio_m": 22.698,
+            "nivel_rio_max_m": 22.74,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-14",
+            "nivel_rio_m": 22.622,
+            "nivel_rio_max_m": 22.71,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-15",
+            "nivel_rio_m": 22.508,
+            "nivel_rio_max_m": 22.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-16",
+            "nivel_rio_m": 22.499,
+            "nivel_rio_max_m": 22.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-17",
+            "nivel_rio_m": 22.488,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-18",
+            "nivel_rio_m": 22.488,
+            "nivel_rio_max_m": 22.51,
+            "nivel_rio_lecturas": 22
+        },
+        {
+            "fecha": "2026-07-19",
+            "nivel_rio_m": 22.558,
+            "nivel_rio_max_m": 22.84,
+            "nivel_rio_lecturas": 16
+        },
+        {
+            "fecha": "2026-07-20",
+            "nivel_rio_m": 22.585,
+            "nivel_rio_max_m": 22.9,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-21",
+            "nivel_rio_m": 22.495,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-22",
+            "nivel_rio_m": 22.46,
+            "nivel_rio_max_m": 22.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-23",
+            "nivel_rio_m": 22.434,
+            "nivel_rio_max_m": 22.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-24",
+            "nivel_rio_m": 22.419,
+            "nivel_rio_max_m": 22.46,
+            "nivel_rio_lecturas": 19
+        },
+        {
+            "fecha": "2026-07-25",
+            "nivel_rio_m": 22.436,
+            "nivel_rio_max_m": 22.46,
+            "nivel_rio_lecturas": 17
+        },
+        {
+            "fecha": "2026-07-26",
+            "nivel_rio_m": 22.566,
+            "nivel_rio_max_m": 22.8,
+            "nivel_rio_lecturas": 21
+        },
+        {
+            "fecha": "2026-07-27",
+            "nivel_rio_m": 22.617,
+            "nivel_rio_max_m": 22.89,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-28",
+            "nivel_rio_m": 22.524,
+            "nivel_rio_max_m": 22.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-29",
+            "nivel_rio_m": 22.653,
+            "nivel_rio_max_m": 22.83,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-30",
+            "nivel_rio_m": 22.511,
+            "nivel_rio_max_m": 22.56,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-07-31",
+            "nivel_rio_m": 22.475,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-01",
+            "nivel_rio_m": 22.438,
+            "nivel_rio_max_m": 22.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-02",
+            "nivel_rio_m": 22.432,
+            "nivel_rio_max_m": 22.53,
+            "nivel_rio_lecturas": 23
+        },
+        {
+            "fecha": "2026-08-03",
+            "nivel_rio_m": 22.466,
+            "nivel_rio_max_m": 22.53,
+            "nivel_rio_lecturas": 21
+        },
+        {
+            "fecha": "2026-08-04",
+            "nivel_rio_m": 22.52,
+            "nivel_rio_max_m": 22.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-05",
+            "nivel_rio_m": 22.518,
+            "nivel_rio_max_m": 22.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-06",
+            "nivel_rio_m": 22.514,
+            "nivel_rio_max_m": 22.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-07",
+            "nivel_rio_m": 22.456,
+            "nivel_rio_max_m": 22.56,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-08",
+            "nivel_rio_m": 22.452,
+            "nivel_rio_max_m": 22.47,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-09",
+            "nivel_rio_m": 22.453,
+            "nivel_rio_max_m": 22.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-10",
+            "nivel_rio_m": 22.465,
+            "nivel_rio_max_m": 22.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-11",
+            "nivel_rio_m": 22.47,
+            "nivel_rio_max_m": 22.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-12",
+            "nivel_rio_m": 22.491,
+            "nivel_rio_max_m": 22.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-13",
+            "nivel_rio_m": 22.456,
+            "nivel_rio_max_m": 22.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-14",
+            "nivel_rio_m": 22.463,
+            "nivel_rio_max_m": 22.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-15",
+            "nivel_rio_m": 22.47,
+            "nivel_rio_max_m": 22.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-16",
+            "nivel_rio_m": 22.465,
+            "nivel_rio_max_m": 22.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-17",
+            "nivel_rio_m": 22.477,
+            "nivel_rio_max_m": 22.49,
+            "nivel_rio_lecturas": 19
+        },
+        {
+            "fecha": "2026-08-18",
+            "nivel_rio_m": 22.446,
+            "nivel_rio_max_m": 22.45,
+            "nivel_rio_lecturas": 8
+        },
+        {
+            "fecha": "2026-08-19",
+            "nivel_rio_m": 22.44,
+            "nivel_rio_max_m": 22.45,
+            "nivel_rio_lecturas": 15
+        },
+        {
+            "fecha": "2026-08-20",
+            "nivel_rio_m": 22.444,
+            "nivel_rio_max_m": 22.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-21",
+            "nivel_rio_m": 22.449,
+            "nivel_rio_max_m": 22.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-22",
+            "nivel_rio_m": 22.467,
+            "nivel_rio_max_m": 22.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-23",
+            "nivel_rio_m": 22.474,
+            "nivel_rio_max_m": 22.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-24",
+            "nivel_rio_m": 22.458,
+            "nivel_rio_max_m": 22.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-25",
+            "nivel_rio_m": 22.46,
+            "nivel_rio_max_m": 22.48,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-26",
+            "nivel_rio_m": 22.473,
+            "nivel_rio_max_m": 22.54,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-27",
+            "nivel_rio_m": 22.464,
+            "nivel_rio_max_m": 22.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-28",
+            "nivel_rio_m": 22.461,
+            "nivel_rio_max_m": 22.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-29",
+            "nivel_rio_m": 22.467,
+            "nivel_rio_max_m": 22.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-30",
+            "nivel_rio_m": 22.443,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-08-31",
+            "nivel_rio_m": 22.45,
+            "nivel_rio_max_m": 22.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-01",
+            "nivel_rio_m": 22.461,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-02",
+            "nivel_rio_m": 22.447,
+            "nivel_rio_max_m": 22.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-03",
+            "nivel_rio_m": 22.434,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-04",
+            "nivel_rio_m": 22.431,
+            "nivel_rio_max_m": 22.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-05",
+            "nivel_rio_m": 22.466,
+            "nivel_rio_max_m": 22.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-06",
+            "nivel_rio_m": 22.477,
+            "nivel_rio_max_m": 22.49,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-07",
+            "nivel_rio_m": 22.482,
+            "nivel_rio_max_m": 22.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-08",
+            "nivel_rio_m": 22.442,
+            "nivel_rio_max_m": 22.57,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-09",
+            "nivel_rio_m": 22.418,
+            "nivel_rio_max_m": 22.6,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-10",
+            "nivel_rio_m": 22.399,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-11",
+            "nivel_rio_m": 22.442,
+            "nivel_rio_max_m": 22.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-12",
+            "nivel_rio_m": 22.463,
+            "nivel_rio_max_m": 22.58,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-13",
+            "nivel_rio_m": 22.468,
+            "nivel_rio_max_m": 22.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-14",
+            "nivel_rio_m": 22.491,
+            "nivel_rio_max_m": 22.55,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-15",
+            "nivel_rio_m": 22.494,
+            "nivel_rio_max_m": 22.61,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-16",
+            "nivel_rio_m": 22.472,
+            "nivel_rio_max_m": 22.62,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-17",
+            "nivel_rio_m": 22.432,
+            "nivel_rio_max_m": 22.46,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-18",
+            "nivel_rio_m": 22.45,
+            "nivel_rio_max_m": 22.55,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-19",
+            "nivel_rio_m": 22.457,
+            "nivel_rio_max_m": 22.56,
+            "nivel_rio_lecturas": 23
+        },
+        {
+            "fecha": "2026-09-20",
+            "nivel_rio_m": 22.464,
+            "nivel_rio_max_m": 22.54,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-21",
+            "nivel_rio_m": 22.496,
+            "nivel_rio_max_m": 22.51,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-22",
+            "nivel_rio_m": 22.484,
+            "nivel_rio_max_m": 22.53,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-23",
+            "nivel_rio_m": 22.494,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-24",
+            "nivel_rio_m": 22.458,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-25",
+            "nivel_rio_m": 22.406,
+            "nivel_rio_max_m": 22.5,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-26",
+            "nivel_rio_m": 22.428,
+            "nivel_rio_max_m": 22.57,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-27",
+            "nivel_rio_m": 22.487,
+            "nivel_rio_max_m": 22.54,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-28",
+            "nivel_rio_m": 22.491,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-29",
+            "nivel_rio_m": 22.497,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-09-30",
+            "nivel_rio_m": 22.489,
+            "nivel_rio_max_m": 22.52,
+            "nivel_rio_lecturas": 24
+        },
+        {
+            "fecha": "2026-10-01"
+        },
+        {
+            "fecha": "2026-10-02"
+        },
+        {
+            "fecha": "2026-10-03"
+        },
+        {
+            "fecha": "2026-10-04"
+        },
+        {
+            "fecha": "2026-10-05"
+        },
+        {
+            "fecha": "2026-10-06"
+        },
+        {
+            "fecha": "2026-10-07"
+        },
+        {
+            "fecha": "2026-10-08"
+        },
+        {
+            "fecha": "2026-10-09"
+        },
+        {
+            "fecha": "2026-10-10"
+        },
+        {
+            "fecha": "2026-10-11"
+        },
+        {
+            "fecha": "2026-10-12"
+        },
+        {
+            "fecha": "2026-10-13"
+        },
+        {
+            "fecha": "2026-10-14"
+        },
+        {
+            "fecha": "2026-10-15"
+        },
+        {
+            "fecha": "2026-10-16"
+        },
+        {
+            "fecha": "2026-10-17"
+        },
+        {
+            "fecha": "2026-10-18"
+        },
+        {
+            "fecha": "2026-10-19"
+        },
+        {
+            "fecha": "2026-10-20"
+        },
+        {
+            "fecha": "2026-10-21"
+        },
+        {
+            "fecha": "2026-10-22"
+        },
+        {
+            "fecha": "2026-10-23"
+        },
+        {
+            "fecha": "2026-10-24"
+        },
+        {
+            "fecha": "2026-10-25"
+        },
+        {
+            "fecha": "2026-10-26"
+        },
+        {
+            "fecha": "2026-10-27"
+        },
+        {
+            "fecha": "2026-10-28"
+        },
+        {
+            "fecha": "2026-10-29"
+        },
+        {
+            "fecha": "2026-10-30"
+        },
+        {
+            "fecha": "2026-10-31"
+        },
+        {
+            "fecha": "2026-11-01"
+        },
+        {
+            "fecha": "2026-11-02"
+        },
+        {
+            "fecha": "2026-11-03"
+        },
+        {
+            "fecha": "2026-11-04"
+        },
+        {
+            "fecha": "2026-11-05"
+        },
+        {
+            "fecha": "2026-11-06"
+        }
+    ]
+}

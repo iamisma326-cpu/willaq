@@ -1,0 +1,405 @@
+{
+    "_meta": {
+        "descripcion": "Overlay de exposición oficial de WILLAQ. Generado por scripts\/importar_exposicion.php. Borrar este archivo devuelve el sistema a las estimaciones de config\/territorios.json.",
+        "version": 1,
+        "generado_en": "2026-11-07T01:32:38+00:00",
+        "generado_por": "scripts\/importar_exposicion.php",
+        "modo": "aplicar",
+        "archivos": [
+            {
+                "archivo": "inei_poblacion.csv",
+                "ruta": "datos\/oficial\/inei_poblacion.csv",
+                "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+                "filas": 29,
+                "aceptadas": 29,
+                "rechazadas": 0
+            }
+        ],
+        "campos_permitidos": [
+            "poblacion",
+            "viviendas",
+            "escuelas",
+            "centros_salud"
+        ],
+        "total_territorios": 29,
+        "total_campos": 29,
+        "advertencia": "Los totales son oficiales; la fracción expuesta sigue siendo una estimación por ratio de susceptibilidad. No confundir ambos números."
+    },
+    "050101": {
+        "distrito": "Ayacucho",
+        "provincia": "Huamanga",
+        "poblacion": {
+            "valor": 115845,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "080101": {
+        "distrito": "Cusco",
+        "provincia": "Cusco",
+        "poblacion": {
+            "valor": 120026,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "090101": {
+        "distrito": "Huancavelica",
+        "provincia": "Huancavelica",
+        "poblacion": {
+            "valor": 43733,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "150101": {
+        "distrito": "Lima Cercado",
+        "provincia": "Lima",
+        "poblacion": {
+            "valor": 265003,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b; nombre INEI «LIMA» vs catálogo «Lima Cercado»"
+        }
+    },
+    "150103": {
+        "distrito": "Ate",
+        "provincia": "Lima",
+        "poblacion": {
+            "valor": 756613,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "150107": {
+        "distrito": "Chaclacayo",
+        "provincia": "Lima",
+        "poblacion": {
+            "valor": 46824,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "150109": {
+        "distrito": "Cieneguilla",
+        "provincia": "Lima",
+        "poblacion": {
+            "valor": 42353,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "150118": {
+        "distrito": "Lurigancho (Chosica)",
+        "provincia": "Lima",
+        "poblacion": {
+            "valor": 335442,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b; nombre INEI «LURIGANCHO» vs catálogo «Lurigancho (Chosica)»"
+        }
+    },
+    "150119": {
+        "distrito": "Lurín",
+        "provincia": "Lima",
+        "poblacion": {
+            "valor": 122750,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "150132": {
+        "distrito": "San Juan de Lurigancho",
+        "provincia": "Lima",
+        "poblacion": {
+            "valor": 1300785,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "150142": {
+        "distrito": "Villa El Salvador",
+        "provincia": "Lima",
+        "poblacion": {
+            "valor": 445521,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "150601": {
+        "distrito": "Huaral",
+        "provincia": "Huaral",
+        "poblacion": {
+            "valor": 116965,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "150722": {
+        "distrito": "San Mateo",
+        "provincia": "Huarochirí",
+        "poblacion": {
+            "valor": 3641,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "150728": {
+        "distrito": "Santa Eulalia",
+        "provincia": "Huarochirí",
+        "poblacion": {
+            "valor": 13839,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "200101": {
+        "distrito": "Piura",
+        "provincia": "Piura",
+        "poblacion": {
+            "valor": 197373,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "200104": {
+        "distrito": "Castilla",
+        "provincia": "Piura",
+        "poblacion": {
+            "valor": 210227,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "200105": {
+        "distrito": "Catacaos",
+        "provincia": "Piura",
+        "poblacion": {
+            "valor": 85543,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "200114": {
+        "distrito": "Tambogrande",
+        "provincia": "Piura",
+        "poblacion": {
+            "valor": 134568,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "200115": {
+        "distrito": "Veintiséis de Octubre",
+        "provincia": "Piura",
+        "poblacion": {
+            "valor": 214280,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "200401": {
+        "distrito": "Chulucanas",
+        "provincia": "Morropón",
+        "poblacion": {
+            "valor": 93656,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "200501": {
+        "distrito": "Paita",
+        "provincia": "Paita",
+        "poblacion": {
+            "valor": 115977,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "200601": {
+        "distrito": "Sullana",
+        "provincia": "Sullana",
+        "poblacion": {
+            "valor": 199760,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "210101": {
+        "distrito": "Puno",
+        "provincia": "Puno",
+        "poblacion": {
+            "valor": 140289,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "240101": {
+        "distrito": "Tumbes",
+        "provincia": "Tumbes",
+        "poblacion": {
+            "valor": 122386,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "240102": {
+        "distrito": "Corrales",
+        "provincia": "Tumbes",
+        "poblacion": {
+            "valor": 26634,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "240103": {
+        "distrito": "La Cruz",
+        "provincia": "Tumbes",
+        "poblacion": {
+            "valor": 11502,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "240201": {
+        "distrito": "Zorritos",
+        "provincia": "Contralmirante Villar",
+        "poblacion": {
+            "valor": 15378,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "240301": {
+        "distrito": "Zarumilla",
+        "provincia": "Zarumilla",
+        "poblacion": {
+            "valor": 29008,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    },
+    "240302": {
+        "distrito": "Aguas Verdes",
+        "provincia": "Zarumilla",
+        "poblacion": {
+            "valor": 20911,
+            "fuente": "INEI · Población total proyectada al 30\/06 (Boletín 2018-2026)",
+            "anio": 2026,
+            "archivo": "inei_poblacion.csv",
+            "sha256": "71766fc8785e6e124627c294e7a1893ec7e20d4c35b1f860a99fb72173f6d930",
+            "importado_en": "2026-11-07T01:32:38+00:00",
+            "nota": "INEI XLSX «inei_poblacion_distrital_2018_2026.xlsx» sha256:9436df29b883fd4a9db3705040a6668ff4efe7047c2643249b6b6bedd90d5c8b"
+        }
+    }
+}

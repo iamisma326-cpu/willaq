@@ -332,10 +332,14 @@ willaq/
 │   ├── cache/                   Caché de API (archivos JSON)
 │   ├── snapshots/               Riesgo nacional precalculado (24/48/72 h)
 │   ├── estaciones/              Series normalizadas, QA y catálogo SENAMHI
+│   ├── exposicion_oficial.json  Overlay de exposición (procedencia por campo)
 │   ├── alertas.json             Recomendaciones emitidas
 │   ├── climatologia_resumen.json
 │   ├── validacion_historica.json
 │   └── sensibilidad.json
+├── datos/
+│   ├── ejemplo/                 Fixtures sintéticos del importador (NO oficiales)
+│   └── oficial/                 XLSX/CSV oficiales (INEI) + procedencia
 ├── assets/                      CSS, JS, fuentes, imágenes (todo local)
 ├── database/
 │   ├── 00_crear_bd_postgresql.sql  Rol y base

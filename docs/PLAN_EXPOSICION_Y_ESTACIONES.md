@@ -70,11 +70,26 @@ los dos pendientes abiertos:
 | Overlay + respaldo fechado + reporte | ✅ | `data/exposicion_oficial.json`, `data/backups/`, `data/importacion_reporte.json` |
 | Lectura del overlay sin reescribir el catálogo | ✅ | `models/Exposicion.php`, `models/Territorio.php` |
 | Ficha, panel admin, reporte y APIs con procedencia por campo | ✅ | `views/territorio/ficha.php`, `views/admin/panel.php`, `index.php` |
+| Textos de alcance **dinámicos** (se redactan desde el overlay) | ✅ | `models/Exposicion.php` → `exposicion_texto_breve()`, `exposicion_texto_limite()`, `exposicion_texto_corto()`; usados en home, ayuda y reporte |
+| **Población oficial del INEI** (proyección 30/06/2026, 29/29) | ✅ | `datos/oficial/` + `scripts/inei_poblacion_xlsx_a_csv.php` |
+| Viviendas / escuelas / centros de salud oficiales | ⛔ | ESCALE y RENIPRESS bloquean la descarga automatizada (anti-bot / WAF) |
 
-Sin overlay el catálogo se comporta **exactamente igual** que antes (hash
-`4136bb6e408be67bc5af87b431998806`). Un JSON roto no rompe el sistema: se
-ignora y se registra el error. El repositorio se entrega **sin** overlay
-aplicado, para no presentar datos sintéticos como reales.
+El overlay aplicado cubre **población** en los 29 distritos (INEI, sha256
+`9436df29…d90d5c8b`); **`viviendas`, `escuelas` y `centros_salud` siguen
+estimados** y la interfaz lo dice campo por campo. Sin overlay el catálogo se
+comporta **exactamente igual** que antes (hash
+`4136bb6e408be67bc5af87b431998806`): borrar `data/exposicion_oficial.json`
+revierte a estimación. Un JSON roto no rompe el sistema: se ignora y se
+registra el error.
+
+Los textos de alcance **no están escritos a mano por caso**: home, ayuda y
+reporte preguntan al modelo qué es oficial y qué no, y lo redactan. Con el
+overlay actual dicen «el campo de población es oficial (INEI…, 2026,
+29/29 distritos); los campos de viviendas, colegios y centros de salud siguen
+siendo estimación». Si mañana se aplican los padrones de ESCALE y RENIPRESS,
+esas frases cambian solas; si se borra el overlay, vuelven a declarar que todo
+es estimación. Un alcance que se queda escrito a mano es un alcance que
+termina mintiendo.
 
 ### B. Estaciones — **fase 1 ejecutada, fase 2 bloqueada**
 
@@ -84,22 +99,39 @@ aplicado, para no presentar datos sintéticos como reales.
 | Snapshot del catálogo SENAMHI (1029 estaciones) | ✅ | `data/estaciones/catalogo_senamhi.json` (sha256 `b6694672…612fe`) |
 | Registro de estaciones | ✅ | `config/estaciones.json`: **103 estaciones**, **29/29 distritos** cubiertos |
 | Prioridad de descarga derivada del backtest | ✅ | 6 `critica`, 17 `alta`, 21 `media`, 59 `baja` |
-| Descarga real de las 6 críticas (2017–2026) | ✅ | `data/estaciones/_garua/csv/` |
+| Descarga real: 6 `critica` + 17 `alta` (2017–2026) | ✅ | `data/estaciones/_garua/csv/` (23 estaciones) |
 | Importador con QA y normalización | ✅ | `scripts/importar_estaciones.php` |
-| Series normalizadas | ✅ | `data/estaciones/senamhi-*.json` |
+| Series normalizadas | ✅ | `data/estaciones/senamhi-*.json` (**23 series**) |
 | Panel admin con cobertura y compuerta | ✅ | sección «Cobertura de estaciones» |
 | Motor de riesgo usando estaciones | ⛔ | `motor_usa_estaciones = false` |
 
-Resultado medido de las 6 estaciones críticas:
+Resultado medido sobre las **23 series** descargadas (6 `critica` + 17 `alta`):
 
 | Estación | Días con dato | Faltantes | Años cal. | Extensión real | Años compl. | Criterios medibles |
 |---|---:|---:|---:|---:|---:|---|
-| 105012 BERNAL | 3405 | 0,56 % | 10 | 9,35 | 8 | ✅ |
-| 105070 CHULUCANAS | 3435 | 2,91 % | 10 | 9,68 | 7 | ✅ |
-| 104084 PARTIDOR | 3478 | 3,75 % | 10 | 9,85 | 8 | ✅ |
-| 103040 PAPAYAL | 3368 | 6,54 % | 10 | 9,85 | 8 | ✅ |
-| 105063 SAN MIGUEL | 2711 | 24,43 % | 10 | 9,81 | 6 | ❌ |
-| 104079 MALLARES | 2226 | 33,13 % | 10 | 9,10 | 5 | ❌ |
+| 104084 PARTIDOR | 3.478 | 3,75 % | 10 | 9,85 | 8 | ✅ |
+| 105070 CHULUCANAS | 3.435 | 2,91 % | 10 | 9,68 | 7 | ✅ |
+| 105012 BERNAL | 3.405 | 0,56 % | 10 | 9,35 | 8 | ✅ |
+| 103040 PAPAYAL | 3.368 | 6,54 % | 10 | 9,85 | 8 | ✅ |
+| 105063 SAN MIGUEL | 2.711 | 24,43 % | 10 | 9,81 | 6 | ❌ |
+| 103038 PUERTO PIZARRO | 2.401 | 25,01 % | 9 | 8,73 | 4 | ❌ |
+| 104079 MALLARES | 2.226 | 33,13 % | 10 | 9,10 | 5 | ❌ |
+| 105100 MIRAFLORES | 1.806 | 31,13 % | 7 | 7,17 | 3 | ❌ |
+| 47E0522C TAMBO GRANDE | 1.802 | 0,00 % | 6 | 4,93 | 4 | ❌ |
+| 472F6540 CHULUCANAS | 1.799 | 0,17 % | 6 | 4,93 | 4 | ❌ |
+| 47E024BC PUENTE TUMBES | 1.736 | 9,82 % | 6 | 5,27 | 2 | ❌ |
+| 472EF2D8 CAMPAMENTO SEDE | 1.711 | 6,60 % | 6 | 5,02 | 2 | ❌ |
+| 103041 EL SALTO | 1.536 | 14,33 % | 5 | 4,66 | 3 | ❌ |
+| 47E0415A PUENTE ÑACARA | 1.533 | 21,59 % | 6 | 5,35 | 1 | ❌ |
+| 472F353C MATAPALO | 1.528 | 0,00 % | 5 | 4,18 | 3 | ❌ |
+| 103008 MATAPALO | 1.516 | 2,38 % | 5 | 4,25 | 3 | ❌ |
+| 104109 EL CHIRA | 1.091 | 13,07 % | 4 | 3,44 | 1 | ❌ |
+| 210503 PUENTE EGUIGUREN | 880 | 15,30 % | 3 | 2,84 | 1 | ❌ |
+| 105143 SAN MIGUEL | 710 | 1,66 % | 3 | 1,98 | 1 | ❌ |
+| 105144 BERNAL | 395 | 0,00 % | 2 | 1,08 | 0 | ❌ |
+| 105112 MIRAFLORES | 394 | 80,35 % | 3 | 5,49 | 0 | ❌ |
+| 104113 PARTIDOR | 393 | 0,00 % | 2 | 1,08 | 0 | ❌ |
+| 103068 PUERTO PIZARRO | 373 | 0,00 % | 2 | 1,02 | 0 | ❌ |
 
 La columna **Años cal.** cuenta años calendario tocados (2017–2026), que fue la
 decisión registrada. Para no sobrevender la cobertura, el panel muestra además
@@ -107,10 +139,17 @@ la **extensión real** (días calendario / 365,25) y los **años completos** (a�
 con ≤ 10 % de días faltantes). La extensión real todavía es **menor a 10 años**:
 si se exigiera continuidad estricta, ninguna pasaría hasta 2027.
 
-**4 de 6 cumplen los criterios medibles y 0 están habilitadas.** La diferencia
+**4 de 23 cumplen los criterios medibles y 0 están habilitadas.** La diferencia
 es deliberada: la fase 2 exige además medir falsos positivos en el backtest
 sobre los 13 casos ya detectados, y esa medición todavía no se ejecutó. El
 panel muestra ambos estados por separado (`cumple` ≠ `habilitada`).
+
+Lo que muestra la foto: la calidad de la cobertura **no depende solo del
+nombre de la estación**. Hay pares de estaciones con el mismo nombre
+(«BERNAL», «MATAPALO», «SAN MIGUEL») y solo una de cada par tiene serie
+larga: el código de una estación repetida puede ser una estación distinta, con
+otra red y otra cobertura. Por eso el registro guarda el código y la ficha
+completa, no solo el nombre.
 
 Defectos reales del dato que el importador maneja y documenta: `S/D`
 (ausencia, nunca cero), `T` (traza, se conserva como marca), centinela
@@ -427,13 +466,15 @@ datos históricos.
 
 ## B.8 Esfuerzo y bloqueo real
 
-- Fase 1: **ejecutada** (registro reproducible, 6 series críticas importadas,
-  panel con cobertura y compuerta).
+- Fase 1: **ejecutada** (registro reproducible de 103 estaciones, **23 series
+  reales** importadas y auditadas, panel con cobertura y compuerta).
 - Fase 2: **2 a 4 jornadas**, más el tiempo de completar las series y ejecutar
   el backtest de falsos positivos.
 - El bloqueo ya no es de acceso —Garúa resolvió la descarga— sino de **calidad
-  del dato y medición**: 4 de 6 estaciones críticas cumplen años y faltantes,
-  pero ninguna está habilitada hasta medir falsos positivos.
+  del dato y medición**: 4 de las 23 series cumplen años y faltantes, y ninguna
+  está habilitada hasta medir falsos positivos. Las 19 restantes son, sobre
+  todo, series cortas (2 a 9 años): con el portal estable, dos o tres años más
+  de descarga las acercarían.
 
 ---
 
