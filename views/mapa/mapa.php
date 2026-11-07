@@ -5,7 +5,7 @@
  * Estrategia "sin conexión":
  *   - El estilo base es un fondo oscuro propio + capas GeoJSON generadas desde
  *     el catálogo. El mapa funciona aunque no haya internet ni teselas.
- *   - El mapa base (CARTO) y las capas satelitales (NASA GIBS) son mejoras
+ *   - El mapa base (OpenStreetMap) y las capas satelitales (NASA GIBS) son mejoras
  *     opcionales que se activan por encima y fallan en silencio.
  */
 $puntos = [];
@@ -76,7 +76,7 @@ $ayer = (new DateTime('yesterday', new DateTimeZone('America/Lima')))->format('Y
                            class="accent-[#C5A880] w-4 h-4 cursor-pointer">
                 </label>
                 <label class="flex items-center justify-between cursor-pointer group">
-                    <span class="text-slate-300 group-hover:text-white">Mapa base (CARTO)</span>
+                    <span class="text-slate-300 group-hover:text-white">Mapa base (OpenStreetMap)</span>
                     <input type="checkbox" id="capa-base" checked
                            class="accent-[#C5A880] w-4 h-4 cursor-pointer">
                 </label>
@@ -381,7 +381,9 @@ $ayer = (new DateTime('yesterday', new DateTimeZone('America/Lima')))->format('Y
             capaVisible('riesgo-calor', e.target.checked);
         });
         document.getElementById('capa-base').addEventListener('change', e => {
-            capaVisible('carto', e.target.checked);
+            // La capa base se llama 'osm' desde el cambio a OpenStreetMap;
+            // antes apuntaba a 'carto' y el interruptor no hacía nada.
+            capaVisible('osm', e.target.checked);
         });
         document.getElementById('capa-lluvia').addEventListener('change', e => {
             capaVisible('lluvia', e.target.checked);
@@ -391,18 +393,41 @@ $ayer = (new DateTime('yesterday', new DateTimeZone('America/Lima')))->format('Y
         });
     }
 
-    // Advertir si el mapa base no carga (feria sin internet)
+    // Advertir si el mapa base no carga (sin internet).
+    //
+    // Bug corregido: antes se escuchaba el source 'carto', que ya no existe
+    // (el mapa base pasó a OpenStreetMap con id 'osm'). El contador nunca
+    // subía y el aviso aparecía siempre, incluso con el mapa cargado.
     let teselasOk = 0;
+    let fuenteCargo = false;
     mapa.on('data', (e) => {
-        if (e.sourceId === 'carto' && e.isSourceLoaded) teselasOk++;
-    });
-    setTimeout(() => {
-        if (teselasOk === 0) {
-            const warn = document.getElementById('wq-map-warn');
-            warn.textContent = 'Sin conexión al mapa base. El riesgo por distrito sigue operativo.';
-            warn.classList.remove('hidden');
-            setTimeout(() => warn.classList.add('hidden'), 9000);
+        if (e.sourceId === 'osm' && e.isSourceLoaded) {
+            teselasOk++;
+            fuenteCargo = true;
         }
-    }, 6000);
+    });
+    mapa.on('sourcedata', (e) => {
+        if (e.sourceId === 'osm' && e.isSourceLoaded) {
+            teselasOk++;
+            fuenteCargo = true;
+        }
+    });
+    mapa.on('error', (e) => {
+        // Solo cuenta como fallo si el error viene del mapa base.
+        if (e && e.sourceId === 'osm') {
+            teselasOk = 0;
+        }
+    });
+
+    setTimeout(() => {
+        if (!fuenteCargo && teselasOk === 0) {
+            const warn = document.getElementById('wq-map-warn');
+            if (warn) {
+                warn.textContent = 'Sin conexión al mapa base. El riesgo por distrito sigue operativo.';
+                warn.classList.remove('hidden');
+                setTimeout(() => warn.classList.add('hidden'), 9000);
+            }
+        }
+    }, 8000);
 })();
 </script>
