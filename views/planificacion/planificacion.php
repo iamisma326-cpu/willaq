@@ -369,12 +369,21 @@ $geojson = ['type' => 'FeatureCollection', 'features' => $puntos];
     mapa.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
     mapa.on('load', () => {
-        mapa.addSource('carto', {
+        // Mapa base: Esri World Dark Gray.
+        //
+        // Se usaba `basemaps.cartocdn.com/dark_all`, pero Carto empezó a exigir
+        // API key y sus teselas pasaron a ser una marca de agua "API KEY
+        // REQUIRED" sobre fondo liso: el mapa se veía vacío. Esri World Dark
+        // Gray no pide clave, es de tema oscuro y encaja con la paleta.
+        // Nota: Esri usa el orden {z}/{y}/{x} (fila antes que columna).
+        mapa.addSource('esri', {
             type: 'raster',
-            tiles: ['https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'],
-            tileSize: 256
+            tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'],
+            tileSize: 256,
+            maxzoom: 16,
+            attribution: 'Tiles © Esri — Esri, DeLorme, NAVTEQ'
         });
-        mapa.addLayer({ id: 'carto', type: 'raster', source: 'carto', paint: { 'raster-opacity': 0.5 } });
+        mapa.addLayer({ id: 'esri', type: 'raster', source: 'esri', paint: { 'raster-opacity': 0.85 } });
 
         mapa.addSource('distritos', { type: 'geojson', data: <?= json_encode($geojson, JSON_UNESCAPED_UNICODE) ?> });
 

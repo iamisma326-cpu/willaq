@@ -2,12 +2,12 @@
 /**
  * CATÁLOGO DE TERRITORIOS — WILLAQ
  *
- * Los territorios viven en config/territorios.json para que el sistema
- * funcione sin base de datos (requisito de la feria) y para que el jurado
- * pueda ver y editar los datos sin tocar código.
+ * FUENTE DE VERDAD: la tabla `territorios` de PostgreSQL (Neon).
  *
- * En producción, este catálogo se reemplaza por la tabla `territorios`
- * alimentada desde INEI / MINEDU / MINSA.
+ * Si la base no responde (feria sin internet, MySQL caído, credenciales aún
+ * sin configurar), se cae a `config/territorios.json`, que se mantiene como
+ * respaldo offline. Ese respaldo es el mismo archivo del que antes se leía
+ * siempre, así que el comportamiento degradado es idéntico al histórico.
  *
  * Los valores oficiales de población, viviendas, escuelas y centros de salud
  * NO están aquí: viven en el overlay data/exposicion_oficial.json, que genera
@@ -15,6 +15,81 @@
  */
 
 require_once __DIR__ . '/Exposicion.php';
+require_once __DIR__ . '/../config/database.php';
+
+/**
+ * Lee el catálogo desde la tabla `territorios` de la base de datos.
+ * Devuelve null si la base no está disponible, para permitir el respaldo JSON.
+ *
+ * @return array|null ['territorios' => [...], '_meta' => [...]]
+ */
+function territorios_desde_bd() {
+    $db = conectar_db();
+    if (!$db) {
+        return null;
+    }
+
+    try {
+        $sql = 'SELECT id, ubigeo, pais, region, provincia, distrito, lat, lon,
+                       altitud, zona, poblacion, viviendas, escuelas,
+                       centros_salud, km_vias, hectareas_cultivo, vulnerabilidad,
+                       susc_inundacion, susc_huaico, susc_sequia, pendiente,
+                       cuenca_km2, umbral_caudal, cultivo, albergues_capacidad
+                  FROM territorios
+                 WHERE activo = TRUE
+              ORDER BY region, distrito';
+        $filas = $db->query($sql)->fetchAll();
+    } catch (Throwable $e) {
+        error_log('[WILLAQ territorios] No se pudo leer la tabla: ' . $e->getMessage());
+        return null;
+    }
+
+    if (!$filas) {
+        return null;
+    }
+
+    // PDO devuelve todo como string; normalizamos los tipos para que las
+    // vistas y el cálculo de riesgo sigan recibiendo int/float como antes.
+    $territorios = [];
+    foreach ($filas as $f) {
+        $territorios[] = [
+            'id'                  => (string)$f['id'],
+            'ubigeo'              => (string)($f['ubigeo'] ?? ''),
+            'pais'                => (string)$f['pais'],
+            'region'              => (string)$f['region'],
+            'provincia'           => (string)$f['provincia'],
+            'distrito'            => (string)$f['distrito'],
+            'lat'                 => (float)$f['lat'],
+            'lon'                 => (float)$f['lon'],
+            'altitud'             => (int)$f['altitud'],
+            'zona'                => (string)$f['zona'],
+            'poblacion'           => (int)$f['poblacion'],
+            'viviendas'           => (int)$f['viviendas'],
+            'escuelas'            => (int)$f['escuelas'],
+            'centros_salud'       => (int)$f['centros_salud'],
+            'km_vias'             => (float)$f['km_vias'],
+            'hectareas_cultivo'   => (float)$f['hectareas_cultivo'],
+            'vulnerabilidad'      => (float)$f['vulnerabilidad'],
+            'susc_inundacion'     => (float)$f['susc_inundacion'],
+            'susc_huaico'         => (float)$f['susc_huaico'],
+            'susc_sequia'         => (float)$f['susc_sequia'],
+            'pendiente'           => (int)$f['pendiente'],
+            'cuenca_km2'          => (float)$f['cuenca_km2'],
+            'umbral_caudal'       => (float)$f['umbral_caudal'],
+            'cultivo'             => (string)$f['cultivo'],
+            'albergues_capacidad' => (int)$f['albergues_capacidad'],
+        ];
+    }
+
+    return [
+        'territorios' => $territorios,
+        '_meta'       => [
+            'version'     => 'bd',
+            'fuente'      => 'PostgreSQL · tabla territorios',
+            'total'       => count($territorios),
+        ],
+    ];
+}
 
 function territorios_catalogo() {
     static $cache = null;
@@ -22,6 +97,14 @@ function territorios_catalogo() {
         return $cache;
     }
 
+    // 1. Fuente de verdad: la base de datos.
+    $desdeBd = territorios_desde_bd();
+    if ($desdeBd !== null) {
+        $cache = $desdeBd;
+        return $cache;
+    }
+
+    // 2. Respaldo offline: el JSON versionado.
     $ruta = __DIR__ . '/../config/territorios.json';
     if (!is_file($ruta)) {
         return ['territorios' => [], '_meta' => []];

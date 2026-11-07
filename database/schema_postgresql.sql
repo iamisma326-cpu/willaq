@@ -68,6 +68,7 @@ COMMENT ON COLUMN usuarios.activo IS 'FALSE impide el login aunque la contraseñ
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS territorios (
     id                   VARCHAR(40)  PRIMARY KEY,
+    ubigeo               VARCHAR(6),
     pais                 VARCHAR(60)  NOT NULL DEFAULT 'Perú',
     region               VARCHAR(80)  NOT NULL,
     provincia            VARCHAR(80)  NOT NULL,
