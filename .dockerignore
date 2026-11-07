@@ -1,0 +1,7 @@
+.git/
+docs/
+deploy/
+data/backups/
+*.md
+.env
+.env.*
