@@ -3,7 +3,7 @@
 [![Licencia: CC BY-NC-SA 4.0](https://img.shields.io/badge/Licencia-CC%20BY--NC--SA%204.0-8a6d3a?style=for-the-badge)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
 [![PHP](https://img.shields.io/badge/PHP-8.1%2B-%777bb4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
 [![Sin dependencias](https://img.shields.io/badge/Composer-no%20necesario-4a4a4a?style=for-the-badge)](https://getcomposer.org/)
-[![Compuerta fase 2](https://img.shields.io/badge/estaciones-fase%202%3A%20compuerta%20cerrada-c0392b?style=for-the-badge)](#5d-backtest-de-estaciones-compuerta-de-la-fase-2)
+[![Compuerta fase 2](https://img.shields.io/badge/estaciones-fase%202%3A%20compuerta%20cerrada-c0392b?style=for-the-badge)](#7d-backtest-de-estaciones-compuerta-de-la-fase-2)
 
 > **WILLAQ** (*quechua: el que avisa*) — Inteligencia territorial y alerta temprana
 > del Fenómeno El Niño.
@@ -38,14 +38,30 @@ R = 100 · H · (0.40 + 0.35·E + 0.25·V)
 
 ---
 
-## 2. Requisitos
+## 2. Estado del proyecto
 
-* PHP **8.0 o superior** (probado en 8.5) con las extensiones `curl`, `json` y
-  `mbstring`. `pdo_pgsql` es **opcional**: sin ella el sistema funciona en modo
-  demostración con las cuentas de prueba.
-* **PostgreSQL es opcional**: sin base de datos la plataforma funciona con
-  archivos JSON (`data/`) y las cuentas de demostración. Con PostgreSQL, las
-  cuentas y el historial de alertas se guardan en la base.
+| Entorno | Estado | Dónde |
+|---|---|---|
+| **Prototipo en producción** | Desplegado y en línea | https://willaq-production.up.railway.app |
+| **Base de datos en producción** | PostgreSQL gestionado | [Neon](https://neon.tech) (región `aws-us-east-1`) |
+| **Desarrollo local** | Totalmente funcional | `php -S localhost:8000` |
+
+**Producción:** la aplicación corre en **Railway** (contenedor Docker con
+`php:8.3-cli-alpine` y `pdo_pgsql`) y la base de datos vive en **Neon**
+(PostgreSQL 18 serverless). Ambos son gratuitos y no requieren tarjeta.
+
+**Local:** *todo* el proyecto puede ejecutarse en tu máquina sin depender de
+Railway ni de Neon. Basta con PHP y un PostgreSQL local — ver
+[sección 3](#3-arranque-en-3-pasos).
+
+---
+
+## 3. Requisitos
+
+* PHP **8.0 o superior** (probado en 8.5) con las extensiones `curl`, `json`,
+  `mbstring` y **`pdo_pgsql`**.
+* **PostgreSQL 13+** (en producción: Neon). La base de datos guarda usuarios,
+  alertas, territorios, caché y snapshots de riesgo.
 * **No requiere Composer, Node ni Python.** Todas las librerías JS están en
   `assets/vendor/`.
 * Permiso de escritura en `data/`.
@@ -57,10 +73,29 @@ php -v
 php -m | grep -E "curl|json|mbstring|pdo_pgsql"
 ```
 
-### Base de datos (opcional)
+### Base de datos: obligatoria, con respaldo en JSON
 
-PostgreSQL 13+ es el motor recomendado: funciona igual en local (DBeaver
-Community) y en la nube (AWS RDS, Google Cloud SQL). Todo está en el proyecto:
+La arquitectura es **base de datos primero**:
+
+| Dato | Fuente de verdad | Respaldo |
+|---|---|---|
+| Usuarios y sesiones | tabla `usuarios` | — |
+| Alertas emitidas | tabla `alertas` | — |
+| Territorios (104) | tabla `territorios` | `config/territorios.json` |
+| Caché de geodatos | tabla `cache_geodatos` | `data/cache/*.json` |
+| Snapshots de riesgo | tabla `snapshots` | `data/snapshots/*.json` |
+
+**La base de datos ya no es opcional** en la operación normal: es donde vive el
+estado. Lo que **sí es opcional es el respaldo en archivos JSON**: si el
+proyecto debe correr sin base de datos (por ejemplo, una demostración en una
+máquina sin PostgreSQL), el sistema cae automáticamente a `config/territorios.json`
+y a los snapshots en `data/snapshots/`, y sigue funcionando — solo pierde la
+persistencia de usuarios, alertas y caché nueva.
+
+En otras palabras: **con base de datos funciona completo; con solo JSON sigue
+funcionando, en modo de solo lectura sobre datos pregenerados.**
+
+Crear la base en local:
 
 ```bash
 # 1. Crear rol y base (una sola vez)
@@ -70,7 +105,10 @@ psql -U postgres -d postgres -v WILLAQ_DB_PASS='tu-clave' \
 # 2. Crear tablas, vistas y semilla
 psql -U willaq -d willaq_db -f database/schema_postgresql.sql
 
-# 3. Conectar la aplicación (copia .env.example a .env y ajusta DB_*)
+# 3. Cargar el catálogo nacional de territorios (104 distritos)
+psql -U willaq -d willaq_db -f database/seed_territorios.sql
+
+# 4. Conectar la aplicación (copia .env.example a .env y ajusta DB_*)
 php scripts/semear_alertas.php --limpiar
 ```
 
@@ -79,7 +117,7 @@ problemas frecuentes): [`database/README_POSTGRESQL.md`](database/README_POSTGRE
 
 ---
 
-## 3. Arranque en 3 pasos
+## 4. Arranque en 3 pasos
 
 ```bash
 cd willaq
@@ -116,30 +154,34 @@ Contraseña para las tres: `willaq2026` — **cámbiala en producción**; está 
 
 ---
 
-## 4. Modo feria (sin internet)
+## 5. Respaldo sin conexión
+
+La plataforma **siempre** intenta leer el snapshot de riesgo antes de recalcular.
+Ese es el comportamiento normal: la sala de situación responde en ~2 s en vez de
+esperar ~70 s de llamadas a Open-Meteo.
+
+Cuando no hay internet, el sistema usa ese mismo snapshot y lo declara con una
+franja visible en todas las pantallas (*“Modo offline”*):
 
 ```bash
-# Generar el snapshot con datos frescos
+# 1. Generar los snapshots con datos frescos (requiere internet)
 php scripts/actualizar.php --ventana=all
 
-# Presentar sin depender del wifi
-WILLAQ_MODO_OFFLINE=1 php -S localhost:8000
+# 2. Servir sin red: la app lee data/snapshots/ y no falla
+php -S localhost:8000
 ```
 
-En modo offline la plataforma lee `data/snapshots/riesgo_nacional_{24,48,72}h.json`
-(un archivo por ventana), lo declara con una franja visible en todas las
-pantallas y marca el estado en la cabecera (*“Modo offline”*). No es un modo
-silencioso: quien mira la pantalla sabe que los datos son precalculados.
-
-Comprobación rápida del modo:
+Comprobación rápida:
 
 ```bash
 curl -s "http://localhost:8000/?action=home" | grep -o "Modo offline\|Datos en línea"
 ```
 
-Si devuelve `Modo offline`, la variable se está leyendo correctamente. Este
-detalle importa: en la configuración habitual de PHP (`variables_order=GPCS`)
-`$_ENV` llega vacío, así que WILLAQ lee el entorno también por `getenv()`.
+> **Nota sobre el "modo feria".** Existió una variable `WILLAQ_MODO_OFFLINE=1`
+> que forzaba la lectura del snapshot saltándose el cálculo. Ya **no hace falta
+> activarla**: el sistema prioriza el snapshot por diseño, así que el
+> comportamiento es el mismo con o sin ella. La variable se conserva por
+> compatibilidad y sigue funcionando si alguien la define.
 
 Además, todas las librerías (MapLibre, Chart.js, Tailwind, Montserrat) están
 en `assets/vendor/` y `assets/fonts/`: **no hay ninguna dependencia de CDN**.
@@ -147,7 +189,68 @@ El diseño se ve igual con o sin internet.
 
 ---
 
-## 5. Scripts de línea de comandos
+## 6. Actualización automática (cron)
+
+Los snapshots de riesgo se generan periódicamente desde un cron externo, porque
+Railway no ofrece tareas programadas.
+
+**1. Definir el token** en las variables de entorno (Railway → Variables):
+
+```bash
+WILLAQ_CRON_TOKEN=<cadena-larga-aleatoria>
+```
+
+Sin este token el endpoint queda deshabilitado (responde `503`).
+
+**2. Apuntar el cron** a:
+
+```
+https://willaq-production.up.railway.app/?action=cron_actualizar&token=<TOKEN>
+```
+
+También acepta el token por cabecera `X-WILLAQ-Token` (más seguro: no queda en
+los logs del servicio de cron).
+
+**3. Consultar el estado:**
+
+```
+https://willaq-production.up.railway.app/?action=cron_estado&token=<TOKEN>
+```
+
+El endpoint responde de inmediato con `202 Accepted` y lanza el proceso en
+segundo plano (una ejecución completa tarda ~7 min con 104 territorios). Evita
+lanzamientos solapados: si ya hay una ejecución en curso, devuelve `202` sin
+duplicar el trabajo.
+
+### Configurar cron-job.org (gratis, sin tarjeta)
+
+1. Crear cuenta en [cron-job.org](https://cron-job.org).
+2. **Create cronjob** → URL completa con el token.
+3. **Schedule**: cada 6 horas (`0 */6 * * *`).
+4. **Advanced → Headers**: añadir `X-WILLAQ-Token: <TOKEN>` y quitar el token de
+   la URL.
+5. **Timeout**: 30 s es suficiente (la respuesta es inmediata).
+6. Guardar y usar **TEST RUN** para verificar que devuelve `202`.
+
+### Alternativa: GitHub Actions
+
+```yaml
+name: Actualizar snapshots WILLAQ
+on:
+  schedule: [{ cron: '0 */6 * * *' }]
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -fsS -H "X-WILLAQ-Token: ${{ secrets.WILLAQ_CRON_TOKEN }}" \
+            "https://willaq-production.up.railway.app/?action=cron_actualizar"
+```
+
+---
+
+## 7. Scripts de línea de comandos
+
 
 ```bash
 php scripts/calibrar.php              # climatología p50/p95/p99 por distrito (ERA5)
@@ -193,7 +296,7 @@ que aún no lo tengan; es idempotente y se usa solo al crear un documento nuevo.
 
 ---
 
-## 5.b Validación histórica
+## 7.b Validación histórica
 
 El motor de riesgo se puso a prueba sobre los episodios de El Niño costero de
 **2017**, **2017–2018** y **2023**, corriendo el mismo código de producción
@@ -214,7 +317,7 @@ Detalle completo en [`docs/VALIDACION_HISTORICA.md`](docs/VALIDACION_HISTORICA.m
 
 ---
 
-## 5.c Análisis de sensibilidad
+## 7.c Análisis de sensibilidad
 
 Los pesos del índice (`base`, `exposicion`, `vulnerabilidad`) son una decisión
 de diseño, así que se pone a prueba: 40 escenarios (cada peso en ±10/±20 %,
@@ -237,7 +340,7 @@ Detalle en [`docs/VALIDACION_HISTORICA.md`](docs/VALIDACION_HISTORICA.md#6-anál
 
 ---
 
-## 5.d Backtest de estaciones (compuerta de la fase 2)
+## 7.d Backtest de estaciones (compuerta de la fase 2)
 
 ¿Las estaciones del SENAMHI detectan lo que el reanálisis ERA5 perdió? La
 pregunta se mide, no se estima: el backtest corre **la misma aritmética de
@@ -272,7 +375,7 @@ idéntico. Artefacto: `data/backtest_estaciones.json`. Detalle metodológico en
 
 ---
 
-## 6. Estructura del proyecto
+## 8. Estructura del proyecto
 
 ```
 willaq/
@@ -318,7 +421,7 @@ en [`docs/MANUAL_INSTALACION.md`](docs/MANUAL_INSTALACION.md#34-protección-de-c
 
 ---
 
-## 7. API pública (JSON, sin autenticación, CORS abierto)
+## 9. API pública (JSON, sin autenticación, CORS abierto)
 
 | Endpoint | Descripción |
 |---|---|
@@ -338,7 +441,7 @@ ejecutables: [`docs/API.md`](docs/API.md).
 
 ---
 
-## 8. Fuentes de datos
+## 10. Fuentes de datos
 
 | Fuente | Uso | Costo |
 |---|---|---|
@@ -367,7 +470,7 @@ medir falsos positivos en el backtest.
 
 ---
 
-## 9. Relación con el proyecto inscrito
+## 11. Relación con el proyecto inscrito
 
 WILLAQ vive en su propia carpeta y **no modifica** `mvc_php_poo_config/`.
 Se reutiliza la identidad visual (azul estratósfera + dorado + Montserrat), el
@@ -380,7 +483,7 @@ Detalle completo: `?action=ayuda#reutilizacion`.
 
 ---
 
-## 10. Documentación
+## 12. Documentación
 
 | Documento | Contenido |
 |---|---|
@@ -399,7 +502,7 @@ Detalle completo: `?action=ayuda#reutilizacion`.
 
 ---
 
-## 11. Problemas frecuentes
+## 13. Problemas frecuentes
 
 **La primera carga tarda mucho.**
 Falta el paso 2 del arranque. Ejecuta `php scripts/actualizar.php`.
@@ -420,7 +523,7 @@ hoja de ruta del alcance internacional.
 
 ---
 
-## 12. Repositorio público
+## 14. Repositorio público
 
 **<https://github.com/iamisma326-cpu/willaq>**
 

@@ -90,6 +90,111 @@ function redirigir($url) {
 switch ($accion) {
 
     // ===================== API JSON =====================
+    case 'cron_actualizar':
+        // Endpoint para regenerar los snapshots desde un cron externo
+        // (cron-job.org, GitHub Actions...). Railway no ofrece cron, así que
+        // la actualización programada vive fuera del contenedor.
+        //
+        // Protegido por WILLAQ_CRON_TOKEN: sin token configurado el endpoint
+        // queda deshabilitado. La comparación es en tiempo constante y solo
+        // acepta el token por cabecera o por querystring.
+        $tokenEsperado = (string)(willaq_env('WILLAQ_CRON_TOKEN') ?? '');
+        if ($tokenEsperado === '') {
+            json_salida([
+                'ok' => false,
+                'error' => 'cron deshabilitado: falta WILLAQ_CRON_TOKEN',
+            ], 503);
+        }
+
+        $enviado = (string)($_SERVER['HTTP_X_WILLAQ_TOKEN'] ?? ($_GET['token'] ?? ''));
+        if (!hash_equals($tokenEsperado, $enviado)) {
+            json_salida(['ok' => false, 'error' => 'token inválido'], 401);
+        }
+
+        // Una ejecución completa (104 territorios × 3 ventanas) tarda varios
+        // minutos. Un cron externo espera como máximo 30-60 s, así que no se
+        // puede responder con el resultado: se lanza en segundo plano y se
+        // responde de inmediato con 202 Accepted.
+        //
+        // El progreso queda en data/snapshots/.ultima_actualizacion.json y se
+        // consulta con ?action=cron_estado.
+        $solo = in_array($_GET['solo'] ?? '', ['cache', 'snapshot'], true) ? $_GET['solo'] : null;
+
+        $marca = __DIR__ . '/data/snapshots/.ultima_actualizacion.json';
+        @mkdir(dirname($marca), 0775, true);
+
+        // Evita solapamientos: si hay una ejecución reciente en curso, no se
+        // lanza otra (dos procesos a la vez duplicarían las llamadas a la API).
+        $previo = is_file($marca) ? json_decode(file_get_contents($marca), true) : null;
+        if (is_array($previo) && ($previo['estado'] ?? '') === 'corriendo') {
+            $edad = time() - (int)($previo['inicio'] ?? 0);
+            if ($edad < 900) {
+                json_salida([
+                    'ok' => true,
+                    'estado' => 'corriendo',
+                    'mensaje' => 'ya hay una actualización en curso',
+                    'inicio' => $previo['inicio'] ?? null,
+                    'edad_s' => $edad,
+                ], 202);
+            }
+        }
+
+        @file_put_contents($marca, json_encode([
+            'estado' => 'corriendo',
+            'inicio' => time(),
+            'solo' => $solo,
+        ], JSON_UNESCAPED_UNICODE));
+
+        // Lanza el script CLI en segundo plano. Se usa PHP CLI porque el
+        // proceso web moriría al cerrar la conexión.
+        $php = PHP_BINARY ?: 'php';
+        $script = __DIR__ . '/scripts/actualizar.php';
+        $args = $solo === null ? '--ventana=all' : '';
+        $log = __DIR__ . '/data/snapshots/.cron.log';
+        $cmd = sprintf(
+            '%s %s %s >> %s 2>&1 &',
+            escapeshellarg($php),
+            escapeshellarg($script),
+            $args,
+            escapeshellarg($log)
+        );
+        @exec($cmd);
+
+        json_salida([
+            'ok' => true,
+            'estado' => 'lanzado',
+            'mensaje' => 'actualización iniciada en segundo plano',
+            'consulta_estado' => '?action=cron_estado',
+            'log' => 'data/snapshots/.cron.log',
+        ], 202);
+
+    case 'cron_estado':
+        // Estado de la última actualización programada (solo lectura).
+        $tokenEsperado = (string)(willaq_env('WILLAQ_CRON_TOKEN') ?? '');
+        if ($tokenEsperado !== '') {
+            $enviado = (string)($_SERVER['HTTP_X_WILLAQ_TOKEN'] ?? ($_GET['token'] ?? ''));
+            if (!hash_equals($tokenEsperado, $enviado)) {
+                json_salida(['ok' => false, 'error' => 'token inválido'], 401);
+            }
+        }
+
+        $marca = __DIR__ . '/data/snapshots/.ultima_actualizacion.json';
+        $previo = is_file($marca) ? json_decode(file_get_contents($marca), true) : null;
+        $disponibles = [];
+        foreach (riesgo_snapshots_disponibles() as $v => $s) {
+            $disponibles[$v] = [
+                'total' => count($s['riesgos'] ?? []),
+                'generado_en' => $s['generado_en'] ?? null,
+            ];
+        }
+
+        json_salida([
+            'ok' => true,
+            'ultima_ejecucion' => $previo,
+            'snapshots' => $disponibles,
+            'cache' => cache_estadisticas(),
+        ]);
+
     case 'api_territorios':
         json_salida([
             'meta' => array_merge(territorios_meta(), [

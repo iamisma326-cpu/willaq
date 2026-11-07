@@ -10,7 +10,7 @@ $secciones = [
     ['metodologia', 'Metodología'],
     ['amenazas', 'Amenazas'],
     ['fuentes', 'Fuentes de datos'],
-    ['offline', 'Modo offline'],
+    ['offline', 'Producción y local'],
     ['limites', 'Límites y alcance'],
     ['reutilizacion', 'Qué es nuevo'],
     ['arquitectura', 'Arquitectura'],
@@ -445,27 +445,75 @@ $secciones = [
         <section id="offline" class="wq-card scroll-mt-24">
             <div class="wq-card__head">
                 <div>
-                    <h2 class="text-[1.05rem] font-normal tracking-wide">Modo offline para la feria</h2>
-                    <p class="text-[0.68rem] text-slate-500 mt-0.5">La demo no depende del wifi del auditorio</p>
+                    <h2 class="text-[1.05rem] font-normal tracking-wide">Dónde vive el sistema</h2>
+                    <p class="text-[0.68rem] text-slate-500 mt-0.5">Producción, base de datos y ejecución local</p>
                 </div>
             </div>
-            <div class="wq-card__body space-y-3">
+            <div class="wq-card__body space-y-4">
                 <p class="text-[0.8rem] text-slate-300 leading-relaxed">
-                    Antes de la presentación se ejecuta un script que consulta las APIs, guarda la caché
-                    y genera un snapshot nacional. Durante la feria, con
-                    <span class="wq-kbd">WILLAQ_MODO_OFFLINE=1</span>, la plataforma lee ese snapshot
-                    y muestra una franja de advertencia: los valores no son tiempo real.
+                    El prototipo está <strong class="text-white">desplegado en producción</strong> y la
+                    base de datos PostgreSQL corre como servicio gestionado en Neon. Ambos entornos son
+                    gratuitos y no requieren tarjeta.
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-3">
+                    <div class="wq-panel-dark p-4">
+                        <div class="wq-label mb-1.5">Prototipo en producción</div>
+                        <div class="text-[0.78rem] text-brand-gold break-all">willaq-production.up.railway.app</div>
+                        <div class="text-[0.66rem] text-slate-500 mt-1">Railway · contenedor Docker · PHP 8.3</div>
+                    </div>
+                    <div class="wq-panel-dark p-4">
+                        <div class="wq-label mb-1.5">Base de datos en producción</div>
+                        <div class="text-[0.78rem] text-brand-gold">Neon · PostgreSQL 18</div>
+                        <div class="text-[0.66rem] text-slate-500 mt-1">Serverless · región aws-us-east-1</div>
+                    </div>
+                </div>
+
+                <p class="text-[0.8rem] text-slate-300 leading-relaxed">
+                    El proyecto completo <strong class="text-white">también se ejecuta en local</strong>
+                    sin depender de Railway ni de Neon: basta con PHP y un PostgreSQL local.
                 </p>
                 <div class="wq-panel-dark p-4 font-mono text-[0.7rem] text-slate-300 space-y-1.5 overflow-x-auto">
-                    <div class="text-slate-500"># 1. Calentar caché y generar snapshot</div>
-                    <div>php scripts/actualizar.php</div>
-                    <div class="text-slate-500 pt-2"># 2. Activar modo feria</div>
-                    <div>WILLAQ_MODO_OFFLINE=1 php -S localhost:8000</div>
+                    <div class="text-slate-500"># Local: crear la base y cargar los territorios</div>
+                    <div>psql -U willaq -d willaq_db -f database/schema_postgresql.sql</div>
+                    <div>psql -U willaq -d willaq_db -f database/seed_territorios.sql</div>
+                    <div class="text-slate-500 pt-2"># Levantar la aplicación</div>
+                    <div>php -S localhost:8000</div>
                 </div>
+
+                <div class="pt-3 border-t border-white/[0.07]">
+                    <h3 class="text-[0.82rem] text-white mb-2">Base de datos obligatoria, respaldo JSON opcional</h3>
+                    <p class="text-[0.78rem] text-slate-300 leading-relaxed">
+                        La base de datos <strong class="text-white">ya no es opcional</strong>: guarda usuarios,
+                        alertas, los 104 territorios, la caché de geodatos y los snapshots de riesgo.
+                        Lo que <em>sí</em> es opcional es el <strong class="text-white">respaldo en archivos
+                        JSON</strong>. Si el sistema debe operar sin base de datos, cae automáticamente a
+                        <span class="wq-kbd">config/territorios.json</span> y a los snapshots en
+                        <span class="wq-kbd">data/snapshots/</span>, y sigue funcionando en modo de solo
+                        lectura sobre datos pregenerados.
+                    </p>
+                </div>
+
+                <div class="pt-3 border-t border-white/[0.07]">
+                    <h3 class="text-[0.82rem] text-white mb-2">Actualización automática cada 6 horas</h3>
+                    <p class="text-[0.78rem] text-slate-300 leading-relaxed mb-3">
+                        Un cron externo regenera los snapshots de riesgo, porque Railway no ofrece
+                        tareas programadas. El endpoint está protegido por token
+                        (<span class="wq-kbd">WILLAQ_CRON_TOKEN</span>).
+                    </p>
+                    <div class="wq-panel-dark p-4 font-mono text-[0.7rem] text-slate-300 space-y-1.5 overflow-x-auto">
+                        <div class="text-slate-500"># Lanzar la actualización (responde 202 al instante)</div>
+                        <div>/?action=cron_actualizar</div>
+                        <div class="text-slate-500 pt-2"># Consultar el estado de los snapshots</div>
+                        <div>/?action=cron_estado</div>
+                    </div>
+                </div>
+
                 <p class="text-[0.7rem] text-slate-500 leading-relaxed">
-                    Si el jurado pregunta "¿y si se cae internet?", la respuesta es demostrable:
-                    se apaga el wifi y la plataforma sigue mostrando el último estado conocido,
-                    con la fecha y la fuente visibles.
+                    La plataforma <strong class="text-slate-400">siempre</strong> intenta leer el snapshot
+                    de riesgo antes de recalcular: la sala de situación responde en ~2 s en vez de esperar
+                    ~70 s de llamadas a Open-Meteo. Si no hay internet, usa ese mismo snapshot y lo declara
+                    con una franja visible en pantalla.
                 </p>
             </div>
         </section>
@@ -491,8 +539,8 @@ $secciones = [
                     ['No predice terremotos ni erupciones.', 'El alcance es hidrometeorológico: lluvia, inundación, huaico, sequía, calor y agro.'],
                     ['No reemplaza un estudio de suelos.', 'El ISE es un filtro previo de aptitud, no un informe de mecánica de suelos ni un estudio de riesgo.'],
                     [$limiteExposicion[0], $limiteExposicion[1]],
-                    ['No es tiempo real en modo offline.', 'Cuando se activa el modo feria, la interfaz lo advierte de forma visible.'],
-                    ['No tiene cobertura nacional completa.', 'El piloto cubre 29 distritos de 7 regiones; el catálogo es ampliable con el mismo formato JSON.'],
+                    ['El snapshot no es tiempo real.', 'La sala de situación lee el último snapshot generado y lo declara con una franja visible; el cron lo refresca cada 6 h.'],
+                    ['No tiene cobertura distrital exhaustiva.', 'El catálogo cubre 104 distritos de los 24 departamentos y el Callao, priorizando capitales provinciales y zonas expuestas.'],
                     ['No sustituye al COE.', 'Es una capa de inteligencia que alimenta la decisión humana, no un sistema de mando.'],
                 ] as [$titulo, $texto]): ?>
                     <div class="flex items-start gap-3">
@@ -569,12 +617,12 @@ $secciones = [
             <div class="wq-card__body">
                 <div class="wq-panel-dark p-4 font-mono text-[0.68rem] text-slate-400 leading-relaxed overflow-x-auto">
                     <div class="text-brand-gold">index.php</div>
-                    <div class="pl-4">├─ config/ &nbsp;&nbsp;territorios.json · umbrales.php · database.php</div>
+                    <div class="pl-4">├─ config/ &nbsp;&nbsp;territorios.json (respaldo) · umbrales.php · database.php</div>
                     <div class="pl-4">├─ models/ &nbsp;&nbsp;Clima · Riesgo · Zonificacion · Simulador · Alerta · Usuario · Cache</div>
                     <div class="pl-4">├─ views/ &nbsp;&nbsp;&nbsp;home · mapa · territorio · alertas · planificacion · simulador · admin · ayuda</div>
                     <div class="pl-4">├─ assets/ &nbsp;&nbsp;CSS heredado + capa WILLAQ · MapLibre · Chart.js locales</div>
-                    <div class="pl-4">├─ data/ &nbsp;&nbsp;&nbsp;&nbsp;cache/ · snapshots/ · alertas.json</div>
-                    <div class="pl-4">└─ database/ schema.sql (esquema equivalente, opcional)</div>
+                    <div class="pl-4">├─ data/ &nbsp;&nbsp;&nbsp;&nbsp;cache/ · snapshots/ (respaldo offline)</div>
+                    <div class="pl-4">└─ database/ schema_postgresql.sql · seed_territorios.sql</div>
                 </div>
                 <div class="grid md:grid-cols-3 gap-3 mt-4 text-[0.7rem]">
                     <div class="wq-panel-dark p-3">

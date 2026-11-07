@@ -822,3 +822,84 @@ function riesgo_snapshots_disponibles() {
     }
     return $disponibles;
 }
+
+/**
+ * Regenera los snapshots de riesgo desde un proceso HTTP (cron externo).
+ *
+ * Reutiliza la misma lógica que scripts/actualizar.php pero devuelve datos en
+ * lugar de imprimir por consola. Pensado para cron-job.org / GitHub Actions,
+ * porque Railway no ofrece tareas programadas.
+ *
+ * @param string|null $solo 'cache' | 'snapshot' | null (ambos)
+ * @param array       $opciones ['ventanas' => [24,48,72], 'limite' => int|null]
+ * @return array Resumen con ok, ventanas generadas y conteo por nivel.
+ */
+function actualizar_datos($solo = null, $opciones = []) {
+    $inicio = microtime(true);
+    $ventanas = $opciones['ventanas'] ?? [24, 48, 72];
+    $limite = $opciones['limite'] ?? null;
+
+    $resumen = [
+        'ok' => true,
+        'solo' => $solo,
+        'ventanas' => [],
+        'territorios' => count(territorios_todos()),
+        'ms' => 0,
+    ];
+
+    // 1. Calentar caché (opcional): fuerza una lectura por territorio para que
+    //    las llamadas a Open-Meteo queden guardadas antes de calcular.
+    if ($solo === null || $solo === 'cache') {
+        $objetivo = territorios_todos();
+        if ($limite !== null) {
+            $objetivo = array_slice($objetivo, 0, max(1, (int)$limite));
+        }
+        $okCache = 0;
+        foreach ($objetivo as $t) {
+            try {
+                if (riesgo_datos($t) !== null) {
+                    $okCache++;
+                }
+            } catch (Throwable $e) {
+                error_log('[WILLAQ cron] fallo al precalentar ' . ($t['id'] ?? '?') . ': ' . $e->getMessage());
+            }
+        }
+        $resumen['cache_calentada'] = $okCache;
+    }
+
+    // 2. Snapshots.
+    if ($solo === null || $solo === 'snapshot') {
+        foreach ($ventanas as $ventana) {
+            $t0 = microtime(true);
+            $ok = riesgo_snapshot_guardar($ventana);
+            $snap = $ok ? riesgo_snapshot_leer($ventana) : null;
+
+            $conteo = ['verde' => 0, 'amarillo' => 0, 'naranja' => 0, 'rojo' => 0];
+            foreach (($snap['riesgos'] ?? []) as $r) {
+                $id = $r['nivel']['id'] ?? 'verde';
+                $conteo[$id] = ($conteo[$id] ?? 0) + 1;
+            }
+
+            $resumen['ventanas'][] = [
+                'ventana' => (int)$ventana,
+                'ok' => (bool)$ok,
+                'total' => count($snap['riesgos'] ?? []),
+                'niveles' => $conteo,
+                'ms' => (int)round((microtime(true) - $t0) * 1000),
+            ];
+
+            if (!$ok) {
+                $resumen['ok'] = false;
+            }
+        }
+    }
+
+    $resumen['ms'] = (int)round((microtime(true) - $inicio) * 1000);
+
+    // Estado de la caché para diagnóstico.
+    if (function_exists('cache_estadisticas')) {
+        $resumen['cache'] = cache_estadisticas();
+    }
+
+    return $resumen;
+}

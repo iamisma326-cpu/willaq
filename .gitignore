@@ -32,3 +32,6 @@ Thumbs.db
 # En disco solo son respaldo offline: no se versionan.
 /data/cache/*.json
 /data/snapshots/*.json
+
+# Marcadores internos del cron
+/data/snapshots/.*

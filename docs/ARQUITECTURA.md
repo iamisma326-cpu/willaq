@@ -169,25 +169,52 @@ climatologia:<id_distrito>
 
 ---
 
-## 5. Modo feria (offline)
+## 5. Respaldo sin conexión
 
-Se activa con la variable de entorno `WILLAQ_MODO_OFFLINE=1`:
+La plataforma **siempre** intenta leer el snapshot de riesgo antes de
+recalcular (`riesgos_para_vista()` en `index.php`). Ese es el camino normal:
+la sala de situación responde en ~2 s en vez de esperar ~70 s de llamadas a
+Open-Meteo.
 
-```bash
-WILLAQ_MODO_OFFLINE=1 php -S localhost:8000
-```
+Existió una variable `WILLAQ_MODO_OFFLINE=1` que forzaba esa lectura. Ya **no
+es necesaria**: el sistema prioriza el snapshot por diseño, así que el
+comportamiento es el mismo con o sin ella. Se conserva por compatibilidad y
+sigue funcionando si alguien la define.
 
-Efectos:
+Cuando no hay red:
 
-1. `models/Riesgo.php` deja de calcular riesgo en línea y lee
-   `data/snapshots/riesgo_nacional_{24,48,72}h.json` — un archivo por
-   ventana, para que el selector 24/48/72 h responda sin recalcular.
+1. `models/Riesgo.php` lee `data/snapshots/riesgo_nacional_{24,48,72}h.json`
+   — o la tabla `snapshots` de PostgreSQL, que es la fuente principal.
 2. `views/layout/header.php` muestra una **franja visible** que declara que
    los datos son precalculados. No se oculta el estado del sistema: quien
    mira la pantalla sabe que no hay conexión.
 3. El mapa sigue funcionando: usa un estilo propio con fondo vectorial, y
-   las teselas de OpenStreetMap y las capas NASA GIBS se cargan solo si hay
-   red. Sin red, el mapa muestra los marcadores sobre el fondo oscuro.
+   las teselas de Esri/OpenStreetMap y las capas NASA GIBS se cargan solo si
+   hay red. Sin red, el mapa muestra los marcadores sobre el fondo oscuro.
+
+### Persistencia: base de datos primero
+
+| Dato | Fuente de verdad | Respaldo |
+|---|---|---|
+| Usuarios, alertas | PostgreSQL | — |
+| Territorios (104) | tabla `territorios` | `config/territorios.json` |
+| Caché de geodatos | tabla `cache_geodatos` | `data/cache/*.json` |
+| Snapshots de riesgo | tabla `snapshots` | `data/snapshots/*.json` |
+
+La base de datos **no es opcional**: es donde vive el estado. El respaldo JSON
+**sí es opcional**, y permite operar en modo de solo lectura sobre datos
+pregenerados si no hay PostgreSQL disponible.
+
+### Actualización programada
+
+Railway no ofrece cron, así que los snapshots se refrescan desde fuera:
+
+```
+GET /?action=cron_actualizar   (cabecera X-WILLAQ-Token, responde 202)
+GET /?action=cron_estado       (estado de snapshots y caché)
+```
+
+Requiere `WILLAQ_CRON_TOKEN` en el entorno; sin él el endpoint responde 503.
 
 ### Pipeline de preparación
 
