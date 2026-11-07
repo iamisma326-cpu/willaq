@@ -70,6 +70,21 @@ function estacion_compuerta() {
         // comprobar leyendo series: lo hace el backtest.
         'requiere_backtest'    => true,
         'fuentes_peligro'      => ['ERA5', 'estacion', 'fusion'],
+        // Criterios del backtest (scripts/backtest_estaciones.php). Se fijan
+        // ANTES de ver los resultados, para que la medición no se ajuste a
+        // posteriori:
+        //   · recall_minimo              acierto sobre los casos de referencia
+        //                                 documentada que la estación evaluó.
+        //   · falsos_positivos_nuevos_max señalamientos fuera de la referencia
+        //                                 que la estación añade y ERA5 no hace.
+        //                                 Una estación puntual no puede ser más
+        //                                 ruidosa que el reanálisis para entrar
+        //                                 al motor sin recalibrar umbrales.
+        'recall_minimo'             => 0.80,
+        'falsos_positivos_nuevos_max'=> 0,
+        // Una estación necesita más de un caso aislado para que su medición
+        // signifique algo: al menos 3 combinaciones distrito×evento medidas.
+        'evaluaciones_minimas'       => 3,
     ];
 }
 
@@ -203,15 +218,28 @@ function estacion_datos_diarios($id) {
 /**
  * Evalúa la compuerta de la fase 2 para una estación.
  *
- * Devuelve:
+ * Devuelve un estado de tres capas, separadas por qué significa cada una:
  *   [
- *     'cumple_medible' => bool,  // ¿pasa los criterios que se miden aquí?
- *     'habilitada'     => bool,  // siempre false: falta el backtest
+ *     'cumple_medible' => bool,  // pasa años >= 10 y faltantes <= 10 % (serie).
+ *     'medido_backtest'=> bool,  // fue evaluada por scripts/backtest_estaciones.php
+ *                                 // sobre los casos documentados 2017 / 2017-18 / 2023.
+ *     'habilitada'     => bool,  // siempre false: falta la fusión con el motor.
  *     'anios'          => float,
  *     'faltantes_pct'  => float,
  *     'motivos'        => array, // por qué no cumple los criterios medibles
  *     'criterios'      => array,
  *   ]
+ *
+ * REGLA DE LECTURA:
+ *   - `cumple_medible` sin `medido_backtest`: la serie es buena pero todavía no
+ *     se midió en el backtest de falsos positivos. No se puede activar.
+ *   - `medido_backtest` con `cumple_medible == false`: la estación fue
+ *     evaluada, pero su serie no cubre los criterios de calidad (años o
+ *     faltantes). Se documenta; no se activa.
+ *   - `medido_backtest == true` y `cumple_medible == true` solo significa que
+ *     la estación pasó el gate de falsos positivos (recall >= 0.80 y 0 falsos
+ *     positivos nuevos sobre la referencia). Todavía no está habilitada: la
+ *     fusión `motor_usa_estaciones = true` es un cambio de motor aparte.
  *
  * OJO: `cumple_medible` no significa que se pueda activar. La fase 2 exige
  * además medir falsos positivos en el backtest, y eso no se puede declarar
@@ -220,21 +248,25 @@ function estacion_datos_diarios($id) {
 function estacion_puede_usarse($id) {
     $compuerta = estacion_compuerta();
     $serie = estacion_cargar_serie($id);
+    $gate = load_gate_backtest();
+    $backtest = $gate[$id] ?? null;
 
     if (!$serie) {
         return [
-            'cumple_medible' => false,
-            'habilitada'     => false,
-            'anios'          => 0.0,
-            'anios_span'     => 0.0,
-            'anios_completos'=> 0,
-            'faltantes_pct'  => 100.0,
-            'motivos'        => ['No hay serie cargada para esta estación.'],
-            'motivo_bloqueo' => 'Sin serie no hay nada que evaluar.',
-            'criterios'      => [
-                'serie_cargada' => false,
-                'anios_minimos' => $compuerta['anios_minimos'],
-                'faltantes_max_pct' => $compuerta['faltantes_max_pct'],
+            'cumple_medible'    => false,
+            'medido_backtest'   => false,  // sin serie no hubo backtest posible.
+            'backtest'          => $backtest,
+            'habilitada'        => false,
+            'anios'             => 0.0,
+            'anios_span'        => 0.0,
+            'anios_completos'   => 0,
+            'faltantes_pct'     => 100.0,
+            'motivos'           => ['No hay serie cargada para esta estación.'],
+            'motivo_bloqueo'    => 'Sin serie no hay nada que evaluar.',
+            'criterios'         => [
+                'serie_cargada'      => false,
+                'anios_minimos'      => $compuerta['anios_minimos'],
+                'faltantes_max_pct'  => $compuerta['faltantes_max_pct'],
             ],
         ];
     }
@@ -260,16 +292,27 @@ function estacion_puede_usarse($id) {
         );
     }
 
+    // El gate del backtest es la única fuente que puede decir "medido": lo
+    // escribe scripts/backtest_estaciones.php en data/backtest_estaciones.json.
+    // Si ese archivo no existe, la medición NO se ha hecho y se declara así.
+    $medido = !empty($backtest['medido_backtest']);
+
     return [
-        'cumple_medible' => empty($motivos),
-        'habilitada'     => false,
-        'anios'          => $anios,
-        'anios_span'     => $aniosSpan,
-        'anios_completos'=> $aniosCompletos,
-        'faltantes_pct'  => $faltantes,
-        'motivos'        => $motivos,
-        'motivo_bloqueo' => 'La fase 2 exige medir falsos positivos en el backtest sobre los casos ya detectados. Es una medición que no se puede declarar desde una serie.',
-        'criterios'      => [
+        'cumple_medible'    => empty($motivos),
+        'medido_backtest'   => $medido,
+        'backtest'          => $backtest,
+        'habilitada'        => false,
+        'anios'             => $anios,
+        'anios_span'        => $aniosSpan,
+        'anios_completos'   => $aniosCompletos,
+        'faltantes_pct'     => $faltantes,
+        'motivos'           => $motivos,
+        'motivo_bloqueo'    => $medido
+            ? 'Medida en el backtest sobre los casos documentados: '
+              . ($backtest['motivacion'] ?? 'veredicto registrado')
+              . ' La fusión con el motor sigue apagada (motor_usa_estaciones = false).'
+            : 'La fase 2 exige medir falsos positivos en el backtest sobre los casos ya detectados. Es una medición que no se puede declarar desde una serie.',
+        'criterios'         => [
             'serie_cargada'       => true,
             'anios_cobertura'     => $anios,
             'anios_span'          => $aniosSpan,
@@ -278,6 +321,9 @@ function estacion_puede_usarse($id) {
             'pct_dias_faltantes'  => $faltantes,
             'faltantes_max_pct'   => $compuerta['faltantes_max_pct'],
             'requiere_backtest'   => $compuerta['requiere_backtest'],
+            'recall_minimo'       => $compuerta['recall_minimo'],
+            'falsos_positivos_nuevos_max' => $compuerta['falsos_positivos_nuevos_max'],
+            'evaluaciones_minimas' => $compuerta['evaluaciones_minimas'],
         ],
     ];
 }
@@ -287,6 +333,8 @@ function estacion_puede_usarse($id) {
  * tienen serie, cuántas pasan la compuerta, cobertura por distrito.
  */
 function estacion_resumen() {
+    global $estacion_estados_backtest;
+
     $registro = estacion_registro_todas();
     $compuerta = estacion_compuerta();
 
@@ -296,6 +344,12 @@ function estacion_resumen() {
     $porTipo = [];
     $porFuente = [];
     $distritosCubiertos = [];
+
+    // Estados del backtest (scripts/backtest_estaciones.php). Se llenan
+    // desde la función load_gate_backtest() que lee data/backtest_estaciones.json.
+    if (!isset($estacion_estados_backtest)) {
+        $estacion_estados_backtest = [];
+    }
 
     foreach ($registro as $id => $e) {
         $prio = $e['prioridad'] ?? 'baja';
@@ -324,20 +378,53 @@ function estacion_resumen() {
         }
     }
 
+    // Carga (una vez) el gate del backtest y cuenta por veredicto.
+    $gate = load_gate_backtest();
+    $global = estacion_backtest_global();
+    $veredictos = [];
+    foreach ($gate as $id => $g) {
+        $v = $g['veredicto'] ?? 'sin_serie';
+        $veredictos[$v] = ($veredictos[$v] ?? 0) + 1;
+    }
+    $medidas = ($veredictos['medida_recall_insuficiente'] ?? 0)
+             + ($veredictos['medida_falsos_positivos_nuevos'] ?? 0)
+             + ($veredictos['medida_apta_para_fusion'] ?? 0);
+    // Estaciones que el backtest pudo evaluar (tuvieron al menos un combo
+    // distrito×evento). Es un número mayor que `medidas`: evalúa ≠ superó
+    // el gate. Las que no superaron los criterios medibles (años/faltantes)
+    // también se miden, pero quedan bloqueadas por calidad de serie.
+    $evaluadas = 0;
+    foreach ($gate as $g) {
+        if (!empty($g['medido_backtest'])) {
+            $evaluadas++;
+        }
+    }
+
     return [
         'total_estaciones'      => count($registro),
         'con_serie'             => $conSerie,
         'sin_serie'             => count($registro) - $conSerie,
         'pasan_compuerta'       => $pasanCompuerta,
         'cumplen_criterios_medibles' => $pasanCompuerta,
-        'habilitadas'           => 0,
+        'medido_backtest'       => $medidas,
+        'medidas_por_gate'      => $medidas,
+        'estaciones_evaluadas'  => $evaluadas,
+        'gate_estaciones'       => $gate,
+        'veredictos_backtest'   => $veredictos,
+        // Métricas de la medición (recall por fuente, FP nuevos, recuperados).
+        'medicion_global'       => $global['medicion_global'] ?? [],
+        // Estado real de la compuerta: 'cerrada', 'abierta' o '' si el
+        // backtest todavía no se ejecutó (no se inventa un veredicto).
+        'compuerta_estado'      => $global['compuerta'] ?? '',
+        'compuerta_resumen'     => $global['resumen'] ?? '',
+        'backtest_ejecutado'    => !empty($global),
+        'habilitadas'           => (int)($global['estaciones_habilitadas'] ?? 0),
         'por_prioridad'         => $porPrioridad,
         'por_tipo'              => $porTipo,
         'fuentes'               => array_values($porFuente),
         'distritos_cubiertos'   => count($distritosCubiertos),
         'compuerta'             => $compuerta,
         'fase_2_bloqueada'      => true,
-        'motivo_bloqueo'        => 'La fase 2 exige además medir falsos positivos en el backtest sobre los 13 casos ya detectados. Es una medición, no un dato: no se puede declarar superada sin ejecutarla.',
         'motor_usa_estaciones'  => false,
         'generado_en'           => estacion_meta()['generado_en'] ?? '',
         'version'               => estacion_meta()['version'] ?? 0,
@@ -346,6 +433,97 @@ function estacion_resumen() {
             ?? estacion_meta()['estado_fase']
             ?? '',
     ];
+}
+
+/**
+ * Carga (una vez) el JSON crudo del backtest de estaciones.
+ *
+ * Es un archivo generado por `scripts/backtest_estaciones.php`. La web solo lo
+ * LEE: nunca recalcula la medición en runtime.
+ */
+function load_backtest_raw() {
+    static $cache = null;
+    if ($cache !== null) {
+        return $cache;
+    }
+
+    // Mientras scripts/backtest_estaciones.php está corriendo, el archivo de
+    // salida es el que se está escribiendo: leerlo sería circular (el script
+    // se apoyaría en el veredicto de su ejecución anterior). Se devuelve vacío.
+    if (!empty($GLOBALS['WILLAQ_BACKTEST_EN_CURSO'])) {
+        return [];
+    }
+
+    $ruta = __DIR__ . '/../data/backtest_estaciones.json';
+    if (!is_file($ruta)) {
+        $cache = [];
+        return $cache;
+    }
+
+    $json = @file_get_contents($ruta);
+    $v = @json_decode($json, true);
+    $cache = is_array($v) ? $v : [];
+    return $cache;
+}
+
+/**
+ * Resumen global de la medición de la fase 2 (lo que dice `resumen_fase_2`):
+ * compuerta, recall de cada fuente, falsos positivos nuevos, recuperados.
+ *
+ * Devuelve [] si el backtest todavía no se ejecutó: en ese caso la UI dice
+ * "sin gate ejecutado", nunca "cerrada" por omisión.
+ */
+function estacion_backtest_global() {
+    $raw = load_backtest_raw();
+    return is_array($raw['resumen_fase_2'] ?? null) ? $raw['resumen_fase_2'] : [];
+}
+
+/**
+ * Carga una sola vez el gate del backtest y lo mapea por estación.
+ *
+ * Devuelve un array [estacion_id => [
+ *   'cumple_medible'  => bool,
+ *   'medido_backtest' => bool,
+ *   'veredicto'       => string,
+ *   'evaluaciones'    => int,
+ *   'referencia_evaluada' => int,
+ *   'recall'          => float|null,
+ *   'falsos_positivos_nuevos' => int,
+ *   'recuperados'     => int,
+ *   'motivacion'      => string,
+ * ]].
+ *
+ * Es el puente entre scripts/backtest_estaciones.php y el modelo/panel: la
+ * lectura es estática (el JSON ya ejecutado), nunca calcula nada en runtime.
+ */
+function load_gate_backtest() {
+    static $cache = null;
+    if ($cache !== null) {
+        return $cache;
+    }
+
+    $raw = load_backtest_raw();
+    if (!isset($raw['estaciones']) || !is_array($raw['estaciones'])) {
+        $cache = [];
+        return $cache;
+    }
+
+    $gate = [];
+    foreach ($raw['estaciones'] as $id => $g) {
+        $gate[$id] = [
+            'cumple_medible'        => (bool)($g['cumple_medible'] ?? ($g['gate']['cumple_medible'] ?? false)),
+            'medido_backtest'       => (bool)($g['medido'] ?? ($g['gate']['medido'] ?? false)),
+            'veredicto'             => $g['veredicto'] ?? ($g['gate']['veredicto'] ?? 'sin_serie'),
+            'evaluaciones'          => (int)($g['evaluaciones'] ?? ($g['gate']['evaluaciones'] ?? 0)),
+            'referencia_evaluada'   => (int)($g['referencia_evaluada'] ?? ($g['gate']['referencia_evaluada'] ?? 0)),
+            'recall'                => $g['recall'] ?? ($g['gate']['recall'] ?? null),
+            'falsos_positivos_nuevos' => (int)($g['falsos_positivos_nuevos'] ?? ($g['gate']['falsos_positivos_nuevos'] ?? 0)),
+            'recuperados'           => (int)($g['recuperados'] ?? ($g['gate']['recuperados'] ?? 0)),
+            'motivacion'            => $g['motivacion'] ?? ($g['gate']['motivacion'] ?? ''),
+        ];
+    }
+    $cache = $gate;
+    return $gate;
 }
 
 /**
@@ -406,6 +584,7 @@ function estacion_tablero() {
             'anios_span'      => $comp['anios_span'],
             'anios_completos' => $comp['anios_completos'],
             'pasa_compuerta'  => $comp['cumple_medible'],
+            'medido_backtest' => $comp['medido_backtest'],
             'habilitada'      => $comp['habilitada'],
             'motivos'         => $comp['motivos'],
             'asignaciones'    => $e['asignaciones'] ?? [],

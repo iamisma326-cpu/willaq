@@ -1,0 +1,158 @@
+
+╭─ Garúa v0.31.0 ──────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   ██████   █████  ██████  ██   ██  █████                                     │
+│  ██       ██   ██ ██   ██ ██   ██ ██   ██                                    │
+│  ██  ███  ███████ ██████  ██   ██ ███████                                    │
+│  ██   ██  ██   ██ ██   ██ ██   ██ ██   ██                                    │
+│   ██████  ██   ██ ██   ██  █████  ██   ██                                    │
+│                                                                              │
+│  Datos meteorológicos e hidrológicos                                         │
+│  del SENAMHI del Perú.                                                       │
+│                                                                              │
+│  Consulta estaciones. Descarga históricos.                                   │
+│  Trabaja con datos confiables.                                               │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+╭─ 💧 Estación Seleccionada ───────────────────────────────────────────────────╮
+│                                                                              │
+│  Nombre: Puerto Pizarro                                                      │
+│  Código: 103068                                                              │
+│  Tipo: M                                                                     │
+│  Estado: AUTOMATICA                                                          │
+│  Categoría: EMA                                                              │
+│  Departamento: TUMBES                                                        │
+│  Provincia: TUMBES                                                           │
+│  Distrito: TUMBES                                                            │
+│  Datos disponibles desde: 2025-10                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💧 📅 Modo PERIOD seleccionado
+
+┏━ 💧 Iniciando Scraping ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃  Estación: Puerto Pizarro                                                    ┃
+┃  Modo: PERIOD                                                                ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+✅ Página configurada. Carga inicial capturada y descartada.
+✅ 14 opciones cargadas
+Años disponibles: 2025 | 2026
+💧 Filtro por periodo 2017-2026: 14 opciones encontradas
+
+💧 Se procesarán 14 opciones
+
+
+──────────────────────────────────────
+Procesando [1/14] → 2025-10
+🔄 Procesando opción: 2025-10 (202510)
+✅ Opción seleccionada: 202510
+✅ Datos capturados para 202510 (60,028 bytes)
+✅ Datos añadidos al buffer para periodo 202510: 37 filas
+
+──────────────────────────────────────
+Procesando [2/14] → 2025-11
+🔄 Procesando opción: 2025-11 (202511)
+✅ Opción seleccionada: 202511
+✅ Datos capturados para 202511 (965,684 bytes)
+✅ Datos añadidos al buffer para periodo 202511: 720 filas
+
+──────────────────────────────────────
+Procesando [3/14] → 2025-12
+🔄 Procesando opción: 2025-12 (202512)
+✅ Opción seleccionada: 202512
+✅ Datos capturados para 202512 (988,226 bytes)
+✅ Datos añadidos al buffer para periodo 202512: 737 filas
+
+──────────────────────────────────────
+Procesando [4/14] → 2026-01
+💧 Nuevo año (2026) — pausa de 1.5s
+🔄 Procesando opción: 2026-01 (202601)
+✅ Opción seleccionada: 202601
+✅ Datos capturados para 202601 (985,576 bytes)
+✅ Datos añadidos al buffer para periodo 202601: 735 filas
+
+──────────────────────────────────────
+Procesando [5/14] → 2026-02
+🔄 Procesando opción: 2026-02 (202602)
+✅ Opción seleccionada: 202602
+✅ Datos capturados para 202602 (902,095 bytes)
+✅ Datos añadidos al buffer para periodo 202602: 672 filas
+
+──────────────────────────────────────
+Procesando [6/14] → 2026-03
+🔄 Procesando opción: 2026-03 (202603)
+✅ Opción seleccionada: 202603
+✅ Datos capturados para 202603 (997,525 bytes)
+✅ Datos añadidos al buffer para periodo 202603: 744 filas
+
+──────────────────────────────────────
+Procesando [7/14] → 2026-04
+🔄 Procesando opción: 2026-04 (202604)
+✅ Opción seleccionada: 202604
+✅ Datos capturados para 202604 (965,684 bytes)
+✅ Datos añadidos al buffer para periodo 202604: 720 filas
+
+──────────────────────────────────────
+Procesando [8/14] → 2026-05
+🔄 Procesando opción: 2026-05 (202605)
+✅ Opción seleccionada: 202605
+✅ Datos capturados para 202605 (997,508 bytes)
+✅ Datos añadidos al buffer para periodo 202605: 744 filas
+
+──────────────────────────────────────
+Procesando [9/14] → 2026-06
+🔄 Procesando opción: 2026-06 (202606)
+✅ Opción seleccionada: 202606
+✅ Datos capturados para 202606 (965,686 bytes)
+✅ Datos añadidos al buffer para periodo 202606: 720 filas
+
+──────────────────────────────────────
+Procesando [10/14] → 2026-07
+🔄 Procesando opción: 2026-07 (202607)
+✅ Opción seleccionada: 202607
+✅ Datos capturados para 202607 (996,182 bytes)
+✅ Datos añadidos al buffer para periodo 202607: 743 filas
+
+──────────────────────────────────────
+Procesando [11/14] → 2026-08
+🔄 Procesando opción: 2026-08 (202608)
+✅ Opción seleccionada: 202608
+✅ Datos capturados para 202608 (997,508 bytes)
+✅ Datos añadidos al buffer para periodo 202608: 744 filas
+
+──────────────────────────────────────
+Procesando [12/14] → 2026-09
+🔄 Procesando opción: 2026-09 (202609)
+✅ Opción seleccionada: 202609
+✅ Datos capturados para 202609 (965,684 bytes)
+✅ Datos añadidos al buffer para periodo 202609: 720 filas
+
+──────────────────────────────────────
+Procesando [13/14] → 2026-10
+🔄 Procesando opción: 2026-10 (202610)
+✅ Opción seleccionada: 202610
+✅ Datos capturados para 202610 (997,543 bytes)
+✅ Datos añadidos al buffer para periodo 202610: 744 filas
+
+──────────────────────────────────────
+Procesando [14/14] → 2026-11
+🔄 Procesando opción: 2026-11 (202611)
+✅ Opción seleccionada: 202611
+✅ Datos capturados para 202611 (197,966 bytes)
+✅ Datos añadidos al buffer para periodo 202611: 141 filas
+✅ Archivo consolidado guardado: PuertoPizarro-2017-2026.csv
+💧 Contiene 8922 líneas
+
+┏━ 💧 Proceso Completado ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃  Opciones procesadas: 14/14                                                  ┃
+┃  Tasa de éxito: 100.0%                                                       ┃
+┃  Archivos generados: 1                                                       ┃
+┃                                                                              ┃
+┃  Archivos guardados:                                                         ┃
+┃    → /home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/c...      ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+💧 Cerrando navegador...

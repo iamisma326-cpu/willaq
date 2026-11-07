@@ -1,0 +1,1 @@
+{"clave":"climatologia:lim-chosica","payload":{"fuente":"ERA5 · 2015-2025 · ventana ±15 días","obtenido_en":1793914064,"confianza":"alta","p50_24":0,"p95_24":0.6,"p99_24":2.1,"p50_temp":24.7,"p95_temp":26.5,"p99_temp":27.42,"p50_90":0,"p95_90":54,"muestra_dias":341},"fuente":"ERA5","guardado_en":1793914064,"expira_en":1796506064,"ttl":2592000}

@@ -304,7 +304,94 @@ resultado.
 
 ---
 
-## 9. Límites conocidos
+## 9. Medición de la fase 2 de estaciones (y por qué quedó cerrada)
+
+### 9.1 La regla metodológica: una sola definición de evento
+
+La fase 2 introduce una pregunta que se presta a trampas: ¿una estación
+detecta más que un reanálisis? Para que la respuesta signifique algo, la
+**pregunta** debe ser idéntica en ambos lados. Si la validación histórica
+(ERA5) y el backtest (SENAMHI) tuvieran cada uno su propia copia de la
+aritmética de detección, una diferencia entre las fuentes sería
+indistinguible de un error de implementación.
+
+Por eso la aritmética vive **una sola vez**, en
+[`scripts/lib_validacion.php`](../scripts/lib_validacion.php):
+
+| Función | Qué define |
+|---|---|
+| `wq_deteccion_evento()` | Un evento es detectado en un distrito: el mismo cálculo multi-escala (1, 3 y 30 días) sobre el máximo acumulado dentro de la ventana, normalizado contra la distribución local del calendario (±15 días, 11 años). |
+| `wq_serie_desde_datos()` | Convierte una serie de estación en una serie **densa**: los días sin medición valen `null`, no se saltan huecos. |
+| `wq_max_acumulado()` / `wq_referencia_acumulado()` | Máximo acumulado por escala y su referencia histórica. |
+| `wq_exposicion_vulnerabilidad()` | La exposición y vulnerabilidad que acompañan al evento. |
+| `wq_eventos_historicos()` | La definición **única** de los eventos 2017, 2017-18 y 2023 y de sus ventanas y listas de referencia. |
+
+`scripts/validar_historico.php` y `scripts/backtest_estaciones.php` importan
+esa librería. Si las ventanas o las listas de referencia se desviaran entre
+ambos, el backtest **aborta**: no produce un número engañoso.
+
+### 9.2 Qué se mide y sobre qué subconjunto
+
+El backtest (`scripts/backtest_estaciones.php`) compara ERA5 y estación sobre:
+
+- **29 distritos×evento comparables** (evaluables por **ambas** fuentes).
+- **15 casos de la referencia documentada** dentro de ese subconjunto.
+
+Las tres medidas:
+
+| Medida | Definición |
+|---|---|
+| **Recall** | Casos de la referencia documentada que la fuente detectó, sobre los que evaluó. |
+| **Falsos positivos nuevos** | Señalamientos fuera de la referencia documentada que la estación añade y ERA5 no hace. (No prueba que la señal sea errónea: prueba que no está respaldada por la referencia disponible.) |
+| **Recuperados** | Casos de la referencia que ERA5 no detectó y la estación sí. |
+
+Un «falso positivo» aquí **no** es una alarma falsa: es un distrito señalado sin
+emergencia documentada en ese evento. La distinción importa y está escrita en
+el artefacto.
+
+### 9.3 La compuerta, fijada antes de mirar
+
+Los umbrales se fijaron **antes** de ejecutar la medición (queda registrado en
+`models/Estacion.php::estacion_compuerta()` y en el propio JSON):
+
+| Criterio | Valor | Por qué |
+|---|---|---|
+| Años de serie | ≥ 10 | Una serie más corta no cubre los eventos con margen. |
+| Días faltantes | ≤ 10 % | Con más huecos, el percentil p95 deja de ser confiable. |
+| Evaluaciones por estación | ≥ 3 combos distrito×evento | Un caso aislado no es una medición. |
+| **Recall** | **≥ 0.80** | Exige que la fuente acierte la mayoría de la referencia que evaluó. |
+| **Falsos positivos nuevos** | **0** | Una estación puntual no puede ser más ruidosa que el reanálisis para entrar al motor sin recalibrar umbrales. |
+
+### 9.4 Resultado medido (7 de noviembre de 2026)
+
+| Métrica | ERA5 | Estación |
+|---|---:|---:|
+| Recall sobre la referencia | 0.7333 | 0.7333 |
+| Aciertos | 11 | 11 |
+| Falsos positivos | 10 | 10 |
+
+- Falsos positivos **nuevos** de la estación: **0**.
+- Casos **recuperados** por la estación: **1** (`tum-zarumilla`, 2023).
+- 4 estaciones cumplen los criterios medibles; 8 fueron evaluadas en total;
+  **0 son aptas para fusión**.
+
+**Interpretación metodológica.** Las estaciones no son «peores» que ERA5:
+detectaron los mismos 11 distritos, no añadieron ruido y recuperaron un caso
+perdido. El recall de la estación **es igual** al de ERA5 (0.7333) porque en
+los casos donde ERA5 falló, la precipitación puntual registrada en la estación
+**tampoco** alcanzó el nivel del evento. Con el umbral de 0.80 fijado de
+antemano, el resultado es: **la fase 2 no se habilita**.
+
+Esto no se maquilla ni se reinterpreta: reabrir la compuerta exige
+**recalibrar los umbrales por fuente** (una estación puntual no necesita el
+mismo margen de materialidad que una celda de 25 km) y volver a medir con la
+misma aritmética. Hasta entonces, `motor_usa_estaciones = false`.
+
+Artefacto: `data/backtest_estaciones.json`.
+
+---
+
+## 10. Límites conocidos
 
 1. **No es un modelo hidrológico**: el caudal viene de GloFAS a 5 km, no de un
    modelo de cuenca calibrado local.
@@ -313,9 +400,11 @@ resultado.
    (ERA5/ICON).
 4. **No cubre evaporación ni balance hídrico completo**: la sequía usa un
    déficit simple.
-5. **No predice laivables exactos**: la zonificación indica *aptitud del
+5. **No predice inundables exactos**: la zonificación indica *aptitud del
    territorio*, no la cota de inundación de un lote.
 6. **El ISE no reemplaza el estudio de suelos** para una licencia de obra.
+7. **Las estaciones no están en el motor**: la fase 2 se midió y no se superó
+   (sección 9). El motor sigue con ERA5.
 
 Todos estos límites están declarados en la interfaz (`?action=ayuda#limites`),
 en el reporte PDF y en este documento. Declarar límites es parte del

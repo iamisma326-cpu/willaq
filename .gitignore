@@ -1,47 +1,24 @@
 # ============================================================================
 # WILLAQ — archivos que NO deben subirse a un repositorio
 # ============================================================================
+#
+# DECISIÓN (7 de noviembre de 2026): el repositorio es PÚBLICO y publica TODO
+# el proyecto sin excepción —datos crudos de Garúa, caché, backups, logs,
+# snapshots— para que cualquiera pueda reproducir la feria y auditar cada
+# número sin pedir nada a nadie.
+#
+# La ÚNICA excepción es el archivo `.env`: contiene la contraseña real de
+# PostgreSQL (`DB_PASS`). Publicarla en un repositorio público la comprometería
+# de forma permanente (queda en el historial de Git para siempre). Se versiona
+# `.env.example`, que tiene los mismos campos con `DB_PASS` vacío.
+#
+# Si algún día se publica la contraseña, rotarla es la única remediación:
+# cambiarla en el servidor y actualizar el `.env` local.
 
 # --- Credenciales -------------------------------------------------------------
-# El .env real contiene la contraseña de la base de datos. Se sube solo
-# .env.example.
 .env
 .env.*
 !.env.example
-
-# --- Datos generados en tiempo de ejecución ----------------------------------
-# La caché se regenera sola con los scripts y pesa varios MB: no se versiona.
-#
-# En cambio SÍ se versionan, porque son los datos de la feria sin internet:
-#   data/snapshots/*.json  → el snapshot precalculado que permite presentar
-#                             offline (docs/MANUAL_INSTALACION.md §3.1)
-#   data/alertas.json       → espejo JSON de las recomendaciones
-data/cache/*.json
-
-# Registro y cerrojos de la automatización horaria.
-data/cron.log
-data/cron.log.1
-data/willaq_cron.lock
-data/.willaq_cron.lock
-data/.willaq_cron.lockdir/
-
-# --- Backups y archivos temporales --------------------------------------------
-*.tmp.*
-*.bak
-*.log
-*.sql.gz
-*.dump
-
-# Respaldos del registro de estaciones: se regeneran en cada importación y
-# solo interestan los de una versión concreta, no los acumulados.
-data/backups/estaciones_*.json
-
-# --- Ingesta de estaciones (Garúa) --------------------------------------------
-# Los CSV crudos y sus logs se regeneran con:
-#   bash scripts/descargar_estaciones_garua.sh
-# Se versionan el catálogo, las series normalizadas y el reporte QA.
-data/estaciones/_garua/csv/
-data/estaciones/_garua/logs/
 
 # --- Sistema operativo y editores ---------------------------------------------
 .DS_Store

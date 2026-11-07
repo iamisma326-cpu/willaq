@@ -1,0 +1,1 @@
+{"clave":"climatologia:lim-san-mateo","payload":{"fuente":"ERA5 · 2015-2025 · ventana ±15 días","obtenido_en":1793914068,"confianza":"alta","p50_24":0,"p95_24":8.7,"p99_24":13.4,"p50_temp":22.6,"p95_temp":24.4,"p99_temp":25.08,"p50_90":0,"p95_90":783,"muestra_dias":341},"fuente":"ERA5","guardado_en":1793914068,"expira_en":1796506068,"ttl":2592000}

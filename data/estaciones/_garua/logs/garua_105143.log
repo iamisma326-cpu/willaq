@@ -1,0 +1,236 @@
+
+╭─ Garúa v0.31.0 ──────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   ██████   █████  ██████  ██   ██  █████                                     │
+│  ██       ██   ██ ██   ██ ██   ██ ██   ██                                    │
+│  ██  ███  ███████ ██████  ██   ██ ███████                                    │
+│  ██   ██  ██   ██ ██   ██ ██   ██ ██   ██                                    │
+│   ██████  ██   ██ ██   ██  █████  ██   ██                                    │
+│                                                                              │
+│  Datos meteorológicos e hidrológicos                                         │
+│  del SENAMHI del Perú.                                                       │
+│                                                                              │
+│  Consulta estaciones. Descarga históricos.                                   │
+│  Trabaja con datos confiables.                                               │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+╭─ 💧 Estación Seleccionada ───────────────────────────────────────────────────╮
+│                                                                              │
+│  Nombre: San Miguel                                                          │
+│  Código: 105143                                                              │
+│  Tipo: M                                                                     │
+│  Estado: AUTOMATICA                                                          │
+│  Categoría: EMA                                                              │
+│  Departamento: PIURA                                                         │
+│  Provincia: PIURA                                                            │
+│  Distrito: CATACAOS                                                          │
+│  Datos disponibles desde: 2024-11                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💧 📅 Modo PERIOD seleccionado
+
+┏━ 💧 Iniciando Scraping ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃  Estación: San Miguel                                                        ┃
+┃  Modo: PERIOD                                                                ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+✅ Página configurada. Carga inicial capturada y descartada.
+✅ 25 opciones cargadas
+Años disponibles: 2024 | 2025 | 2026
+💧 Filtro por periodo 2017-2026: 25 opciones encontradas
+
+💧 Se procesarán 25 opciones
+
+
+──────────────────────────────────────
+Procesando [1/25] → 2024-11
+🔄 Procesando opción: 2024-11 (202411)
+✅ Opción seleccionada: 202411
+✅ Datos capturados para 202411 (494,950 bytes)
+✅ Datos añadidos al buffer para periodo 202411: 365 filas
+
+──────────────────────────────────────
+Procesando [2/25] → 2024-12
+🔄 Procesando opción: 2024-12 (202412)
+✅ Opción seleccionada: 202412
+✅ Datos capturados para 202412 (997,504 bytes)
+✅ Datos añadidos al buffer para periodo 202412: 744 filas
+
+──────────────────────────────────────
+Procesando [3/25] → 2025-01
+💧 Nuevo año (2025) — pausa de 1.5s
+🔄 Procesando opción: 2025-01 (202501)
+✅ Opción seleccionada: 202501
+✅ Datos capturados para 202501 (997,504 bytes)
+✅ Datos añadidos al buffer para periodo 202501: 744 filas
+
+──────────────────────────────────────
+Procesando [4/25] → 2025-02
+🔄 Procesando opción: 2025-02 (202502)
+✅ Opción seleccionada: 202502
+✅ Datos capturados para 202502 (880,816 bytes)
+✅ Datos añadidos al buffer para periodo 202502: 656 filas
+
+──────────────────────────────────────
+Procesando [5/25] → 2025-03
+🔄 Procesando opción: 2025-03 (202503)
+✅ Opción seleccionada: 202503
+✅ Datos capturados para 202503 (994,852 bytes)
+✅ Datos añadidos al buffer para periodo 202503: 742 filas
+
+──────────────────────────────────────
+Procesando [6/25] → 2025-04
+🔄 Procesando opción: 2025-04 (202504)
+✅ Opción seleccionada: 202504
+✅ Datos capturados para 202504 (965,680 bytes)
+✅ Datos añadidos al buffer para periodo 202504: 720 filas
+
+──────────────────────────────────────
+Procesando [7/25] → 2025-05
+🔄 Procesando opción: 2025-05 (202505)
+✅ Opción seleccionada: 202505
+✅ Datos capturados para 202505 (997,504 bytes)
+✅ Datos añadidos al buffer para periodo 202505: 744 filas
+
+──────────────────────────────────────
+Procesando [8/25] → 2025-06
+🔄 Procesando opción: 2025-06 (202506)
+✅ Opción seleccionada: 202506
+✅ Datos capturados para 202506 (956,398 bytes)
+✅ Datos añadidos al buffer para periodo 202506: 713 filas
+
+──────────────────────────────────────
+Procesando [9/25] → 2025-07
+🔄 Procesando opción: 2025-07 (202507)
+✅ Opción seleccionada: 202507
+✅ Datos capturados para 202507 (986,896 bytes)
+✅ Datos añadidos al buffer para periodo 202507: 736 filas
+
+──────────────────────────────────────
+Procesando [10/25] → 2025-08
+🔄 Procesando opción: 2025-08 (202508)
+✅ Opción seleccionada: 202508
+✅ Datos capturados para 202508 (988,222 bytes)
+✅ Datos añadidos al buffer para periodo 202508: 737 filas
+
+──────────────────────────────────────
+Procesando [11/25] → 2025-09
+🔄 Procesando opción: 2025-09 (202509)
+✅ Opción seleccionada: 202509
+✅ Datos capturados para 202509 (965,680 bytes)
+✅ Datos añadidos al buffer para periodo 202509: 720 filas
+
+──────────────────────────────────────
+Procesando [12/25] → 2025-10
+🔄 Procesando opción: 2025-10 (202510)
+✅ Opción seleccionada: 202510
+✅ Datos capturados para 202510 (997,504 bytes)
+✅ Datos añadidos al buffer para periodo 202510: 744 filas
+
+──────────────────────────────────────
+Procesando [13/25] → 2025-11
+🔄 Procesando opción: 2025-11 (202511)
+✅ Opción seleccionada: 202511
+✅ Datos capturados para 202511 (964,354 bytes)
+✅ Datos añadidos al buffer para periodo 202511: 719 filas
+
+──────────────────────────────────────
+Procesando [14/25] → 2025-12
+🔄 Procesando opción: 2025-12 (202512)
+✅ Opción seleccionada: 202512
+✅ Datos capturados para 202512 (589,096 bytes)
+✅ Datos añadidos al buffer para periodo 202512: 436 filas
+
+──────────────────────────────────────
+Procesando [15/25] → 2026-01
+💧 Nuevo año (2026) — pausa de 1.5s
+🔄 Procesando opción: 2026-01 (202601)
+✅ Opción seleccionada: 202601
+✅ Datos capturados para 202601 (997,504 bytes)
+✅ Datos añadidos al buffer para periodo 202601: 744 filas
+
+──────────────────────────────────────
+Procesando [16/25] → 2026-02
+🔄 Procesando opción: 2026-02 (202602)
+✅ Opción seleccionada: 202602
+✅ Datos capturados para 202602 (902,032 bytes)
+✅ Datos añadidos al buffer para periodo 202602: 672 filas
+
+──────────────────────────────────────
+Procesando [17/25] → 2026-03
+🔄 Procesando opción: 2026-03 (202603)
+✅ Opción seleccionada: 202603
+✅ Datos capturados para 202603 (997,504 bytes)
+✅ Datos añadidos al buffer para periodo 202603: 744 filas
+
+──────────────────────────────────────
+Procesando [18/25] → 2026-04
+🔄 Procesando opción: 2026-04 (202604)
+✅ Opción seleccionada: 202604
+✅ Datos capturados para 202604 (964,354 bytes)
+✅ Datos añadidos al buffer para periodo 202604: 719 filas
+
+──────────────────────────────────────
+Procesando [19/25] → 2026-05
+🔄 Procesando opción: 2026-05 (202605)
+✅ Opción seleccionada: 202605
+✅ Datos capturados para 202605 (997,504 bytes)
+✅ Datos añadidos al buffer para periodo 202605: 744 filas
+
+──────────────────────────────────────
+Procesando [20/25] → 2026-06
+🔄 Procesando opción: 2026-06 (202606)
+✅ Opción seleccionada: 202606
+✅ Datos capturados para 202606 (965,680 bytes)
+✅ Datos añadidos al buffer para periodo 202606: 720 filas
+
+──────────────────────────────────────
+Procesando [21/25] → 2026-07
+🔄 Procesando opción: 2026-07 (202607)
+✅ Opción seleccionada: 202607
+✅ Datos capturados para 202607 (997,504 bytes)
+✅ Datos añadidos al buffer para periodo 202607: 744 filas
+
+──────────────────────────────────────
+Procesando [22/25] → 2026-08
+🔄 Procesando opción: 2026-08 (202608)
+✅ Opción seleccionada: 202608
+✅ Datos capturados para 202608 (996,178 bytes)
+✅ Datos añadidos al buffer para periodo 202608: 743 filas
+
+──────────────────────────────────────
+Procesando [23/25] → 2026-09
+🔄 Procesando opción: 2026-09 (202609)
+✅ Opción seleccionada: 202609
+✅ Datos capturados para 202609 (965,680 bytes)
+✅ Datos añadidos al buffer para periodo 202609: 720 filas
+
+──────────────────────────────────────
+Procesando [24/25] → 2026-10
+🔄 Procesando opción: 2026-10 (202610)
+✅ Opción seleccionada: 202610
+✅ Datos capturados para 202610 (997,504 bytes)
+✅ Datos añadidos al buffer para periodo 202610: 744 filas
+
+──────────────────────────────────────
+Procesando [25/25] → 2026-11
+🔄 Procesando opción: 2026-11 (202611)
+✅ Opción seleccionada: 202611
+✅ Datos capturados para 202611 (197,926 bytes)
+✅ Datos añadidos al buffer para periodo 202611: 141 filas
+✅ Archivo consolidado guardado: SanMiguel-2017-2026.csv
+💧 Contiene 16956 líneas
+
+┏━ 💧 Proceso Completado ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃  Opciones procesadas: 25/25                                                  ┃
+┃  Tasa de éxito: 100.0%                                                       ┃
+┃  Archivos generados: 1                                                       ┃
+┃                                                                              ┃
+┃  Archivos guardados:                                                         ┃
+┃    → /home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/c...      ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+💧 Cerrando navegador...

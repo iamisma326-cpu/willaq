@@ -1,0 +1,216 @@
+
+[2026-11-05 23:25:39 -05] Inicio · modo=snapshot · prueba=1 · php=/usr/bin/php
+[2026-11-05 23:25:39 -05] → actualizar.php --solo=snapshot --ventana=all
+
+  ╔══════════════════════════════════════════════════════════╗
+  ║  WILLAQ · actualización de datos                         ║
+  ╚══════════════════════════════════════════════════════════╝
+  Distritos: 29   Ventanas: 24, 48, 72 h
+  Modo: solo snapshot (sin red)
+
+  2. Generando snapshots de riesgo
+  ────────────────────────────────
+  ✓ Ventana 24 h → riesgo_nacional_24h.json  (154.8 KB, 41706 ms)
+    Riesgo: 5 rojo · 5 naranja · 5 amarillo · 14 verde
+    Mayor riesgo: Tambogrande (Piura) con 88/100 — Muy alto
+  ✓ Ventana 48 h → riesgo_nacional_48h.json  (154.6 KB, 35 ms)
+    Riesgo: 13 rojo · 4 naranja · 4 amarillo · 8 verde
+    Mayor riesgo: Sullana (Piura) con 91/100 — Muy alto
+  ✓ Ventana 72 h → riesgo_nacional_72h.json  (154.5 KB, 12 ms)
+    Riesgo: 14 rojo · 3 naranja · 5 amarillo · 7 verde
+    Mayor riesgo: Sullana (Piura) con 91/100 — Muy alto
+
+  3. Resumen
+  ──────────
+  Caché: 174 archivos · 174 vigentes · 0 expirados · 3.73 MB
+  Tiempo total: 41.8 s
+
+  Para la feria:
+    WILLAQ_MODO_OFFLINE=1 php -S localhost:8000
+  o simplemente ejecutar el servidor y presentar con el snapshot.
+
+  ✓ Listo.
+
+[2026-11-05 23:26:20 -05] Fin · modo=snapshot · código=0
+
+[2026-11-05 23:26:38 -05] Inicio · modo=alertas · prueba=0 · php=/usr/bin/php
+[2026-11-05 23:26:38 -05] → semear_alertas.php --limpiar
+  · Alertas anteriores eliminadas.
+  ✓ Tambogrande                Lluvia extrema — riesgo Muy alto en Tambogrande rojo     WQ-20261106-B882
+  ✓ Aguas Verdes               Lluvia extrema — riesgo Muy alto en Aguas Verdes rojo     WQ-20261106-775B
+  ✓ Zarumilla                  Lluvia extrema — riesgo Muy alto en Zarumilla rojo     WQ-20261106-AA93
+  ✓ Chulucanas                 Lluvia extrema — riesgo Muy alto en Chulucanas rojo     WQ-20261106-B9FD
+  ✓ Tumbes                     Inundación fluvial — riesgo Muy alto en Tumbes rojo     WQ-20261106-C3FB
+  ✓ Corrales                   Inundación fluvial — riesgo Alto en Corrales naranja  WQ-20261106-24C3
+  ✓ Cusco                      Sequía — riesgo Alto en Cusco naranja  WQ-20261106-EDFE
+  ✓ Paita                      Calor extremo — riesgo Alto en Paita naranja  WQ-20261106-3787
+  ✓ La Cruz                    Inundación fluvial — riesgo Alto en La Cruz naranja  WQ-20261106-B445
+  ✓ Zorritos                   Lluvia extrema — riesgo Alto en Zorritos naranja  WQ-20261106-2288
+  ✓ Veintiséis de Octubre     Calor extremo — riesgo Medio en Veintiséis de Octubre amarillo WQ-20261106-DDE4
+  ✓ Piura                      Calor extremo — riesgo Medio en Piura amarillo WQ-20261106-F4B9
+  ✓ Castilla                   Calor extremo — riesgo Medio en Castilla amarillo WQ-20261106-AB5C
+  ✓ Huancavelica               Sequía — riesgo Medio en Huancavelica amarillo WQ-20261106-08E3
+  ✓ Catacaos                   Lluvia extrema — riesgo Medio en Catacaos amarillo WQ-20261106-9DEA
+
+  Creadas: 15   Omitidas (duplicadas): 0   Total en archivo: 15
+  Recuerde: son recomendaciones de apoyo a la decisión, no alertas oficiales.
+
+[2026-11-05 23:26:38 -05] Fin · modo=alertas · código=0
+
+[2026-11-05 23:30:00 -05] Inicio · modo=snapshot · prueba=1 · php=/usr/bin/php
+[2026-11-05 23:30:00 -05] → actualizar.php --solo=snapshot --ventana=all
+
+  ╔══════════════════════════════════════════════════════════╗
+  ║  WILLAQ · actualización de datos                         ║
+  ╚══════════════════════════════════════════════════════════╝
+  Distritos: 29   Ventanas: 24, 48, 72 h
+  Modo: solo snapshot (sin red)
+
+  2. Generando snapshots de riesgo
+  ────────────────────────────────
+  ✓ Ventana 24 h → riesgo_nacional_24h.json  (154.8 KB, 30 ms)
+    Riesgo: 5 rojo · 5 naranja · 5 amarillo · 14 verde
+    Mayor riesgo: Tambogrande (Piura) con 88/100 — Muy alto
+  ✓ Ventana 48 h → riesgo_nacional_48h.json  (154.6 KB, 12 ms)
+    Riesgo: 13 rojo · 4 naranja · 4 amarillo · 8 verde
+    Mayor riesgo: Sullana (Piura) con 91/100 — Muy alto
+  ✓ Ventana 72 h → riesgo_nacional_72h.json  (154.5 KB, 12 ms)
+    Riesgo: 14 rojo · 3 naranja · 5 amarillo · 7 verde
+    Mayor riesgo: Sullana (Piura) con 91/100 — Muy alto
+
+  3. Resumen
+  ──────────
+  Caché: 174 archivos · 174 vigentes · 0 expirados · 3.73 MB
+  Tiempo total: 0.1 s
+
+  Para la feria:
+    WILLAQ_MODO_OFFLINE=1 php -S localhost:8000
+  o simplemente ejecutar el servidor y presentar con el snapshot.
+
+  ✓ Listo.
+
+[2026-11-05 23:30:00 -05] Fin · modo=snapshot · código=0
+
+[2026-11-05 23:30:30 -05] Inicio · modo=snapshot · prueba=1 · php=/usr/bin/php
+[2026-11-05 23:30:30 -05] → actualizar.php --solo=snapshot --ventana=all
+
+  ╔══════════════════════════════════════════════════════════╗
+  ║  WILLAQ · actualización de datos                         ║
+  ╚══════════════════════════════════════════════════════════╝
+  Distritos: 29   Ventanas: 24, 48, 72 h
+  Modo: solo snapshot (sin red)
+
+  2. Generando snapshots de riesgo
+  ────────────────────────────────
+  ✓ Ventana 24 h → riesgo_nacional_24h.json  (154.8 KB, 14 ms)
+    Riesgo: 5 rojo · 5 naranja · 5 amarillo · 14 verde
+    Mayor riesgo: Tambogrande (Piura) con 88/100 — Muy alto
+  ✓ Ventana 48 h → riesgo_nacional_48h.json  (154.6 KB, 12 ms)
+    Riesgo: 13 rojo · 4 naranja · 4 amarillo · 8 verde
+    Mayor riesgo: Sullana (Piura) con 91/100 — Muy alto
+  ✓ Ventana 72 h → riesgo_nacional_72h.json  (154.5 KB, 12 ms)
+    Riesgo: 14 rojo · 3 naranja · 5 amarillo · 7 verde
+    Mayor riesgo: Sullana (Piura) con 91/100 — Muy alto
+
+  3. Resumen
+  ──────────
+  Caché: 174 archivos · 174 vigentes · 0 expirados · 3.73 MB
+  Tiempo total: 0.1 s
+
+  Para la feria:
+    WILLAQ_MODO_OFFLINE=1 php -S localhost:8000
+  o simplemente ejecutar el servidor y presentar con el snapshot.
+
+  ✓ Listo.
+
+[2026-11-05 23:30:30 -05] Fin · modo=snapshot · código=0
+
+[2026-11-05 23:30:32 -05] Inicio · modo=snapshot · prueba=1 · php=/usr/bin/php
+[2026-11-05 23:30:32 -05] → actualizar.php --solo=snapshot --ventana=all
+
+  ╔══════════════════════════════════════════════════════════╗
+  ║  WILLAQ · actualización de datos                         ║
+  ╚══════════════════════════════════════════════════════════╝
+  Distritos: 29   Ventanas: 24, 48, 72 h
+  Modo: solo snapshot (sin red)
+
+  2. Generando snapshots de riesgo
+  ────────────────────────────────
+  ✓ Ventana 24 h → riesgo_nacional_24h.json  (154.8 KB, 14 ms)
+    Riesgo: 5 rojo · 5 naranja · 5 amarillo · 14 verde
+    Mayor riesgo: Tambogrande (Piura) con 88/100 — Muy alto
+  ✓ Ventana 48 h → riesgo_nacional_48h.json  (154.6 KB, 13 ms)
+    Riesgo: 13 rojo · 4 naranja · 4 amarillo · 8 verde
+    Mayor riesgo: Sullana (Piura) con 91/100 — Muy alto
+  ✓ Ventana 72 h → riesgo_nacional_72h.json  (154.5 KB, 13 ms)
+    Riesgo: 14 rojo · 3 naranja · 5 amarillo · 7 verde
+    Mayor riesgo: Sullana (Piura) con 91/100 — Muy alto
+
+  3. Resumen
+  ──────────
+  Caché: 174 archivos · 174 vigentes · 0 expirados · 3.73 MB
+  Tiempo total: 0.1 s
+
+  Para la feria:
+    WILLAQ_MODO_OFFLINE=1 php -S localhost:8000
+  o simplemente ejecutar el servidor y presentar con el snapshot.
+
+  ✓ Listo.
+
+[2026-11-05 23:30:32 -05] Fin · modo=snapshot · código=0
+
+[2026-11-05 23:31:06 -05] Inicio · modo=snapshot · prueba=1 · php=/usr/bin/php
+[2026-11-05 23:31:06 -05] Omitido (snapshot): otra ejecución sigue en curso.
+
+[2026-11-06 09:21:43 -05] Inicio · modo=alertas · prueba=0 · php=php -d extension=/home/isma/.local/lib/php-ext/pdo_pgsql.so
+[2026-11-06 09:21:43 -05] ERROR: no se encontró PHP CLI. Defina WILLAQ_PHP_BIN=/ruta/al/php.
+
+[2026-11-06 09:22:06 -05] Inicio · modo=alertas · prueba=0 · php=/tmp/opencode/bin/php-pgsql
+[2026-11-06 09:22:06 -05] → semear_alertas.php --limpiar
+  · Alertas anteriores eliminadas.
+  ✓ Tambogrande                Lluvia extrema — riesgo Muy alto en Tambogrande rojo     WQ-20261106-8E9F
+  ✓ Aguas Verdes               Lluvia extrema — riesgo Muy alto en Aguas Verdes rojo     WQ-20261106-61EB
+  ✓ Zarumilla                  Lluvia extrema — riesgo Muy alto en Zarumilla rojo     WQ-20261106-A7C2
+  ✓ Chulucanas                 Lluvia extrema — riesgo Muy alto en Chulucanas rojo     WQ-20261106-3028
+  ✓ Tumbes                     Inundación fluvial — riesgo Muy alto en Tumbes rojo     WQ-20261106-B0F5
+  ✓ Corrales                   Inundación fluvial — riesgo Alto en Corrales naranja  WQ-20261106-ECF2
+  ✓ Cusco                      Sequía — riesgo Alto en Cusco naranja  WQ-20261106-1AAD
+  ✓ Paita                      Calor extremo — riesgo Alto en Paita naranja  WQ-20261106-32C4
+  ✓ La Cruz                    Inundación fluvial — riesgo Alto en La Cruz naranja  WQ-20261106-A2F1
+  ✓ Zorritos                   Lluvia extrema — riesgo Alto en Zorritos naranja  WQ-20261106-108E
+  ✓ Veintiséis de Octubre     Calor extremo — riesgo Medio en Veintiséis de Octubre amarillo WQ-20261106-70D7
+  ✓ Piura                      Calor extremo — riesgo Medio en Piura amarillo WQ-20261106-AAE0
+  ✓ Castilla                   Calor extremo — riesgo Medio en Castilla amarillo WQ-20261106-D480
+  ✓ Huancavelica               Sequía — riesgo Medio en Huancavelica amarillo WQ-20261106-D70C
+  ✓ Catacaos                   Lluvia extrema — riesgo Medio en Catacaos amarillo WQ-20261106-AF2B
+
+  Creadas: 15   Omitidas (duplicadas): 0   Total almacenado: 15
+  Almacenamiento: PostgreSQL (con espejo JSON)
+  Recuerde: son recomendaciones de apoyo a la decisión, no alertas oficiales.
+
+[2026-11-06 09:22:06 -05] Fin · modo=alertas · código=0
+
+[2026-11-06 09:22:19 -05] Inicio · modo=alertas · prueba=0 · php=/tmp/opencode/bin/php-pgsql
+[2026-11-06 09:22:19 -05] → semear_alertas.php --limpiar
+  · Alertas anteriores eliminadas.
+  ✓ Tambogrande                Lluvia extrema — riesgo Muy alto en Tambogrande rojo     WQ-20261106-CDCA
+  ✓ Aguas Verdes               Lluvia extrema — riesgo Muy alto en Aguas Verdes rojo     WQ-20261106-20A6
+  ✓ Zarumilla                  Lluvia extrema — riesgo Muy alto en Zarumilla rojo     WQ-20261106-E9D1
+  ✓ Chulucanas                 Lluvia extrema — riesgo Muy alto en Chulucanas rojo     WQ-20261106-5AE6
+  ✓ Tumbes                     Inundación fluvial — riesgo Muy alto en Tumbes rojo     WQ-20261106-CB73
+  ✓ Corrales                   Inundación fluvial — riesgo Alto en Corrales naranja  WQ-20261106-1134
+  ✓ Cusco                      Sequía — riesgo Alto en Cusco naranja  WQ-20261106-C2B4
+  ✓ Paita                      Calor extremo — riesgo Alto en Paita naranja  WQ-20261106-3B68
+  ✓ La Cruz                    Inundación fluvial — riesgo Alto en La Cruz naranja  WQ-20261106-6044
+  ✓ Zorritos                   Lluvia extrema — riesgo Alto en Zorritos naranja  WQ-20261106-3B1D
+  ✓ Veintiséis de Octubre     Calor extremo — riesgo Medio en Veintiséis de Octubre amarillo WQ-20261106-87B5
+  ✓ Piura                      Calor extremo — riesgo Medio en Piura amarillo WQ-20261106-38F8
+  ✓ Castilla                   Calor extremo — riesgo Medio en Castilla amarillo WQ-20261106-F8A8
+  ✓ Huancavelica               Sequía — riesgo Medio en Huancavelica amarillo WQ-20261106-5B43
+  ✓ Catacaos                   Lluvia extrema — riesgo Medio en Catacaos amarillo WQ-20261106-DC59
+
+  Creadas: 15   Omitidas (duplicadas): 0   Total almacenado: 15
+  Almacenamiento: PostgreSQL (con espejo JSON)
+  Recuerde: son recomendaciones de apoyo a la decisión, no alertas oficiales.
+
+[2026-11-06 09:22:19 -05] Fin · modo=alertas · código=0

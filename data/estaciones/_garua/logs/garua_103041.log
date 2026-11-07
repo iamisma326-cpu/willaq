@@ -1,0 +1,614 @@
+
+╭─ Garúa v0.31.0 ──────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   ██████   █████  ██████  ██   ██  █████                                     │
+│  ██       ██   ██ ██   ██ ██   ██ ██   ██                                    │
+│  ██  ███  ███████ ██████  ██   ██ ███████                                    │
+│  ██   ██  ██   ██ ██   ██ ██   ██ ██   ██                                    │
+│   ██████  ██   ██ ██   ██  █████  ██   ██                                    │
+│                                                                              │
+│  Datos meteorológicos e hidrológicos                                         │
+│  del SENAMHI del Perú.                                                       │
+│                                                                              │
+│  Consulta estaciones. Descarga históricos.                                   │
+│  Trabaja con datos confiables.                                               │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+╭─ 💧 Estación Seleccionada ───────────────────────────────────────────────────╮
+│                                                                              │
+│  Nombre: El Salto                                                            │
+│  Código: 103041 | 000135                                                     │
+│  Tipo: M                                                                     │
+│  Estado: DIFERIDO                                                            │
+│  Categoría: CO                                                               │
+│  Departamento: TUMBES                                                        │
+│  Provincia: ZARUMILLA                                                        │
+│  Distrito: ZARUMILLA                                                         │
+│  Datos disponibles desde: 2020-12                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💧 📅 Modo PERIOD seleccionado
+
+┏━ 💧 Iniciando Scraping ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃  Estación: El Salto                                                          ┃
+┃  Modo: PERIOD                                                                ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+✅ Página configurada (sin POST inicial detectado).
+✅ 60 opciones cargadas
+Años disponibles: 2021 | 2022 | 2023 | 2024 | 2025 | 2026
+💧 Filtro por periodo 2017-2026: 60 opciones encontradas
+
+💧 Se procesarán 60 opciones
+
+
+──────────────────────────────────────
+Procesando [1/60] → 2021-05
+🔄 Procesando opción: 2021-05 (202105)
+✅ Opción seleccionada: 202105
+⚠️  Intento 1 fallido para 202105
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202105
+⚠️  Intento 2 fallido para 202105
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202105
+❌ Error procesando opción 202105 tras 3 intentos: No se encontró 
+table#dataTable en la respuesta del endpoint
+Traceback (most recent call last):
+  File "/home/isma/.local/share/uv/tools/garua/lib/python3.14/site-packages/garua/scraping/scraper.py", line 144, in process_option
+    raise TableNotFoundError(
+        "No se encontró table#dataTable en la respuesta del endpoint"
+    )
+garua.exceptions.TableNotFoundError: No se encontró table#dataTable en la respuesta del endpoint
+
+──────────────────────────────────────
+Procesando [2/60] → 2021-06
+🔄 Procesando opción: 2021-06 (202106)
+✅ Opción seleccionada: 202106
+⚠️  Intento 1 fallido para 202106
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202106
+⚠️  Intento 2 fallido para 202106
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202106
+❌ Error procesando opción 202106 tras 3 intentos: No se encontró 
+table#dataTable en la respuesta del endpoint
+Traceback (most recent call last):
+  File "/home/isma/.local/share/uv/tools/garua/lib/python3.14/site-packages/garua/scraping/scraper.py", line 144, in process_option
+    raise TableNotFoundError(
+        "No se encontró table#dataTable en la respuesta del endpoint"
+    )
+garua.exceptions.TableNotFoundError: No se encontró table#dataTable en la respuesta del endpoint
+
+──────────────────────────────────────
+Procesando [3/60] → 2021-07
+🔄 Procesando opción: 2021-07 (202107)
+✅ Opción seleccionada: 202107
+⚠️  Intento 1 fallido para 202107
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202107
+⚠️  Intento 2 fallido para 202107
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202107
+❌ Error procesando opción 202107 tras 3 intentos: No se encontró 
+table#dataTable en la respuesta del endpoint
+Traceback (most recent call last):
+  File "/home/isma/.local/share/uv/tools/garua/lib/python3.14/site-packages/garua/scraping/scraper.py", line 144, in process_option
+    raise TableNotFoundError(
+        "No se encontró table#dataTable en la respuesta del endpoint"
+    )
+garua.exceptions.TableNotFoundError: No se encontró table#dataTable en la respuesta del endpoint
+
+──────────────────────────────────────
+Procesando [4/60] → 2021-08
+🔄 Procesando opción: 2021-08 (202108)
+✅ Opción seleccionada: 202108
+⚠️  Intento 1 fallido para 202108
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202108
+⚠️  Intento 2 fallido para 202108
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202108
+❌ Error procesando opción 202108 tras 3 intentos: No se encontró 
+table#dataTable en la respuesta del endpoint
+Traceback (most recent call last):
+  File "/home/isma/.local/share/uv/tools/garua/lib/python3.14/site-packages/garua/scraping/scraper.py", line 144, in process_option
+    raise TableNotFoundError(
+        "No se encontró table#dataTable en la respuesta del endpoint"
+    )
+garua.exceptions.TableNotFoundError: No se encontró table#dataTable en la respuesta del endpoint
+
+──────────────────────────────────────
+Procesando [5/60] → 2021-09
+🔄 Procesando opción: 2021-09 (202109)
+✅ Opción seleccionada: 202109
+⚠️  Intento 1 fallido para 202109
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202109
+⚠️  Intento 2 fallido para 202109
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202109
+❌ Error procesando opción 202109 tras 3 intentos: No se encontró 
+table#dataTable en la respuesta del endpoint
+Traceback (most recent call last):
+  File "/home/isma/.local/share/uv/tools/garua/lib/python3.14/site-packages/garua/scraping/scraper.py", line 144, in process_option
+    raise TableNotFoundError(
+        "No se encontró table#dataTable en la respuesta del endpoint"
+    )
+garua.exceptions.TableNotFoundError: No se encontró table#dataTable en la respuesta del endpoint
+
+──────────────────────────────────────
+Procesando [6/60] → 2021-10
+🔄 Procesando opción: 2021-10 (202110)
+✅ Opción seleccionada: 202110
+⚠️  Intento 1 fallido para 202110
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202110
+⚠️  Intento 2 fallido para 202110
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202110
+❌ Error procesando opción 202110 tras 3 intentos: No se encontró 
+table#dataTable en la respuesta del endpoint
+Traceback (most recent call last):
+  File "/home/isma/.local/share/uv/tools/garua/lib/python3.14/site-packages/garua/scraping/scraper.py", line 144, in process_option
+    raise TableNotFoundError(
+        "No se encontró table#dataTable en la respuesta del endpoint"
+    )
+garua.exceptions.TableNotFoundError: No se encontró table#dataTable en la respuesta del endpoint
+
+──────────────────────────────────────
+Procesando [7/60] → 2021-11
+🔄 Procesando opción: 2021-11 (202111)
+✅ Opción seleccionada: 202111
+⚠️  Intento 1 fallido para 202111
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202111
+⚠️  Intento 2 fallido para 202111
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202111
+❌ Error procesando opción 202111 tras 3 intentos: No se encontró 
+table#dataTable en la respuesta del endpoint
+Traceback (most recent call last):
+  File "/home/isma/.local/share/uv/tools/garua/lib/python3.14/site-packages/garua/scraping/scraper.py", line 144, in process_option
+    raise TableNotFoundError(
+        "No se encontró table#dataTable en la respuesta del endpoint"
+    )
+garua.exceptions.TableNotFoundError: No se encontró table#dataTable en la respuesta del endpoint
+
+──────────────────────────────────────
+Procesando [8/60] → 2021-12
+🔄 Procesando opción: 2021-12 (202112)
+✅ Opción seleccionada: 202112
+⚠️  Intento 1 fallido para 202112
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202112
+⚠️  Intento 2 fallido para 202112
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202112
+❌ Error procesando opción 202112 tras 3 intentos: No se encontró 
+table#dataTable en la respuesta del endpoint
+Traceback (most recent call last):
+  File "/home/isma/.local/share/uv/tools/garua/lib/python3.14/site-packages/garua/scraping/scraper.py", line 144, in process_option
+    raise TableNotFoundError(
+        "No se encontró table#dataTable en la respuesta del endpoint"
+    )
+garua.exceptions.TableNotFoundError: No se encontró table#dataTable en la respuesta del endpoint
+
+──────────────────────────────────────
+Procesando [9/60] → 2022-01
+💧 Nuevo año (2022) — pausa de 1.5s
+🔄 Procesando opción: 2022-01 (202201)
+✅ Opción seleccionada: 202201
+⚠️  Intento 1 fallido para 202201
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202201
+⚠️  Intento 2 fallido para 202201
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202201
+❌ Error procesando opción 202201 tras 3 intentos: No se encontró 
+table#dataTable en la respuesta del endpoint
+Traceback (most recent call last):
+  File "/home/isma/.local/share/uv/tools/garua/lib/python3.14/site-packages/garua/scraping/scraper.py", line 144, in process_option
+    raise TableNotFoundError(
+        "No se encontró table#dataTable en la respuesta del endpoint"
+    )
+garua.exceptions.TableNotFoundError: No se encontró table#dataTable en la respuesta del endpoint
+
+──────────────────────────────────────
+Procesando [10/60] → 2022-02
+🔄 Procesando opción: 2022-02 (202202)
+✅ Opción seleccionada: 202202
+⚠️  Intento 1 fallido para 202202
+   Error: No se encontró table#dataTable en la respuesta del endpoint
+🔄 Reintentando...
+✅ Opción seleccionada: 202202
+✅ Datos capturados para 202202 (39,869 bytes)
+✅ Datos añadidos al buffer para periodo 202202: 28 filas
+
+──────────────────────────────────────
+Procesando [11/60] → 2022-03
+🔄 Procesando opción: 2022-03 (202203)
+✅ Opción seleccionada: 202203
+✅ Datos capturados para 202203 (43,010 bytes)
+✅ Datos añadidos al buffer para periodo 202203: 31 filas
+
+──────────────────────────────────────
+Procesando [12/60] → 2022-04
+🔄 Procesando opción: 2022-04 (202204)
+✅ Opción seleccionada: 202204
+✅ Datos capturados para 202204 (41,959 bytes)
+✅ Datos añadidos al buffer para periodo 202204: 30 filas
+
+──────────────────────────────────────
+Procesando [13/60] → 2022-05
+🔄 Procesando opción: 2022-05 (202205)
+✅ Opción seleccionada: 202205
+✅ Datos capturados para 202205 (43,003 bytes)
+✅ Datos añadidos al buffer para periodo 202205: 31 filas
+
+──────────────────────────────────────
+Procesando [14/60] → 2022-06
+🔄 Procesando opción: 2022-06 (202206)
+✅ Opción seleccionada: 202206
+✅ Datos capturados para 202206 (41,965 bytes)
+✅ Datos añadidos al buffer para periodo 202206: 30 filas
+
+──────────────────────────────────────
+Procesando [15/60] → 2022-07
+🔄 Procesando opción: 2022-07 (202207)
+✅ Opción seleccionada: 202207
+✅ Datos capturados para 202207 (42,999 bytes)
+✅ Datos añadidos al buffer para periodo 202207: 31 filas
+
+──────────────────────────────────────
+Procesando [16/60] → 2022-08
+🔄 Procesando opción: 2022-08 (202208)
+✅ Opción seleccionada: 202208
+✅ Datos capturados para 202208 (42,991 bytes)
+✅ Datos añadidos al buffer para periodo 202208: 31 filas
+
+──────────────────────────────────────
+Procesando [17/60] → 2022-09
+🔄 Procesando opción: 2022-09 (202209)
+✅ Opción seleccionada: 202209
+✅ Datos capturados para 202209 (41,951 bytes)
+✅ Datos añadidos al buffer para periodo 202209: 30 filas
+
+──────────────────────────────────────
+Procesando [18/60] → 2022-10
+🔄 Procesando opción: 2022-10 (202210)
+✅ Opción seleccionada: 202210
+✅ Datos capturados para 202210 (42,997 bytes)
+✅ Datos añadidos al buffer para periodo 202210: 31 filas
+
+──────────────────────────────────────
+Procesando [19/60] → 2022-11
+🔄 Procesando opción: 2022-11 (202211)
+✅ Opción seleccionada: 202211
+✅ Datos capturados para 202211 (41,955 bytes)
+✅ Datos añadidos al buffer para periodo 202211: 30 filas
+
+──────────────────────────────────────
+Procesando [20/60] → 2022-12
+🔄 Procesando opción: 2022-12 (202212)
+✅ Opción seleccionada: 202212
+✅ Datos capturados para 202212 (42,993 bytes)
+✅ Datos añadidos al buffer para periodo 202212: 31 filas
+
+──────────────────────────────────────
+Procesando [21/60] → 2023-06
+💧 Nuevo año (2023) — pausa de 1.5s
+🔄 Procesando opción: 2023-06 (202306)
+✅ Opción seleccionada: 202306
+✅ Datos capturados para 202306 (41,945 bytes)
+✅ Datos añadidos al buffer para periodo 202306: 30 filas
+
+──────────────────────────────────────
+Procesando [22/60] → 2023-07
+🔄 Procesando opción: 2023-07 (202307)
+✅ Opción seleccionada: 202307
+✅ Datos capturados para 202307 (42,970 bytes)
+✅ Datos añadidos al buffer para periodo 202307: 31 filas
+
+──────────────────────────────────────
+Procesando [23/60] → 2023-08
+🔄 Procesando opción: 2023-08 (202308)
+✅ Opción seleccionada: 202308
+✅ Datos capturados para 202308 (42,973 bytes)
+✅ Datos añadidos al buffer para periodo 202308: 31 filas
+
+──────────────────────────────────────
+Procesando [24/60] → 2023-09
+🔄 Procesando opción: 2023-09 (202309)
+✅ Opción seleccionada: 202309
+✅ Datos capturados para 202309 (41,926 bytes)
+✅ Datos añadidos al buffer para periodo 202309: 30 filas
+
+──────────────────────────────────────
+Procesando [25/60] → 2023-10
+🔄 Procesando opción: 2023-10 (202310)
+✅ Opción seleccionada: 202310
+✅ Datos capturados para 202310 (42,971 bytes)
+✅ Datos añadidos al buffer para periodo 202310: 31 filas
+
+──────────────────────────────────────
+Procesando [26/60] → 2023-11
+🔄 Procesando opción: 2023-11 (202311)
+✅ Opción seleccionada: 202311
+✅ Datos capturados para 202311 (41,942 bytes)
+✅ Datos añadidos al buffer para periodo 202311: 30 filas
+
+──────────────────────────────────────
+Procesando [27/60] → 2023-12
+🔄 Procesando opción: 2023-12 (202312)
+✅ Opción seleccionada: 202312
+✅ Datos capturados para 202312 (42,997 bytes)
+✅ Datos añadidos al buffer para periodo 202312: 31 filas
+
+──────────────────────────────────────
+Procesando [28/60] → 2024-01
+💧 Nuevo año (2024) — pausa de 1.5s
+🔄 Procesando opción: 2024-01 (202401)
+✅ Opción seleccionada: 202401
+✅ Datos capturados para 202401 (42,990 bytes)
+✅ Datos añadidos al buffer para periodo 202401: 31 filas
+
+──────────────────────────────────────
+Procesando [29/60] → 2024-02
+🔄 Procesando opción: 2024-02 (202402)
+✅ Opción seleccionada: 202402
+✅ Datos capturados para 202402 (40,918 bytes)
+✅ Datos añadidos al buffer para periodo 202402: 29 filas
+
+──────────────────────────────────────
+Procesando [30/60] → 2024-03
+🔄 Procesando opción: 2024-03 (202403)
+✅ Opción seleccionada: 202403
+✅ Datos capturados para 202403 (43,000 bytes)
+✅ Datos añadidos al buffer para periodo 202403: 31 filas
+
+──────────────────────────────────────
+Procesando [31/60] → 2024-04
+🔄 Procesando opción: 2024-04 (202404)
+✅ Opción seleccionada: 202404
+✅ Datos capturados para 202404 (41,963 bytes)
+✅ Datos añadidos al buffer para periodo 202404: 30 filas
+
+──────────────────────────────────────
+Procesando [32/60] → 2024-05
+🔄 Procesando opción: 2024-05 (202405)
+✅ Opción seleccionada: 202405
+✅ Datos capturados para 202405 (42,995 bytes)
+✅ Datos añadidos al buffer para periodo 202405: 31 filas
+
+──────────────────────────────────────
+Procesando [33/60] → 2024-06
+🔄 Procesando opción: 2024-06 (202406)
+✅ Opción seleccionada: 202406
+✅ Datos capturados para 202406 (41,949 bytes)
+✅ Datos añadidos al buffer para periodo 202406: 30 filas
+
+──────────────────────────────────────
+Procesando [34/60] → 2024-07
+🔄 Procesando opción: 2024-07 (202407)
+✅ Opción seleccionada: 202407
+✅ Datos capturados para 202407 (43,003 bytes)
+✅ Datos añadidos al buffer para periodo 202407: 31 filas
+
+──────────────────────────────────────
+Procesando [35/60] → 2024-08
+🔄 Procesando opción: 2024-08 (202408)
+✅ Opción seleccionada: 202408
+✅ Datos capturados para 202408 (42,993 bytes)
+✅ Datos añadidos al buffer para periodo 202408: 31 filas
+
+──────────────────────────────────────
+Procesando [36/60] → 2024-09
+🔄 Procesando opción: 2024-09 (202409)
+✅ Opción seleccionada: 202409
+✅ Datos capturados para 202409 (41,951 bytes)
+✅ Datos añadidos al buffer para periodo 202409: 30 filas
+
+──────────────────────────────────────
+Procesando [37/60] → 2024-10
+🔄 Procesando opción: 2024-10 (202410)
+✅ Opción seleccionada: 202410
+✅ Datos capturados para 202410 (42,998 bytes)
+✅ Datos añadidos al buffer para periodo 202410: 31 filas
+
+──────────────────────────────────────
+Procesando [38/60] → 2024-11
+🔄 Procesando opción: 2024-11 (202411)
+✅ Opción seleccionada: 202411
+✅ Datos capturados para 202411 (41,965 bytes)
+✅ Datos añadidos al buffer para periodo 202411: 30 filas
+
+──────────────────────────────────────
+Procesando [39/60] → 2024-12
+🔄 Procesando opción: 2024-12 (202412)
+✅ Opción seleccionada: 202412
+✅ Datos capturados para 202412 (42,997 bytes)
+✅ Datos añadidos al buffer para periodo 202412: 31 filas
+
+──────────────────────────────────────
+Procesando [40/60] → 2025-01
+💧 Nuevo año (2025) — pausa de 1.5s
+🔄 Procesando opción: 2025-01 (202501)
+✅ Opción seleccionada: 202501
+✅ Datos capturados para 202501 (42,999 bytes)
+✅ Datos añadidos al buffer para periodo 202501: 31 filas
+
+──────────────────────────────────────
+Procesando [41/60] → 2025-02
+🔄 Procesando opción: 2025-02 (202502)
+✅ Opción seleccionada: 202502
+✅ Datos capturados para 202502 (39,899 bytes)
+✅ Datos añadidos al buffer para periodo 202502: 28 filas
+
+──────────────────────────────────────
+Procesando [42/60] → 2025-03
+🔄 Procesando opción: 2025-03 (202503)
+✅ Opción seleccionada: 202503
+✅ Datos capturados para 202503 (42,999 bytes)
+✅ Datos añadidos al buffer para periodo 202503: 31 filas
+
+──────────────────────────────────────
+Procesando [43/60] → 2025-04
+🔄 Procesando opción: 2025-04 (202504)
+✅ Opción seleccionada: 202504
+✅ Datos capturados para 202504 (41,973 bytes)
+✅ Datos añadidos al buffer para periodo 202504: 30 filas
+
+──────────────────────────────────────
+Procesando [44/60] → 2025-05
+🔄 Procesando opción: 2025-05 (202505)
+✅ Opción seleccionada: 202505
+✅ Datos capturados para 202505 (43,003 bytes)
+✅ Datos añadidos al buffer para periodo 202505: 31 filas
+
+──────────────────────────────────────
+Procesando [45/60] → 2025-06
+🔄 Procesando opción: 2025-06 (202506)
+✅ Opción seleccionada: 202506
+✅ Datos capturados para 202506 (41,938 bytes)
+✅ Datos añadidos al buffer para periodo 202506: 30 filas
+
+──────────────────────────────────────
+Procesando [46/60] → 2025-07
+🔄 Procesando opción: 2025-07 (202507)
+✅ Opción seleccionada: 202507
+✅ Datos capturados para 202507 (43,007 bytes)
+✅ Datos añadidos al buffer para periodo 202507: 31 filas
+
+──────────────────────────────────────
+Procesando [47/60] → 2025-08
+🔄 Procesando opción: 2025-08 (202508)
+✅ Opción seleccionada: 202508
+✅ Datos capturados para 202508 (42,999 bytes)
+✅ Datos añadidos al buffer para periodo 202508: 31 filas
+
+──────────────────────────────────────
+Procesando [48/60] → 2025-09
+🔄 Procesando opción: 2025-09 (202509)
+✅ Opción seleccionada: 202509
+✅ Datos capturados para 202509 (41,962 bytes)
+✅ Datos añadidos al buffer para periodo 202509: 30 filas
+
+──────────────────────────────────────
+Procesando [49/60] → 2025-10
+🔄 Procesando opción: 2025-10 (202510)
+✅ Opción seleccionada: 202510
+✅ Datos capturados para 202510 (42,994 bytes)
+✅ Datos añadidos al buffer para periodo 202510: 31 filas
+
+──────────────────────────────────────
+Procesando [50/60] → 2025-11
+🔄 Procesando opción: 2025-11 (202511)
+✅ Opción seleccionada: 202511
+✅ Datos capturados para 202511 (41,956 bytes)
+✅ Datos añadidos al buffer para periodo 202511: 30 filas
+
+──────────────────────────────────────
+Procesando [51/60] → 2025-12
+🔄 Procesando opción: 2025-12 (202512)
+✅ Opción seleccionada: 202512
+✅ Datos capturados para 202512 (43,006 bytes)
+✅ Datos añadidos al buffer para periodo 202512: 31 filas
+
+──────────────────────────────────────
+Procesando [52/60] → 2026-01
+💧 Nuevo año (2026) — pausa de 1.5s
+🔄 Procesando opción: 2026-01 (202601)
+✅ Opción seleccionada: 202601
+✅ Datos capturados para 202601 (42,995 bytes)
+✅ Datos añadidos al buffer para periodo 202601: 31 filas
+
+──────────────────────────────────────
+Procesando [53/60] → 2026-02
+🔄 Procesando opción: 2026-02 (202602)
+✅ Opción seleccionada: 202602
+✅ Datos capturados para 202602 (39,903 bytes)
+✅ Datos añadidos al buffer para periodo 202602: 28 filas
+
+──────────────────────────────────────
+Procesando [54/60] → 2026-03
+🔄 Procesando opción: 2026-03 (202603)
+✅ Opción seleccionada: 202603
+✅ Datos capturados para 202603 (42,995 bytes)
+✅ Datos añadidos al buffer para periodo 202603: 31 filas
+
+──────────────────────────────────────
+Procesando [55/60] → 2026-04
+🔄 Procesando opción: 2026-04 (202604)
+✅ Opción seleccionada: 202604
+✅ Datos capturados para 202604 (41,952 bytes)
+✅ Datos añadidos al buffer para periodo 202604: 30 filas
+
+──────────────────────────────────────
+Procesando [56/60] → 2026-05
+🔄 Procesando opción: 2026-05 (202605)
+✅ Opción seleccionada: 202605
+✅ Datos capturados para 202605 (42,984 bytes)
+✅ Datos añadidos al buffer para periodo 202605: 31 filas
+
+──────────────────────────────────────
+Procesando [57/60] → 2026-06
+🔄 Procesando opción: 2026-06 (202606)
+✅ Opción seleccionada: 202606
+✅ Datos capturados para 202606 (41,931 bytes)
+✅ Datos añadidos al buffer para periodo 202606: 30 filas
+
+──────────────────────────────────────
+Procesando [58/60] → 2026-07
+🔄 Procesando opción: 2026-07 (202607)
+✅ Opción seleccionada: 202607
+✅ Datos capturados para 202607 (42,989 bytes)
+✅ Datos añadidos al buffer para periodo 202607: 31 filas
+
+──────────────────────────────────────
+Procesando [59/60] → 2026-08
+🔄 Procesando opción: 2026-08 (202608)
+✅ Opción seleccionada: 202608
+✅ Datos capturados para 202608 (42,990 bytes)
+✅ Datos añadidos al buffer para periodo 202608: 31 filas
+
+──────────────────────────────────────
+Procesando [60/60] → 2026-09
+🔄 Procesando opción: 2026-09 (202609)
+✅ Opción seleccionada: 202609
+✅ Datos capturados para 202609 (41,960 bytes)
+✅ Datos añadidos al buffer para periodo 202609: 30 filas
+✅ Archivo consolidado guardado: ElSalto-2017-2026.csv
+💧 Contiene 1553 líneas
+
+┏━ 💧 Proceso Completado ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃  Opciones procesadas: 51/60                                                  ┃
+┃  Tasa de éxito: 85.0%                                                        ┃
+┃  Archivos generados: 1                                                       ┃
+┃                                                                              ┃
+┃  Archivos guardados:                                                         ┃
+┃    → /home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/c...      ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+💧 Cerrando navegador...

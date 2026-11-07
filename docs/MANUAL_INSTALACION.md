@@ -153,7 +153,9 @@ Salidas: `data/estaciones/_garua/csv/` (crudo), `data/estaciones/{id}.json`
 `S/D` es ausencia, `T` es traza y los negativos se descartan y se listan.
 
 > La fase 2 sigue apagada. Cargar series **no** cambia el motor de riesgo:
-> `motor_usa_estaciones = false` hasta medir falsos positivos en el backtest.
+> `motor_usa_estaciones = false`. La medición de falsos positivos ya se
+> ejecutó (`data/backtest_estaciones.json`) y **ninguna estación resultó apta**
+> para la fusión, así que el motor sigue con ERA5.
 
 ---
 

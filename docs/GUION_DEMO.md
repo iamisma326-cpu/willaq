@@ -250,10 +250,14 @@ Ir a `?action=ayuda#validacion` o mostrar `docs/VALIDACION_HISTORICA.md`.
 >
 > "La **fase 1** está hecha: descargamos con Garúa el catálogo del SENAMHI y
 > armamos un registro de 103 estaciones que cubre los 29 distritos, con **23
-> series reales de 2017–2026** ya normalizadas y auditadas. Lo que **no**
-> hemos hecho es enchufarlas al motor: la fase 2 exige medir falsos positivos
-> en el backtest y hoy hay **4 series que cumplen los criterios medibles y 0
-> habilitadas**. Preferimos decirlo así antes que fingir que ya está."
+> series reales de 2017–2026** ya normalizadas y auditadas. Y la **fase 2 la
+> medimos**: comparamos las estaciones contra la línea base de ERA5 con la
+> misma aritmética de producción, sobre 29 distritos×evento y 15 casos de
+> referencia documentada. Resultado: **0 falsos positivos nuevos**, **1 caso
+> recuperado** (`tum-zarumilla`, 2023) y un recall de estación **igual** al de
+> ERA5 (0.7333). Ninguna estación alcanzó el umbral de 0.80, así que **0
+> habilitadas** y el motor sigue con ERA5. Preferimos decirlo así antes que
+> fingir que ya está."
 >
 > **Y si preguntan "¿y los pesos no son un invento?"** (preguntan):
 >

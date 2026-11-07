@@ -1,0 +1,1 @@
+{"clave":"climatologia:lim-ves","payload":{"fuente":"ERA5 · 2015-2025 · ventana ±15 días","obtenido_en":1793914115,"confianza":"alta","p50_24":0,"p95_24":0.8,"p99_24":1.8,"p50_temp":21.4,"p95_temp":23.8,"p99_temp":24.58,"p50_90":0,"p95_90":72,"muestra_dias":341},"fuente":"ERA5","guardado_en":1793914115,"expira_en":1796506115,"ttl":2592000}

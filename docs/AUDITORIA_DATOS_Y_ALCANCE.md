@@ -29,8 +29,13 @@
 > 3. **Estaciones (secciones 1, 4 y 6).** La **fase 1** está **ejecutada**:
 >    registro de 103 estaciones del catálogo SENAMHI, descarga real con Garúa,
 >    series normalizadas con QA y cobertura en el panel admin. El **motor de
->    riesgo todavía no las usa** (`motor_usa_estaciones = false`); la fase 2
->    sigue bloqueada por compuerta.
+>    riesgo todavía no las usa** (`motor_usa_estaciones = false`). La fase 2
+>    está **medida y cerrada**: el backtest del 7 de noviembre de 2026
+>    comparó ERA5 y las estaciones sobre 29 distritos×evento comparables y 15
+>    casos de referencia documentada; el recall de la estación (0.7333) es
+>    igual al de ERA5, con **0 falsos positivos nuevos** y **1 caso
+>    recuperado** (`tum-zarumilla`, 2023). **Ninguna estación alcanzó el recall
+>    mínimo de 0.80**, así que 0 son aptas para fusión.
 
 Este documento responde, sin adornos, a cinco preguntas:
 
@@ -70,10 +75,16 @@ El proyecto no es una maqueta estática. Tiene:
 - Importador CSV de exposición con overlay, respaldo y procedencia por campo.
 - Fase 1 de estaciones: registro de 103 estaciones, series reales descargadas
   con Garúa, QA y cobertura en el panel.
+- Fase 2 de estaciones: **backtest de falsos positivos** contra la línea base
+  ERA5 con la misma aritmética de producción
+  (`scripts/lib_validacion.php`). Resultado: 29 distritos×evento comparables,
+  15 casos de referencia, recall de estación = recall de ERA5 = 0.7333, 0
+  falsos positivos nuevos, 1 caso recuperado, **0 estaciones aptas**.
 - 10 documentos técnicos, incluida la validación histórica y la metodología.
 
-Lo que **no** hay todavía: **el motor de riesgo no usa las estaciones** (fase 2
-bloqueada por compuerta), **viviendas, colegios y centros de salud oficiales**
+Lo que **no** hay todavía: **el motor de riesgo no usa las estaciones** (la
+fase 2 se midió y la compuerta no se superó: 0 de 4 estaciones medibles alcanzó
+el recall mínimo de 0.80), **viviendas, colegios y centros de salud oficiales**
 (ESCALE y RENIPRESS bloquean la descarga automatizada), capas oficiales de
 peligro de CENEPRED/INDECI, nowcast en tiempo real, ni alertas oficiales.
 
@@ -183,7 +194,7 @@ Es mixto, y el propio proyecto lo declara en `config/territorios.json`:
 | Alertas/recomendaciones | **Generadas** | 22 alertas derivadas del snapshot; `emitida_por: Sistema · WILLAQ`. |
 | Simulador climático/evacuación/reubicación | **Simulado** | Factores artificiales de lluvia, temperatura y caudal. |
 | Evaluador de sitios (ISE) | **Heurístico** | Usa susceptibilidad distrital y distancia; no es un mapa parcelario de peligro. |
-| Estaciones SENAMHI/ANA | **Fase 1: serie real · motor: no** | 103 estaciones en el registro, **23 series reales** (2017–2026) normalizadas con QA. El motor sigue en ERA5 (`motor_usa_estaciones = false`). |
+| Estaciones SENAMHI/ANA | **Fase 1: serie real · fase 2: medida, gate cerrado · motor: no** | 103 estaciones en el registro, **23 series reales** (2017–2026) normalizadas con QA. Backtest ejecutado: 0 falsos positivos nuevos, 1 caso recuperado, **0 estaciones aptas** (ninguna alcanzó recall ≥ 0.80). El motor sigue en ERA5 (`motor_usa_estaciones = false`). |
 
 Los valores de población de la versión original de esta auditoría eran
 estimaciones del catálogo. Hoy **la población es oficial**: se aplicó el
@@ -202,6 +213,14 @@ La exposición oficial tiene ya separadas las dos piezas que importan:
 Las series de estaciones son una **medición real** del SENAMHI; su traslado a
 un distrito (≤ 25 km, |Δaltitud| ≤ 500 m) sigue siendo una **estimación con
 supuestos declarados** y todavía no alimenta el motor.
+
+Además, ya se **midió** si esa medición mejora la línea base. El backtest
+(`data/backtest_estaciones.json`) compara ERA5 y estación con la misma
+función de detección (`scripts/lib_validacion.php`): el recall de la estación
+(0.7333) es **idéntico** al de ERA5, no se añade ningún señalamiento fuera de
+la referencia documentada y solo se recupera 1 de los 5 casos que ERA5 había
+perdido. Con los umbrales fijados antes de medir (recall ≥ 0.80, 0 falsos
+positivos nuevos), **ninguna estación es apta** y la fusión sigue apagada.
 
 La validación histórica sí es real: 18 casos, ERA5, 13/18 detectados, 5
 diagnosticados como limitación del dato de entrada. Eso está documentado y es
@@ -255,7 +274,11 @@ El registro está en `config/estaciones.json` y el reporte QA en
   viviendas, los colegios y los centros de salud siguen siendo estimación.
 - “El sistema funciona sin internet con snapshots precalculados.”
 - “Descargamos series reales del SENAMHI con Garúa, las auditamos y las
-  dejamos listas; el motor todavía no las usa.”
+  dejamos listas; el motor todavía no las usa.” → Y además: **las medimos
+  contra la línea base de ERA5 con la misma aritmética de producción.** El
+  resultado es reproducible (`data/backtest_estaciones.json`): 0 falsos
+  positivos nuevos, recall idéntico al de ERA5 (0.7333), 1 caso recuperado y
+  **0 estaciones aptas para fusión**. El motor sigue con ERA5.
 - “Las recomendaciones no son alertas oficiales.”
 
 **No defendible:**
@@ -265,7 +288,13 @@ El registro está en `config/estaciones.json` y el reporte QA en
   es oficial del INEI (proyección 2026, verificada por sha256). Colegios y
   centros de salud no: esos portales bloquean la descarga automatizada.
 - “Integra estaciones SENAMHI/ANA en el motor.” → Fase 1 sí (registro, series,
-  QA); fase 2 **no**: `motor_usa_estaciones = false`.
+  QA); fase 2 **no**: `motor_usa_estaciones = false`. Y ahora la razón es
+  precisa: **no es que falte medir, es que la medición dio 0 estaciones
+  aptas**.
+- “Las estaciones arreglan los casos que ERA5 perdió.” → **No.** De los 5
+  casos que ERA5 no detectó, las estaciones disponibles recuperaron **1**
+  (`tum-zarumilla`, 2023). En los demás, la precipitación puntual registrada
+  tampoco alcanzó el nivel del evento.
 - “Tiene base de datos.” → Esta ya **sí** es defendible: PostgreSQL `willaq_db`
   está activa.
 - “Emite alertas oficiales.” → No, y el código lo dice explícitamente.
@@ -302,7 +331,12 @@ feria.
 5. Mantener el lenguaje de “estimación” y “recomendación de apoyo a la
    decisión”.
 6. No presentar las estaciones como integradas en el motor: mostrar la sección
-   «Cobertura de estaciones» con **4 criterios medibles / 0 habilitadas**.
+   «Cobertura de estaciones» con **4 criterios medibles / 8 evaluadas en el
+   backtest / 0 habilitadas**, y el bloque del gate con recall 0.7333 (ERA5 =
+   estación), 0 falsos positivos nuevos y 1 caso recuperado.
+7. Si preguntan por la fase 2, la respuesta es: **la medimos y no se superó**.
+   No es una fase pendiente de hacer; es un resultado medido y reproducible
+   (`data/backtest_estaciones.json`).
 
 ---
 
@@ -335,7 +369,16 @@ php -r 'require "models/Exposicion.php"; print_r(exposicion_resumen());'
 # 7. Estaciones: ¿qué series hay y cuántas pasan la compuerta medible?
 php -r 'require "models/Estacion.php"; $r=estacion_resumen();
  echo "registro={$r["total_estaciones"]} con_serie={$r["con_serie"]} ";
- echo "criterios={$r["cumplen_criterios_medibles"]} habilitadas={$r["habilitadas"]}\n";'
+ echo "criterios={$r["cumplen_criterios_medibles"]} ";
+ echo "medidas_por_gate={$r["medidas_por_gate"]} evaluadas={$r["estaciones_evaluadas"]} ";
+ echo "habilitadas={$r["habilitadas"]} compuerta={$r["compuerta_estado"]}\n";'
+
+# 7b. Resultado del backtest de la fase 2 (si no existe, el gate no se midió)
+php -r '$v=json_decode(file_get_contents("data/backtest_estaciones.json"),true);
+ if(!$v){echo "sin backtest: la compuerta NO está medida\n";exit;}
+ $m=$v["resumen_fase_2"]["medicion_global"];
+ echo "recall_era5={$m["recall_era5"]} recall_estacion={$m["recall_estacion"]} ";
+ echo "fp_nuevos={$m["falsos_positivos_nuevos"]} recuperados={$m["recuperados"]}\n";'
 ```
 
 ---

@@ -183,15 +183,34 @@ backtest (3 no detecciones por fuente inadecuada). Por eso el siguiente paso
 del proyecto está escrito y es concreto: **incorporar estaciones de SENAMHI
 (PISCO) y de la ANA**.
 
-**Estado real (6 de noviembre de 2026):** la fase 1 de estaciones está
-construida. Hay un registro reproducible de **103 estaciones** del catálogo
-SENAMHI que cubre **29/29 distritos**, descargado con Garúa, y **23 series
-reales** (2017–2026) ya normalizadas con QA. Sin embargo, **el motor sigue
-usando solo ERA5**: 4 de las 23 series cumplen los criterios medibles (las
-otras 19 tienen menos de 10 años de cobertura o demasiados huecos), y la
-fase 2 está bloqueada hasta medir falsos positivos en el backtest. Decir que
-WILLAQ «ya usa estaciones» sería falso; decir que «ya puede descargarlas y
-auditarlas» es exacto.
+**Estado real (7 de noviembre de 2026):** la fase 1 de estaciones está
+construida **y la medición de la fase 2 ya se ejecutó**. Hay un registro
+reproducible de **103 estaciones** del catálogo SENAMHI que cubre **29/29
+distritos**, descargado con Garúa, y **23 series reales** (2017–2026) ya
+normalizadas con QA.
+
+El backtest (`scripts/backtest_estaciones.php`) comparó ERA5 y las estaciones
+sobre 29 distritos×evento comparables, con **15 casos de referencia documentada
+evaluados por ambas fuentes**:
+
+| Métrica | ERA5 | Estación |
+|---|---:|---:|
+| Recall sobre la referencia | 0.7333 | 0.7333 |
+| Aciertos | 11 | 11 |
+| Falsos positivos | 10 | 10 |
+
+- **Falsos positivos nuevos de la estación: 0.**
+- **Casos recuperados por la estación: 1** (`tum-zarumilla`, 2023).
+- Estaciones evaluadas: **8**. Cumplen los criterios medibles: **4**.
+- **Aptas para fusión: 0** (ninguna alcanzó el recall mínimo de 0.80).
+
+**El motor sigue usando solo ERA5** (`motor_usa_estaciones = false`). Y esta
+vez la razón no es «todavía no medimos»: es que **medimos y el resultado fue
+negativo para la fusión**. Las estaciones detectaron exactamente los mismos
+distritos que el reanálisis; no añadieron ruido, pero tampoco aportaron la
+señal que faltaba. Decir que WILLAQ «ya usa estaciones» sería falso; decir que
+«las tiene, las auditó y las midió contra la línea base, y la compuerta no se
+superó» es exacto.
 
 ### 5.2 La exposición es una estimación
 
@@ -219,6 +238,13 @@ no existe un padrón oficial de «qué distritos declararon emergencia». Se
 reporta **recall sobre una referencia documentada** y se declara el
 diagnóstico de cada no detección. Es menos vistoso que una matriz de confusión
 y es lo defendible.
+
+La medición de la fase 2 de estaciones usa exactamente esa misma referencia
+documentada (13 casos: 6 en 2017, 1 en 2017-18, 6 en 2023), y por eso es
+comparable con la validación histórica de ERA5. Cuando solo 15 de esos casos
+eran evaluables por **ambas** fuentes, el subconjunto común es el que se
+reporta: comparar una estación sin datos con un distrito y llamarlo fallo
+sería falsear el resultado.
 
 ### 5.4 Cobertura y autoridad
 

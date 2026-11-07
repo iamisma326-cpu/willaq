@@ -1,0 +1,1 @@
+{"clave":"climatologia:lim-lurin","payload":{"fuente":"ERA5 · 2015-2025 · ventana ±15 días","obtenido_en":1793914128,"confianza":"alta","p50_24":0,"p95_24":0.5,"p99_24":1.3,"p50_temp":21.7,"p95_temp":23.9,"p99_temp":24.96,"p50_90":0,"p95_90":27,"muestra_dias":341},"fuente":"ERA5","guardado_en":1793914128,"expira_en":1796506128,"ttl":2592000}

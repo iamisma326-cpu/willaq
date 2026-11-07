@@ -91,7 +91,7 @@ esas frases cambian solas; si se borra el overlay, vuelven a declarar que todo
 es estimación. Un alcance que se queda escrito a mano es un alcance que
 termina mintiendo.
 
-### B. Estaciones — **fase 1 ejecutada, fase 2 bloqueada**
+### B. Estaciones — **fase 1 ejecutada, fase 2 medida y bloqueada por el resultado**
 
 | Pieza | Estado | Dónde |
 |---|---|---|
@@ -102,8 +102,10 @@ termina mintiendo.
 | Descarga real: 6 `critica` + 17 `alta` (2017–2026) | ✅ | `data/estaciones/_garua/csv/` (23 estaciones) |
 | Importador con QA y normalización | ✅ | `scripts/importar_estaciones.php` |
 | Series normalizadas | ✅ | `data/estaciones/senamhi-*.json` (**23 series**) |
+| Aritmética de detección compartida | ✅ | `scripts/lib_validacion.php` (validación ERA5 y backtest usan la misma función) |
 | Panel admin con cobertura y compuerta | ✅ | sección «Cobertura de estaciones» |
-| Motor de riesgo usando estaciones | ⛔ | `motor_usa_estaciones = false` |
+| Backtest de falsos positivos (gate de fase 2) | ✅ ejecutado | `scripts/backtest_estaciones.php` → `data/backtest_estaciones.json` |
+| Motor de riesgo usando estaciones | ⛔ | `motor_usa_estaciones = false` (0 estaciones aptas) |
 
 Resultado medido sobre las **23 series** descargadas (6 `critica` + 17 `alta`):
 
@@ -140,9 +142,12 @@ con ≤ 10 % de días faltantes). La extensión real todavía es **menor a 10 a�
 si se exigiera continuidad estricta, ninguna pasaría hasta 2027.
 
 **4 de 23 cumplen los criterios medibles y 0 están habilitadas.** La diferencia
-es deliberada: la fase 2 exige además medir falsos positivos en el backtest
-sobre los 13 casos ya detectados, y esa medición todavía no se ejecutó. El
-panel muestra ambos estados por separado (`cumple` ≠ `habilitada`).
+es deliberada, y ahora tiene **tres capas** que el panel muestra por separado:
+`cumple medible` (años y faltantes) ≠ `medido en backtest` (la medición de
+falsos positivos ya se ejecutó) ≠ `habilitada` (el motor la usa). El backtest
+del 7 de noviembre de 2026 midió 8 estaciones: **ninguna** alcanzó el recall
+mínimo de 0.80 sobre la referencia documentada que evaluó, así que la fase 2
+queda **cerrada por medición**, no por falta de trabajo.
 
 Lo que muestra la foto: la calidad de la cobertura **no depende solo del
 nombre de la estación**. Hay pares de estaciones con el mismo nombre
@@ -366,15 +371,23 @@ limitada.
 - Calcular climatología local (p50/p95/p99) con la misma función
   `clima_percentil()`.
 - Asignar estación → distrito con reglas explícitas de distancia y altitud.
-- Re-ejecutar el backtest y **medir** si los 5 casos mejoran.
+- Medir el backtest contra ERA5 con la misma aritmética de producción. ✅
+  **Hecho el 7 de noviembre de 2026**: 29 distritos×evento comparables, 15
+  casos de referencia evaluados por ambas fuentes, recall de estación =
+  recall de ERA5 = 0.7333, 0 falsos positivos nuevos, 1 caso recuperado
+  (`tum-zarumilla`, 2023). 0 estaciones aptas.
 - Dejar la arquitectura lista para nowcast si algún día hay acceso en tiempo
   real.
 
 **No se puede prometer:**
 
-- Que los 5 casos se corrijan. Si la estación no tiene datos de 2017/2018/2023,
-  o el evento también fue débil en esa estación, el diagnóstico se mantiene.
-  Sería deshonesto decir “con estaciones se arregla”.
+- Que las estaciones resuelvan los 5 casos que ERA5 perdió. **Medido: no.**
+  De los 5 casos en que ERA5 no detectó (4 en 2017-18 + `tum-zarumilla` en
+  2023), las estaciones disponibles solo recuperaron **1**. Y no porque las
+  series fueran malas —4 tienen ≥ 10 años y < 10 % de faltantes— sino porque
+  en esos distritos y fechas la precipitación puntual registrada **tampoco**
+  alcanzó el nivel del evento. Sería deshonesto decir “con estaciones se
+  arregla”.
 - Tiempo real. SENAMHI no garantiza API pública abierta; scrapear su web no es
   una base operativa ni estable para una feria.
 - Leer NetCDF de PISCO en PHP puro. PISCO se distribuye en NetCDF; PHP no lo lee
@@ -409,7 +422,7 @@ limitada.
 - **El motor de riesgo no cambia** (flag apagado). Los números de la demo siguen
   idénticos.
 
-### Fase 2 — Climatología y fusión (solo si la fase 1 pasa)
+### Fase 2 — Climatología y fusión (compuerta cerrada por medición)
 
 Requisitos mínimos antes de usar una estación:
 
@@ -424,6 +437,56 @@ Requisitos mínimos antes de usar una estación:
   y el API lo muestran.
 - Se mide antes de adoptar: falsos positivos nuevos sobre los 13 casos ya
   detectados.
+
+#### Resultado de la medición (ejecutada el 7 de noviembre de 2026)
+
+Los umbrales se fijaron **antes** de ver los resultados: recall ≥ 0.80 sobre
+la referencia documentada que la estación evaluó, 0 falsos positivos nuevos y
+≥ 3 combinaciones distrito×evento medidas por estación.
+
+| Métrica | Valor |
+|---|---|
+| Distritos×evento comparables (evaluados por ambas fuentes) | 29 |
+| Casos de referencia documentada evaluados por ambas fuentes | 15 |
+| Recall ERA5 | 0.7333 (11 de 15) |
+| Recall estación | 0.7333 (11 de 15) |
+| Falsos positivos ERA5 / estación | 10 / 10 |
+| Falsos positivos **nuevos** de la estación | **0** |
+| Falsos positivos resueltos | 0 |
+| Casos recuperados por la estación | 1 (`tum-zarumilla`, 2023) |
+| Estaciones con serie | 23 |
+| Cumplen criterios medibles (años/faltantes) | 4 |
+| Evaluadas en el backtest (tuvieron ≥ 1 combo) | 8 |
+| **Aptas para fusión** | **0** |
+
+Veredicto por estación (las 4 que cumplen los criterios medibles):
+
+| Estación | Combos | Ref. evaluada | Recall | FP nuevos | Veredicto |
+|---|---|---|---|---|---|
+| PAPAYAL | 9 | 5 | 0.00 | 0 | `medida_recall_insuficiente` |
+| PARTIDOR | 3 | 2 | 0.00 | 0 | `medida_recall_insuficiente` |
+| CHULUCANAS | 3 | 1 | 0.00 | 0 | `medida_recall_insuficiente` |
+| SAN MIGUEL | 8 | 4 | 0.00 | 0 | `bloqueada_criterios_medibles` (serie < 10 años o > 10 % faltantes) |
+
+**Lectura honesta del resultado.** Las estaciones no son «peores» que ERA5:
+detectaron **exactamente los mismos 11 distritos** que el reanálisis sobre los
+15 casos de referencia comparables, no añadieron ni un señalamiento fuera de la
+referencia y recuperaron un caso que ERA5 había perdido (`tum-zarumilla`,
+2023). El problema es otro: **no aportan la señal que faltaba**. La razón
+métrica es que el recall de la estación (0.7333) es idéntico al de ERA5, así
+que no supera el umbral de 0.80 que la compuerta exigía.
+
+**Consecuencia.** La compuerta queda **cerrada** y `motor_usa_estaciones`
+sigue en `false`. Ninguna estación entra al motor. La medición no se maquilla
+ni se reescribe: para reabrir el gate hay que **recalibrar por fuente** (por
+ejemplo, umbrales de estación más exigentes que los de ERA5, porque una
+estación puntual no necesita el mismo margen de materialidad que una celda de
+25 km) y volver a medir con la misma aritmética compartida
+(`scripts/lib_validacion.php`).
+
+Artefacto: `data/backtest_estaciones.json` (generado por
+`scripts/backtest_estaciones.php`). El panel admin muestra el mismo resultado
+en «Cobertura de estaciones».
 
 ### Fase 3 — Nowcast (fuera del alcance de la feria)
 
@@ -455,7 +518,9 @@ datos históricos.
   correcta.
 - `verificar_enlaces.php` sigue en 0 enlaces rotos.
 
-## B.7 Criterios de aceptación (fase 2, solo si hay datos)
+## B.7 Criterios de aceptación (fase 2) — ejecutados y medidos
+
+Los criterios se fijaron antes de ejecutar la medición:
 
 - Al menos **3 de los 5** casos pasan de `ausente/débil` a detectado, **y** no se
   añade más de 1 falso positivo entre los 13 ya detectados.
@@ -464,17 +529,29 @@ datos históricos.
 - Toda mejora se mide con el mismo `riesgo_indice_lluvia()` y el mismo protocolo
   multiescala; no se cambia la fórmula para forzar detecciones.
 
+**Resultado: los criterios de aceptación NO se cumplieron.** La medición
+registró **1 caso recuperado** de los 5 que ERA5 había perdido
+(`tum-zarumilla`, 2023), no 3; y **0 falsos positivos nuevos**. Con el criterio
+de recall ≥ 0.80 sobre la referencia documentada, **0 estaciones** quedaron
+aptas para fusión. La compuerta queda cerrada y documentada como tal.
+
 ## B.8 Esfuerzo y bloqueo real
 
 - Fase 1: **ejecutada** (registro reproducible de 103 estaciones, **23 series
   reales** importadas y auditadas, panel con cobertura y compuerta).
-- Fase 2: **2 a 4 jornadas**, más el tiempo de completar las series y ejecutar
-  el backtest de falsos positivos.
-- El bloqueo ya no es de acceso —Garúa resolvió la descarga— sino de **calidad
-  del dato y medición**: 4 de las 23 series cumplen años y faltantes, y ninguna
-  está habilitada hasta medir falsos positivos. Las 19 restantes son, sobre
-  todo, series cortas (2 a 9 años): con el portal estable, dos o tres años más
-  de descarga las acercarían.
+- Fase 2 (medición): **ejecutada** el 7 de noviembre de 2026
+  (`scripts/backtest_estaciones.php` → `data/backtest_estaciones.json`).
+- Fase 2 (fusión): **bloqueada por el resultado, no por falta de trabajo**.
+  El bloqueo ya no es de acceso —Garúa resolvió la descarga— ni de
+  medición —la medición está hecha y es reproducible—. Es un bloqueo de
+  **calidad de la señal**: las estaciones disponibles no reproducen la
+  precipitación de los eventos extrema que ERA5 perdió, así que activarlas no
+  mejoraría nada y añadiría complejidad al motor.
+- **Cómo se reabre:** recalibrar los umbrales por fuente (una estación puntual
+  no necesita el mismo margen de materialidad que una celda de 25 km) y
+  re-ejecutar la medición con la misma aritmética compartida. Además,
+  completar las 19 series cortas (2 a 9 años) con dos o tres años más de
+  descarga acercaría el conjunto a los criterios medibles.
 
 ---
 
@@ -483,8 +560,14 @@ datos históricos.
 1. **Importador CSV.** ✅ Implementado con overlay, respaldo y reporte.
 2. **Estaciones, fase 1.** ✅ Registro de 103 estaciones, ingesta real con
    Garúa, QA y cobertura en el panel.
-3. **Fase 2 solo con series en mano.** ⛔ Bloqueada: falta el backtest de
-   falsos positivos. La compuerta se definió antes de mirar resultados.
+3. **Fase 2, medición.** ✅ Ejecutada el 7 de noviembre de 2026. 29
+   distritos×evento comparables, 15 casos de referencia evaluados por ambas
+   fuentes, recall de estación = recall de ERA5 = 0.7333, **0 falsos
+   positivos nuevos**, 1 caso recuperado. **0 estaciones aptas.**
+4. **Fase 2, fusión con el motor.** ⛔ Bloqueada por el resultado de la
+   medición: con los umbrales fijados antes de medir, ninguna estación alcanza
+   el recall mínimo de 0.80. `motor_usa_estaciones = false`. Reabrir exige
+   recalibrar por fuente y volver a medir.
 
 ---
 

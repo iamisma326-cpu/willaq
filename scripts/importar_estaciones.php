@@ -1259,7 +1259,9 @@ function est_completar_qa($qa, $dias, $formato) {
         'cumple_medible'      => $cumpleMedible,
         'nota'                => $varPrincipal !== 'precip_mm'
             ? 'La estación no mide precipitación; la compuerta de la fase 2 no aplica a esta serie.'
-            : 'Cumplir estos dos criterios NO habilita la fase 2: falta medir falsos positivos en el backtest.',
+            : 'Cumplir estos dos criterios NO habilita la fase 2: la habilitación exige '
+              . 'además pasar el backtest de falsos positivos (recall >= 0.80 y 0 falsos '
+              . 'positivos nuevos), que se mide aparte en scripts/backtest_estaciones.php.',
     ];
 
     return $qa;

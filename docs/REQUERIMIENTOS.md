@@ -421,10 +421,13 @@ done
 5. **No** hay app móvil nativa ni multi-idioma.
 6. **No** hay reubicación expuesta por API (solo en la interfaz), porque requiere
    un sitio alternativo provisto por el usuario.
-7. **No** hay fase 2 de estaciones: el motor de riesgo **no** usa todavía las
-   series del SENAMHI (`motor_usa_estaciones = false`). La ingesta existe y
-   está auditada; la fusión con el motor está bloqueada hasta medir falsos
-   positivos en el backtest.
+7. **No** hay fase 2 de estaciones en el motor: el motor de riesgo **no** usa
+   las series del SENAMHI (`motor_usa_estaciones = false`). La ingesta existe
+   y está auditada, y la medición de falsos positivos **ya se ejecutó**: no
+   añadió ningún señalamiento fuera de la referencia documentada, pero el
+   recall de la estación (0.7333) es igual al de ERA5 y **0 estaciones**
+   alcanzaron el recall mínimo de 0.80. La fusión queda cerrada por resultado,
+   no por falta de trabajo.
 8. **No** hay nowcast ni tiempo real de estaciones. Garúa se usa solo para
    descargar series históricas; no hay scraping en runtime ni API operativa.
 

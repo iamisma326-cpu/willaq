@@ -1,0 +1,1 @@
+{"clave":"climatologia:cus-cusco","payload":{"fuente":"ERA5 · 2015-2025 · ventana ±15 días","obtenido_en":1793913900,"confianza":"alta","p50_24":2.7,"p95_24":12.4,"p99_24":18.14,"p50_temp":18.4,"p95_temp":21.5,"p99_temp":22.8,"p50_90":243,"p95_90":1116,"muestra_dias":341},"fuente":"ERA5","guardado_en":1793913900,"expira_en":1796505900,"ttl":2592000}

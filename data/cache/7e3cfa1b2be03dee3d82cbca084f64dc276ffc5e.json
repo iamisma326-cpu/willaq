@@ -1,0 +1,1 @@
+{"clave":"climatologia:hvc-huancavelica","payload":{"fuente":"ERA5 · 2015-2025 · ventana ±15 días","obtenido_en":1793913937,"confianza":"alta","p50_24":3.1,"p95_24":11.2,"p99_24":14.68,"p50_temp":15.7,"p95_temp":18.1,"p99_temp":19,"p50_90":279,"p95_90":1008,"muestra_dias":341},"fuente":"ERA5","guardado_en":1793913937,"expira_en":1796505937,"ttl":2592000}

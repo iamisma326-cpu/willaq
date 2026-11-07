@@ -41,6 +41,8 @@ $expResumen = exposicion_resumen();
 // Cobertura de estaciones hidrometeorológicas (fase 1: registro + series).
 // `cumple_medible` y `habilitada` se muestran SEPARADOS a propósito: una serie
 // puede cumplir los criterios medibles y seguir sin habilitar la fase 2.
+// `medido_backtest` es una tercera capa: la medición de falsos positivos la
+// hace scripts/backtest_estaciones.php y la lee este panel de forma estática.
 $estResumen = function_exists('estacion_resumen') ? estacion_resumen() : null;
 $estTablero = function_exists('estacion_tablero') ? estacion_tablero() : [];
 $estConSerie = array_values(array_filter($estTablero, function ($f) {
@@ -455,6 +457,91 @@ php scripts/importar_exposicion.php ARCHIVO.csv --aplicar</pre>
                                 motor_usa_estaciones = false
                             </div>
                         </div>
+                        <div>
+                            <div class="text-[0.56rem] uppercase tracking-[0.14em] text-slate-500 mb-0.5">Medidas por el gate</div>
+                            <div class="text-white"><?= (int)($estResumen['medidas_por_gate'] ?? 0) ?></div>
+                            <div class="text-[0.6rem] text-slate-600 mt-0.5">
+                                <?= (int)($estResumen['estaciones_evaluadas'] ?? 0) ?> evaluadas en total
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bloque de resultados del backtest -->
+                    <?php if (!empty($estResumen['medicion_global'])): ?>
+                        <div class="mb-4 rounded-lg border border-white/[0.08] bg-white/[0.02] p-3">
+                            <div class="text-[0.58rem] uppercase tracking-[0.14em] text-slate-500 mb-2">
+                                Resultado del gate de falsos positivos
+                                (scripts/backtest_estaciones.php)
+                            </div>
+                            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 text-[0.68rem]">
+                                <div>
+                                    <div class="text-[0.52rem] uppercase tracking-[0.14em] text-slate-600 mb-0.5">Evaluaciones</div>
+                                    <div class="text-white font-mono"><?= (int)($estResumen['medicion_global']['evaluaciones_comunes'] ?? 0) ?></div>
+                                    <div class="text-[0.5rem] text-slate-600">distritos×evento</div>
+                                </div>
+                                <div>
+                                    <div class="text-[0.52rem] uppercase tracking-[0.14em] text-slate-600 mb-0.5">Referencia doc.</div>
+                                    <div class="text-white font-mono"><?= (int)($estResumen['medicion_global']['referencia_evaluada'] ?? 0) ?></div>
+                                    <div class="text-[0.5rem] text-slate-600">casos evaluados</div>
+                                </div>
+                                <div>
+                                    <div class="text-[0.52rem] uppercase tracking-[0.14em] text-slate-600 mb-0.5">Recall</div>
+                                    <div class="text-white font-mono">
+                                        <?= e(number_format((float)($estResumen['medicion_global']['recall_era5'] ?? 0), 2, '.', '')) ?>
+                                        /
+                                        <?= e(number_format((float)($estResumen['medicion_global']['recall_estacion'] ?? 0), 2, '.', '')) ?>
+                                    </div>
+                                    <div class="text-[0.5rem] text-slate-600">ERA5 / est.</div>
+                                </div>
+                                <div>
+                                    <div class="text-[0.52rem] uppercase tracking-[0.14em] text-slate-600 mb-0.5">FP nuevos</div>
+                                    <div class="text-white font-mono"><?= (int)($estResumen['medicion_global']['falsos_positivos_nuevos'] ?? 0) ?></div>
+                                    <div class="text-[0.5rem] text-slate-600">fuera de la ref.</div>
+                                </div>
+                                <div>
+                                    <div class="text-[0.52rem] uppercase tracking-[0.14em] text-slate-600 mb-0.5">Recuperados</div>
+                                    <div class="text-white font-mono"><?= (int)($estResumen['medicion_global']['recuperados'] ?? 0) ?></div>
+                                    <div class="text-[0.5rem] text-slate-600">ref. que ERA5 falló</div>
+                                </div>
+                            </div>
+                            <div class="mt-2 text-[0.64rem] text-slate-400">
+                                Compuerta de fase 2:
+                                <strong class="text-white"><?= e($estResumen['compuerta_estado'] ?? 'sin medir') ?></strong>
+                                <?php if (!empty($estResumen['compuerta_resumen'])): ?>
+                                    · <?= e($estResumen['compuerta_resumen']) ?>
+                                <?php else: ?>
+                                    · El backtest todavía no se ejecutó; no se declara ningún
+                                    veredicto sobre la medición de falsos positivos.
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="text-[0.58rem] uppercase tracking-[0.14em] text-slate-500 mb-1.5">Veredictos por estación</div>
+                    <div class="flex flex-wrap gap-1.5 mb-4">
+                        <?php
+                        $veredictoEtiquetas = [
+                            'sin_serie'                  => 'sin serie',
+                            'bloqueada_criterios_medibles' => 'bloqueada (medible)',
+                            'no_evaluada'                => 'no evaluada',
+                            'medida_sin_casos_de_referencia' => 'medida sin ref.',
+                            'medida_recall_insuficiente' => 'medida recall insuf.',
+                            'medida_falsos_positivos_nuevos' => 'medida FP nuevos',
+                            'medida_apta_para_fusion'    => 'medida APTA',
+                        ];
+                        foreach (($estResumen['veredictos_backtest'] ?? []) as $v => $n):
+                            if ($n <= 0) { continue; }
+                            $etiq = $veredictoEtiquetas[$v] ?? $v;
+                            $cls = in_array($v, ['medida_recall_insuficiente', 'medida_falsos_positivos_nuevos'], true)
+                                ? 'wq-proc--oficial' : ($v === 'medida_apta_para_fusion' ? 'wq-chip--verde' : '');
+                        ?>
+                            <span class="wq-chip <?= $cls ?>">
+                                <?= e($etiq) ?> · <?= (int)$n ?>
+                            </span>
+                        <?php endforeach; ?>
+                        <?php if (empty($estResumen['veredictos_backtest'])): ?>
+                            <span class="text-[0.62rem] text-slate-500">sin gate ejecutado</span>
+                        <?php endif; ?>
                     </div>
 
                     <div class="text-[0.58rem] uppercase tracking-[0.14em] text-slate-500 mb-1.5">Prioridad de descarga</div>
@@ -490,11 +577,17 @@ php scripts/importar_estaciones.php --garua --aplicar</pre>
                                         <th class="text-right">Faltantes</th>
                                         <th class="text-right">Años</th>
                                         <th>Criterios</th>
+                                        <th>Backtest</th>
                                         <th>Fase 2</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($estConSerie as $f): ?>
+                                        <?php
+                                        $bt = $estResumen['gate_estaciones'][$f['id']] ?? null;
+                                        $btVeredicto = $bt['veredicto'] ?? '';
+                                        $btEtiqueta = $veredictoEtiquetas[$btVeredicto] ?? ($btVeredicto ?: 'sin medir');
+                                        ?>
                                         <tr>
                                             <td>
                                                 <div class="text-white"><?= e($f['nombre']) ?></div>
@@ -533,7 +626,29 @@ php scripts/importar_estaciones.php --garua --aplicar</pre>
                                                 <?php endif; ?>
                                             </td>
                                             <td>
-                                                <span class="wq-chip" title="La fase 2 exige medir falsos positivos en el backtest.">bloqueada</span>
+                                                <?php if ($bt === null): ?>
+                                                    <span class="wq-chip" title="El backtest todavía no se ejecutó para esta estación.">sin medir</span>
+                                                <?php else: ?>
+                                                    <span class="wq-chip <?= ($btVeredicto === 'medida_apta_para_fusion') ? 'wq-chip--verde' : '' ?>"
+                                                          title="<?= e($bt['motivacion'] ?? '') ?>">
+                                                        <?= e($btEtiqueta) ?>
+                                                    </span>
+                                                    <?php if (!empty($bt['medido_backtest'])): ?>
+                                                        <div class="text-[0.56rem] text-slate-600 mt-0.5"
+                                                             title="<?= e('Evaluaciones: ' . ($bt['evaluaciones'] ?? 0) . ' · referencia evaluada: ' . ($bt['referencia_evaluada'] ?? 0) . ' · recall: ' . ($bt['recall'] !== null ? $bt['recall'] : 'n/d') . ' · FP nuevos: ' . ($bt['falsos_positivos_nuevos'] ?? 0) . ' · recuperados: ' . ($bt['recuperados'] ?? 0)) ?>">
+                                                            <?= (int)($bt['evaluaciones'] ?? 0) ?> ev. ·
+                                                            ref <?= (int)($bt['referencia_evaluada'] ?? 0) ?> ·
+                                                            recall <?= $bt['recall'] !== null ? e(number_format((float)$bt['recall'], 2, '.', '')) : 'n/d' ?>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td>
+                                                <?php if (!empty($f['habilitada'])): ?>
+                                                    <span class="wq-proc wq-proc--oficial">habilitada</span>
+                                                <?php else: ?>
+                                                    <span class="wq-chip" title="El motor de riesgo sigue sin usar estas series (motor_usa_estaciones = false).">motor apagado</span>
+                                                <?php endif; ?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -543,9 +658,14 @@ php scripts/importar_estaciones.php --garua --aplicar</pre>
 
                         <p class="wq-legal mt-4">
                             <strong class="text-slate-300">Cumplir los criterios medibles no habilita la fase 2.</strong>
+                            La medición de falsos positivos ya se ejecutó
+                            (<span class="wq-kbd">scripts/backtest_estaciones.php</span>):
+                            no se añadió ningún señalamiento fuera de la referencia documentada,
+                            pero las estaciones medidas no superaron el recall mínimo
+                            (0.80) sobre los casos de referencia que evaluaron, así que
+                            <strong class="text-slate-300">ninguna es apta para fusión</strong>.
                             El motor de riesgo sigue sin usar estas series
-                            (<span class="wq-kbd">motor_usa_estaciones = false</span>) hasta medir
-                            falsos positivos en el backtest sobre los casos ya detectados.
+                            (<span class="wq-kbd">motor_usa_estaciones = false</span>).
                             La precipitación de la estación es una medición; su traslado a un
                             distrito sigue siendo una estimación con supuestos declarados.
                         </p>

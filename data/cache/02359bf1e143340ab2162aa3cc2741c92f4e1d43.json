@@ -1,0 +1,1 @@
+{"clave":"climatologia:tum-zarumilla","payload":{"fuente":"ERA5 · 2015-2025 · ventana ±15 días","obtenido_en":1793913803,"confianza":"alta","p50_24":0,"p95_24":2.6,"p99_24":5.6,"p50_temp":29.5,"p95_temp":34.4,"p99_temp":35.52,"p50_90":0,"p95_90":234,"muestra_dias":341},"fuente":"ERA5","guardado_en":1793913803,"expira_en":1796505803,"ttl":2592000}

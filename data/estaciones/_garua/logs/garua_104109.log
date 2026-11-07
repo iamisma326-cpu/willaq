@@ -1,0 +1,349 @@
+
+╭─ Garúa v0.31.0 ──────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   ██████   █████  ██████  ██   ██  █████                                     │
+│  ██       ██   ██ ██   ██ ██   ██ ██   ██                                    │
+│  ██  ███  ███████ ██████  ██   ██ ███████                                    │
+│  ██   ██  ██   ██ ██   ██ ██   ██ ██   ██                                    │
+│   ██████  ██   ██ ██   ██  █████  ██   ██                                    │
+│                                                                              │
+│  Datos meteorológicos e hidrológicos                                         │
+│  del SENAMHI del Perú.                                                       │
+│                                                                              │
+│  Consulta estaciones. Descarga históricos.                                   │
+│  Trabaja con datos confiables.                                               │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+╭─ 💧 Estación Seleccionada ───────────────────────────────────────────────────╮
+│                                                                              │
+│  Nombre: El Chira                                                            │
+│  Código: 104109                                                              │
+│  Tipo: M                                                                     │
+│  Estado: AUTOMATICA                                                          │
+│  Categoría: EAMA                                                             │
+│  Departamento: PIURA                                                         │
+│  Provincia: SULLANA                                                          │
+│  Distrito: MARCAVELICA                                                       │
+│  Datos disponibles desde: 2023-06                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💧 📅 Modo PERIOD seleccionado
+
+┏━ 💧 Iniciando Scraping ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃  Estación: El Chira                                                          ┃
+┃  Modo: PERIOD                                                                ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+✅ Página configurada. Carga inicial capturada y descartada.
+✅ 41 opciones cargadas
+Años disponibles: 2023 | 2024 | 2025 | 2026
+💧 Filtro por periodo 2017-2026: 41 opciones encontradas
+
+💧 Se procesarán 41 opciones
+
+
+──────────────────────────────────────
+Procesando [1/41] → 2023-06
+🔄 Procesando opción: 2023-06 (202306)
+✅ Opción seleccionada: 202306
+✅ Datos capturados para 202306 (889,393 bytes)
+✅ Datos añadidos al buffer para periodo 202306: 663 filas
+
+──────────────────────────────────────
+Procesando [2/41] → 2023-07
+🔄 Procesando opción: 2023-07 (202307)
+✅ Opción seleccionada: 202307
+✅ Datos capturados para 202307 (996,727 bytes)
+✅ Datos añadidos al buffer para periodo 202307: 744 filas
+
+──────────────────────────────────────
+Procesando [3/41] → 2023-08
+🔄 Procesando opción: 2023-08 (202308)
+✅ Opción seleccionada: 202308
+✅ Datos capturados para 202308 (996,159 bytes)
+✅ Datos añadidos al buffer para periodo 202308: 743 filas
+
+──────────────────────────────────────
+Procesando [4/41] → 2023-09
+🔄 Procesando opción: 2023-09 (202309)
+✅ Opción seleccionada: 202309
+✅ Datos capturados para 202309 (948,429 bytes)
+✅ Datos añadidos al buffer para periodo 202309: 707 filas
+
+──────────────────────────────────────
+Procesando [5/41] → 2023-10
+🔄 Procesando opción: 2023-10 (202310)
+✅ Opción seleccionada: 202310
+✅ Datos capturados para 202310 (997,493 bytes)
+✅ Datos añadidos al buffer para periodo 202310: 744 filas
+
+──────────────────────────────────────
+Procesando [6/41] → 2023-11
+🔄 Procesando opción: 2023-11 (202311)
+✅ Opción seleccionada: 202311
+✅ Datos capturados para 202311 (965,670 bytes)
+✅ Datos añadidos al buffer para periodo 202311: 720 filas
+
+──────────────────────────────────────
+Procesando [7/41] → 2023-12
+🔄 Procesando opción: 2023-12 (202312)
+✅ Opción seleccionada: 202312
+✅ Datos capturados para 202312 (953,738 bytes)
+✅ Datos añadidos al buffer para periodo 202312: 711 filas
+
+──────────────────────────────────────
+Procesando [8/41] → 2024-01
+💧 Nuevo año (2024) — pausa de 1.5s
+🔄 Procesando opción: 2024-01 (202401)
+✅ Opción seleccionada: 202401
+✅ Datos capturados para 202401 (974,953 bytes)
+✅ Datos añadidos al buffer para periodo 202401: 727 filas
+
+──────────────────────────────────────
+Procesando [9/41] → 2024-02
+🔄 Procesando opción: 2024-02 (202402)
+✅ Opción seleccionada: 202402
+✅ Datos capturados para 202402 (924,451 bytes)
+✅ Datos añadidos al buffer para periodo 202402: 689 filas
+
+──────────────────────────────────────
+Procesando [10/41] → 2024-03
+🔄 Procesando opción: 2024-03 (202403)
+✅ Opción seleccionada: 202403
+✅ Datos capturados para 202403 (965,608 bytes)
+✅ Datos añadidos al buffer para periodo 202403: 720 filas
+
+──────────────────────────────────────
+Procesando [11/41] → 2024-04
+🔄 Procesando opción: 2024-04 (202404)
+✅ Opción seleccionada: 202404
+✅ Datos capturados para 202404 (965,658 bytes)
+✅ Datos añadidos al buffer para periodo 202404: 720 filas
+
+──────────────────────────────────────
+Procesando [12/41] → 2024-05
+🔄 Procesando opción: 2024-05 (202405)
+✅ Opción seleccionada: 202405
+✅ Datos capturados para 202405 (986,896 bytes)
+✅ Datos añadidos al buffer para periodo 202405: 736 filas
+
+──────────────────────────────────────
+Procesando [13/41] → 2024-06
+🔄 Procesando opción: 2024-06 (202406)
+✅ Opción seleccionada: 202406
+✅ Datos capturados para 202406 (225,770 bytes)
+✅ Datos añadidos al buffer para periodo 202406: 162 filas
+
+──────────────────────────────────────
+Procesando [14/41] → 2024-07
+🔄 Procesando opción: 2024-07 (202407)
+✅ Opción seleccionada: 202407
+✅ Datos capturados para 202407 (391,521 bytes)
+✅ Datos añadidos al buffer para periodo 202407: 287 filas
+
+──────────────────────────────────────
+Procesando [15/41] → 2024-08
+🔄 Procesando opción: 2024-08 (202408)
+✅ Opción seleccionada: 202408
+✅ Datos capturados para 202408 (353,068 bytes)
+✅ Datos añadidos al buffer para periodo 202408: 258 filas
+
+──────────────────────────────────────
+Procesando [16/41] → 2024-10
+🔄 Procesando opción: 2024-10 (202410)
+✅ Opción seleccionada: 202410
+✅ Datos capturados para 202410 (602,362 bytes)
+✅ Datos añadidos al buffer para periodo 202410: 446 filas
+
+──────────────────────────────────────
+Procesando [17/41] → 2024-11
+🔄 Procesando opción: 2024-11 (202411)
+✅ Opción seleccionada: 202411
+✅ Datos capturados para 202411 (961,690 bytes)
+✅ Datos añadidos al buffer para periodo 202411: 717 filas
+
+──────────────────────────────────────
+Procesando [18/41] → 2024-12
+🔄 Procesando opción: 2024-12 (202412)
+✅ Opción seleccionada: 202412
+✅ Datos capturados para 202412 (996,177 bytes)
+✅ Datos añadidos al buffer para periodo 202412: 743 filas
+
+──────────────────────────────────────
+Procesando [19/41] → 2025-01
+💧 Nuevo año (2025) — pausa de 1.5s
+🔄 Procesando opción: 2025-01 (202501)
+✅ Opción seleccionada: 202501
+✅ Datos capturados para 202501 (997,499 bytes)
+✅ Datos añadidos al buffer para periodo 202501: 744 filas
+
+──────────────────────────────────────
+Procesando [20/41] → 2025-02
+🔄 Procesando opción: 2025-02 (202502)
+✅ Opción seleccionada: 202502
+✅ Datos capturados para 202502 (899,320 bytes)
+✅ Datos añadidos al buffer para periodo 202502: 670 filas
+
+──────────────────────────────────────
+Procesando [21/41] → 2025-03
+🔄 Procesando opción: 2025-03 (202503)
+✅ Opción seleccionada: 202503
+✅ Datos capturados para 202503 (997,446 bytes)
+✅ Datos añadidos al buffer para periodo 202503: 744 filas
+
+──────────────────────────────────────
+Procesando [22/41] → 2025-04
+🔄 Procesando opción: 2025-04 (202504)
+✅ Opción seleccionada: 202504
+✅ Datos capturados para 202504 (965,654 bytes)
+✅ Datos añadidos al buffer para periodo 202504: 720 filas
+
+──────────────────────────────────────
+Procesando [23/41] → 2025-05
+🔄 Procesando opción: 2025-05 (202505)
+✅ Opción seleccionada: 202505
+✅ Datos capturados para 202505 (997,503 bytes)
+✅ Datos añadidos al buffer para periodo 202505: 744 filas
+
+──────────────────────────────────────
+Procesando [24/41] → 2025-06
+🔄 Procesando opción: 2025-06 (202506)
+✅ Opción seleccionada: 202506
+✅ Datos capturados para 202506 (965,682 bytes)
+✅ Datos añadidos al buffer para periodo 202506: 720 filas
+
+──────────────────────────────────────
+Procesando [25/41] → 2025-07
+🔄 Procesando opción: 2025-07 (202507)
+✅ Opción seleccionada: 202507
+✅ Datos capturados para 202507 (996,169 bytes)
+✅ Datos añadidos al buffer para periodo 202507: 743 filas
+
+──────────────────────────────────────
+Procesando [26/41] → 2025-08
+🔄 Procesando opción: 2025-08 (202508)
+✅ Opción seleccionada: 202508
+✅ Datos capturados para 202508 (992,202 bytes)
+✅ Datos añadidos al buffer para periodo 202508: 740 filas
+
+──────────────────────────────────────
+Procesando [27/41] → 2025-09
+🔄 Procesando opción: 2025-09 (202509)
+✅ Opción seleccionada: 202509
+✅ Datos capturados para 202509 (964,355 bytes)
+✅ Datos añadidos al buffer para periodo 202509: 719 filas
+
+──────────────────────────────────────
+Procesando [28/41] → 2025-10
+🔄 Procesando opción: 2025-10 (202510)
+✅ Opción seleccionada: 202510
+✅ Datos capturados para 202510 (997,509 bytes)
+✅ Datos añadidos al buffer para periodo 202510: 744 filas
+
+──────────────────────────────────────
+Procesando [29/41] → 2025-11
+🔄 Procesando opción: 2025-11 (202511)
+✅ Opción seleccionada: 202511
+✅ Datos capturados para 202511 (965,684 bytes)
+✅ Datos añadidos al buffer para periodo 202511: 720 filas
+
+──────────────────────────────────────
+Procesando [30/41] → 2025-12
+🔄 Procesando opción: 2025-12 (202512)
+✅ Opción seleccionada: 202512
+✅ Datos capturados para 202512 (996,162 bytes)
+✅ Datos añadidos al buffer para periodo 202512: 743 filas
+
+──────────────────────────────────────
+Procesando [31/41] → 2026-01
+💧 Nuevo año (2026) — pausa de 1.5s
+🔄 Procesando opción: 2026-01 (202601)
+✅ Opción seleccionada: 202601
+✅ Datos capturados para 202601 (969,632 bytes)
+✅ Datos añadidos al buffer para periodo 202601: 723 filas
+
+──────────────────────────────────────
+Procesando [32/41] → 2026-02
+🔄 Procesando opción: 2026-02 (202602)
+✅ Opción seleccionada: 202602
+✅ Datos capturados para 202602 (896,645 bytes)
+✅ Datos añadidos al buffer para periodo 202602: 668 filas
+
+──────────────────────────────────────
+Procesando [33/41] → 2026-03
+🔄 Procesando opción: 2026-03 (202603)
+✅ Opción seleccionada: 202603
+✅ Datos capturados para 202603 (997,428 bytes)
+✅ Datos añadidos al buffer para periodo 202603: 744 filas
+
+──────────────────────────────────────
+Procesando [34/41] → 2026-04
+🔄 Procesando opción: 2026-04 (202604)
+✅ Opción seleccionada: 202604
+✅ Datos capturados para 202604 (965,673 bytes)
+✅ Datos añadidos al buffer para periodo 202604: 720 filas
+
+──────────────────────────────────────
+Procesando [35/41] → 2026-05
+🔄 Procesando opción: 2026-05 (202605)
+✅ Opción seleccionada: 202605
+✅ Datos capturados para 202605 (997,491 bytes)
+✅ Datos añadidos al buffer para periodo 202605: 744 filas
+
+──────────────────────────────────────
+Procesando [36/41] → 2026-06
+🔄 Procesando opción: 2026-06 (202606)
+✅ Opción seleccionada: 202606
+✅ Datos capturados para 202606 (963,016 bytes)
+✅ Datos añadidos al buffer para periodo 202606: 718 filas
+
+──────────────────────────────────────
+Procesando [37/41] → 2026-07
+🔄 Procesando opción: 2026-07 (202607)
+✅ Opción seleccionada: 202607
+✅ Datos capturados para 202607 (981,578 bytes)
+✅ Datos añadidos al buffer para periodo 202607: 732 filas
+
+──────────────────────────────────────
+Procesando [38/41] → 2026-08
+🔄 Procesando opción: 2026-08 (202608)
+✅ Opción seleccionada: 202608
+✅ Datos capturados para 202608 (997,498 bytes)
+✅ Datos añadidos al buffer para periodo 202608: 744 filas
+
+──────────────────────────────────────
+Procesando [39/41] → 2026-09
+🔄 Procesando opción: 2026-09 (202609)
+✅ Opción seleccionada: 202609
+✅ Datos capturados para 202609 (963,027 bytes)
+✅ Datos añadidos al buffer para periodo 202609: 718 filas
+
+──────────────────────────────────────
+Procesando [40/41] → 2026-10
+🔄 Procesando opción: 2026-10 (202610)
+✅ Opción seleccionada: 202610
+✅ Datos capturados para 202610 (997,488 bytes)
+✅ Datos añadidos al buffer para periodo 202610: 744 filas
+
+──────────────────────────────────────
+Procesando [41/41] → 2026-11
+🔄 Procesando opción: 2026-11 (202611)
+✅ Opción seleccionada: 202611
+✅ Datos capturados para 202611 (197,927 bytes)
+✅ Datos añadidos al buffer para periodo 202611: 141 filas
+✅ Archivo consolidado guardado: ElChira-2017-2026.csv
+💧 Contiene 27385 líneas
+
+┏━ 💧 Proceso Completado ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                              ┃
+┃  Opciones procesadas: 41/41                                                  ┃
+┃  Tasa de éxito: 100.0%                                                       ┃
+┃  Archivos generados: 1                                                       ┃
+┃                                                                              ┃
+┃  Archivos guardados:                                                         ┃
+┃    → /home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/c...      ┃
+┃                                                                              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+💧 Cerrando navegador...

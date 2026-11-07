@@ -1,0 +1,28 @@
+==============================================================
+ Descarga de series SENAMHI con Garúa
+ Salida:      /home/isma/projects/vuelos-main/willaq/data/estaciones/_garua/csv
+ Periodo:     2017 - 2026
+ Estaciones:  6
+==============================================================
+
+>>> 103040 (PAPAYAL) — descargando 2017..2026
+    OK — 1 archivo(s) CSV
+
+>>> 104079 (MALLARES) — descargando 2017..2026
+    OK — 1 archivo(s) CSV
+
+>>> 104084 (PARTIDOR) — descargando 2017..2026
+    OK — 1 archivo(s) CSV
+
+>>> 105063 (SAN MIGUEL) — descargando 2017..2026
+    OK — 1 archivo(s) CSV
+
+>>> 105070 (CHULUCANAS) — descargando 2017..2026
+    OK — 1 archivo(s) CSV
+
+>>> 105012 (BERNAL) — descargando 2017..2026
+    OK — 1 archivo(s) CSV
+
+==============================================================
+ Todas las descargas terminaron correctamente.
+==============================================================
