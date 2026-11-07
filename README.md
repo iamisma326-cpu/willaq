@@ -44,6 +44,7 @@ R = 100 · H · (0.40 + 0.35·E + 0.25·V)
 |---|---|---|
 | **Prototipo en producción** | Desplegado y en línea | https://willaq-production.up.railway.app |
 | **Base de datos en producción** | PostgreSQL gestionado | [Neon](https://neon.tech) (región `aws-us-east-1`) |
+| **Actualización automática** | Cada 6 h (cron + GitHub Actions) | ver [sección 6](#6-actualización-automática-cron) |
 | **Desarrollo local** | Totalmente funcional | `php -S localhost:8000` |
 
 **Producción:** la aplicación corre en **Railway** (contenedor Docker con
@@ -52,7 +53,7 @@ R = 100 · H · (0.40 + 0.35·E + 0.25·V)
 
 **Local:** *todo* el proyecto puede ejecutarse en tu máquina sin depender de
 Railway ni de Neon. Basta con PHP y un PostgreSQL local — ver
-[sección 3](#3-arranque-en-3-pasos).
+[sección 4](#4-arranque-en-3-pasos).
 
 ---
 
@@ -191,60 +192,122 @@ El diseño se ve igual con o sin internet.
 
 ## 6. Actualización automática (cron)
 
-Los snapshots de riesgo se generan periódicamente desde un cron externo, porque
-Railway no ofrece tareas programadas.
+Los snapshots de riesgo se regeneran cada 6 horas desde fuera, porque Railway
+no ofrece tareas programadas.
 
-**1. Definir el token** en las variables de entorno (Railway → Variables):
+### Cómo funciona
+
+```
+cron externo  →  GET /?action=cron_actualizar  →  202 inmediato
+                        ↓
+              scripts/actualizar.php (segundo plano)
+                        ↓
+        caché de geodatos + snapshots 24/48/72 h
+```
+
+El endpoint **responde en menos de 1 s** con `202 Accepted` y lanza el proceso
+en segundo plano. Una ejecución completa tarda unos **7 minutos** con los 104
+territorios, por eso no puede ejecutarse dentro de la petición HTTP: el cron
+externo cortaría la conexión mucho antes.
+
+Si ya hay una ejecución en curso, devuelve `202` sin lanzar otra. Dos procesos
+simultáneos duplicarían las llamadas a Open-Meteo sin aportar nada.
+
+### Endpoints
+
+| Endpoint | Qué hace | Respuesta |
+|---|---|---|
+| `/?action=cron_actualizar` | Lanza la actualización | `202` inmediato |
+| `/?action=cron_estado` | Consulta progreso y snapshots | `200` con JSON |
+
+Ambos exigen el token `WILLAQ_CRON_TOKEN`, por cabecera `X-WILLAQ-Token`
+(recomendado) o por `?token=`. Sin token configurado en el servidor responden
+`503`; con token incorrecto, `401`.
+
+### Estado actual (producción)
+
+Configurado y verificado:
+
+| Elemento | Estado |
+|---|---|
+| `WILLAQ_CRON_TOKEN` en Railway | ✅ definido |
+| Endpoint `cron_actualizar` | ✅ responde `202` en ~0.38 s |
+| Endpoint `cron_estado` | ✅ devuelve 104 territorios por ventana |
+| Protección sin token | ✅ `401` |
+| Anti-solapamiento | ✅ probado con dos llamadas seguidas |
+| Workflow de GitHub Actions | ✅ en `.github/workflows/` |
+
+### Opción A — GitHub Actions (recomendada)
+
+El workflow ya está en el repositorio:
+[`.github/workflows/actualizar-snapshots.yml`](.github/workflows/actualizar-snapshots.yml).
+
+**Activarlo (una sola vez):**
+
+1. Ir a **Settings → Secrets and variables → Actions**.
+2. **New repository secret**:
+   - Nombre: `WILLAQ_CRON_TOKEN`
+   - Valor: el mismo token configurado en Railway.
+3. Ir a la pestaña **Actions** → *Actualizar snapshots WILLAQ* →
+   **Run workflow** para el primer disparo manual.
+
+El workflow corre cada 6 horas (`0 */6 * * *`, es decir 01:00, 07:00, 13:00 y
+19:00 hora de Perú), reintenta si Railway está despertando, espera a que el
+proceso termine y deja un resumen en la ejecución.
+
+Ventajas: sin cuenta adicional, el token queda cifrado en GitHub y hay
+historial de cada ejecución.
+
+### Opción B — cron-job.org
+
+1. Crear cuenta en [cron-job.org](https://cron-job.org) (gratis, sin tarjeta).
+2. **Create cronjob** → URL: `https://willaq-production.up.railway.app/?action=cron_actualizar`
+3. **Schedule**: `0 */6 * * *`.
+4. **Advanced → Headers**: `X-WILLAQ-Token: <TOKEN>` (no poner el token en la URL).
+5. **Timeout**: 30 s es suficiente.
+6. **TEST RUN** → debe devolver `202`.
+
+Ventajas: independiente de GitHub. Desventaja: el token queda en un tercero.
+
+> Se pueden tener **ambos activos**: el anti-solapamiento evita que se pisen.
+
+### Verificar que está funcionando
 
 ```bash
-WILLAQ_CRON_TOKEN=<cadena-larga-aleatoria>
+curl -s -H "X-WILLAQ-Token: $TOKEN" \
+  "https://willaq-production.up.railway.app/?action=cron_estado"
 ```
 
-Sin este token el endpoint queda deshabilitado (responde `503`).
+Respuesta esperada:
 
-**2. Apuntar el cron** a:
-
-```
-https://willaq-production.up.railway.app/?action=cron_actualizar&token=<TOKEN>
-```
-
-También acepta el token por cabecera `X-WILLAQ-Token` (más seguro: no queda en
-los logs del servicio de cron).
-
-**3. Consultar el estado:**
-
-```
-https://willaq-production.up.railway.app/?action=cron_estado&token=<TOKEN>
+```json
+{
+  "ok": true,
+  "ultima_ejecucion": { "estado": "corriendo", "inicio": 1794074313 },
+  "snapshots": {
+    "24": { "total": 104, "generado_en": 1794073245 },
+    "48": { "total": 104, "generado_en": 1794073088 },
+    "72": { "total": 104, "generado_en": 1794073088 }
+  },
+  "cache": { "archivos": 536, "vigentes": 534, "origen": "bd" }
+}
 ```
 
-El endpoint responde de inmediato con `202 Accepted` y lanza el proceso en
-segundo plano (una ejecución completa tarda ~7 min con 104 territorios). Evita
-lanzamientos solapados: si ya hay una ejecución en curso, devuelve `202` sin
-duplicar el trabajo.
+`ultima_ejecucion.estado` pasa de `corriendo` a otro valor al terminar.
 
-### Configurar cron-job.org (gratis, sin tarjeta)
+### Manual, sin cron
 
-1. Crear cuenta en [cron-job.org](https://cron-job.org).
-2. **Create cronjob** → URL completa con el token.
-3. **Schedule**: cada 6 horas (`0 */6 * * *`).
-4. **Advanced → Headers**: añadir `X-WILLAQ-Token: <TOKEN>` y quitar el token de
-   la URL.
-5. **Timeout**: 30 s es suficiente (la respuesta es inmediata).
-6. Guardar y usar **TEST RUN** para verificar que devuelve `202`.
+```bash
+curl -X POST -H "X-WILLAQ-Token: $TOKEN" \
+  "https://willaq-production.up.railway.app/?action=cron_actualizar"
+```
 
-### Alternativa: GitHub Actions
+O en local, que además permite elegir qué refrescar:
 
-```yaml
-name: Actualizar snapshots WILLAQ
-on:
-  schedule: [{ cron: '0 */6 * * *' }]
-jobs:
-  actualizar:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          curl -fsS -H "X-WILLAQ-Token: ${{ secrets.WILLAQ_CRON_TOKEN }}" \
-            "https://willaq-production.up.railway.app/?action=cron_actualizar"
+```bash
+php scripts/actualizar.php --ventana=all    # todo
+php scripts/actualizar.php --ventana=24     # solo 24 h
+php scripts/actualizar.php --solo=cache     # solo caché
 ```
 
 ---

@@ -499,7 +499,8 @@ $secciones = [
                     <p class="text-[0.78rem] text-slate-300 leading-relaxed mb-3">
                         Un cron externo regenera los snapshots de riesgo, porque Railway no ofrece
                         tareas programadas. El endpoint está protegido por token
-                        (<span class="wq-kbd">WILLAQ_CRON_TOKEN</span>).
+                        (<span class="wq-kbd">WILLAQ_CRON_TOKEN</span>) y responde
+                        <span class="wq-kbd">202</span> de inmediato mientras procesa en segundo plano.
                     </p>
                     <div class="wq-panel-dark p-4 font-mono text-[0.7rem] text-slate-300 space-y-1.5 overflow-x-auto">
                         <div class="text-slate-500"># Lanzar la actualización (responde 202 al instante)</div>
@@ -507,6 +508,11 @@ $secciones = [
                         <div class="text-slate-500 pt-2"># Consultar el estado de los snapshots</div>
                         <div>/?action=cron_estado</div>
                     </div>
+                    <p class="text-[0.72rem] text-slate-400 leading-relaxed mt-3">
+                        <span class="text-risk-green">●</span> Activo en producción: workflow de GitHub
+                        Actions cada 6 horas, con historial de ejecuciones y el token cifrado como
+                        secret del repositorio. El proceso también evita lanzamientos solapados.
+                    </p>
                 </div>
 
                 <p class="text-[0.7rem] text-slate-500 leading-relaxed">

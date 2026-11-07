@@ -1,0 +1,123 @@
+name: Actualizar snapshots WILLAQ
+
+# Regenera los snapshots de riesgo (24/48/72 h) llamando al endpoint de
+# producción. Railway no ofrece tareas programadas, así que el disparo viene
+# de aquí.
+#
+# Requisitos (una sola vez):
+#   1. Settings → Secrets and variables → Actions → New repository secret
+#      Nombre: WILLAQ_CRON_TOKEN
+#      Valor:  el mismo WILLAQ_CRON_TOKEN configurado en Railway
+#   2. Opcional: si la URL de producción cambia, ajustar WILLAQ_URL abajo
+#      o definirla como variable de repositorio.
+
+on:
+  schedule:
+    # Cada 6 horas (00:00, 06:00, 12:00, 18:00 UTC).
+    # Perú es UTC-5: corresponde a 19:00, 01:00, 07:00 y 13:00 hora local.
+    - cron: '0 */6 * * *'
+  # Permite lanzarlo a mano desde la pestaña Actions para probar.
+  workflow_dispatch:
+
+# Si una ejecución anterior sigue viva, no lanzar otra en paralelo.
+concurrency:
+  group: willaq-snapshots
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      WILLAQ_URL: https://willaq-production.up.railway.app
+
+    steps:
+      - name: Comprobar que el token está configurado
+        env:
+          TOKEN: ${{ secrets.WILLAQ_CRON_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::Falta el secret WILLAQ_CRON_TOKEN."
+            echo "Añádelo en Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+          echo "Token presente (longitud ${#TOKEN})."
+
+      - name: Lanzar la actualización
+        id: lanzar
+        env:
+          TOKEN: ${{ secrets.WILLAQ_CRON_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # El endpoint responde 202 de inmediato y trabaja en segundo plano.
+          # Se reintenta con espera creciente por si Railway está despertando.
+          codigo=""
+          for intento in 1 2 3 4 5; do
+            codigo=$(curl -sS -o respuesta.json -w '%{http_code}' \
+              --max-time 60 \
+              -H "X-WILLAQ-Token: $TOKEN" \
+              "$WILLAQ_URL/?action=cron_actualizar" || echo "000")
+
+            echo "Intento $intento → HTTP $codigo"
+            if [ "$codigo" = "202" ]; then break; fi
+            if [ "$codigo" = "401" ]; then
+              echo "::error::Token rechazado (401). Revisa WILLAQ_CRON_TOKEN."
+              cat respuesta.json || true
+              exit 1
+            fi
+            if [ "$codigo" = "503" ]; then
+              echo "::error::El endpoint está deshabilitado (503): falta WILLAQ_CRON_TOKEN en Railway."
+              exit 1
+            fi
+            sleep $((intento * 10))
+          done
+
+          echo "--- respuesta ---"
+          cat respuesta.json || true
+          echo
+
+          if [ "$codigo" != "202" ]; then
+            echo "::error::No se pudo lanzar la actualización (último HTTP $codigo)."
+            exit 1
+          fi
+
+          estado=$(python3 -c "import json;print(json.load(open('respuesta.json')).get('estado',''))" 2>/dev/null || echo "")
+          echo "estado=$estado" >> "$GITHUB_OUTPUT"
+          echo "Estado devuelto: $estado"
+
+      - name: Esperar a que termine el proceso
+        env:
+          TOKEN: ${{ secrets.WILLAQ_CRON_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # La ejecución completa tarda ~7 min con 104 territorios. Se consulta
+          # el estado cada 30 s hasta que deje de estar "corriendo".
+          for i in $(seq 1 24); do
+            sleep 30
+            curl -sS --max-time 30 -H "X-WILLAQ-Token: $TOKEN" \
+              "$WILLAQ_URL/?action=cron_estado" -o estado.json || continue
+
+            actual=$(python3 -c "import json;d=json.load(open('estado.json'));u=d.get('ultima_ejecucion') or {};print(u.get('estado','desconocido'))" 2>/dev/null || echo "desconocido")
+            echo "[$((i*30))s] estado: $actual"
+            if [ "$actual" != "corriendo" ]; then
+              echo "--- estado final ---"
+              cat estado.json
+              exit 0
+            fi
+          done
+
+          echo "::warning::La actualización sigue en curso tras 12 min. Se deja terminar en el servidor."
+
+      - name: Resumen
+        if: always()
+        run: |
+          {
+            echo "### Actualización de snapshots WILLAQ"
+            echo ""
+            echo "- Endpoint: \`$WILLAQ_URL/?action=cron_actualizar\`"
+            echo "- Resultado del lanzamiento: \`${{ steps.lanzar.outputs.estado || 'sin respuesta' }}\`"
+            echo "- Hora (UTC): $(date -u '+%Y-%m-%d %H:%M:%S')"
+          } >> "$GITHUB_STEP_SUMMARY"
