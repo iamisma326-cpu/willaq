@@ -178,11 +178,8 @@ Comprobación rápida:
 curl -s "http://localhost:8000/?action=home" | grep -o "Modo offline\|Datos en línea"
 ```
 
-> **Nota sobre el "modo feria".** Existió una variable `WILLAQ_MODO_OFFLINE=1`
-> que forzaba la lectura del snapshot saltándose el cálculo. Ya **no hace falta
-> activarla**: el sistema prioriza el snapshot por diseño, así que el
-> comportamiento es el mismo con o sin ella. La variable se conserva por
-> compatibilidad y sigue funcionando si alguien la define.
+> **Nota.** La variable `WILLAQ_MODO_OFFLINE=1` ya no hace falta: el sistema
+> prioriza el snapshot por diseño. Se conserva por compatibilidad.
 
 Además, todas las librerías (MapLibre, Chart.js, Tailwind, Montserrat) están
 en `assets/vendor/` y `assets/fonts/`: **no hay ninguna dependencia de CDN**.
@@ -396,8 +393,8 @@ Detalle completo en [`docs/VALIDACION_HISTORICA.md`](docs/VALIDACION_HISTORICA.m
 
 Los pesos del índice (`base`, `exposicion`, `vulnerabilidad`) son una decisión
 de diseño, así que se pone a prueba: 40 escenarios (cada peso en ±10/±20 %,
-las 26 combinaciones simultáneas de ±20 %, y dos casos límite) sobre los 29
-distritos.
+las 26 combinaciones simultáneas de ±20 %, y dos casos límite) sobre el
+catálogo de distritos.
 
 | Métrica | Resultado |
 |---|---|
@@ -422,7 +419,7 @@ pregunta se mide, no se estima: el backtest corre **la misma aritmética de
 producción** sobre ERA5 y sobre las series de estación (compartida en
 `scripts/lib_validacion.php`, sin copias divergentes).
 
-| Métrica (29 distritos×evento comparables, 15 casos de referencia) | ERA5 | Estación |
+| Métrica (distritos × evento comparables, 15 casos de referencia) | ERA5 | Estación |
 |---|---:|---:|
 | Recall sobre la referencia documentada | 0.7333 | 0.7333 |
 | Aciertos | 11 | 11 |
@@ -458,7 +455,7 @@ willaq/
 ├── config/
 │   ├── env.php               Carga de .env
 │   ├── database.php          Conexión PDO opcional
-│   ├── territorios.json      Catálogo de 29 distritos piloto
+│   ├── territorios.json      Catálogo de 104 distritos (respaldo)
 │   └── umbrales.php          Pesos, niveles, protocolos y respaldo por zona
 ├── models/
 │   ├── Cache.php             Caché multinivel (memoria → archivo → respaldo expirado)
@@ -545,16 +542,12 @@ medir falsos positivos en el backtest.
 
 ---
 
-## 11. Relación con el proyecto inscrito
+## 11. Origen del código
 
-WILLAQ vive en su propia carpeta y **no modifica** `mvc_php_poo_config/`.
-Se reutiliza la identidad visual (azul estratósfera + dorado + Montserrat), el
-patrón de enrutador por acciones, el login con roles, el cliente HTTP con caché
-y el esquema de panel administrativo. Todo el motor de riesgo, la
-zonificación, el simulador, el mapa offline y la API son código nuevo
-desarrollado durante la fase actual.
-
-Detalle completo: `?action=ayuda#reutilizacion`.
+WILLAQ es independiente: no modifica otros proyectos. Reutiliza la identidad
+visual (azul estratósfera, dorado, Montserrat), el patrón de enrutador por
+acciones, el login con roles y el esquema de panel administrativo. El motor de
+riesgo, la zonificación, el simulador, el mapa y la API son código nuevo.
 
 ---
 
@@ -563,14 +556,14 @@ Detalle completo: `?action=ayuda#reutilizacion`.
 | Documento | Contenido |
 |---|---|
 | `docs/METODOLOGIA.md` | Fórmula, normalización, amenazas, pesos, límites |
-| `docs/ARQUITECTURA.md` | Estructura, flujo de datos, caché, modo offline, BD |
+| `docs/ARQUITECTURA.md` | Estructura, flujo de datos, caché, respaldo y BD |
 | `docs/MANUAL_USUARIO.md` | Guía por rol (ciudadano, autoridad, administrador) |
-| `docs/MANUAL_INSTALACION.md` | Despliegue local y en hosting compartido, `.htaccess`, reversión |
-| `docs/AUTOMATIZACION.md` | Snapshots cada hora y alertas diarias en GCP/AWS: systemd, cron, permisos |
-| `docs/MANUAL_DISENO.md` | Paleta, tipografía, componentes, accesibilidad y modo offline |
+| `docs/MANUAL_INSTALACION.md` | Despliegue local y en producción, `.htaccess`, reversión |
+| `docs/AUTOMATIZACION.md` | Snapshots programados y alertas diarias: systemd, cron, permisos |
+| `docs/MANUAL_DISENO.md` | Paleta, tipografía, componentes y accesibilidad |
 | `docs/REQUERIMIENTOS.md` | 15 requisitos funcionales + 11 no funcionales, cada uno con prueba |
 | `docs/API.md` | Los 4 endpoints JSON con ejemplos ejecutables |
-| `docs/GUION_DEMO.md` | Guion de 8 minutos para la feria |
+| `docs/GUION_DEMO.md` | Guion de 8 minutos para la demostración |
 | `docs/VALIDACION_HISTORICA.md` | Contraste con los eventos de 2017 y 2023 + sensibilidad |
 | `docs/COMPARATIVA.md` | WILLAQ frente a SENAMHI, ENFEN, Flood Hub e INDECI |
 | `docs/PLAN_EXPOSICION_Y_ESTACIONES.md` | Plan y estado de ejecución de exposición oficial y estaciones |
@@ -622,39 +615,13 @@ cd willaq
 php -S localhost:8000
 ```
 
-**Qué se publica: todo.** El repositorio contiene el proyecto completo para que
-cualquiera pueda reproducir la feria y auditar cada número sin pedir nada a
-nadie:
+El repositorio contiene el proyecto completo: código, datos de origen, caché y
+snapshots, para que cualquiera pueda reproducirlo y auditar cada número.
 
-| Incluido | Por qué |
-|---|---|
-| Código PHP, vistas, estilos y scripts | El sistema completo. |
-| `data/estaciones/_garua/csv/` (13 MB) | Los CSV **crudos** del SENAMHI, sin normalizar: la evidencia de origen de cada serie. |
-| `data/estaciones/*.json` | Las 23 series normalizadas con su reporte de QA. |
-| `data/cache/` | La caché real de Open-Meteo, para poder repetir los cálculos sin red. |
-| `data/snapshots/`, `data/alertas.json` | Lo que se mostró en la feria. |
-| `data/backups/`, `data/cron.log`, logs de Garúa | Trazabilidad del proceso. |
-| `docs/` (14 documentos) | Metodología, auditorías, plan y guion de demo. |
-
-**Única excepción: `.env`.** Contiene la contraseña real de PostgreSQL
-(`DB_PASS`), y publicarla en un repositorio público la comprometería de forma
-permanente (queda en el historial de Git para siempre). Se versiona
-`.env.example`, con los mismos campos y `DB_PASS` vacío. Si alguien necesita
-la base de datos, la crea desde
-[`database/schema_postgresql.sql`](database/schema_postgresql.sql).
-
-**Advertencia sobre los datos del SENAMHI.** El catálogo y las series del
-SENAMHI se distribuyen sin licencia de reutilización declarada (ver §8). Se
-publican aquí para trazabilidad y auditoría, no como cesión de derechos: quien
-reutilice esos datos debe verificar la condiciones de uso en la fuente.
-
-**Sin dependencias.** PHP puro, sin Composer, sin `vendor/`, sin build. Un
-clon limpio arranca con el servidor embebido de PHP.
+**Sin dependencias.** PHP puro, sin Composer, sin `vendor/`, sin build.
 
 **Licencia.** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
-(uso educativo). Puedes estudiarlo, auditarlo y modificarlo con fines docentes;
-no es comercial y las versiones modificadas se publican bajo la misma licencia.
-Texto legal completo en [`LICENSE`](LICENSE) y guía de atribución en
-[`LICENSE.md`](LICENSE.md). La licencia cubre **el código**, no los datos de
-terceros que el repo redistribuye (SENAMHI, INEI, Open-Meteo, OSM): esos
-tienen sus propias condiciones de uso, detalladas en `LICENSE.md`.
+(uso educativo). Cubre el código, no los datos de terceros que el repo
+redistribuye (SENAMHI, INEI, Open-Meteo, OSM), que tienen sus propias
+condiciones — ver [`LICENSE.md`](LICENSE.md).
+
