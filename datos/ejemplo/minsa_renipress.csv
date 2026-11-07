@@ -1,0 +1,11 @@
+ubigeo,distrito,provincia,region,indicador,valor,anio,fuente,nota
+240101,Tumbes,Tumbes,Tumbes,centros_salud,12,2024,FIXTURE-PRUEBA (no es dato oficial de MINSA),IPRESS
+240301,Zarumilla,Zarumilla,Tumbes,centros_salud,3,2024,FIXTURE-PRUEBA (no es dato oficial de MINSA),IPRESS
+200101,Piura,Piura,Piura,centros_salud,18,2024,FIXTURE-PRUEBA (no es dato oficial de MINSA),IPRESS
+200115,Veintiséis de Octubre,Piura,Piura,centros_salud,16,2024,FIXTURE-PRUEBA (no es dato oficial de MINSA),IPRESS
+200501,Paita,Paita,Piura,centros_salud,10,2024,FIXTURE-PRUEBA (no es dato oficial de MINSA),IPRESS
+150103,Ate,Lima,Lima,centros_salud,40,2024,FIXTURE-PRUEBA (no es dato oficial de MINSA),IPRESS
+150728,Santa Eulalia,Huarochirí,Lima,centros_salud,2,2024,FIXTURE-PRUEBA (no es dato oficial de MINSA),IPRESS
+150109,Cieneguilla,Lima,Lima,centros_salud,3,2024,FIXTURE-PRUEBA (no es dato oficial de MINSA),IPRESS
+150601,Huaral,Huaral,Lima,centros_salud,10,2024,FIXTURE-PRUEBA (no es dato oficial de MINSA),IPRESS
+050101,Ayacucho,Huamanga,Ayacucho,centros_salud,12,2024,FIXTURE-PRUEBA (no es dato oficial de MINSA),IPRESS

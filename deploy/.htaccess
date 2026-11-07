@@ -1,0 +1,2 @@
+# Deniega el acceso HTTP a este directorio (unidades systemd y despliegue).
+Require all denied

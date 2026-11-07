@@ -1,0 +1,4 @@
+# Deniega el acceso HTTP a este directorio.
+# La aplicación PHP lee estos archivos desde el sistema de archivos, no por
+# HTTP, así que bloquearlos no afecta al funcionamiento.
+Require all denied

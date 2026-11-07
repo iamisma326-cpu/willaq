@@ -1,0 +1,16 @@
+ubigeo,distrito,provincia,region,indicador,valor,anio,fuente,nota
+240101,Tumbes,Tumbes,Tumbes,vulnerabilidad,0.8,2024,prueba,indicador fuera de la lista blanca
+240102,Corrales,Tumbes,Tumbes,poblacion,-50,2017,prueba,valor negativo
+240103,La Cruz,Tumbes,Tumbes,poblacion,mucho,2017,prueba,valor no numerico
+240301,Zarumilla,Zarumilla,Tumbes,poblacion,22000,2017,prueba,ubigeo valido pero nombre de OTRO distrito
+240301,Tumbes,Tumbes,Tumbes,poblacion,22000,2017,prueba,ubigeo valido de Zarumilla con nombre equivocado
+999999,Distrito Fantasma,Nowhere,Nunca,poblacion,100,2017,prueba,ubigeo fuera del catalogo
+,Tumbes,Piura,Piura,poblacion,100,2017,prueba,nombre correcto pero provincia equivocada
+,Piura,Piura,Piura,poblacion,100,2017,prueba,se resuelve por nombre + provincia
+240101,Tumbes,Tumbes,Tumbes,poblacion,111000,2017,prueba,primera aparicion
+240101,Tumbes,Tumbes,Tumbes,poblacion,111000,2017,prueba,duplicado exacto
+240105,Aguas Verdes,Zarumilla,Tumbes,poblacion,16000,prueba,prueba,anio no numerico
+240106,Zorritos,Contralmirante Villar,Tumbes,escuelas,20,2023,,prueba,sin fuente
+240101,Tumbes,Tumbes,Tumbes,poblacion,9999999,2017,prueba,valor fuera de rango
+240101,Tumbes,Tumbes,Tumbes,poblacion,111000,2017,prueba,duplicado exacto
+2401,Tumbes,Tumbes,Tumbes,poblacion,100,2017,prueba,ubigeo con menos de 6 digitos

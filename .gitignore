@@ -1,0 +1,52 @@
+# ============================================================================
+# WILLAQ — archivos que NO deben subirse a un repositorio
+# ============================================================================
+
+# --- Credenciales -------------------------------------------------------------
+# El .env real contiene la contraseña de la base de datos. Se sube solo
+# .env.example.
+.env
+.env.*
+!.env.example
+
+# --- Datos generados en tiempo de ejecución ----------------------------------
+# La caché se regenera sola con los scripts y pesa varios MB: no se versiona.
+#
+# En cambio SÍ se versionan, porque son los datos de la feria sin internet:
+#   data/snapshots/*.json  → el snapshot precalculado que permite presentar
+#                             offline (docs/MANUAL_INSTALACION.md §3.1)
+#   data/alertas.json       → espejo JSON de las recomendaciones
+data/cache/*.json
+
+# Registro y cerrojos de la automatización horaria.
+data/cron.log
+data/cron.log.1
+data/willaq_cron.lock
+data/.willaq_cron.lock
+data/.willaq_cron.lockdir/
+
+# --- Backups y archivos temporales --------------------------------------------
+*.tmp.*
+*.bak
+*.log
+*.sql.gz
+*.dump
+
+# Respaldos del registro de estaciones: se regeneran en cada importación y
+# solo interestan los de una versión concreta, no los acumulados.
+data/backups/estaciones_*.json
+
+# --- Ingesta de estaciones (Garúa) --------------------------------------------
+# Los CSV crudos y sus logs se regeneran con:
+#   bash scripts/descargar_estaciones_garua.sh
+# Se versionan el catálogo, las series normalizadas y el reporte QA.
+data/estaciones/_garua/csv/
+data/estaciones/_garua/logs/
+
+# --- Sistema operativo y editores ---------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/

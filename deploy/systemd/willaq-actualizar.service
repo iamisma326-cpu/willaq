@@ -1,0 +1,17 @@
+[Unit]
+Description=WILLAQ · actualizar snapshots de riesgo (24/48/72 h)
+Documentation=file:///var/www/willaq/docs/AUTOMATIZACION.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/willaq
+UMask=0002
+ExecStart=/var/www/willaq/scripts/willaq_cron.sh snapshot
+TimeoutStartSec=20min
+Nice=10
+NoNewPrivileges=true
+PrivateTmp=true

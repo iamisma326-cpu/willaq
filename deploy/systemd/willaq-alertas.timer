@@ -1,0 +1,12 @@
+[Unit]
+Description=WILLAQ · recomendaciones diarias (05:10 América/Lima)
+
+[Timer]
+# Después del snapshot de las 05:05, para sembrar con datos frescos.
+OnCalendar=*-*-* 05:10:00
+Persistent=true
+AccuracySec=1min
+Unit=willaq-alertas.service
+
+[Install]
+WantedBy=timers.target

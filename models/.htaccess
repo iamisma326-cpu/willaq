@@ -1,0 +1,2 @@
+# Deniega el acceso HTTP a este directorio (código de dominio).
+Require all denied

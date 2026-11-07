@@ -1,0 +1,12 @@
+[Unit]
+Description=WILLAQ · snapshots de riesgo cada hora
+
+[Timer]
+# Minuto 5 de cada hora, hora local del servidor (América/Lima).
+OnCalendar=*-*-* *:05:00
+Persistent=true
+AccuracySec=1min
+Unit=willaq-actualizar.service
+
+[Install]
+WantedBy=timers.target

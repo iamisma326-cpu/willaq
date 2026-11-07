@@ -1,0 +1,329 @@
+{
+    "alertas": [
+        {
+            "codigo": "WQ-20261106-51A9",
+            "territorio_id": "piu-piura",
+            "distrito": "Piura",
+            "provincia": "Piura",
+            "region": "Piura",
+            "amenaza": "calor",
+            "nivel": "amarillo",
+            "titulo": "Calor extremo — riesgo Medio en Piura",
+            "mensaje": "Temperatura aparente por encima del percentil 95 local, con riesgo para la salud. Población expuesta estimada: 158 mil habitantes.",
+            "acciones": [
+                "Evitar exposición solar entre 10:00 y 16:00.",
+                "Vigilar a adultos mayores."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978749,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-9634",
+            "territorio_id": "piu-castilla",
+            "distrito": "Castilla",
+            "provincia": "Piura",
+            "region": "Piura",
+            "amenaza": "calor",
+            "nivel": "amarillo",
+            "titulo": "Calor extremo — riesgo Medio en Castilla",
+            "mensaje": "Temperatura aparente por encima del percentil 95 local, con riesgo para la salud. Población expuesta estimada: 130 mil habitantes.",
+            "acciones": [
+                "Evitar exposición solar entre 10:00 y 16:00.",
+                "Vigilar a adultos mayores."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978749,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-104B",
+            "territorio_id": "hvc-huancavelica",
+            "distrito": "Huancavelica",
+            "provincia": "Huancavelica",
+            "region": "Huancavelica",
+            "amenaza": "sequia",
+            "nivel": "amarillo",
+            "titulo": "Sequía — riesgo Medio en Huancavelica",
+            "mensaje": "Déficit sostenido de precipitación frente a la mediana histórica de 90 días. Población expuesta estimada: 40 mil habitantes.",
+            "acciones": [
+                "Racionar agua de riego.",
+                "Priorizar consumo humano."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978749,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-0C6F",
+            "territorio_id": "piu-catacaos",
+            "distrito": "Catacaos",
+            "provincia": "Piura",
+            "region": "Piura",
+            "amenaza": "lluvia",
+            "nivel": "amarillo",
+            "titulo": "Lluvia extrema — riesgo Medio en Catacaos",
+            "mensaje": "Lluvia de 7.6 mm en la ventana analizada frente a un umbral de referencia de 1.5 mm (p95 histórico). Población expuesta estimada: 70 mil habitantes.",
+            "acciones": [
+                "Asegurar techos y canales de agua.",
+                "Revisar sumideros."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978749,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-C53A",
+            "territorio_id": "tum-tumbes",
+            "distrito": "Tumbes",
+            "provincia": "Tumbes",
+            "region": "Tumbes",
+            "amenaza": "inundacion",
+            "nivel": "rojo",
+            "titulo": "Inundación fluvial — riesgo Muy alto en Tumbes",
+            "mensaje": "El caudal pronosticado supera su propio registro reciente y el distrito está sobre una llanura de inundación recurrente. Población expuesta estimada: 111 mil habitantes.",
+            "acciones": [
+                "Evacuar zonas inundables de forma preventiva.",
+                "Suspender clases y actividades públicas.",
+                "Abrir albergues y asegurar agua segura."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978748,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-9FA3",
+            "territorio_id": "tum-corrales",
+            "distrito": "Corrales",
+            "provincia": "Tumbes",
+            "region": "Tumbes",
+            "amenaza": "inundacion",
+            "nivel": "naranja",
+            "titulo": "Inundación fluvial — riesgo Alto en Corrales",
+            "mensaje": "El caudal pronosticado supera su propio registro reciente y el distrito está sobre una llanura de inundación recurrente. Población expuesta estimada: 23 mil habitantes.",
+            "acciones": [
+                "Activar el centro de operaciones de emergencia.",
+                "Preparar albergues y kit de emergencia.",
+                "Restringir actividades en zonas bajas."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978748,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-B86B",
+            "territorio_id": "cus-cusco",
+            "distrito": "Cusco",
+            "provincia": "Cusco",
+            "region": "Cusco",
+            "amenaza": "sequia",
+            "nivel": "naranja",
+            "titulo": "Sequía — riesgo Alto en Cusco",
+            "mensaje": "Déficit sostenido de precipitación frente a la mediana histórica de 90 días. Población expuesta estimada: 130 mil habitantes.",
+            "acciones": [
+                "Declarar emergencia hídrica local.",
+                "Suministro por cisternas.",
+                "Proteger ganado."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978748,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-E9AB",
+            "territorio_id": "piu-tambogrande",
+            "distrito": "Tambogrande",
+            "provincia": "Piura",
+            "region": "Piura",
+            "amenaza": "lluvia",
+            "nivel": "rojo",
+            "titulo": "Lluvia extrema — riesgo Muy alto en Tambogrande",
+            "mensaje": "Lluvia de 27.9 mm en la ventana analizada frente a un umbral de referencia de 2.6 mm (p95 histórico). Población expuesta estimada: 60 mil habitantes.",
+            "acciones": [
+                "Suspender clases y eventos.",
+                "Evitar desplazamientos innecesarios.",
+                "Activar protocolo de emergencia."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978748,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-1EDD",
+            "territorio_id": "tum-la-cruz",
+            "distrito": "La Cruz",
+            "provincia": "Tumbes",
+            "region": "Tumbes",
+            "amenaza": "inundacion",
+            "nivel": "naranja",
+            "titulo": "Inundación fluvial — riesgo Alto en La Cruz",
+            "mensaje": "El caudal pronosticado supera su propio registro reciente y el distrito está sobre una llanura de inundación recurrente. Población expuesta estimada: 10 mil habitantes.",
+            "acciones": [
+                "Activar el centro de operaciones de emergencia.",
+                "Preparar albergues y kit de emergencia.",
+                "Restringir actividades en zonas bajas."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978748,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-FA5E",
+            "territorio_id": "tum-zorritos",
+            "distrito": "Zorritos",
+            "provincia": "Contralmirante Villar",
+            "region": "Tumbes",
+            "amenaza": "lluvia",
+            "nivel": "naranja",
+            "titulo": "Lluvia extrema — riesgo Alto en Zorritos",
+            "mensaje": "Lluvia de 12.2 mm en la ventana analizada frente a un umbral de referencia de 2.6 mm (p95 histórico). Población expuesta estimada: 10 mil habitantes.",
+            "acciones": [
+                "Suspender actividades al aire libre.",
+                "Proteger documentos y equipos.",
+                "Verificar estado de puentes."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978748,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-355B",
+            "territorio_id": "piu-26-octubre",
+            "distrito": "Veintiséis de Octubre",
+            "provincia": "Piura",
+            "region": "Piura",
+            "amenaza": "calor",
+            "nivel": "amarillo",
+            "titulo": "Calor extremo — riesgo Medio en Veintiséis de Octubre",
+            "mensaje": "Temperatura aparente por encima del percentil 95 local, con riesgo para la salud. Población expuesta estimada: 200 mil habitantes.",
+            "acciones": [
+                "Evitar exposición solar entre 10:00 y 16:00.",
+                "Vigilar a adultos mayores."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978748,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-8235",
+            "territorio_id": "piu-paita",
+            "distrito": "Paita",
+            "provincia": "Paita",
+            "region": "Piura",
+            "amenaza": "calor",
+            "nivel": "naranja",
+            "titulo": "Calor extremo — riesgo Alto en Paita",
+            "mensaje": "Temperatura aparente por encima del percentil 95 local, con riesgo para la salud. Población expuesta estimada: 80 mil habitantes.",
+            "acciones": [
+                "Suspender actividad física al aire libre.",
+                "Habilitar puntos de hidratación.",
+                "Vigilar golpes de calor."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978748,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-4666",
+            "territorio_id": "tum-aguas-verdes",
+            "distrito": "Aguas Verdes",
+            "provincia": "Zarumilla",
+            "region": "Tumbes",
+            "amenaza": "lluvia",
+            "nivel": "rojo",
+            "titulo": "Lluvia extrema — riesgo Muy alto en Aguas Verdes",
+            "mensaje": "Lluvia de 18.6 mm en la ventana analizada frente a un umbral de referencia de 2.4 mm (p95 histórico). Población expuesta estimada: 16 mil habitantes.",
+            "acciones": [
+                "Suspender clases y eventos.",
+                "Evitar desplazamientos innecesarios.",
+                "Activar protocolo de emergencia."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978748,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-42FD",
+            "territorio_id": "tum-zarumilla",
+            "distrito": "Zarumilla",
+            "provincia": "Zarumilla",
+            "region": "Tumbes",
+            "amenaza": "lluvia",
+            "nivel": "rojo",
+            "titulo": "Lluvia extrema — riesgo Muy alto en Zarumilla",
+            "mensaje": "Lluvia de 17.0 mm en la ventana analizada frente a un umbral de referencia de 2.6 mm (p95 histórico). Población expuesta estimada: 22 mil habitantes.",
+            "acciones": [
+                "Suspender clases y eventos.",
+                "Evitar desplazamientos innecesarios.",
+                "Activar protocolo de emergencia."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978748,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        },
+        {
+            "codigo": "WQ-20261106-964C",
+            "territorio_id": "piu-chulucanas",
+            "distrito": "Chulucanas",
+            "provincia": "Morropón",
+            "region": "Piura",
+            "amenaza": "lluvia",
+            "nivel": "rojo",
+            "titulo": "Lluvia extrema — riesgo Muy alto en Chulucanas",
+            "mensaje": "Lluvia de 20.9 mm en la ventana analizada frente a un umbral de referencia de 3.3 mm (p95 histórico). Población expuesta estimada: 60 mil habitantes.",
+            "acciones": [
+                "Suspender clases y eventos.",
+                "Evitar desplazamientos innecesarios.",
+                "Activar protocolo de emergencia."
+            ],
+            "estado": "emitida",
+            "emitida_por": "Sistema · WILLAQ",
+            "emitida_en": 1793978748,
+            "acuse_por": null,
+            "acuse_en": null,
+            "nota_legal": "Recomendación de apoyo a la decisión. No reemplaza una alerta oficial de SENAMHI\/INDECI\/ENFEN."
+        }
+    ]
+}

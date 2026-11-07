@@ -1,0 +1,16 @@
+[Unit]
+Description=WILLAQ · regenerar recomendaciones diarias
+Documentation=file:///var/www/willaq/docs/AUTOMATIZACION.md
+After=willaq-actualizar.service
+
+[Service]
+Type=oneshot
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/willaq
+UMask=0002
+ExecStart=/var/www/willaq/scripts/willaq_cron.sh alertas
+TimeoutStartSec=10min
+Nice=10
+NoNewPrivileges=true
+PrivateTmp=true

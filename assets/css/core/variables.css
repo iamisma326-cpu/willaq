@@ -1,0 +1,37 @@
+:root {
+  /* Colors - Brand Guidelines */
+  --color-primary: #C5A880;          /* Amanecer Dorado */
+  --color-primary-hover: #b4966e;
+  --color-secondary: #48324F;        /* Púrpura Crepuscular */
+  --color-secondary-hover: #3a2840;
+  --color-accent: #9C694C;           /* Oro Rosa del Atardecer */
+  --color-dark: #0A1628;             /* Azul Estratosfera */
+  
+  --color-background: #0A1628;       /* Deep Cosmic Background */
+  --color-surface: #132238;          /* Lighter stratified blue for cards & forms */
+  --color-surface-hover: #1c314f;
+  
+  --color-text-main: #FFFFFF;        /* White for premium contrast */
+  --color-text-muted: #c5cde0;       /* Cosmic gray */
+  --color-text-light: #9ca3af;
+  
+  --color-border: rgba(197, 168, 128, 0.15); /* Gold outline/border at 15% opacity */
+  
+  /* Typography */
+  --font-family-main: 'Montserrat', sans-serif;
+  
+  /* Shadows - Soft Cosmic Glows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 20px -2px rgba(197, 168, 128, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 30px -3px rgba(72, 50, 79, 0.2), 0 4px 15px -2px rgba(197, 168, 128, 0.15);
+  
+  /* Border Radius */
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+}

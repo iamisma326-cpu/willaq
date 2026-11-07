@@ -1,0 +1,1068 @@
+{
+    "generado_en": 1793976081,
+    "generado_legible": "2026-11-06T14:41:21+00:00",
+    "ventana": 24,
+    "distritos": 29,
+    "pesos_base": {
+        "base": 0.4,
+        "exposicion": 0.35,
+        "vulnerabilidad": 0.25
+    },
+    "metodo": "Los pesos (base, exposición, vulnerabilidad) solo intervienen en la expresión final R = 100·H·(base + wE·E + wV·V). El script calcula H, E y V una vez con el motor real y recalcula el índice con aritmética pura, lo que es idéntico a reejecutar el motor con otros pesos. La opción --verificar comprueba esa equivalencia contra el motor real.",
+    "resumen": {
+        "escenarios": 40,
+        "spearman_min": 0.9285,
+        "spearman_medio": 0.9973,
+        "spearman_max": 1,
+        "jaccard_top10_min": 0.667,
+        "jaccard_top10_medio": 0.9917,
+        "cambios_nivel_min": 0,
+        "cambios_nivel_max": 14,
+        "peor_escenario": "limite todo peligro (1.00)"
+    },
+    "verificacion": {
+        "escenario": "exposicion +20%",
+        "diferencia_maxima": 0,
+        "coincide": true
+    },
+    "bandas_posicion": {
+        "tum-tumbes": {
+            "min": 8,
+            "max": 11
+        },
+        "tum-corrales": {
+            "min": 16,
+            "max": 16
+        },
+        "tum-la-cruz": {
+            "min": 8,
+            "max": 14
+        },
+        "tum-zarumilla": {
+            "min": 8,
+            "max": 9
+        },
+        "tum-aguas-verdes": {
+            "min": 4,
+            "max": 8
+        },
+        "tum-zorritos": {
+            "min": 8,
+            "max": 15
+        },
+        "piu-piura": {
+            "min": 2.5,
+            "max": 8
+        },
+        "piu-castilla": {
+            "min": 3,
+            "max": 8
+        },
+        "piu-catacaos": {
+            "min": 2,
+            "max": 8
+        },
+        "piu-26-octubre": {
+            "min": 1,
+            "max": 8
+        },
+        "piu-chulucanas": {
+            "min": 8,
+            "max": 10
+        },
+        "piu-tambogrande": {
+            "min": 3.5,
+            "max": 8
+        },
+        "piu-paita": {
+            "min": 8,
+            "max": 9
+        },
+        "piu-sullana": {
+            "min": 2,
+            "max": 8
+        },
+        "lim-cercado": {
+            "min": 21,
+            "max": 21
+        },
+        "lim-ate": {
+            "min": 17,
+            "max": 18
+        },
+        "lim-sjl": {
+            "min": 8,
+            "max": 12
+        },
+        "lim-chosica": {
+            "min": 24,
+            "max": 24
+        },
+        "lim-santa-eulalia": {
+            "min": 26,
+            "max": 26
+        },
+        "lim-san-mateo": {
+            "min": 27,
+            "max": 27
+        },
+        "lim-chaclacayo": {
+            "min": 25,
+            "max": 25
+        },
+        "lim-cieneguilla": {
+            "min": 22,
+            "max": 23
+        },
+        "lim-ves": {
+            "min": 22,
+            "max": 23
+        },
+        "lim-lurin": {
+            "min": 20,
+            "max": 20
+        },
+        "lim-huaral": {
+            "min": 19,
+            "max": 19
+        },
+        "cus-cusco": {
+            "min": 8,
+            "max": 14
+        },
+        "pun-puno": {
+            "min": 28,
+            "max": 28
+        },
+        "aya-ayacucho": {
+            "min": 29,
+            "max": 29
+        },
+        "hvc-huancavelica": {
+            "min": 17,
+            "max": 18
+        }
+    },
+    "escenarios": [
+        {
+            "nombre": "limite todo peligro (1.00)",
+            "pesos": {
+                "base": 1,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 0.9285,
+            "jaccard_top10": 0.667,
+            "cambios_nivel": 13,
+            "top10": [
+                "cus-cusco",
+                "lim-sjl",
+                "piu-26-octubre",
+                "piu-castilla",
+                "piu-catacaos",
+                "piu-chulucanas",
+                "piu-paita",
+                "piu-piura",
+                "piu-sullana",
+                "piu-tambogrande"
+            ]
+        },
+        {
+            "nombre": "combo +20%/+20%/+20%",
+            "pesos": {
+                "base": 0.48,
+                "exposicion": 0.42,
+                "vulnerabilidad": 0.3
+            },
+            "spearman": 0.9931,
+            "jaccard_top10": 1,
+            "cambios_nivel": 5,
+            "top10": [
+                "piu-26-octubre",
+                "piu-castilla",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-sullana",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo +20%/+20%/0%",
+            "pesos": {
+                "base": 0.48,
+                "exposicion": 0.42,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 0.9957,
+            "jaccard_top10": 1,
+            "cambios_nivel": 3,
+            "top10": [
+                "piu-26-octubre",
+                "piu-castilla",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-sullana",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo +20%/-20%/+20%",
+            "pesos": {
+                "base": 0.48,
+                "exposicion": 0.28,
+                "vulnerabilidad": 0.3
+            },
+            "spearman": 0.9966,
+            "jaccard_top10": 1,
+            "cambios_nivel": 1,
+            "top10": [
+                "piu-26-octubre",
+                "piu-catacaos",
+                "piu-sullana",
+                "piu-tambogrande",
+                "piu-castilla",
+                "piu-piura",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo 0%/-20%/+20%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.28,
+                "vulnerabilidad": 0.3
+            },
+            "spearman": 0.9969,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-catacaos",
+                "piu-sullana",
+                "piu-tambogrande",
+                "piu-castilla",
+                "piu-piura",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo -20%/-20%/+20%",
+            "pesos": {
+                "base": 0.32,
+                "exposicion": 0.28,
+                "vulnerabilidad": 0.3
+            },
+            "spearman": 0.997,
+            "jaccard_top10": 1,
+            "cambios_nivel": 4,
+            "top10": [
+                "piu-26-octubre",
+                "piu-catacaos",
+                "piu-sullana",
+                "piu-tambogrande",
+                "piu-castilla",
+                "piu-piura",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo +20%/0%/+20%",
+            "pesos": {
+                "base": 0.48,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.3
+            },
+            "spearman": 0.997,
+            "jaccard_top10": 1,
+            "cambios_nivel": 2,
+            "top10": [
+                "piu-26-octubre",
+                "piu-castilla",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-sullana",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "limite sin base (0.00)",
+            "pesos": {
+                "base": 0,
+                "exposicion": 0.5,
+                "vulnerabilidad": 0.5
+            },
+            "spearman": 0.9977,
+            "jaccard_top10": 1,
+            "cambios_nivel": 5,
+            "top10": [
+                "piu-26-octubre",
+                "piu-catacaos",
+                "piu-sullana",
+                "piu-castilla",
+                "piu-piura",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo +20%/+20%/-20%",
+            "pesos": {
+                "base": 0.48,
+                "exposicion": 0.42,
+                "vulnerabilidad": 0.2
+            },
+            "spearman": 0.9983,
+            "jaccard_top10": 1,
+            "cambios_nivel": 2,
+            "top10": [
+                "piu-26-octubre",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-sullana",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "exposicion -20%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.28,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 0.9994,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-castilla",
+                "piu-piura",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "vulnerabilidad +20%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.3
+            },
+            "spearman": 0.9994,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-castilla",
+                "piu-piura",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo -20%/-20%/0%",
+            "pesos": {
+                "base": 0.32,
+                "exposicion": 0.28,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 0.9994,
+            "jaccard_top10": 1,
+            "cambios_nivel": 10,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-castilla",
+                "piu-piura",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo 0%/-20%/0%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.28,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 0.9994,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-castilla",
+                "piu-piura",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo 0%/0%/+20%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.3
+            },
+            "spearman": 0.9994,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-castilla",
+                "piu-piura",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo +20%/-20%/0%",
+            "pesos": {
+                "base": 0.48,
+                "exposicion": 0.28,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 0.9994,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-castilla",
+                "piu-piura",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo -20%/0%/-20%",
+            "pesos": {
+                "base": 0.32,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.2
+            },
+            "spearman": 0.9995,
+            "jaccard_top10": 1,
+            "cambios_nivel": 7,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo -20%/0%/+20%",
+            "pesos": {
+                "base": 0.32,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.3
+            },
+            "spearman": 0.9995,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "tum-zarumilla",
+                "piu-paita",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo -20%/+20%/-20%",
+            "pesos": {
+                "base": 0.32,
+                "exposicion": 0.42,
+                "vulnerabilidad": 0.2
+            },
+            "spearman": 0.9995,
+            "jaccard_top10": 1,
+            "cambios_nivel": 2,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo -20%/+20%/0%",
+            "pesos": {
+                "base": 0.32,
+                "exposicion": 0.42,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 0.9995,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo 0%/+20%/-20%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.42,
+                "vulnerabilidad": 0.2
+            },
+            "spearman": 0.9995,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo 0%/+20%/+20%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.42,
+                "vulnerabilidad": 0.3
+            },
+            "spearman": 0.9995,
+            "jaccard_top10": 1,
+            "cambios_nivel": 2,
+            "top10": [
+                "piu-26-octubre",
+                "piu-catacaos",
+                "piu-sullana",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "exposicion -10%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.315,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 0.9999,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "exposicion +20%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.42,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 0.9999,
+            "jaccard_top10": 1,
+            "cambios_nivel": 1,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "vulnerabilidad -20%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.2
+            },
+            "spearman": 0.9999,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "vulnerabilidad +10%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.275
+            },
+            "spearman": 0.9999,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo 0%/0%/-20%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.2
+            },
+            "spearman": 0.9999,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo 0%/+20%/0%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.42,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 0.9999,
+            "jaccard_top10": 1,
+            "cambios_nivel": 1,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "base -20%",
+            "pesos": {
+                "base": 0.32,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 4,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "base -10%",
+            "pesos": {
+                "base": 0.36,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "base +10%",
+            "pesos": {
+                "base": 0.44,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "base +20%",
+            "pesos": {
+                "base": 0.48,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 2,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "exposicion +10%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.385,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "vulnerabilidad -10%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.225
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo -20%/-20%/-20%",
+            "pesos": {
+                "base": 0.32,
+                "exposicion": 0.28,
+                "vulnerabilidad": 0.2
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 14,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo -20%/0%/0%",
+            "pesos": {
+                "base": 0.32,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 4,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo -20%/+20%/+20%",
+            "pesos": {
+                "base": 0.32,
+                "exposicion": 0.42,
+                "vulnerabilidad": 0.3
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo 0%/-20%/-20%",
+            "pesos": {
+                "base": 0.4,
+                "exposicion": 0.28,
+                "vulnerabilidad": 0.2
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 4,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo +20%/-20%/-20%",
+            "pesos": {
+                "base": 0.48,
+                "exposicion": 0.28,
+                "vulnerabilidad": 0.2
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo +20%/0%/-20%",
+            "pesos": {
+                "base": 0.48,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.2
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 0,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        },
+        {
+            "nombre": "combo +20%/0%/0%",
+            "pesos": {
+                "base": 0.48,
+                "exposicion": 0.35,
+                "vulnerabilidad": 0.25
+            },
+            "spearman": 1,
+            "jaccard_top10": 1,
+            "cambios_nivel": 2,
+            "top10": [
+                "piu-26-octubre",
+                "piu-sullana",
+                "piu-catacaos",
+                "piu-piura",
+                "piu-castilla",
+                "piu-tambogrande",
+                "tum-aguas-verdes",
+                "piu-paita",
+                "tum-zarumilla",
+                "piu-chulucanas"
+            ]
+        }
+    ]
+}

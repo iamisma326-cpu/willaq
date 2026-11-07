@@ -1,0 +1,48 @@
+# =============================================================================
+# WILLAQ — configuración de Apache para hosting compartido
+#
+# WILLAQ es una aplicación PHP con un único punto de entrada (index.php).
+# Este archivo ajusta el comportamiento del servidor web; la protección de las
+# carpetas internas se hace con un `.htaccess` dentro de cada una (así
+# funciona aunque la aplicación viva en un subdirectorio, por ejemplo
+# /willaq/).
+#
+# Si tu hosting usa Nginx en lugar de Apache, este archivo se ignora: aplica
+# las reglas equivalentes en el panel del hosting o en tu bloque `server`.
+# =============================================================================
+
+# --- Entrada por defecto ------------------------------------------------------
+DirectoryIndex index.php
+
+# --- No listar el contenido de los directorios --------------------------------
+Options -Indexes
+
+# --- Archivos que nunca deben servirse ----------------------------------------
+# El archivo .env contiene la configuración y, si se activa MySQL, credenciales.
+<FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>
+<FilesMatch "\.(sql|log|ini|bak|sh)$">
+    Require all denied
+</FilesMatch>
+
+# --- Caché de estáticos --------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
+
+# --- Compresión ----------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Cabeceras de seguridad básicas --------------------------------------------
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

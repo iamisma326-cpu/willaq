@@ -1,0 +1,30 @@
+ubigeo,distrito,provincia,region,indicador,valor,anio,fuente,nota
+240101,Tumbes,Tumbes,Tumbes,poblacion,94100,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+240102,Corrales,Tumbes,Tumbes,poblacion,19000,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+240103,La Cruz,Tumbes,Tumbes,poblacion,8650,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+240301,Zarumilla,Zarumilla,Tumbes,poblacion,18450,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+240302,Aguas Verdes,Zarumilla,Tumbes,poblacion,13950,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+240201,Zorritos,Contralmirante Villar,Tumbes,poblacion,9150,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+200101,Piura,Piura,Piura,poblacion,147900,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+200104,Castilla,Piura,Piura,poblacion,113050,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+200105,Catacaos,Piura,Piura,poblacion,57450,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+200115,Veintiséis de Octubre,Piura,Piura,poblacion,165900,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+200401,Chulucanas,Morropón,Piura,poblacion,52400,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+200114,Tambogrande,Piura,Piura,poblacion,51400,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+200501,Paita,Paita,Piura,poblacion,73050,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+200601,Sullana,Sullana,Piura,poblacion,146650,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+150101,Lima Cercado,Lima,Lima,poblacion,229700,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+150103,Ate,Lima,Lima,poblacion,555350,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+150132,San Juan de Lurigancho,Lima,Lima,poblacion,950050,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+150118,Lurigancho (Chosica),Lima,Lima,poblacion,209250,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+150728,Santa Eulalia,Huarochirí,Lima,poblacion,10550,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+150722,San Mateo,Huarochirí,Lima,poblacion,4450,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+150107,Chaclacayo,Lima,Lima,poblacion,40800,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+150109,Cieneguilla,Lima,Lima,poblacion,31500,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+150142,Villa El Salvador,Lima,Lima,poblacion,375500,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+150119,Lurín,Lima,Lima,poblacion,77550,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+150601,Huaral,Huaral,Lima,poblacion,88300,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+080101,Cusco,Cusco,Cusco,poblacion,115800,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+210101,Puno,Puno,Puno,poblacion,109050,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+050101,Ayacucho,Huamanga,Ayacucho,poblacion,93450,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba
+090101,Huancavelica,Huancavelica,Huancavelica,poblacion,35550,2017,FIXTURE-PRUEBA (no es dato oficial de INEI),fixture sintetica de prueba

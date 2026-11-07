@@ -1,0 +1,4 @@
+# Deniega el acceso HTTP a este directorio (scripts de línea de comandos).
+# Los scripts ya se niegan a sí mismos desde la web (responden 403), pero esta
+# regla evita depender solo de esa comprobación.
+Require all denied

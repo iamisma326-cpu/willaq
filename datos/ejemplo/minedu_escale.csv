@@ -1,0 +1,16 @@
+ubigeo,distrito,provincia,region,indicador,valor,anio,fuente,nota
+240101,Tumbes,Tumbes,Tumbes,escuelas,180,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+240103,La Cruz,Tumbes,Tumbes,escuelas,22,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+240302,Aguas Verdes,Zarumilla,Tumbes,escuelas,30,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+200101,Piura,Piura,Piura,escuelas,260,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+200105,Catacaos,Piura,Piura,escuelas,120,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+200401,Chulucanas,Morropón,Piura,escuelas,110,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+200501,Paita,Paita,Piura,escuelas,130,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+150101,Lima Cercado,Lima,Lima,escuelas,420,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+150132,San Juan de Lurigancho,Lima,Lima,escuelas,1600,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+150728,Santa Eulalia,Huarochirí,Lima,escuelas,28,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+150107,Chaclacayo,Lima,Lima,escuelas,90,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+150142,Villa El Salvador,Lima,Lima,escuelas,620,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+150601,Huaral,Huaral,Lima,escuelas,210,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+210101,Puno,Puno,Puno,escuelas,250,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
+090101,Huancavelica,Huancavelica,Huancavelica,escuelas,90,2023,FIXTURE-PRUEBA (no es dato oficial de MINEDU),locales escolares
