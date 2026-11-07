@@ -453,3 +453,11 @@ reutilice esos datos debe verificar la condiciones de uso en la fuente.
 
 **Sin dependencias.** PHP puro, sin Composer, sin `vendor/`, sin build. Un
 clon limpio arranca con el servidor embebido de PHP.
+
+**Licencia.** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
+(uso educativo). Puedes estudiarlo, auditarlo y modificarlo con fines docentes;
+no es comercial y las versiones modificadas se publican bajo la misma licencia.
+Texto legal completo en [`LICENSE`](LICENSE) y guía de atribución en
+[`LICENSE.md`](LICENSE.md). La licencia cubre **el código**, no los datos de
+terceros que el repo redistribuye (SENAMHI, INEI, Open-Meteo, OSM): esos
+tienen sus propias condiciones de uso, detalladas en `LICENSE.md`.
