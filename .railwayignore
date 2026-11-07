@@ -1,0 +1,13 @@
+# WILLAQ — qué NO subir al build de Railway
+#
+# Los archivos de datos SÍ se necesitan: data/snapshots/ (3 archivos) evita
+# que la primera visita tarde ~70 s recalculando contra Open-Meteo, y
+# data/cache/ trae respuestas ya obtenidas. Solo excluimos lo que no aporta
+# al runtime.
+.git/
+docs/
+deploy/
+data/backups/
+data/cron.log
+data/willaq_cron.lock
+*.md
