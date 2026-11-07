@@ -228,14 +228,26 @@ Ambos exigen el token `WILLAQ_CRON_TOKEN`, por cabecera `X-WILLAQ-Token`
 
 Configurado y verificado:
 
-| Elemento | Estado |
+| Elemento | Estado verificado |
 |---|---|
 | `WILLAQ_CRON_TOKEN` en Railway | ✅ definido |
-| Endpoint `cron_actualizar` | ✅ responde `202` en ~0.38 s |
-| Endpoint `cron_estado` | ✅ devuelve 104 territorios por ventana |
+| `WILLAQ_CRON_TOKEN` como secret en GitHub | ✅ definido |
+| Endpoint `cron_actualizar` | ✅ `202` en **0.41 s** |
+| Endpoint `cron_estado` | ✅ 104 territorios por ventana (24/48/72) |
 | Protección sin token | ✅ `401` |
 | Anti-solapamiento | ✅ probado con dos llamadas seguidas |
-| Workflow de GitHub Actions | ✅ en `.github/workflows/` |
+| Workflow de GitHub Actions | ✅ ejecutado: **success en 38 s** |
+| Cierre de la marca al terminar | ✅ `estado: terminado`, duración registrada |
+
+Ejecución real del workflow (run `42402508386`):
+
+```
+Token presente (longitud 48)
+Intento 1 → HTTP 202
+Estado devuelto: lanzado
+[30s] estado: terminado
+✓ success   (38 s)
+```
 
 ### Opción A — GitHub Actions (recomendada)
 
@@ -581,8 +593,22 @@ incorrecto y el jurado lo detectaría. La plataforma emite *recomendaciones de
 apoyo a la decisión*, con protocolo y acuse de recibo.
 
 **¿Dónde se cambia el número de distritos?**
-`config/territorios.json`. El formato es el mismo para todo el país: es la
-hoja de ruta del alcance internacional.
+`database/seed_territorios.sql` (base de datos) o `config/territorios.json`
+(respaldo). El formato es el mismo para todo el país: es la hoja de ruta del
+alcance internacional.
+
+**El cron devuelve `202` pero `cron_estado` sigue diciendo `corriendo`.**
+El proceso se lanzó pero murió sin cerrar su marca, o sigue trabajando de
+verdad. Mira `data/snapshots/.cron.log` en el servidor. Tras 30 minutos el
+anti-solapamiento considera la ejecución abandonada y permite relanzar.
+
+**El cron responde `503`.**
+Falta `WILLAQ_CRON_TOKEN` en las variables de Railway. Añadirlo y volver a
+desplegar.
+
+**El cron responde `401`.**
+El token enviado no coincide. Revisa que el secret `WILLAQ_CRON_TOKEN` de
+GitHub sea idéntico al de Railway.
 
 ---
 
