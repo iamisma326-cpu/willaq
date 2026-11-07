@@ -125,10 +125,14 @@ switch ($accion) {
 
         // Evita solapamientos: si hay una ejecución reciente en curso, no se
         // lanza otra (dos procesos a la vez duplicarían las llamadas a la API).
+        //
+        // El límite es amplio (30 min) porque un ciclo completo con 104
+        // territorios puede tardar bastante; si el proceso murió sin cerrar el
+        // marcador, tras ese plazo se considera abandonado y se permite relanzar.
         $previo = is_file($marca) ? json_decode(file_get_contents($marca), true) : null;
         if (is_array($previo) && ($previo['estado'] ?? '') === 'corriendo') {
             $edad = time() - (int)($previo['inicio'] ?? 0);
-            if ($edad < 900) {
+            if ($edad < 1800) {
                 json_salida([
                     'ok' => true,
                     'estado' => 'corriendo',

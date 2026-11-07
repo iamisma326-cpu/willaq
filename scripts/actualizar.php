@@ -230,4 +230,25 @@ wq_linea();
 wq_linea('  ✓ Listo.');
 wq_linea();
 
+// ---------------------------------------------------------------------------
+// 4. Cerrar el marcador de ejecución
+// ---------------------------------------------------------------------------
+// Cuando el proceso se lanza desde `index.php` (?action=cron_actualizar), el
+// archivo .ultima_actualizacion.json queda en estado 'corriendo'. Si nadie lo
+// cierra, el anti-solapamiento cree que sigue trabajando durante 15 minutos y
+// bloquea la siguiente ejecución. Aquí se marca el resultado real.
+$marca = __DIR__ . '/../data/snapshots/.ultima_actualizacion.json';
+if (is_file($marca)) {
+    $previo = json_decode((string)file_get_contents($marca), true);
+    if (is_array($previo) && ($previo['estado'] ?? '') === 'corriendo') {
+        @file_put_contents($marca, json_encode([
+            'estado' => 'terminado',
+            'inicio' => $previo['inicio'] ?? null,
+            'fin' => time(),
+            'duracion_s' => round(microtime(true) - $inicioTotal, 1),
+            'solo' => $previo['solo'] ?? null,
+        ], JSON_UNESCAPED_UNICODE));
+    }
+}
+
 exit(0);

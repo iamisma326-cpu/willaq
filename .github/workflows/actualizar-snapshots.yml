@@ -27,7 +27,7 @@ concurrency:
 jobs:
   actualizar:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
 
     env:
       WILLAQ_URL: https://willaq-production.up.railway.app
@@ -88,14 +88,20 @@ jobs:
           echo "Estado devuelto: $estado"
 
       - name: Esperar a que termine el proceso
+        continue-on-error: true
         env:
           TOKEN: ${{ secrets.WILLAQ_CRON_TOKEN }}
         run: |
           set -euo pipefail
 
-          # La ejecución completa tarda ~7 min con 104 territorios. Se consulta
-          # el estado cada 30 s hasta que deje de estar "corriendo".
-          for i in $(seq 1 24); do
+          # La ejecución completa recorre 104 territorios y consulta Open-Meteo:
+          # puede pasar de 20 min. Se consulta el estado cada 30 s hasta que
+          # deje de estar "corriendo".
+          #
+          # Esta espera es informativa: si se agota, el proceso sigue en el
+          # servidor de todos modos y la siguiente ejecución programada lo
+          # detectará. Por eso continue-on-error.
+          for i in $(seq 1 52); do
             sleep 30
             curl -sS --max-time 30 -H "X-WILLAQ-Token: $TOKEN" \
               "$WILLAQ_URL/?action=cron_estado" -o estado.json || continue
@@ -109,7 +115,7 @@ jobs:
             fi
           done
 
-          echo "::warning::La actualización sigue en curso tras 12 min. Se deja terminar en el servidor."
+          echo "::warning::La actualización sigue en curso tras 26 min. Se deja terminar en el servidor."
 
       - name: Resumen
         if: always()
