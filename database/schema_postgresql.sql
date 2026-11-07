@@ -376,3 +376,18 @@ COMMIT;
 --   GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO willaq;
 --   GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO willaq;
 -- ============================================================================
+
+-- ---------------------------------------------------------------------------
+-- Snapshots del riesgo nacional por ventana (24/48/72 h).
+--
+-- En Railway el filesystem es efímero, así que el snapshot en disco se pierde
+-- en cada redeploy y la primera visita recalcula todo (~70 s). Guardarlo aquí
+-- hace que el sistema arranque rápido y sobreviva a los despliegues.
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS snapshots (
+    ventana        INTEGER      PRIMARY KEY,
+    generado_en    TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
+    payload        JSONB        NOT NULL,
+    total          INTEGER      NOT NULL DEFAULT 0,
+    actualizado_en TIMESTAMPTZ  NOT NULL DEFAULT NOW()
+);

@@ -27,3 +27,8 @@ Thumbs.db
 *~
 .idea/
 .vscode/
+
+# Cache y snapshots viven en PostgreSQL (tablas cache_geodatos y snapshots).
+# En disco solo son respaldo offline: no se versionan.
+/data/cache/*.json
+/data/snapshots/*.json

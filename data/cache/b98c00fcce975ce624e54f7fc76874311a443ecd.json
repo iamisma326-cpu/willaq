@@ -1,1 +1,0 @@
-{"clave":"climatologia:tum-zorritos","payload":{"fuente":"ERA5 · 2015-2025 · ventana ±15 días","obtenido_en":1793913827,"confianza":"alta","p50_24":0,"p95_24":2.6,"p99_24":6.28,"p50_temp":28.8,"p95_temp":33.9,"p99_temp":34.66,"p50_90":0,"p95_90":234,"muestra_dias":341},"fuente":"ERA5","guardado_en":1793913827,"expira_en":1796505827,"ttl":2592000}

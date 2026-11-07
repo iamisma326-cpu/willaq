@@ -711,17 +711,69 @@ function riesgo_snapshot_guardar($ventana = 24) {
         return false;
     }
 
-    // Escritura atómica: se escribe a un temporal y se renombra.
+    // Persistencia principal: PostgreSQL. En Railway el filesystem es efímero,
+    // así que el snapshot en disco desaparece en cada redeploy.
+    $enBd = riesgo_snapshot_guardar_bd($ventana, $json, count($datos['riesgos']));
+
+    // Escritura atómica en disco (espejo y respaldo offline).
     // Así una lectura concurrente (web o cron) nunca ve un JSON a medias.
     $tmp = $ruta . '.tmp.' . getmypid();
-    if (@file_put_contents($tmp, $json) === false) {
-        return false;
-    }
-    if (!@rename($tmp, $ruta)) {
+    $enDisco = false;
+    if (@file_put_contents($tmp, $json) !== false && @rename($tmp, $ruta)) {
+        $enDisco = true;
+    } else {
         @unlink($tmp);
+    }
+
+    return $enBd || $enDisco;
+}
+
+/** Guarda el snapshot en la tabla `snapshots`. @return bool */
+function riesgo_snapshot_guardar_bd($ventana, $json, $total = 0) {
+    $db = conectar_db();
+    if (!$db) {
         return false;
     }
-    return true;
+    try {
+        $stmt = $db->prepare(
+            'INSERT INTO snapshots (ventana, generado_en, payload, total, actualizado_en)
+                  VALUES (?, NOW(), ?::jsonb, ?, NOW())
+             ON CONFLICT (ventana) DO UPDATE
+                    SET payload        = EXCLUDED.payload,
+                        generado_en    = EXCLUDED.generado_en,
+                        total          = EXCLUDED.total,
+                        actualizado_en = NOW()'
+        );
+        $stmt->execute([(int)$ventana, $json, (int)$total]);
+        return true;
+    } catch (Throwable $e) {
+        error_log('[WILLAQ snapshots] escritura en BD falló: ' . $e->getMessage());
+        return false;
+    }
+}
+
+/** Lee el snapshot desde la tabla `snapshots`. @return array|null */
+function riesgo_snapshot_leer_bd($ventana) {
+    $db = conectar_db();
+    if (!$db) {
+        return null;
+    }
+    try {
+        $stmt = $db->prepare('SELECT payload FROM snapshots WHERE ventana = ? LIMIT 1');
+        $stmt->execute([(int)$ventana]);
+        $fila = $stmt->fetch();
+        if (!$fila) {
+            return null;
+        }
+        $payload = $fila['payload'];
+        if (is_string($payload)) {
+            $payload = json_decode($payload, true);
+        }
+        return is_array($payload) ? $payload : null;
+    } catch (Throwable $e) {
+        error_log('[WILLAQ snapshots] lectura en BD falló: ' . $e->getMessage());
+        return null;
+    }
 }
 
 /**
@@ -732,6 +784,13 @@ function riesgo_snapshot_guardar($ventana = 24) {
 function riesgo_snapshot_leer($ventana = 24) {
     $ventana = in_array((int)$ventana, [24, 48, 72], true) ? (int)$ventana : 24;
 
+    // 1. Base de datos (sobrevive a los redeploys).
+    $desdeBd = riesgo_snapshot_leer_bd($ventana);
+    if ($desdeBd !== null) {
+        return $desdeBd;
+    }
+
+    // 2. Disco (respaldo offline).
     $ruta = riesgo_snapshot_ruta($ventana);
     if (is_file($ruta)) {
         $datos = json_decode(file_get_contents($ruta), true);
@@ -740,7 +799,7 @@ function riesgo_snapshot_leer($ventana = 24) {
         }
     }
 
-    // Compatibilidad con el snapshot de archivo único de versiones anteriores.
+    // 3. Compatibilidad con el snapshot de archivo único de versiones anteriores.
     $legacy = riesgo_snapshot_ruta_legacy();
     if (is_file($legacy)) {
         $datos = json_decode(file_get_contents($legacy), true);

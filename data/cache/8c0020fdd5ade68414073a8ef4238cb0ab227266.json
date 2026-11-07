@@ -1,1 +1,0 @@
-{"clave":"climatologia:piu-tambogrande","payload":{"fuente":"ERA5 · 2015-2025 · ventana ±15 días","obtenido_en":1793913862,"confianza":"alta","p50_24":0,"p95_24":2.6,"p99_24":6.3,"p50_temp":34.3,"p95_temp":36.8,"p99_temp":37.72,"p50_90":0,"p95_90":234,"muestra_dias":341},"fuente":"ERA5","guardado_en":1793913862,"expira_en":1796505862,"ttl":2592000}
