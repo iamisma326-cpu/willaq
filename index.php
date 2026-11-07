@@ -267,11 +267,23 @@ switch ($accion) {
         break;
 
     case 'planificacion':
-        $lat = isset($_GET['lat']) ? (float)$_GET['lat'] : null;
-        $lon = isset($_GET['lon']) ? (float)$_GET['lon'] : null;
+        $lat = isset($_GET['lat']) && $_GET['lat'] !== '' ? (float)$_GET['lat'] : null;
+        $lon = isset($_GET['lon']) && $_GET['lon'] !== '' ? (float)$_GET['lon'] : null;
         $tipo = $_GET['tipo'] ?? 'colegio';
-        $evaluacion = ($lat && $lon) ? zonificacion_evaluar($lat, $lon, $tipo) : null;
-        $futuro = ($lat && $lon) ? zonificacion_evaluar_futuro($lat, $lon, $tipo, 1.2) : null;
+
+        // Selección por desplegables: departamento → distrito.
+        // Si llega un distrito, sus coordenadas mandan sobre lat/lon sueltas.
+        $departamento = trim((string)($_GET['departamento'] ?? ''));
+        $distritoId = trim((string)($_GET['distrito'] ?? ''));
+        $distritoSel = $distritoId !== '' ? territorio_por_id($distritoId) : null;
+        if ($distritoSel !== null) {
+            $lat = (float)$distritoSel['lat'];
+            $lon = (float)$distritoSel['lon'];
+            $departamento = $distritoSel['region'];
+        }
+
+        $evaluacion = ($lat !== null && $lon !== null) ? zonificacion_evaluar($lat, $lon, $tipo) : null;
+        $futuro = ($lat !== null && $lon !== null) ? zonificacion_evaluar_futuro($lat, $lon, $tipo, 1.2) : null;
         render('planificacion/planificacion', [
             'titulo' => 'Zonificación territorial',
             'ranking' => zonificacion_ranking(),
@@ -280,6 +292,9 @@ switch ($accion) {
             'lat' => $lat,
             'lon' => $lon,
             'tipo' => $tipo,
+            'departamento' => $departamento,
+            'distritoId' => $distritoSel['id'] ?? '',
+            'porRegion' => territorios_por_region(),
             'requiereMapa' => true,
         ]);
         break;

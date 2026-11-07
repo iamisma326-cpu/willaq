@@ -54,21 +54,52 @@ $geojson = ['type' => 'FeatureCollection', 'features' => $puntos];
 
         <div class="wq-map wq-map--panel" id="wq-map-plan"></div>
 
+        <!-- Los territorios van en un bloque JSON aparte (no como atributo HTML)
+             para que las comillas y acentos no rompan el marcado. -->
+        <script type="application/json" id="wq-regiones"><?= json_encode(array_map('array_values', $porRegion ?? []), JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP) ?></script>
+
         <form method="get" action="index.php" class="wq-card__body space-y-3" id="wq-form-sitio">
             <input type="hidden" name="action" value="planificacion">
+
+            <!-- Selección guiada: departamento → distrito.
+                 Al elegir un distrito se rellenan lat/lon y el formulario se envía. -->
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="wq-label" for="pf-dep">Departamento</label>
+                    <select class="wq-select" id="pf-dep" name="departamento">
+                        <option value="">— Todos —</option>
+                        <?php foreach (array_keys($porRegion ?? []) as $reg): ?>
+                            <option value="<?= e($reg) ?>" <?= ($departamento ?? '') === $reg ? 'selected' : '' ?>><?= e($reg) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div>
+                    <label class="wq-label" for="pf-dist">Distrito</label>
+                    <select class="wq-select" id="pf-dist" name="distrito">
+                        <option value="">— Elige departamento —</option>
+                        <?php foreach (($porRegion[$departamento] ?? []) as $d): ?>
+                            <option value="<?= e($d['id']) ?>" <?= ($distritoId ?? '') === $d['id'] ? 'selected' : '' ?>><?= e($d['distrito']) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 text-[0.6rem] uppercase tracking-[0.14em] text-slate-500">
+                <span class="h-px flex-1 bg-white/[0.07]"></span>o por coordenadas<span class="h-px flex-1 bg-white/[0.07]"></span>
+            </div>
 
             <div class="grid grid-cols-2 gap-3">
                 <div>
                     <label class="wq-label" for="pf-lat">Latitud</label>
                     <input class="wq-input" id="pf-lat" name="lat" type="number" step="0.0001"
                            value="<?= $lat !== null ? e(number_format($lat, 4, '.', '')) : '' ?>"
-                           placeholder="-5.2667" required>
+                           placeholder="-5.2667">
                 </div>
                 <div>
                     <label class="wq-label" for="pf-lon">Longitud</label>
                     <input class="wq-input" id="pf-lon" name="lon" type="number" step="0.0001"
                            value="<?= $lon !== null ? e(number_format($lon, 4, '.', '')) : '' ?>"
-                           placeholder="-80.6833" required>
+                           placeholder="-80.6833">
                 </div>
             </div>
 
@@ -451,5 +482,66 @@ $geojson = ['type' => 'FeatureCollection', 'features' => $puntos];
                 .addTo(mapa);
         });
     });
+
+    // ---------------------------------------------------------------
+    // Desplegables departamento → distrito.
+    // Al elegir un distrito, sus coordenadas mueven el mapa y se envía.
+    // ---------------------------------------------------------------
+    const selDep = document.getElementById('pf-dep');
+    const selDist = document.getElementById('pf-dist');
+    const form = document.getElementById('wq-form-sitio');
+    let regiones = {};
+    try {
+        // Los territorios viven en un <script type="application/json"> aparte,
+        // así las comillas y acentos no tienen que escapar dentro del marcado.
+        const nodo = document.getElementById('wq-regiones');
+        regiones = nodo ? JSON.parse(nodo.textContent) : {};
+    } catch (e) {
+        console.error('[WILLAQ] no se pudo leer el listado de territorios', e);
+        regiones = {};
+    }
+
+    if (selDep && selDist) {
+        selDep.addEventListener('change', () => {
+            const lista = regiones[selDep.value] || [];
+            selDist.innerHTML = '';
+
+            const vacio = document.createElement('option');
+            vacio.value = '';
+            vacio.textContent = lista.length ? '— Elige distrito —' : '— Elige departamento —';
+            selDist.appendChild(vacio);
+
+            lista.forEach((d) => {
+                const o = document.createElement('option');
+                o.value = d.id;
+                o.textContent = d.distrito;
+                selDist.appendChild(o);
+            });
+
+            // Un solo distrito en el departamento: se selecciona solo.
+            if (lista.length === 1) {
+                selDist.value = lista[0].id;
+            }
+        });
+
+        selDist.addEventListener('change', () => {
+            if (!selDist.value) return;
+
+            const lista = regiones[selDep.value] || [];
+            const d = lista.find((x) => x.id === selDist.value);
+            const fLat = document.getElementById('pf-lat');
+            const fLon = document.getElementById('pf-lon');
+
+            if (d) {
+                if (fLat) fLat.value = Number(d.lat).toFixed(4);
+                if (fLon) fLon.value = Number(d.lon).toFixed(4);
+                // Mueve el mapa de inmediato, sin esperar la recarga.
+                mapa.flyTo({ center: [d.lon, d.lat], zoom: 9.4 });
+            }
+
+            form.submit();
+        });
+    }
 })();
 </script>
+
