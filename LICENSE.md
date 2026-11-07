@@ -8,6 +8,15 @@ WILLAQ se publica bajo la **Creative Commons Atribución-NoComercial-CompartirIg
 El texto legal completo está en [`LICENSE`](LICENSE). No es un resumen ni una
 adaptación: es el `legalcode` oficial de Creative Commons, sin modificar.
 
+> **Nota sobre GitHub.** En la barra lateral del repositorio puede aparecer
+> «License: Other» en lugar de «CC BY-NC-SA 4.0». No es un error del archivo:
+> el detector de licencias de GitHub (Licensee) no incluye una plantilla para
+> CC BY-NC-SA 4.0 —solo tiene las de `CC BY 4.0` y `CC BY-SA 4.0`—, así que no
+> puede clasificarla automáticamente. La licencia que rige el repositorio es la
+> del archivo `LICENSE`, cuya URL oficial está enlazada arriba. Si el sitio
+> donde se publica exige una SPDX detectable, habría que usar `CC BY-SA 4.0` en
+> lugar de esta.
+
 | Puedes | No puedes |
 |---|---|
 | ✅ Usar el código para estudiarlo y auditarlo | ❌ Usarlo con fines comerciales |

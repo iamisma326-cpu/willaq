@@ -1,5 +1,10 @@
 # WILLAQ
 
+[![Licencia: CC BY-NC-SA 4.0](https://img.shields.io/badge/Licencia-CC%20BY--NC--SA%204.0-8a6d3a?style=for-the-badge)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
+[![PHP](https://img.shields.io/badge/PHP-8.1%2B-%777bb4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
+[![Sin dependencias](https://img.shields.io/badge/Composer-no%20necesario-4a4a4a?style=for-the-badge)](https://getcomposer.org/)
+[![Compuerta fase 2](https://img.shields.io/badge/estaciones-fase%202%3A%20compuerta%20cerrada-c0392b?style=for-the-badge)](#5d-backtest-de-estaciones-compuerta-de-la-fase-2)
+
 > **WILLAQ** (*quechua: el que avisa*) — Inteligencia territorial y alerta temprana
 > del Fenómeno El Niño.
 > **Vigilar · Planificar · Simular**
