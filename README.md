@@ -520,14 +520,14 @@ ejecutables: [`docs/API.md`](docs/API.md).
 
 | Fuente | Uso | Costo |
 |---|---|---|
-| Open-Meteo Forecast | Lluvia, temperatura, viento, ET0 | Gratis |
+| [Open-Meteo Forecast](https://open-meteo.com) | Lluvia, temperatura, viento, ET0 | Gratis |
 | Open-Meteo Flood (GloFAS) | Caudal de río | Gratis |
 | Open-Meteo Archive (ERA5) | Climatología e histórico 2017/2023 | Gratis |
-| NASA GIBS | Capas satelitales opcionales | Gratis |
+| [NASA GIBS](https://www.earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs) | Capas satelitales opcionales (IMERG, VIIRS) | Gratis |
 | SENAMHI — catálogo y series diarias | Registro de 103 estaciones y series históricas (ingesta con Garúa) | Gratis, sin licencia de reutilización declarada |
-| INEI — población proyectada por distrito | Población oficial de los 29 distritos (overlay) | Gratis |
+| INEI — población proyectada por distrito | Población de referencia de los 104 distritos (overlay) | Gratis |
 | SENAMHI / ENFEN / INDECI | Referencia y protocolos | — |
-| OpenStreetMap / CARTO | Mapa base opcional | — |
+| [OpenStreetMap](https://www.openstreetmap.org) | Mapa base opcional | Gratis |
 
 La exposición es **mixta y lo declara campo por campo**: la **población** es
 oficial del INEI (proyección al 30/06/2026, con sha256 del archivo en
